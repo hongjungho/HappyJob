@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sidemenu" left="0" top="0" width="200" height="768" titletext="New Form" onload="fn_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="0%" top="0" width="200" height="86" style="background:#339966ff;color:white;">
+          <Layouts>
+            <Layout width="200" height="86"/>
+          </Layouts>
+        </Div>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="0%" top="86" height="122" width="200" binddataset="ds_libMenu" oncellclick="fn_changeMenu" readonly="true" tabstop="false" selecttype="row">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="24"/>
+              </Rows>
+              <Band id="body">
+                <Cell text="bind:sidename"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_libMenu">
+        <ColumnInfo>
+          <Column id="sidename" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sidename">정보수정</Col>
+            <Col id="value">0</Col>
+          </Row>
+          <Row>
+            <Col id="sidename">대출현황</Col>
+            <Col id="value">1</Col>
+          </Row>
+          <Row>
+            <Col id="sidename">연체건수</Col>
+            <Col id="value">2</Col>
+          </Row>
+          <Row>
+            <Col id="sidename">예약현황</Col>
+            <Col id="value">3</Col>
+          </Row>
+          <Row>
+            <Col id="sidename">제재건수</Col>
+            <Col id="value">4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsUserInfo">
+        <ColumnInfo>
+          <Column id="userNo" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsMypageMap">
+        <ColumnInfo>
+          <Column id="userNo" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="userNo"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sController">practice/selectMypageList.do</Col>
+            <Col id="svcid">selectMypageList</Col>
+            <Col id="inds">dsMypageMap=dsMypageMap</Col>
+            <Col id="outds">dsUserInfo=dsUserInfo</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00" propid="text" datasetid="gds_libmenu" columnid="menuName"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs";
+
+
+// 페이지 온로드 후
+this.fn_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var no = application.gds_UserInfo.getColumn(0,"userNo")
+	this.dsMypageMap.setColumn(0,"userNo",no);
+	this.lfn_searchList();
+}
+
+
+
+this.lfn_searchList = function(){
+	this.gfn_serviceCall("selectMypageList");
+}
+
+
+//공통 콜백
+this.lfn_cmmCallback = function(svcId, errorcode, errormsg){
+ 
+	//this.alert(svcId);
+	
+	if(errorcode < 0)
+	{
+	   Iject.alert(errormsg,"오류");			
+	   return;
+	}
+	/*
+	else{
+		if(svcId == "saveSubjectList"){
+			
+			this.alert("저장되었습니다.");
+			//this.gfn_alertMsg(this.Msg_Inf_0004);		
+			this.gfn_serviceCall("selectSubjectList");
+		}
+		//콜백정의	
+		//Iject.alert(errormsg,"알림");	
+	}
+	*/
+}
+
+
+
+
+
+
+
+
+this.fn_changeMenu = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.changeMenu();
+}
+
+
+this.changeMenu = function(){
+	// 선택된 셀의 행의 번호
+	var cell = this.Grid00.currentrow
+	
+	if(cell==0){
+	
+	
+	application.gds_UserInfo.assign(this.dsUserInfo);
+	
+	
+	var sURL = "Practice::Update_persnal.xfdl";
+	this.gfn_main(sURL);
+	}
+	
+	else if(cell==1){
+	var sURL = "Practice::UserBorrow.xfdl";
+	this.gfn_main(sURL);
+	}
+	
+	else if(cell==2){
+	var sURL = "Practice::UserOverdue.xfdl";
+	this.gfn_main(sURL);
+	}
+	
+	else if(cell==3){
+	var sURL = "Practice::UserReservation.xfdl";
+	this.gfn_main(sURL);
+	}
+	
+	else if(cell==4){
+	var sURL = "Practice::UserSanctions.xfdl";
+	this.gfn_main(sURL);
+	}
+	
+}
+
+]]></Script>
+  </Form>
+</FDL>

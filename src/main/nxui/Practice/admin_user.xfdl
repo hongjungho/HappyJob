@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="admin_user" left="0" top="0" width="1024" height="768" titletext="New Form" style="background:gainsboro;" onload="admin_user_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="2" text="회원명" left="56.64%" top="284" right="36.43%" height="22" onclick="Static00_onclick"/>
+        <Static id="Static01" taborder="4" text="회원 주소" left="56.64%" top="572" right="35.64%" height="22" onclick="Static01_onclick"/>
+        <Static id="Static03" taborder="8" text="아이디" left="56.64%" top="344" right="37.6%" height="22"/>
+        <Static id="Static08" taborder="13" left="63.28%" top="552" right="29.88%" height="22"/>
+        <Button id="Button00" taborder="28" text="도서" left="3.32%" top="34" right="85.35%" height="64" style="image:URL('theme://images/ico_treeitem.png');" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="29" text="회원" left="16.89%" top="35" right="71.09%" height="62" style="image:URL('theme://images/img_grip.png');" onclick="Button01_onclick"/>
+        <Edit id="Edit05" taborder="38" left="12.11%" top="128" right="71.88%" height="24"/>
+        <Button id="Button07" taborder="39" text="검색" left="27.93%" top="127" right="66.89%" height="25" onclick="Button07_onclick"/>
+        <Button id="Button08" taborder="40" text="직원" left="30.96%" top="35" right="57.03%" height="62" style="image:URL('theme://images/img_grip.png');" onclick="Button08_onclick"/>
+        <Edit id="Edit06" taborder="41" left="56.64%" top="600" right="17.97%" height="24"/>
+        <Edit id="Edit07" taborder="42" left="64.45%" top="284" right="17.97%" height="24"/>
+        <Static id="Static04" taborder="43" text="회원번호" left="56.64%" top="224" right="36.72%" height="22"/>
+        <Static id="Static10" taborder="44" text="전화번호" left="56.64%" top="404" right="34.38%" height="22"/>
+        <Static id="Static02" taborder="45" text="이메일" onclick="Static01_onclick" left="56.64%" top="496" right="35.94%" height="22"/>
+        <Edit id="Edit00" taborder="46" left="64.45%" top="343" right="17.97%" height="24"/>
+        <Edit id="Edit02" taborder="48" left="56.64%" top="524" right="17.97%" height="24"/>
+        <Edit id="Edit03" taborder="49" left="64.45%" top="223" right="17.97%" height="24"/>
+        <Combo id="Combo00" taborder="51" left="3.03%" top="128" right="87.7%" height="24" innerdataset="Dataset00" codecolumn="selectCode" datacolumn="selectVal" index="0" displayrowcount="-1" value="1" text="회원명"/>
+        <Static id="Static05" taborder="52" left="55.47%" top="176" right="3.13%" height="1" style="border:1 solid #808080ff ;"/>
+        <Static id="Static13" taborder="53" left="55.47%" top="639" right="2.34%" height="1" style="border:1 solid #808080ff ;"/>
+        <Static id="Static07" taborder="54" text="조회결과  0 건" left="29.69%" top="647" right="51.56%" height="41"/>
+        <Button id="Button04" taborder="58" text="삭제" left="57.13%" top="662" right="36.62%" height="26" onclick="Button04_onclick"/>
+        <Grid id="Grid00" taborder="59" useinputpanel="false" left="3.13%" top="180" right="49.8%" height="510" binddataset="dsUserList">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="73"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="117"/>
+                <Column size="132"/>
+                <Column size="94"/>
+                <Column size="112"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="회원번호"/>
+                <Cell col="1" text="회원이름"/>
+                <Cell col="2" text="회원 ID"/>
+                <Cell col="3" text="전화번호"/>
+                <Cell col="4" text="userEmail"/>
+                <Cell col="5" text="성별코드"/>
+                <Cell col="6" text="생년월일"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:userNo"/>
+                <Cell col="1" text="bind:userNm"/>
+                <Cell col="2" text="bind:userId"/>
+                <Cell col="3" text="bind:userPhone"/>
+                <Cell col="4" text="bind:userEmail"/>
+                <Cell col="5" text="bind:userGender"/>
+                <Cell col="6" text="bind:userBirth"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static06" taborder="60" text="대출증번호" left="56.64%" top="460" right="34.38%" height="22"/>
+        <Edit id="Edit04" taborder="61" left="64.45%" top="459" right="17.97%" height="24"/>
+        <MaskEdit id="MaskEdit00" taborder="62" left="64.45%" top="403" right="18.16%" height="26" maskchar="_" mask="###-####-####" type="string" style="align:left middle;"/>
+        <Button id="Button02" taborder="63" left="44.82%" top="36" right="43.16%" height="62" style="image:URL('theme://images/img_grip.png');" text="통계" onclick="Button02_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsUserList">
+        <ColumnInfo>
+          <Column id="userNo" type="STRING" size="256"/>
+          <Column id="userNm" type="STRING" size="256"/>
+          <Column id="userId" type="STRING" size="256"/>
+          <Column id="userPhone" type="STRING" size="256"/>
+          <Column id="authorCd" type="STRING" size="256"/>
+          <Column id="brrCdnum" type="STRING" size="256"/>
+          <Column id="userAddr" type="STRING" size="256"/>
+          <Column id="userBirth" type="STRING" size="256"/>
+          <Column id="userGender" type="STRING" size="256"/>
+          <Column id="userEmail" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sController">admin/bookList.do</Col>
+            <Col id="svcid">selectBookList</Col>
+            <Col id="inds">dsSchMap=dsSchMap</Col>
+            <Col id="outds">dsBookList=dsBookList</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+          <Row>
+            <Col id="svcid">selectEmplList</Col>
+            <Col id="sController">admin/emplList.do</Col>
+            <Col id="inds">dsSchMap=dsSchMap</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="args"/>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="outds">dsEmplList=dsEmplList</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">selectUserList</Col>
+            <Col id="sController">admin/userList.do</Col>
+            <Col id="inds">dsSchMap=dsSchMap</Col>
+            <Col id="outds">dsUserList=dsUserList</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+          <Row>
+            <Col id="svcid">deleteUser</Col>
+            <Col id="sController">admin/userDelete.do</Col>
+            <Col id="inds">dsSchMap=dsSchMap</Col>
+            <Col id="args"/>
+            <Col id="outds"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsSchMap">
+        <ColumnInfo>
+          <Column id="userNm" type="STRING" size="256"/>
+          <Column id="userId" type="STRING" size="256"/>
+          <Column id="userNo" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="selectCode" type="STRING" size="256"/>
+          <Column id="selectVal" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="selectCode">1</Col>
+            <Col id="selectVal">회원명</Col>
+          </Row>
+          <Row>
+            <Col id="selectCode">2</Col>
+            <Col id="selectVal">회원아이디</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Edit03" propid="value" datasetid="dsUserList" columnid="userNo"/>
+      <BindItem id="item1" compid="Edit07" propid="value" datasetid="dsUserList" columnid="userNm"/>
+      <BindItem id="item2" compid="Edit00" propid="value" datasetid="dsUserList" columnid="userId"/>
+      <BindItem id="item4" compid="Edit04" propid="value" datasetid="dsUserList" columnid="brrCdnum"/>
+      <BindItem id="item5" compid="Edit02" propid="value" datasetid="dsUserList" columnid="userEmail"/>
+      <BindItem id="item6" compid="Edit06" propid="value" datasetid="dsUserList" columnid="userAddr"/>
+      <BindItem id="item3" compid="MaskEdit00" propid="value" datasetid="dsUserList" columnid="userPhone"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs";
+
+
+this.Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.go("Practice::admin_book.xfdl");
+}
+
+this.Button01_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.go("Practice::admin_user.xfdl");
+}
+
+this.Button08_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.go("Practice::admin_empl.xfdl");
+}
+this.Button02_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+	this.go("Practice::admin_main.xfdl");
+
+}
+
+
+
+// 페이지 로드
+
+this.admin_user_onload = function(obj:Form, e:nexacro.LoadEventInfo){
+
+	this.gfn_serviceCall("selectUserList"); 
+	
+	
+
+}
+
+this.Button07_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{	
+
+	if(this.Combo00.value == 1){
+		
+		this.dsSchMap.setColumn(0,"userNm",this.Edit05.value);
+
+	}else if (this.Combo00.value == 2) {
+		this.dsSchMap.setColumn(0,"userId",this.Edit05.value);
+	}
+	this.gfn_serviceCall("selectUserList");
+	
+}
+
+//삭제
+this.Button04_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if(this.confirm("정말 삭제하시겠습니까?")){
+		this.dsSchMap.setColumn(0,"userNo",this.Edit03.value);
+		this.gfn_serviceCall("deleteUser");
+	}
+	
+	
+	
+	
+}
+
+
+
+]]></Script>
+  </Form>
+</FDL>

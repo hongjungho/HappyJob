@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="TopFrameLib" left="0" top="0" width="1024" height="50" titletext="New Form" onload="TopFrameLib_onload" style="background:antiquewhite;border:0 none #339966ff ;color:#339966ff;">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" text="Div00" left="0%" top="0" right="0%" height="100%" style="background:#339966ff;border:0 none #339966ff ;color:#80ff00ff;">
+          <Layouts>
+            <Layout>
+              <Button id="recomBK" taborder="0" text="추천 도서" left="120" top="0" height="50" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 14 Dotum;" width="150" onclick="Div00_recomBK_onclick"/>
+              <Button id="SBK" taborder="1" text="일반 도서 검색" left="27.34%" top="0" height="50" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 14 Dotum;" onclick="Div00_SBK_onclick" width="150"/>
+              <Button id="SEBK" taborder="2" text="전자 도서 검색" left="42.97%" top="0" height="50" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 14 Dotum;" onclick="Div00_SEBK_onclick" width="150"/>
+              <Button id="MyPage" taborder="3" text="마이페이지" left="58.59%" top="0" height="50" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 14 Dotum;" width="150" onclick="Div00_MyPage_onclick"/>
+              <Button id="ADPage" taborder="4" text="관리자페이지" top="0%" height="50" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 14 Dotum;" width="150" right="11.13%" onclick="Div00_ADPage_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************
+ * Name			: TopFrame.xfdl
+ * Title		: 상단화면
+ * Desc			: 사용자 , Log-out , 도움말 , 좌측 메뉴 버튼
+ * 작성자		: 
+ * 작성일		: 2018.01.20
+ * 변경사항	: 
+ *******************************************************************************/
+
+include "Lib::Comm.xjs";
+
+/*===============================================================================
+* Form 관련 Script
+*=============================================================================*/
+
+//form onload
+this.TopFrameLib_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	
+}
+
+this.Div00_recomBK_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
+	var sURL = "Practice::Main.xfdl";
+    this.gfn_main(sURL);
+	var sURL = "Frame::LeftFrame.xfdl";
+    this.gfn_left(sURL);
+}
+
+this.Div00_SBK_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
+	var sURL = "Practice::Search.xfdl";
+    this.gfn_main(sURL);
+	var sURL = "Frame::LeftFrame_1.xfdl";
+    this.gfn_left(sURL);
+	
+}
+
+
+this.Div00_SEBK_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
+	var sURL = "Practice::SearchE.xfdl";
+    this.gfn_main(sURL);
+	var sURL = "Frame::LeftFrame_2.xfdl";
+    this.gfn_left(sURL);
+}
+
+this.Div00_MyPage_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	// 사이드메뉴바 visible
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);  
+
+	// 메인프레임 이동 경로
+	var sURL = "Practice::Mypage.xfdl";
+	this.gfn_main(sURL);
+	
+	//사이드메뉴바 이동
+	var sURL = "Practice::Mypageside.xfdl";
+	this.gfn_left(sURL);
+	
+}
+
+this.Div00_ADPage_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
+	var sURL = "Practice::ADPage.xfdl";
+    this.gfn_main(sURL);
+	var sURL = "Frame::LeftFrame_4.xfdl";
+    this.gfn_left(sURL);
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Join" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" text="Div00" left="0" top="0" right="1.76%" bottom="-238" style="background:#ffffffff;">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="3" text="회원가입" onclick="Div00_Static00_onclick" left="200" top="29" right="70.9%" height="39" style="color:#339966ff;font:bold 16 Dotum;"/>
+              <Div id="Div02" taborder="11" text="Div00" left="136" top="130" width="819" height="274" style="background:#ffffffff;font:bold 11 Dotum;">
+                <Layouts>
+                  <Layout width="596" height="274">
+                    <Static id="Static00" taborder="17" text="이용약관" left="0" top="0" width="0" height="0"/>
+                    <Button id="adult_join" taborder="18" left="106" top="14" width="223" height="250" style="image:URL('theme://images/어린이회원가입.png');background:#ffffffff;border:1 solid #ffffffff ;" onclick="Div00_Div02_adult_join_onclick"/>
+                    <Button id="foreign_join00" taborder="19" left="513" top="14" width="200" height="250" style="image:URL('theme://images/외국인.png');background:#ffffffff;border:1 solid #ffffffff ;" onclick="Div00_Div02_kids_join00_onclick"/>
+                    <Button id="kids_join01" taborder="20" onclick="Div00_Div02_kids_join00_onclick" left="308" top="14" width="200" height="250" style="image:URL('theme://images/일반회원가입.png');background:#ffffffff;border:1 solid #ffffffff ;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+* SYSTEM      : UserProject
+* BUSINESS    : UserProject-교육용
+* FILE NAME   : Login.xfdl
+* PROGRAMMER  : 
+* DATE        : 
+* DESCRIPTION : 회원가입 화면
+*------------------------------------------------------------------
+* MODIFY DATE   PROGRAMMER			DESCRIPTION
+*------------------------------------------------------------------
+* 
+*------------------------------------------------------------------
+***********************************************************************************/
+
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+this.Join_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//if(nexacro.Browser == "Runtime") this.Div.btn_close.set_visible(true);
+	Iject.formOnload(obj);			//폼 초기화 : 필요시 구현
+}
+
+this.Div00_Div02_adult_join_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.go("Practice::Join_agree.xfdl");
+}
+
+this.Div00_Div02_kids_join00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.go("Practice::Join_agree.xfdl");
+	
+}
+
+]]></Script>
+  </Form>
+</FDL>

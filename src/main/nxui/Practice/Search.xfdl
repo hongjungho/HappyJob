@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Main" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" text="Div00" left="0" top="0" height="769" style="background:#ffffffff;" width="824">
+          <Layouts>
+            <Layout>
+              <Button id="Button00" taborder="0" text="일반도서검색!!!!!!!!!!" left="9.77%" top="70" right="14.55%" height="98" style="background:#ffff99ff;font:bold 24 Dotum;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Main" left="0" top="0" width="1224" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" text="Div00" left="0" top="3" height="847" style="background:#ffffffff;" width="1024" dragscrolltype="both" position="absolute">
+          <Layouts>
+            <Layout width="1024" height="847">
+              <ImageViewer id="ImageViewer00" taborder="0" image="URL('E:\Saved Pictures\주석 2019-03-18 180633.jpg')" left="57" top="125" height="219" repeatcount="-1" onclick="Div00_ImageViewer00_onclick" width="657"/>
+              <Div id="Div01" taborder="3" text="Div01" left="57" top="73" height="50" style="border:2 solid #339966ff ;" width="902">
+                <Layouts>
+                  <Layout>
+                    <Combo id="Combo00" taborder="0" text="전체" left="0.67%" top="3" right="76.28%" height="40" innerdataset="@ds_search" codecolumn="code" datacolumn="value" index="0" value="1"/>
+                    <Edit id="Edit00" taborder="1" left="23.72%" top="3" right="8.69%" height="40"/>
+                    <Button id="Search" taborder="2" text="검색" left="91.31%" top="3" right="0.78%" height="40" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 12 Dotum;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <ImageViewer id="ImageViewer02" taborder="6" left="5.76%" top="364" right="6.25%" height="204" image="URL('theme://main bot.png')" repeatcount="0" style="border:1 solid #ffffffff ;"/>
+              <ImageViewer id="ImageViewer03" taborder="7" image="URL('theme://images/Bottom.png')" left="0%" top="761" right="0.2%" height="84" style="background:#ffffffff;border:1 solid #ffffffff ;"/>
+              <Static id="Static00" taborder="8" text="신작자료" left="9.47%" top="370" right="77.15%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
+              <Static id="Static01" taborder="9" text="연령대별 인기도서" left="41.31%" top="370" right="42.38%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
+              <Static id="Static02" taborder="10" text="성별 인기도서" left="60.84%" top="370" right="25.78%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
+              <Static id="Static03" taborder="11" text="사서추천자료" left="76.17%" top="370" right="10.45%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
+              <Static id="Static04" taborder="12" text="지난달 인기도서" left="22.56%" top="370" right="61.13%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
+              <Static id="Static05" taborder="13" left="82.23%" top="171" right="8.3%" height="42" style="background:#ffffffff;border:1 solid #ffffffff ;"/>
+              <Div id="Div02" taborder="14" text="Div02" left="68.55%" top="125" right="6.45%" height="221" style="color:#333333ff;">
+                <Layouts>
+                  <Layout width="256" height="279">
+                    <Button id="Button00" taborder="4" left="21" top="9" right="130" height="97" style="image:URL('theme://주석 2019-03-18 180259.jpg');border:1 solid #339966ff ;"/>
+                    <Button id="Button01" taborder="5" left="140" top="9" right="11" height="97" style="image:URL('theme://주석 2019-03-18 180338.jpg');border:1 solid #339966ff ;"/>
+                    <Button id="Button02" taborder="6" left="21" top="115" right="130" height="97" style="image:URL('theme://주석 2019-03-18 180355.jpg');border:1 solid #339966ff ;"/>
+                    <Button id="Button03" taborder="7" onclick="Div00_Div02_Button03_onclick" left="141" top="115" right="10" height="97" style="image:URL('theme://주석 2019-03-18 180412.jpg');border:1 solid #339966ff ;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <ImageViewer id="ImageViewer01" taborder="15" left="8.2%" top="549" right="7.91%" height="174" image="URL('theme://bookplus.png')" style="border:1 solid #ffffffff ;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_search">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">전체</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">저자</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">서명</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="value">출판사</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[]]></Script>
+  </Form>
+</FDL>

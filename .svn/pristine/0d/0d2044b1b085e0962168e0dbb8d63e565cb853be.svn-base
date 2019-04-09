@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="happybook.service.dao.mybatis.HappyLibraryMapper">
+
+<!--                              BOOK                                   -->
+
+
+	<select id="selectBookList" parameterType="java.util.Map" resultType="egovMap">
+		select 
+				book_no,
+				book_nm,
+				book_writer,
+				book_pub,
+				TO_CHAR(book_date,'YYYYMMDD') as bookDate,
+				div_cd,
+				class_cd,
+				book_ISBN,
+				TO_CHAR(book_regdate,'YYYYMMDD') as bookRegdate,
+				book_sum,
+				place_cd,
+				book_img,
+				count(*) OVER() as selectCount	
+		from 	HL_BOOK
+		WHERE 	1=1
+		<if test='bookNm != null and bookNm !=""'>
+			AND	 upper(book_nm) LIKE upper('%'||#{bookNm}||'%')
+		</if>
+		ORDER BY BOOK_NO ASC
+  	</select>
+  	<insert id="insertBook" parameterType="java.util.Map">
+  		INSERT INTO HL_BOOK
+  		(
+  			BOOK_NO,
+  			BOOK_NM,
+  			BOOK_WRITER,
+  			BOOK_PUB,
+  			BOOK_DATE,
+  			DIV_CD,
+  			CLASS_CD,
+  			BOOK_ISBN,
+  			BOOK_REGDATE,
+  			BOOK_SUM,
+  			PLACE_CD,
+  			BOOK_IMG
+  		
+  		)
+  		VALUES 
+  		(
+  			SEQ_BOOK.NEXTVAL,
+  			#{bookNm},
+  			#{bookWriter},
+  			#{bookPub},
+  			sysdate,
+  			#{divCd},
+  			#{classCd},
+  			#{bookIsbn},
+  			#{bookregdate},
+  			#{bookSum},
+  			'01',
+  			'asdasd'
+  		
+  		)
+  	</insert>
+  	
+  	<update id="updateBook" parameterType="java.util.Map">
+  			UPDATE 		HL_BOOK
+
+     		SET 			
+     						BOOK_NM = #{bookNm}, 
+     						BOOK_WRITER=#{bookWriter}, 
+     						BOOK_PUB=#{bookPub}, 
+     						DIV_CD=#{divCd},
+     						CLASS_CD=#{classCd}, 
+     						BOOK_ISBN=#{bookIsbn}, 
+     						BOOK_REGDATE=#{bookregdate},
+     						BOOK_SUM=#{bookSum},
+     						PLACE_CD='01'
+
+			WHERE BOOK_NO = #{bookNo}
+  	
+  	</update>
+  	
+  	<delete id="deleteBook" parameterType="java.util.Map">
+  		DELETE 
+  		FROM 	HL_BOOK
+  		WHERE 	BOOK_NO = #{bookNo} 
+
+  	</delete>
+ 
+
+
+
+
+
+ <!--   	                            EMPLOYEE                                          -->
+  	
+  	<select id="selectEmplList" parameterType="java.util.Map" resultType="egovMap">
+	SELECT     	  EMPL_NO,
+                      EMPL_NM,
+                      EMPL_PHONE,
+                      EMPL_ADDR,
+                      EMPL_BIRTH,
+                      EMPL_GENDER,
+                      TO_CHAR(EMPL_DATE,'YYYYMMDD') as emplDate,
+                      EMPL_IMG,
+                      EMPL_SALARY,
+                      EMPL_MARRIED,
+                      EMPL_TASK_CD
+      FROM        HL_EMPL
+      WHERE		 1=1
+		<if test='emplNm != null and emplNm !=""'>
+			AND	 upper(EMPL_NM) LIKE upper('%'||#{emplNm}||'%')
+		</if>
+		<if test='emplNo != null and emplNo !=""'>
+			AND EMPL_NO LIKE '%'||#{emplNo}||'%' 
+		</if>
+		<if test='emplStartdate != null and emplStartdate !=""'>
+		AND EMPL_DATE >= #{emplStartdate}
+		</if>
+		<if test='emplEndDate != null and emplEndDate !=""'>
+		AND EMPL_DATE <![CDATA[ < ]]>= #{emplEndDate}
+		</if>
+		<if test='emplTaskCd != null and emplTaskCd !=""'>
+		AND EMPL_TASK_CD=#{emplTaskCd}
+		</if>
+		order by EMPL_NO asc
+  	</select>
+  	
+  	
+  	<insert id="insertEmpl" parameterType="java.util.Map">
+	  INSERT	  INTO    HL_EMPL( 
+	  										EMPL_NO, EMPL_NM, EMPL_PHONE, EMPL_ADDR, EMPL_BIRTH,
+	  					 					EMPL_GENDER, EMPL_DATE, EMPL_SALARY,EMPL_MARRIED,EMPL_IMG ,EMPL_TASK_CD
+	  					 				)
+	  values							(
+	  									    EMPL_SEQ.NEXTVAL,#{emplNm},#{emplPhone},#{emplAddr},#{emplBirth},
+	  									    #{emplGender},#{empldate},#{emplSalary},#{emplMarried},#{emplImg},#{emplTaskCd}
+	  									    
+	  									)
+  	
+  	</insert>
+  	<update id="updateEmpl" parameterType="java.util.Map">
+			UPDATE 		HL_EMPL
+
+     		SET 			
+     						EMPL_NM = #{emplNm}, 
+     						EMPL_PHONE=#{emplPhone}, 
+     						EMPL_ADDR=#{emplAddr}, 
+     						EMPL_BIRTH=#{emplBirth},
+     						EMPL_GENDER=#{emplGender}, 
+     						EMPL_DATE=#{empldate}, 
+     						EMPL_SALARY=#{emplSalary},
+     						EMPL_MARRIED=#{emplMarried},
+     						EMPL_TASK_CD=#{emplTaskCd}
+     						
+     		     
+
+			WHERE EMPL_NO = #{emplNo}
+
+  	</update>
+  	<delete id="deleteEmpl" parameterType="java.util.Map">
+  	DELETE 
+  	FROM 	HL_EMPL
+  	WHERE 	EMPL_NO = #{emplNo} 
+  	
+  	
+  	</delete>
+<!--                                   USER                                             -->
+
+
+  	
+  	<select id="selectUserList" parameterType="java.util.Map" resultType="egovMap">
+  		SELECT	 USER_NO,
+		        	USER_NM,
+		        	USER_ID,
+		        	USER_PHONE,
+		       		AUTHOR_CD,
+		        	BRR_CDNUM,
+		        	USER_ADDR,
+			        USER_BIRTH,
+			        USER_GENDER,
+			        USER_EMAIL
+		FROM   HL_USER
+		WHERE 1=1
+		<if test='userNm != null and userNm !=""'>
+			AND	 USER_NM LIKE '%'||#{userNm}||'%'
+		</if>
+		<if test='userId != null and userId !=""'>
+			AND USER_ID LIKE '%'||#{userId}||'%' 
+		</if>
+  	</select>
+  	
+  	
+  	
+  	<delete id="deleteUser" parameterType="java.util.Map">
+  		DELETE FROM HL_USER
+     	WHERE USER_NO = #{userNo}
+  	</delete>
+  	
+  	
+  	<!-- 공통코드 콤보 조회 -->
+     <select id="selectCdCboList" parameterType="java.util.Map" resultType="egovMap">
+        
+        SELECT
+        	DETAIL_CODE AS CD_ID,
+        	DETAIL_NAME AS CD_NM
+        FROM HL_DTL_CD
+		WHERE 1 = 1
+        		<if test="lrgClsfCd != null">
+        			<if test="lrgClsfCd != ''">
+        				AND COMM_CODE = #{lrgClsfCd}
+        			</if>
+        		</if>   
+        	
+            ORDER BY DETAIL_CODE
+    </select>
+  	
+	
+</mapper>	

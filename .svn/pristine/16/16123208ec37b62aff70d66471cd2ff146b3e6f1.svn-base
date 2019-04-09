@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+                
+  		<!-- component-scan 설정-->
+		<context:component-scan base-package="spring">
+			<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+			<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+			<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		</context:component-scan>              
+                
+                
+                  
+        <!-- EgovFramework EgovAbstractServiceImpl dependency.. -->
+	<bean class="egovframework.rte.fdl.cmmn.trace.LeaveaTrace" id="leaveaTrace">
+		<property name="traceHandlerServices">
+			<list>
+				<ref bean="traceHandlerService"/>
+				<!-- <ref bean="egov.traceHandlerService"/> -->
+			</list>
+		</property>
+	</bean>
+	<bean class="egovframework.rte.fdl.cmmn.trace.manager.DefaultTraceHandleManager" id="traceHandlerService">
+		<property name="reqExpMatcher">
+			<ref bean="antPathMater"/>
+		</property>
+		<property name="patterns">
+			<list>
+				<value>*</value>
+			</list>
+		</property>
+		<property name="handlers">
+			<list>
+				<ref bean="defaultTraceHandler"/>
+			</list>
+		</property>
+	</bean>
+	<bean class="org.springframework.util.AntPathMatcher" id="antPathMater"/>
+	<bean class="egovframework.rte.fdl.cmmn.trace.handler.DefaultTraceHandler" id="defaultTraceHandler"/>
+	<!-- EgovFramework EgovAbstractServiceImpl dependency.. -->               
+         
+    <!-- MULTIPART RESOLVERS -->
+    <!-- regular spring resolver -->
+    <bean id="spring.RegularCommonsMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="600000000" />
+        <property name="maxInMemorySize" value="100000000" />
+    </bean>
+
+    
+
+    <!-- choose one from above and alias it to the name Spring expects -->
+    <!-- alias name="local.MultiCommonsMultipartResolver" alias="multipartResolver" /-->
+    <alias name="spring.RegularCommonsMultipartResolver" alias="multipartResolver" />        
+                            
+</beans>                

@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample.service.dao.mybatis.HappyLibraryMapper">
+
+<!-- 공통코드 콤보 조회 -->
+     <select id="selectCmmnCdCbo" parameterType="java.util.Map" resultType="egovMap">
+        
+        SELECT
+        	DETAIL_CODE AS CD_ID ,
+       NVL(DETAIL_NAME,'') AS CD_NM
+        FROM OFFEDU_TESTDB.HL_DTL_CD
+        	<trim prefix="WHERE" prefixOverrides="AND">
+        		<if test="lrgClsfCd != null">
+        			<if test="lrgClsfCd != ''">
+        				AND COMM_CODE = #{lrgClsfCd}
+        			</if>
+        		</if>   
+        	</trim>
+    </select>
+    
+    
+    
+<!-- Mypage 항목별 통계 -->    
+<select id="staticMypage" parameterType="java.util.Map" resultType="egovMap">
+select * from  
+(select count(*) as brr from HL_SERVICE where user_no=#{userNo}) brr,
+(select count(*) as rev from HL_SERVICE where service_cd='01' and user_no=#{userNo}) rev,
+(select count(*) as arr from HL_SERVICE where service_cd='00' and user_no=#{userNo} and service_start+15 > sysdate) arr,
+(select count(*) as san from HL_USER_SAN where user_no=#{userNo}) san
+
+where 1=1
+	
+</select>
+    
+    
+    
+    
+    
+    
+    
+
+
+<select id="selectMypageList" parameterType="java.util.Map" resultType="egovMap">
+
+SELECT  USER_NO, 
+       USER_NM, 
+       USER_ID, 
+       USER_ADDR, 
+       USER_EMAIL,
+       USER_PWD,
+       USER_ISPWD, 
+       SUBSTR(USER_EMAIL,1,(INSTR(USER_EMAIL,'@')-1)) AS EMAIL,
+       SUBSTR(USER_EMAIL,(INSTR(USER_EMAIL,'@')+1)) AS DOMAIN, 
+       CASE SUBSTR(USER_EMAIL,(INSTR(USER_EMAIL,'@'))) 
+           WHEN 'naver.com' 
+           THEN '2' 
+           WHEN 'daum.net' 
+           THEN '3' 
+           WHEN 'gmail.com' 
+           THEN '4' 
+           WHEN 'lycos.com' 
+           THEN '5' 
+           WHEN 'nate.com' 
+           THEN '6' 
+           ELSE '7' 
+       END AS DOMAINCODE , 
+       USER_PHONE, 
+       AUTHOR_CD, 
+       BRR_CDNUM, 
+       USER_BIRTH, 
+       USER_GENDER  
+  FROM OFFEDU_TESTDB.HL_USER 
+ WHERE 1=1
+ AND USER_NO = #{userNo}  
+
+	
+	</select>
+
+
+	
+	<update  id="updateUserInfo" parameterType="java.util.Map">
+		UPDATE OFFEDU_TESTDB.HL_USER
+				SET    
+					USER_NM = #{userNm},
+					USER_ID = #{userId},
+					USER_PWD = #{userPwd},
+					USER_ISPWD = #{userIspwd},
+					USER_PHONE = #{userPhone},
+					BRR_CDNUM = #{brrCdnum},
+					USER_ADDR = #{userAddr},
+					USER_BIRTH = #{userBirth},
+					USER_GENDER = #{userGender},
+					USER_EMAIL = #{email}||'@'||#{domain}
+
+				WHERE  USER_NO        = #{userNo}
+	</update>
+	
+	<delete id="deleteUserInfo"  parameterType="java.util.Map">
+	DELETE FROM OFFEDU_TESTDB.HL_USER WHERE USER_NO = #{userNo}
+	</delete>
+	
+
+<!-- 대출목록검색 -->
+<select id="selectBorrowList" parameterType="java.util.Map" resultType="egovMap">
+
+SELECT BK.BOOK_ISBN, 
+       BK.BOOK_NM, 
+       TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)') AS BOOK_DATE, 
+       TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)') AS BOOK_RETURN, 
+       (SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE) AS DIV_CD, 
+       (SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE) AS CLASS_CD, 
+       BK.BOOK_PUB, 
+       BK.BOOK_WRITER 
+       
+  FROM OFFEDU_TESTDB.HL_BOOK BK, 
+       OFFEDU_TESTDB.HL_USER US, 
+       OFFEDU_TESTDB.HL_SERVICE SV 
+       
+ WHERE 1=1 
+       AND BK.BOOK_NO = SV.BOOK_NO 
+       AND US.USER_NO=SV.USER_NO 
+       and US.USER_NO=#{userNo}
+
+<!-- 대출날짜검색 -->
+<if test = "brrStr!=null and brrStr!=''">
+and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &gt;= #{brrStr}
+</if>
+<if test ="brrEnd!=null and brrEnd!=''">
+and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &lt;= #{brrEnd}
+</if>
+
+<!-- 반납날짜검색 -->
+<if test = "retStr!=null and retStr!=''">
+and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &gt;= #{retStr}
+</if>
+<if test ="retEnd!=null and brrEnd!=''">
+and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &lt;= #{retEnd}
+</if>
+
+
+<!-- Edit검색 -->
+<if test = "writer!=null and writer!=''">
+and upper(book_writer) like upper('%'||#{writer}||'%')
+</if>
+<if test ="pub!=null and pub!=''">
+and upper(book_pub) like upper('%'||#{pub}||'%')
+</if>
+
+<if test = "clCd!=null and clCd!=''">
+and BK.CLASS_CD = #{clCd}
+</if>
+
+<if test = "divCd!=null and divCd!=''">
+and BK.DIV_CD = #{divCd}
+</if>
+
+<if test ="keyword!=null and keyword!=''">
+and (
+	   upper(BK.BOOK_ISBN) like upper('%'||#{keyword}||'%') 
+       or upper(BK.BOOK_NM) like upper('%'||#{keyword}||'%')
+       or upper(TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%') 
+       or upper(TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%')
+       or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
+       or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
+       or upper(BK.BOOK_PUB) like upper('%'||#{keyword}||'%')
+       or upper(BK.BOOK_WRITER) like upper('%'||#{keyword}||'%')
+       
+       )
+</if>
+
+
+
+
+</select>
+
+
+
+    
+    
+    
+<!-- 연체목록검색 -->
+<select id="selectOverdueList" parameterType="java.util.Map" resultType="egovMap">
+
+SELECT BK.BOOK_ISBN, 
+       BK.BOOK_NM, 
+       TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)') AS BOOK_DATE, 
+       TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)') AS BOOK_RETURN, 
+       (SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE) AS DIV_CD, 
+       (SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE) AS CLASS_CD, 
+       BK.BOOK_PUB, 
+       BK.BOOK_WRITER 
+       
+  FROM OFFEDU_TESTDB.HL_BOOK BK, 
+       OFFEDU_TESTDB.HL_USER US, 
+       OFFEDU_TESTDB.HL_SERVICE SV 
+       
+ WHERE 1=1 
+       AND BK.BOOK_NO = SV.BOOK_NO 
+       AND US.USER_NO=SV.USER_NO 
+       and US.USER_NO=#{userNo}
+       and TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD') &lt; to_char(sysdate,'yyyy-mm-dd')
+
+
+
+<!-- 대출날짜검색 -->
+<if test = "brrStr!=null and brrStr!=''">
+and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &gt;= #{brrStr}
+</if>
+<if test ="brrEnd!=null and brrEnd!=''">
+and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &lt;= #{brrEnd}
+</if>
+
+<!-- 반납날짜검색 -->
+<if test = "retStr!=null and retStr!=''">
+and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &gt;= #{retStr}
+</if>
+<if test ="retEnd!=null and brrEnd!=''">
+and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &lt;= #{retEnd}
+</if>
+
+
+<!-- Edit검색 -->
+<if test = "writer!=null and writer!=''">
+and upper(book_writer) like upper('%'||#{writer}||'%')
+</if>
+<if test ="pub!=null and pub!=''">
+and upper(book_pub) like upper('%'||#{pub}||'%')
+</if>
+
+
+<if test = "clCd!=null and clCd!=''">
+and BK.CLASS_CD = #{clCd}
+</if>
+
+<if test = "divCd!=null and divCd!=''">
+and BK.DIV_CD = #{divCd}
+</if>
+
+<if test ="keyword!=null and keyword!=''">
+and (
+	   upper(BK.BOOK_ISBN) like upper('%'||#{keyword}||'%') 
+       or upper(BK.BOOK_NM) like upper('%'||#{keyword}||'%')
+       or upper(TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%') 
+       or upper(TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%')
+       or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
+       or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
+       or upper(BK.BOOK_PUB) like upper('%'||#{keyword}||'%')
+       or upper(BK.BOOK_WRITER) like upper('%'||#{keyword}||'%')
+       
+       )
+</if>
+
+
+
+</select>
+   
+   
+   
+   
+<!-- 예약목록검색 -->
+<select id="selectResList" parameterType="java.util.Map" resultType="egovMap">
+
+SELECT user_no, 
+       book_isbn, 
+       book_nm, 
+       div_cd, 
+       class_cd, 
+       book_rev_brr, 
+       book_pub, 
+       book_writer, 
+       rank
+  FROM 
+       (SELECT sv.USER_NO AS USER_NO, 
+              BK.BOOK_ISBN AS BOOK_ISBN, 
+              BK.BOOK_NM AS BOOK_NM, 
+              (SELECT DETAIL_NAME 
+                FROM HL_DTL_CD DTL 
+               WHERE COMM_CODE='A02' 
+                     AND BK.DIV_CD = DTL.DETAIL_CODE
+              ) AS DIV_CD, 
+              (SELECT DETAIL_NAME 
+                FROM HL_DTL_CD DTL 
+               WHERE COMM_CODE='A01' 
+                     AND BK.CLASS_CD = DTL.DETAIL_CODE
+              ) AS CLASS_CD, 
+              TO_CHAR(BK.BOOK_DATE+16,'YYYY-MM-DD(DY)') AS BOOK_REV_BRR , 
+              BK.BOOK_PUB AS BOOK_PUB, 
+              BK.BOOK_WRITER AS BOOK_WRITER, 
+              ROW_NUMBER() OVER (ORDER BY sv.SERVICE_START ASC) || '순위' AS RANK 
+         FROM HL_BOOK BK, 
+              HL_USER US, 
+              HL_SERVICE SV 
+        WHERE 1=1 
+              AND BK.BOOK_NO = SV.BOOK_NO 
+              AND US.USER_NO=SV.USER_NO 
+              AND SV.SERVICE_CD='01'
+       ) a 
+ WHERE USER_NO=#{userNo}  
+
+    
+    
+<!-- 대출날짜검색 -->
+<if test = "brrStr!=null and brrStr!=''">
+and TO_CHAR(BK.BOOK_DATE+16,'YYYYMMDD')  &gt;= #{brrStr}
+</if>
+<if test ="brrEnd!=null and brrEnd!=''">
+and TO_CHAR(BK.BOOK_DATE+16,'YYYYMMDD')  &lt;= #{brrEnd}
+</if>
+
+
+<if test = "clCd!=null and clCd!=''">
+and BK.CLASS_CD = #{clCd}
+</if>
+
+<if test = "divCd!=null and divCd!=''">
+and BK.DIV_CD = #{divCd}
+</if>
+    
+    
+
+<!-- Edit검색 -->
+<if test = "writer!=null and writer!=''">
+and upper(book_writer) like upper('%'||#{writer}||'%')
+</if>
+<if test ="pub!=null and pub!=''">
+and upper(book_pub) like upper('%'||#{pub}||'%')
+</if>
+
+
+<if test ="keyword!=null and keyword!=''">
+and (
+	   upper(BK.BOOK_ISBN) like upper('%'||#{keyword}||'%') 
+       or upper(BK.BOOK_NM) like upper('%'||#{keyword}||'%')
+       or upper(TO_CHAR(BK.BOOK_DATE+16,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%')
+       or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
+       or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
+       or upper(BK.BOOK_PUB) like upper('%'||#{keyword}||'%')
+       or upper(BK.BOOK_WRITER) like upper('%'||#{keyword}||'%')
+       
+       )
+</if>
+    
+
+</select>
+
+<select id="selectSanList" parameterType="java.util.Map" resultType="egovMap">
+SELECT rnum, 
+       x.san_name AS SANNAME, 
+       to_char(x.san_date,'yyyy-mm-dd(dy)') AS SANDATE 
+  FROM 
+       (SELECT ROWNUM AS RNUM , 
+              a.USER_NO AS USER_NO , 
+              b.SAN_NAME AS SAN_NAME , 
+              c.SAN_DATE AS SAN_DATE, 
+              b.SAN_CD AS SAN_CD 
+         FROM HL_USER a, 
+              HL_SAN_CD b, 
+              HL_USER_SAN c 
+        WHERE a.USER_NO=c.USER_NO 
+              AND c.SAN_CD=b.SAN_CD 
+       ) x 
+ WHERE 1=1 
+       AND x.user_no = #{userNo} 
+
+<if test = "sanStr!=null and sanStr!=''">
+and TO_CHAR(x.san_date,'YYYYMMDD')  &gt;= #{sanStr}
+</if>
+<if test ="sanEnd!=null and sanEnd!=''">
+and TO_CHAR(x.san_date,'YYYYMMDD')  &lt;= #{sanEnd}
+</if>
+
+
+
+<choose>
+    <when test="sanCd==0||sanCd==null">
+    
+    </when>
+    <otherwise>
+	and x.san_cd = #{sanCd}
+    </otherwise>
+</choose>
+
+
+
+
+
+<if test ="keyword!=null and keyword!=''">
+and (
+	   upper(x.san_name) like upper('%'||#{keyword}||'%') 
+       or upper(x.san_date ) like upper('%'||#{keyword}||'%')
+       )
+</if>
+
+ORDER BY rnum
+
+</select>
+
+
+
+
+<select id="CboSanList" resultType="egovMap">
+
+SELECT SAN_CD, 
+       SAN_NAME 
+  FROM HL_SAN_CD
+  order by san_cd
+
+
+
+</select>
+
+
+
+	
+</mapper>	

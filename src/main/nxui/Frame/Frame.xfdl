@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Frame" left="0" top="0" width="1280" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="0" url="Frame::LeftFrame.xfdl" text="Div01" left="0" top="0" bottom="2" width="230"/>
+        <Div id="Div00" taborder="1" url="Frame::TopFrame.xfdl" left="230" top="0" width="1050" height="30"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

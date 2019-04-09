@@ -1,0 +1,7271 @@
+﻿/*******************************************************/
+/***** 프로젝트명 : HumanResource UI		********/
+/***** 작성일 : 2013.12.02			********/
+/***** 작성자 : 				********/
+/***** 배포일 : 				********/
+/***** 수정자 : 				********/
+/***** 수정일 : 				********/
+/*******************************************************/
+
+/***** FrameObject Group Start *****/
+
+MainFrame, MainFrame:deactivate
+{
+	background		: transparent ;
+	border			: 0 none #41536e;
+	bordertype		: normal 0 0;
+	menubarheight		: 28;
+	statusbarheight		: 25;
+	titlebarheight		: 26;
+	color			: #ffffff00;
+}
+
+/* TitleBarControl */
+TitleBarControl
+{
+	background		: #45596d;
+	border			: 0 none #808080;
+	bordertype 		: normal 0 0;
+	align			: left middle;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffff;
+	icon			: url('Images::Class/TF_img_logo.png');
+	margin			: 0 0 0 0;
+	padding			: 2 0 0 0;
+}
+
+TitleBarControl:deactivate, TitleBarControl:disabled
+{
+	background		: #687685;
+	border			: 0 none #808080;
+	bordertype 		: normal 0 0;
+	align			: left middle;
+	font			: ;
+	color			: #a9aeb6;
+	icon			: url('Images::Class/TF_img_logo_D.png');
+	padding			: 2 0 0 0;
+	margin			: 0 0 0 0;
+}
+TitleBarControl>#minbutton
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	bordertype		: normal 0 0;
+	margin			: -3 36 -2 -50;
+	image			: url('Images::Basic/btn_TitlebarMin_N.png');
+	imagealign		: center middle;
+	padding			: 2 0 0 0;
+}
+TitleBarControl>#minbutton:mouseover
+{
+	image			: url('Images::Basic/btn_TitlebarMin_O.png');
+}
+MainFrame>TitleBarControl>#minbutton:pushed
+{
+	image			: url('Images::Basic/btn_TitlebarMin_P.png');
+	pusheddrawoffset	: 0 0;
+}
+TitleBarControl>#minbutton:deactivate
+{
+	image			: url('Images::Basic/btn_TitlebarMin_D.png');
+	pusheddrawoffset	: 0 0;
+}
+TitleBarControl>#maxbutton
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	bordertype		: normal ;
+	margin			: -3 22 -2 -36;
+	image			: url('Images::Basic/btn_TitlebarMax_N.png');
+	imagealign		: center middle;
+}
+TitleBarControl>#maxbutton:mouseover
+{
+	image			: url('Images::Basic/btn_TitlebarMax_O.png');
+}
+TitleBarControl>#maxbutton:pushed
+{
+	image			: url('Images::Basic/btn_TitlebarMax_P.png');
+	pusheddrawoffset	: 0 0;
+}
+TitleBarControl>#maxbutton:disabled, TitleBarControl>#maxbutton:deactivate
+{
+	image			: url('Images::Basic/btn_TitlebarMax_D.png');
+	pusheddrawoffset	: 0 0;
+}
+
+TitleBarControl>#normalbutton
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	bordertype		: normal ;
+	margin			: -3 22 -2 -36;
+	image			: url('Images::Basic/btn_TitlebarNor_N.png');
+	imagealign		: center middle;
+}
+TitleBarControl>#normalbutton:mouseover
+{
+	image			: url('Images::Basic/btn_TitlebarNor_O.png');
+}
+TitleBarControl>#normalbutton:pushed
+{
+	image			: url('Images::Basic/btn_TitlebarNor_P.png');
+	pusheddrawoffset	: 0 0;
+}
+TitleBarControl>#normalbutton:disabled
+{
+	image			: url('Images::Basic/btn_TitlebarNor_D.png');
+	pusheddrawoffset	: 0 0;
+}
+TitleBarControl>#closebutton
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	bordertype		: normal ;
+	margin			: -3 8 -2 -22;
+	image			: url('Images::Basic/btn_TitlebarClose_N.png');
+	imagealign		: center middle;
+}
+TitleBarControl>#closebutton:mouseover
+{
+	image			: url('Images::Basic/btn_TitlebarClose_O.png');
+}
+TitleBarControl>#closebutton:pushed
+{
+	image			: url('Images::Basic/btn_TitlebarClose_P.png');
+	pusheddrawoffset	: 0 0;
+}
+TitleBarControl>#closebutton:disabled
+{
+	image			: url('Images::Basic/btn_TitlebarClose_D.png');
+	pusheddrawoffset	: 0 0;
+}
+
+/* Frame Group */
+VFrameSet, HFrameSet
+{
+	align			: left top ;
+	background		: transparent ;
+	border			: 0 none #808080;
+}
+FrameSet
+{
+	background		: transparent;
+}
+ChildFrame
+{
+	border			: 0 none #808080;
+	bordertype		: normal 0 0;
+	titlebarheight		: 26;
+}
+ChildFrame:deactivate
+{
+
+}
+
+/********/
+
+
+/******/
+TabFrame
+{
+	background		: #efefef;
+	gradation		: ;
+	border			: 0 none #808080;
+	bordertype		: normal;
+	font			: ;
+	color			: #5a280b;
+	align			: left middle;
+	buttonbackground	: @gradation;
+	buttongradation		: linear 0,0 #ffffff 0,100 #dcdcd4;
+	buttonborder		: 2 double #a8a8a2 #ffffff;
+	buttonbordertype	: round 2 2 lefttop righttop;
+	buttonmargin		: 0 -8 0 8;
+	buttonpadding		: 5 5 5 5;
+	icon			: ;
+	tabborder 		: ;
+	tabbordertype		: ;
+	titlebarheight		: ;
+	statusbarheight		: ;
+}
+TabFramePage
+{
+	background		: transparent;
+}
+/* ApplicationMenu */
+ApplicationMenu
+{
+	background 		: @gradation;
+	gradation		: linear 0,0 #fefefe 0,100 #dbdbd3;
+	align			: center middle;
+	border 			: 1 solid #a8a8a2;
+	font 			: ;
+	color			: #5a280b;
+	itemcolor 		: #5a280b;
+	itempadding 		: 20 20 20 20 ;
+	itembackground 		: transparent;
+	itemgradation		: 0,0 #f8fbfdb3 0,100 #92c9f3b3;
+	checkboximage 		: url('Images::Basic/menu_check.png') ;
+	popupbackground 	: #f2f2ef;
+	popupborder 		: 1 solid #a8a8a2;
+	popupbordertype 	: normal;
+	popuppadding 		: 0 0 0 0;
+	popupcolor 		: #46463d;
+	popupfont 		: ;
+	popupitemheight 	: 20;
+	popupitempadding	: 1 6 1 8;
+	popupitemborder 	: 1 solid #fcfcfb, 1 solid #fcfcfb, 1 solid #e7e7e2, 1 solid #fcfcfb;
+	popupitembackground 	: #f2f2ef;
+	popupitemalign 		: left middle;
+	expandimage 		: url('Images::Basic/img_expand_N.png') ;
+}
+ApplicationMenu:mouseover
+{
+	itembackground 		: transparent url('Images::Basic/img_TP_GNB_O.png') stretch 10,0 left top;
+	color			: #3da2df;
+	popupitembackground	: @gradation;
+	popupitemgradation	: linear 0,0 #94bdd5 0,100 #2f89cd [48% #4da3db][50% #3696d7];
+	popupitemborder 	: 1 solid #4485ad, 3 double #fcfcfb #4485ad, 1 solid #4485ad, 3 double #fcfcfb #4485ad;
+	popupitempadding 	: 1 4 1 6;
+	popupcolor		: #ffffff;
+	expandimage 		: url('Images::Basic/img_expand_O.png');
+}
+ApplicationMenu:selected
+{
+	color			: #ffffff;
+	itembackground 		: url('Images::Basic/bg_applicationmenu_S.png') stretch 12,12 left top;
+}
+ApplicationMenu:disabled
+{
+	color			: #999999;
+}
+
+
+
+/***** Frame Object Group End *****/
+
+/***** Misc Object Group Start *****/
+
+/* Alert */
+Alert
+{
+	background		: #ffffff;
+	border			: 2 solid #494f59;
+	bordertype		: round 8 8;
+	font			: ;
+	color			: #494f59;
+	align			: center middle;
+	icon			: url('Images::Basic/ico_default.png');
+	erroricon		: url('Images::Basic/ico_error.png');
+	warningicon		: url('Images::Basic/ico_warning.png');
+	questionicon		: url('Images::Basic/ico_question.png');
+	informationicon		: url('Images::Basic/ico_info.png');
+	iconalign		: left middle;
+	iconpadding		: 10 25 10 5;
+	padding			: 5 10 5 10;
+	margin			: 3 5 5 5;
+	iconsize		: 35;
+	buttonheight		: 21;
+	buttonwidth		: 60;
+	okbuttontext		: Yes;
+	titlebackground		: @gradation;
+	titlegradation		: linear 0,0 #ffffff 0,100 #646b76 [49% #e4e6ea][50% #dbdee2][94% #d1d4d9];
+	titlefont		: ;
+	titlecolor		: #494f59;
+	titleheight		: 29;
+	titlepadding		: 0 0 0 10;
+	titletext		: Alert;
+	shadow			: drop 0,1 2 #00000080;
+}
+Alert>#closebutton
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	focusborder		: 0 none #808080;
+	margin			: 4 10 -8 -10;
+	image 			: url('Images::Basic/btn_popClose.png');
+	imagealign 		: center middle;
+}
+Alert>#closebutton:mouseover
+{
+	image 			: url('Images::Basic/btn_popClose_O.png');
+}
+
+Alert>#okbutton
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #ffffff 0,100 #e1e3e6;
+	border			: 2 double #a4a6ae #ffffff;
+	bordertype		: round 3 3;		
+	font			: ;
+	color			: #525252;
+	align			: center middle;
+	focusborder		: 0 none #808080;
+	margin			: -15 0 15 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: drop 0,1 1 #00000026;
+}
+/****/
+Alert>#okbutton:mouseover
+{
+	gradation		: linear 0,0 #ffffff 0,100 #d1d4d9;
+	border			: 2 double #3e81d4 #ffffff;
+	color			: #3e81d4;
+}
+Alert>#okbutton:pushed
+{
+	gradation		: linear 0,0 #d1d4d9 0,100 #ffffff;
+	border			: 2 double #3e81d4 #ffffff;
+	color			: #3e81d4;
+	shadow			: drop 0,0 0 #00000026;
+}
+Alert>#okbutton:disabled
+{
+	color			: #999999;
+	shadow			: drop 0,0 0 #00000026;
+}
+
+Confirm
+{
+	background		: #ffffff;
+	border			: 2 solid #494f59;
+	bordertype		: round 8 8;
+	font			: ;
+	color			: #444444;
+	align			: center middle;
+	icon			: url('Images::Basic/ico_default.png');
+	erroricon		: url('Images::Basic/ico_error.png');
+	warningicon		: url('Images::Basic/ico_warning.png');
+	questionicon		: url('Images::Basic/ico_question.png');
+	informationicon		: url('Images::Basic/ico_info.png');
+	iconalign		: left middle;
+	iconpadding		: 10 25 10 5;
+	padding			: 5 10 5 10;
+	margin			: 3 5 5 5;
+	iconsize		: 35;
+	buttonheight		: 21;
+	buttonwidth		: 60;
+	okbuttontext		: Yes;
+	cancelbuttontext	: No ;
+	titlebackground		: @gradation;
+	titlegradation		: linear 0,0 #ffffff 0,100 #646b76 [49% #e4e6ea][50% #dbdee2][94% #d1d4d9];
+	titlefont		: ;
+	titlecolor		: #494f59;
+	titleheight		: 29;
+	titlepadding		: 0 0 0 10;
+	titletext		: Confirm;
+	shadow			: drop 0,1 2 #00000080;
+}
+Confirm>#closebutton
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	focusborder		: 0 none #808080;
+	margin			: 4 10 -8 -10;
+	image 			: url('Images::Basic/btn_popClose.png');
+	imagealign 		: center middle;
+}
+Confirm>#closebutton:mouseover
+{
+	image 			: url('Images::Basic/btn_popClose_O.png');
+}
+Confirm>#okbutton
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #ffffff 0,100 #e1e3e6;
+	border			: 2 double #a4a6ae #ffffff;
+	bordertype		: round 3 3;		
+	font			: ;
+	color			: #525252;
+	align			: center middle;
+	focusborder		: 0 none #808080;
+	margin			: -15 0 15 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: drop 0,1 1 #00000026;
+}
+Confirm>#cancelbutton
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #ffffff 0,100 #e1e3e6;
+	border			: 2 double #a4a6ae #ffffff;
+	bordertype		: round 3 3;		
+	font			: ;
+	color			: #525252;
+	align			: center middle;
+	focusborder		: 0 none #808080;
+	margin			: -15 0 15 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: drop 0,1 1 #00000026;
+}
+Confirm>#okbutton:mouseover, Confirm>#cancelbutton:mouseover
+{
+	gradation		: linear 0,0 #ffffff 0,100 #d1d4d9;
+	border			: 2 double #3e81d4 #ffffff;
+	color			: #3e81d4;
+}
+Confirm>#okbutton:pushed, Confirm>#cancelbutton:pushed
+{
+	gradation		: linear 0,0 #d1d4d9 0,100 #ffffff;
+	border			: 2 double #3e81d4 #ffffff;
+	color			: #3e81d4;
+	shadow			: drop 0,0 0 #00000026;
+}
+Confirm>#okbutton:disabled, Confirm>#cancelbutton:disabled
+{
+	color			: #999999;
+	shadow			: drop 0,0 0 #00000026;
+}
+
+StatusBarControl
+{
+	background		: #d1d4d9;
+	border			: 1 solid #a8a8a2, 0 none #000000, 0 none #000000, 0 none #808080;
+	bordertype		: round 3 3 leftbottom rightbottom;
+	font			:  ;
+	padding			: 0 0 0 12;
+	color			: #46463d;
+	align			: left middle;
+	gripimage		: url('Images::Basic/img_grip.png');
+	progressbargab		: 5;
+	progressbarheight	: 20;
+	progressbarwidth	: 260;
+	zoomcombogap 		: 10;
+	zoomcomboheight 	: 20;
+	zoomcombowidth		: 80;
+}
+StatusBarControl>#progressbar
+{
+	background		: transparent;
+	border			: 1 solid #a8a8a2;
+	bartype			: normal;
+	align			: center middle;
+	color			: #444444 ;
+	font			:  ;
+	padding			: 1 1 1 1;
+	smooth			: true;
+	barcolor		: 808690;
+	direction		: forward;
+}
+StatusBarControl>#zoomcombo
+{
+	background		: #f2f2ef;
+	border			: 1 solid #a8a8a2;
+	bartype			: normal;
+	font			: ;
+	color			: #5a280b;
+	align			: left middle;
+	cursor			: ;
+	padding			: 2 2 2 2;
+	buttonsize		: 16;
+	itembackground		: #ffffff;
+	itemborder		: 0 none #808080;
+	itemcolor		: #6e6e63;
+	itemheight		: 20;
+	itempadding		: 0 5 0 8;
+}
+StatusBarControl>#zoomcombo:mouseover
+{
+	itembackground		: #f2f2ef;
+	itemcolor		: #5a280b;
+	border			: 1 solid #48515e;
+}
+StatusBarControl>#zoomcombo:selected
+{
+	itembackground		: #e0e0d9;
+	itemcolor		: #5a280b;
+	border			: 1 solid #48515e;
+}
+StatusBarControl>#zoomcombo>#comboedit
+{
+	background		: #f2f2ef ;
+	border			: 0 none #808080;
+	align			: left middle;
+	font			: ;
+	color			: #5a280b;
+	padding			: 0 0 0 20;
+	caretcolor		: #3da2df;
+	selectbackground	: #ffffff;
+	selectcolor 		: #333333;
+}
+StatusBarControl>#zoomcombo>#comboedit:mouseover, StatusBarControl>#zoomcombo>#comboedit:focused
+{
+	caretcolor		: #3da2df;
+	compositecolor		: #ffffff;
+	selectbackground	: #3da2df;
+	selectcolor 		: #ffffff;
+}
+StatusBarControl>#zoomcombo>#dropbutton
+{
+	background		: @gradation url('Images::Basic/img_drop_N.png') stretch 6,6;
+	gradation		: linear 0,0 #ffffff 0,100 #e3e3dd;
+	border			: 1 solid #a8a8a2;
+	margin			: 1 1 1 1;
+	image			: url('Images::Basic/btn_dropSearch.png');
+	imagealign		: center middle;
+	pusheddrawoffset 	: 0 0;
+}
+StatusBarControl>#zoomcombo>#dropbutton:mouseover
+{
+	background		: @gradation ;
+	gradation		: linear 0,0 #ddddd6 0,100 #acaca6;
+	image			: url('Images::Basic/btn_dropSearch_O.png') stretch 6,6);
+}
+StatusBarControl>#zoomcombo>#dropbutton:pushed
+{
+	background		: #e1e1da;
+	gradation		: linear 0,0 #ffffff 0,100 #e3e3dd;
+	image			: url('Images::Basic/btn_dropSearch_O.png');
+}
+StatusBarControl>#zoomcombo>#combolist
+{
+	background		: #ffffff;
+	border			: 1 solid #a8a8a2;
+	align			: left middle;
+	font			: ;
+	color			: #6e6e63;
+	itembackground		: #ffffff;
+	itemborder		: 0 none #808080;
+	itemcolor		: #6e6e63;
+	itemheight		: 20;
+	itempadding		: 0 5 0 8;
+
+}
+
+Form
+{
+	align			: ;
+	background		: #ffffff;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: #45596d;
+	cursor			: ;
+	font			: antialias bold 10 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+Form.DesktopScreen
+{
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+Form.TouchScreen
+{
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+/* Common Scrollbar */
+
+*>#vscrollbar, *>#vscrollbar:mouseover, *>#vscrollbar:pushed, *>#vscrollbar:focused
+{
+	background		: transparent;
+	gradation		: ;
+	border			: 0 none #c3c3c3;
+	bordertype		: normal 0 0;
+	barminsize		: 40;
+	scrollbarsize		: 9;
+	incbtnsize 	 	: 0;
+	decbtnsize	 	: 0;
+	trackbarsize 		: ;
+	pusheddrawoffset 	: 0 0;
+}
+*>#vscrollbar>#trackbar, *>#vscrollbar>#trackbar:disabled
+{
+	background		: #c5cad1 ;
+	border			: 1 solid #ffffff;
+	bordertype		: round 7 7;
+	pusheddrawoffset 	: 0 0;
+	image			: url('Images::Basic/img_vscroll.png');
+	imagealign		: center middle;
+}
+*>#vscrollbar>#trackbar:focused, *>#vscrollbar>#trackbar:mouseover, *>#vscrollbar>#trackbar:pushed
+{
+	background		: #7f8c9a ;
+	border			: 1 solid #ffffff;
+	bordertype		: round 7 7;
+	pusheddrawoffset 	: 0 0;
+	image			: url('Images::Basic/img_vscroll.png');
+	imagealign		: center middle;
+}
+
+*>#hscrollbar, *>#hscrollbar:mouseover, *>#hscrollbar:pushed, *>#hscrollbar:focused
+{
+	background		: transparent;
+	gradation		: linear 0,0 #d7d7d7 0,75 #ffffff;
+	border			: 0 none #808080;
+	barminsize		: 40;
+	scrollbarsize		: 9;
+	incbtnsize 	 	: 0;
+	decbtnsize	 	: 0;
+	trackbarsize 		: ;
+}
+*>#hscrollbar>#trackbar, *>#hscrollbar>#trackbar:disabled
+{
+	background		: #c5cad1 ;
+	border			: 1 solid #ffffff00;
+	bordertype		: round 7 7;
+	pusheddrawoffset 	:0 0;
+	image			: url('Images::Basic/img_hscroll.png');
+	imagealign		: center middle;
+}
+*>#hscrollbar>#trackbar:focused, *>#hscrollbar>#trackbar:mouseover, *>#hscrollbar>#trackbar:pushed
+{
+	background		: #7f8c9a ;
+	border			: 1 solid #ffffff00;
+	bordertype		: round 7 7;
+	pusheddrawoffset 	:0 0;
+	image			: url('Images::Basic/img_hscroll.png');
+	imagealign		: center middle;
+}
+/* Common Scrollbar End*/
+
+*>#resizebutton
+{
+	background		: url('Images::Basic/grd_resize.png');
+	border			: 0 none #808080;
+	padding			: 0 0 0 0 ;
+}
+
+
+/* #contextmenu */
+*>#contextmenu, *>#contextmenu:mouseover
+{
+	background 		: url('Images::Basic/cmb_itemBg.png') stretch 15,15;
+	align 			: left middle;
+	border 			: 0 none #808080;
+	bordertype		: normal 0 0;
+	padding 		: ;
+	font			: ;
+	color			: #666666;
+	itembackground 		: transparent;
+	itemborder		: 0 none #808080;
+	itemheight 		: 25;
+	itempadding 		: 0 7 0 7;
+	expandimage 		: url('Images::img_expand_N.png');
+	checkboximage 		: url('Images::menu_check.png');
+}
+*>#contextmenu:focused, *>#contextmenu:selected
+{
+	itembackground		: url('Images::Basic/itemBg_F.png') stretch 7,7;
+		color		: #ffffff;
+}
+*>#contextmenu:disabled
+{
+
+}
+
+/***** Object Component Start *****/
+Button
+{
+	align			: center middle;
+	background		: #7f8c9a;
+	border			: 0 none #999999;
+	bordertype		: round 5 5;
+	color			: #ffffff;
+	cursor			: ;
+	font			: ;
+	gradation		: linear 0,0 #fefefe 0,100 #ecece5;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button:mouseover, Button:pushed, Button:focused, Button:selected
+{
+	background		: #1a9dbc;
+}
+
+Button:disabled
+{
+	opacity			: 50;
+}
+
+
+Calendar
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: #45596d;
+	cursor			: ;
+	daybackground		: #ffffff;
+	daycolor		: #45596d;
+	dayborder		: 1 solid #ffffff;
+	daybordertype		: round 3 3;
+	dayfont			: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	todaycolor		: #1a9dbc;
+	popupbackground		: #ffffff;
+	popupborder		: 1 solid #c5cad1;
+	popupbordertype		: round 5 5;
+	popupgradation		: ;
+	daysize 		: 33 33 ;
+	font			: ;
+	padding			: 0 0 0 0;
+	gradation		: ;
+	opacity			: ;
+	popupsize		: 252 292;
+	shadow			: ;
+}
+Calendar:mouseover
+{
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+	daybackground		: #eeeff1;
+	dayborder		: 0 none #9daeb9;
+	dayfont			: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;	
+	daycolor		: ;
+}
+Calendar:selected
+{
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+	daybackground		: #1a9dbc;
+	dayborder		: 0 none #055d93;
+	dayfont			: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	daycolor		: #ffffff;
+}
+Calendar:disabled
+{
+	background		: #f7f7f7;
+	border			: 1 solid #c5cad1;
+	color			: #999999;
+}Calendar>#calendaredit, Calendar>#calendaredit:mouseover, Calendar>#calendaredit:focused, Calendar>#calendaredit:selected, Calendar>#calendaredit:pushed
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	align			: right middle;
+	font			: ;
+	color			: ;
+	padding			: 0 5 0 5;
+	caretcolor		: #30aeec;
+	selectbackground	: transparent;
+	selectcolor 		: ;
+}
+Calendar>#calendaredit:focused
+{
+	selectbackground	: #30aeec;
+	selectcolor 		: #ffffff;
+}
+Calendar>#calendaredit:disabled
+{
+	color			: #a8a7a7;
+}
+
+Calendar>#dropbutton
+{
+	align			: center middle;
+	background 		: transparent url('Images::Basic/cal_btn_N.png') stretch ;
+	border			: 2 solid #ffffff00;
+	bordertype		: ;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: 0 3 0 0;
+	shadow			: ;
+}
+Calendar>#dropbutton:mouseover, Calendar>#dropbutton:pushed
+{
+	background		: transparent url('Images::Basic/cal_btn_O.png') stretch;
+}
+Calendar>#dropbutton:disabled
+{
+	background		: transparent url('Images::Basic/cal_btn_N.png') stretch;
+}
+
+Calendar>#spinupbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/spn_btn_Up.png')stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #c5cad1;
+	bordertype		: ;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Calendar>#spinupbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Calendar>#spinupbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Calendar>#spinupbutton:disabled
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_D.png')stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #c5cad1;
+}
+Calendar>#spindownbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/spn_btn_Down.png')stretch;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #c5cad1;
+	bordertype		: ;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Calendar>#spindownbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Calendar>#spindownbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Calendar>#spindownbutton:disabled
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_D.png')stretch;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #c5cad1;
+}
+
+Calendar>#popupcalendar
+{
+
+	align			: center middle;
+	background		: #ffffff;
+	border			: 0 none #c5cad1;
+	bordertype		: round 5 5;
+	color			: #45596d;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 0 0 0;
+	saturdayborder		: 0 none;
+	saturdaycolor		: #448ccb;
+	sundayborder		: 0 none;
+	sundaycolor		: #f26522;
+	todaybackground		: #e1e1e1;
+	todayborder		: 1 solid #a6a6a6;
+	todaycolor		: #666666;
+	shadow			: outer 0,1 1 #0000003f;	
+	headerborder		: 0 none;
+	headerfont		: antialias bold 13 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	headerheight		: 57;
+	weekbackground		: #eeeff1;
+	weekfont		: antialias bold 10 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	weekcolor		: #2c3e50;
+	todayfont		: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	todaycolor		: #1a9dbc;
+}
+Calendar>#popupcalendar>#prevbutton
+{
+	align			: ;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: Images::Basic/btn_prev.png;
+	imagealign		: center middle;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Calendar>#popupcalendar>#prevbutton:mouseover
+{
+	image			: Images::Basic/btn_prev_O.png;
+}Calendar>#popupcalendar>#prevbutton:pushed
+{
+	image			: Images::Basic/btn_prev_P.png;
+}
+Calendar>#popupcalendar>#prevbutton:disabled
+{
+	opacity			: 30 ;
+}
+
+Calendar>#popupcalendar>#nextbutton
+{
+	align			: ;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: Images::Basic/btn_next.png;
+	imagealign		: center middle;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Calendar>#popupcalendar>#nextbutton:mouseover
+{
+	image 			: Images::Basic/btn_next_O.png;
+}
+
+Calendar>#popupcalendar>#nextbutton:pushed
+{
+	image 			: Images::Basic/btn_next_P.png;
+}
+Calendar>#popupcalendar>#yearspin
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: normal;
+	buttonalign		: ;
+	buttonsize		: 8;
+	color			: #505050;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	shadow			: ;
+}
+
+Calendar>#popupcalendar>#yearspin>#spinedit
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #505050;
+	cursor			: ;
+	font			: antialias bold 13 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 3 0 3;
+	shadow			: ;
+}
+Calendar>#popupcalendar>#yearspin>#spinedit:mouseover,Calendar>#popupcalendar>#yearspin>#spinedit:focused
+{
+	background		: #fbf8f1;
+}
+
+Calendar>#popupcalendar>#yearspin>#spinupbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/spn_btn_Up.png')stretch;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: 50;
+	padding			: ;
+	shadow			: ;
+}
+Calendar>#popupcalendar>#yearspin>#spinupbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+}
+Calendar>#popupcalendar>#yearspin>#spinupbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+}
+Calendar>#popupcalendar>#yearspin>#spindownbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/spn_btn_Down.png')stretch;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: 50;
+	padding			: ;
+	shadow			: ;
+}
+Calendar>#popupcalendar>#yearspin>#spindownbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+}
+Calendar>#popupcalendar>#yearspin>#spindownbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+}Calendar>#popupcalendar>#monthspin
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 0 none;
+	bordertype		: normal;
+	buttonalign		: ;
+	buttonsize		: 8;
+	color			: #505050;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 0 0 8;
+	shadow			: ;
+}
+Calendar>#popupcalendar>#monthspin>#spinedit
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #505050;
+	cursor			: ;
+	font			: antialias bold 13 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 3 0 3;
+	shadow			: ;
+}
+Calendar>#popupcalendar>#monthspin>#spinedit:mouseover,Calendar>#popupcalendar>#monthspin>#spinedit:focused
+{
+	background		: #fbf8f1;
+}
+
+Calendar>#popupcalendar>#monthspin>#spinupbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/spn_btn_Up.png')stretch;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: 50;
+	padding			: ;
+	shadow			: ;
+}
+Calendar>#popupcalendar>#monthspin>#spinupbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+}
+Calendar>#popupcalendar>#monthspin>#spinupbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+}
+Calendar>#popupcalendar>#monthspin>#spindownbutton
+{
+	align			: ;
+	background		: transparent  ;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: 50;
+	padding			: ;
+	shadow			: ;
+}
+Calendar>#popupcalendar>#monthspin>#spindownbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+}
+Calendar>#popupcalendar>#monthspin>#spindownbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+}
+
+CheckBox
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	buttonalign		: left center;
+	buttonbackground	: #c5cad1;
+	buttonborder		: 0 none #999999;
+	buttonbordertype	: round 5 5;
+	buttongradation		: linear 0,0 #c5d1d9 100,100 #ebf1f5;
+	buttonimage		: Images::Basic/chk_ico_N.png;
+	buttonsize		: 20;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	glow			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 0 0 0;
+	shadow			: ;
+	textpadding		: 0 0 0 3;
+}
+CheckBox:mouseover,CheckBox:selected,CheckBox:pushed
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	buttonalign		: left center;
+	buttonbackground	: #1a9dbc;
+	buttonborder		: 0 none #1a9dbc;
+	buttongradation		: linear 0,0 #99cfef 100,100 #e4f1f9;
+	buttonimage		: Images::Basic/chk_ico_N.png;
+	buttonsize		: 20;
+	padding			: 0 0 0 0;
+	textpadding		: 0 0 0 3;
+}
+
+CheckBox:disabled
+{
+	color			: #c5cad1;
+	buttonbackground	: #c5cad1;
+	buttonimage		: Images::Basic/chk_ico_N.png;
+	buttonborder		: 0 none #b1c0cb;
+}
+
+Combo
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: #46463d;
+	cursor			: ;
+	font			: ;
+	glow			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	itemheight		: 24;
+}
+Combo:mouseover
+{
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+	color			: #46463d;
+}
+Combo:selected
+{
+	border			: 1 solid #1a9dbc;
+	color			: #ffffff;
+}
+
+Combo:disabled
+{
+	background		: #ffffff;
+	border			: 1 solid #c5cad1;
+	color			: #999999;
+}
+Combo>#comboedit
+{
+	align			: left middle;
+	background		: transparent;
+	blur			: ;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 5 0 5;
+	shadow			: ;
+}
+Combo>#comboedit:mouseover
+{
+	background		: #transparent;
+	color			: #000000;
+}
+Combo>#comboedit:disabled
+{
+	background		: #f7f7f7;
+	color			: #999999;
+}
+
+
+
+Combo>#dropbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/com_btn_N.png') stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #c5cad1;
+	bordertype		: normal 0 0;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: linear 0,0 #ffffff 0,100 #e3e3dd;
+	image			: ;
+	imagealign		: center middle;
+	opacity			: ;
+	padding			: -1 -1 -1 -1;
+	shadow			: ;
+}
+Combo>#dropbutton:mouseover
+{
+	background		: transparent url('Images::Basic/com_btn_O.png') stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #1a9dbc;
+	image			: ;
+}
+Combo>#dropbutton:pushed
+{
+	background		: transparent url('Images::Basic/com_btn_O.png') stretch ;
+	border			: 0 none, 0 none, 0 none, 1 solid #1a9dbc;
+	image			: ;
+}
+Combo>#dropbutton:disabled
+{
+	background		: transparent url('Images::Basic/com_btn_D.png') stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #c5cad1;
+	image			: ;
+}Combo>#combolist
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+	bordertype		: round 5 5;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	itembackground		: #ffffff;
+	itemborder		: 1 solid #ffffff;
+	itembordertype		: normal 0 0;
+	itemgradation		: ;
+	itempadding		: 0 2 0 6;
+	opacity			: ;
+	shadow			: ;
+}
+
+Combo>#combolist:disabled
+{
+	background		: #e5e7eb;
+	color			: #888888;
+	border			: 1 solid #1a9dbc;
+	itembackground		: #e5e7eb;
+	itemborder		: 1 solid #ffffff;
+}
+Combo>#combolist:mouseover
+{
+	border	   		: 1 solid #1a9dbc;
+	itembackground		: #e5e7eb;
+}Combo>#combolist:focused, Combo>#combolist:selected
+{
+	color	   		: #ffffff;
+	itembackground		: #1a9dbc;
+	itemgradation		: ;
+	itemborder		: 1 solid #ffffff;
+}
+
+DatePicker
+{
+	background		: #ffffff;
+	gradation		: ;
+	border			: 1 solid #d5d5d5,1 solid #a6a6a9,1 solid #a6a6a9,1 solid #d5d5d5;
+	bordertype		: normal;
+	font			: ;
+	color			: ;
+	align			: center middle;
+	cursor			: ;
+	padding			: 0 0 0 0;
+	opacity			: ;
+	shadow			: ;
+	ncpadding		: 35 5 5 5;
+	headerformat		: yyyy.MM;
+	weekformat		: 일 월 화 수 목 금 토;
+	daysize			: 22,22;
+	daycolor		: #333333;
+	daybackground		: #ffffff;
+	daygradation		: ;
+	dayborder		: 1 solid #ffffff;
+	daybordertype		: normal;
+	dayfont			: ;
+	headerheight		: 35;
+	headercolor		: #444444;
+	headerbackground	: #ffffff;
+	headergradation		: ;
+	headerborder		: 0 none;
+	headerbordertype	: normal;
+	headerfont		: ;
+	bodybackground		: #ffffff;
+	bodygradation		: ;
+	bodyborder		: 0 none;
+	bodybordertype		: normal;
+	weekcolor		: #ffffff;
+	weekbackground		: #7f8c9a;
+	weekgradation		: ;
+	weekfont		: ;
+	todaycolor		: #ffffff;
+	todaybackground		: #1a9dbc;
+	todaygradation		: ;
+	todayborder		: 0 none #995a00;
+	todaybordertype		: normal;
+	todayfont		: ;
+	saturdaybackground	: #ffffff;
+	saturdaygradation	: ;
+	saturdayborder		: 1 solid #ffffff00;
+	saturdaybordertype	: ;
+	saturdayfont		: antialias 9 Arial;
+	saturdaycolor		: #1a70bd;
+	sundaybackground	: ;
+	sundaygradation		: ;
+	sundayborder		: 0 none #ffffff00;
+	sundaybordertype	: ;
+	sundaycolor		: #d71e33;
+	sundayfont		: ;
+}
+
+DatePicker:mouseover
+{
+	daycolor		: #34495e;
+	daybackground		: #e5e7eb;
+	daygradation		: ;
+	dayborder		: 0 none #9eb9ca;
+	daybordertype		: normal;
+	dayfont			: ;
+	saturdaycolor		: #1a70bd;
+	saturdaybackground	: #e5e7eb;
+	saturdayborder		: 0 none #9eb9ca;
+	saturdaybordertype	: normal;
+	saturdayfont		: bold antialias 9 Arial;
+	sundaycolor		: #d71e33;
+	sundaybackground	: #e5e7eb;
+	sundayborder		: 0 none #9eb9ca;
+	sundaybordertype	: normal;
+	sundayfont		: ;
+}
+
+DatePicker:selected
+{
+	daycolor		: #ffffff;
+	daybackground		: #1a9dbc;
+	daygradation		: ;
+	dayborder		: 0 none #045c92;
+	daybordertype		: normal;
+	dayfont			: ;
+	saturdaycolor		: #ffffff;
+	saturdaybackground	: #1a9dbc;
+	saturdayborder		: 1 solid #045c92;
+	saturdaybordertype	: normal;
+	saturdayfont		: ;
+	sundaycolor		: #ffffff;
+	sundaybackground	: #1a9dbc;
+	sundayborder		: 1 solid #045c92;
+	sundaybordertype	: normal;
+	sundayfont		: ;
+}
+
+Div
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #444444;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Edit
+{
+	align			: left middle;
+	background		: #ffffff;
+	blur			: ;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 3 0 3;
+	shadow			: ;
+}
+Edit:mouseover, Edit:pushed, Edit:focused
+{
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+}
+Edit:disabled
+{
+	background		: #f7f7f7;
+	color			: #999999;
+}
+
+ExportProgress
+{
+ 	background		: #e9edef;
+	gradation		: ;
+	border			: 1 solid #41536e;
+	bordertype		: round 3 3;
+	font 			: ;
+	padding			: 0 10 0 10;
+	color			: #3f3f3fb3;
+	align			: center middle;
+	opacity			: 100%;
+	blur			: ;
+	glow			: ;
+	transformation		: ;
+}
+ExportProgress>#statustext
+{ 	
+	background		: transprant;
+	border			: 0 solid #B1B5B9b3;
+	color          		: #444444;
+	padding			: 0 5 0 5;
+	bordertype		: ;
+	align			: left middle;
+	font 			: ;
+	opacity			: 100%;
+	shadow			: ;
+	blur			: ;
+	outerglow		: ;
+	gradation		: ;
+	transformation		: ;
+}
+ExportProgress>#progressbar
+{
+	background      	: @gradation;
+	gradation       	: linear 0,0 #ffffff 0,100 #ffffff [5% #e5e5e5];
+	border          	: 1 solid #6a6a6ab3;
+	bordertype      	: round 3 3;
+	font 			: ;
+	padding         	: 0 0 -2 0;
+	color           	: black;
+	align           	: center middle;
+	opacity         	: 100%;
+	shadow          	: ;
+	blur            	: ;
+	outerglow       	: ;
+	transformation  	: ;
+	smooth			: true;
+	barcolor		: @gradation;
+	bargradation		: linear 0,0 #fff15bff 0,100 #d35500ff [5% #fdae3dff];
+	direction		: forward;
+	startimage		: ;
+	endimage		: ;
+	progressimage		: ;
+	bartype			: normal;
+}
+
+
+FileUpload
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: normal;
+	buttonbackground	: #7f8c9a;
+	buttonborder		: 0 none #999999;
+	buttonbordertype	: round 5 5;
+	buttoncolor		: #ffffff;
+	buttonfont		: ;
+	buttongradation		: ;
+	buttonpadding		: 0 0 0 0;
+	buttonsize		: 80;
+	buttontext		: File add;
+	color			: ;
+	cursor			: ;
+	editbackground		: #ffffff;
+	editborder		: 1 solid #c5cad1;
+	editbordertype		: round 5 5;
+	editcolor		: #333333;
+	editfont		: ;
+	editgradation		: ;
+	editpadding		: 0 5 0 5;
+	font			: ;
+	gradation		: ;
+	itemheight		: 26;
+	opacity			: ;
+	padding			: 0 0 0 0;
+	shadow			: ;
+}
+FileUpload:mouseover
+{
+	buttonbackground	: #1a9dbc;
+	editborder		: 1 solid #1a9dbc;
+}
+FileUpload:pushed
+{
+	buttonbackground	: #1a9dbc;
+	editborder		: 1 solid #1a9dbc;
+}
+FileUpload:disabled
+{
+	opacity				: 50;
+}
+
+FileDownload
+{
+	align			: center middle;
+	background		: #7f8c9a;
+	blur			: ;
+	border			: 0 none #999999;
+	bordertype		: round 5 5;
+	color			: #ffffff;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+FileDownload:mouseover
+{
+	background		: #1a9dbc;
+}
+FileDownload:pushed
+{
+	background		: #1a9dbc;
+}
+
+FileDownload:disabled
+{
+	opacity			: 50;
+}
+
+GraphicPath
+{
+	background		: transparent;
+	color			: #444444;
+	align			: center middle;
+	font			: ;
+}
+
+Grid
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 2 solid #1a9dbc, 0 none #9f8f71, 1 solid #7f8c9a, 0 none #9f8f71;
+	bordertype		: normal 0 0;
+	color			: #5a6673;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	line			: ;
+	linetype		: ;
+	opacity			: ;
+	selectline		: ;
+	selectlinetype		: ;
+	shadow			: ;
+	treeclosebuttonimage	: Images::Basic/ico_treeclose.png;
+	treecollapseimage	: Images::Basic/ico_treecollapse.png;
+	treeexpandimage		: Images::Basic/ico_treeexpand.png;
+	treeitemimage		: Images::Basic/ico_treeitem.png;
+	treeitemmargin		: ;
+	treelinetype		: 1 dotted #a5b6b6;
+	treeopenbuttonimage	: Images::Basic/ico_treeopen.png;
+}
+
+Grid>#head
+{
+	background		: transparent;
+	border			: 0 none #bbbbbb;
+	bordertype		: ;
+	cellalign		: ;
+	cellbackground		: /***transparent url:(Images::basic/grd_header_line.png) right middle***/;
+	cellbackground2		: ;
+	cellcolor		: #2c3e50;
+	cellcolor2		: ;
+	cellfont		: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 1 solid #7f8c9a;
+	celllinetype		: exhorz ;
+	cellpadding		: 0 1 0 1;
+	gradation		: linear 0,0 #f9f9f8 0,100 #dadad3;
+	selectbackground	: ;
+	selectborder		: ;
+	selectcolor		: ;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: ;
+	selectlinetype		: ;
+}
+Grid>#body
+{
+	background		: transprant;
+	border			: 0 none #e5e5e5;
+	bordertype		: ;
+	cellalign		: center middle;
+	cellbackground		: transprant;
+	cellbackground2		: transprant;
+	cellcolor		: #45596d;
+	cellcolor2		: #45596d;
+	cellfont		: ;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 1 solid #c5cad1;
+	celllinetype		: onlyhorz;
+	cellpadding		: 0 0 0 7;
+	gradation		: ;
+	selectbackground	: transparent;
+	selectborder		: ;
+	selectcolor		: #1a9dbc;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: 1 solid #c5cad1;
+	selectlinetype		: onlyhorz;
+}
+Grid>#body:mouseover
+{
+	border			: 0 none #e5e5e5;
+	cellbackground		: transprant;
+	cellbackground2		: transprant;
+	cellcolor		: #1a9dbc;
+	cellcolor2		: #1a9dbc;
+	selectbackground	: transprant;
+	selectcolor		: #1a9dbc;
+}
+
+Grid>#body:disabled
+{
+	cellbackground		: #ffffff;
+	cellbackground2		: #e5e5e566;
+	cellcolor		: #6e6e63;
+	selectbackground	: #ffffff;
+	selectcolor		: #6e6e63;
+}
+Grid>#summ
+{
+	background		: transprant;
+	border			: 0 none #bbbbbb;
+	bordertype		: ;
+	cellalign		: ;
+	cellbackground		: transparent;
+	cellbackground2		: transparent;
+	cellcolor		: #000000;
+	cellcolor2		: #000000;
+	cellfont		: ;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 1 solid #bbbbbb;
+	celllinetype		: ;
+	cellpadding		: ;
+	gradation		: ;
+	selectbackground	: ;
+	selectborder		: ;
+	selectcolor		: ;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: ;
+	selectlinetype		: ;
+}
+Grid>#summary
+{
+	background		: transparent;
+	border			: 1 solid #7f8c9a, 0 none #bbbbbb, 0 none #bbbbbb, 0 none #bbbbbb;
+	bordertype		: ;
+	cellalign		: ;
+	cellbackground		: transparent url:(Images::basic/grd_header_line.png) right middle;
+	cellbackground2		: transparent;
+	cellcolor		: #000000;
+	cellcolor2		: #000000;
+	cellfont		: ;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 0 none #7f8c9a;
+	celllinetype		: ;
+	cellpadding		: ;
+	gradation		: ;
+	selectbackground	: ;
+	selectborder		: ;
+	selectcolor		: ;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: ;
+	selectlinetype		: ;
+}
+Grid>#resizebutton
+{
+	align			: center middle;
+	background		: @gradation;
+	border			: 1 solid #999999;
+	bordertype		: normal 0 0;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: linear 0,0 #fefefe 0,100 #ecece5;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Grid>#controlcheckbox
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	buttonalign		: left center;
+	buttonbackground	: #c5cad1;
+	buttonborder		: 0 none #999999;
+	buttonbordertype	: round 5 5;
+	buttongradation		: ;
+	buttonimage		: Images::Basic/chk_ico_N.png;
+	buttonsize		: 20;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	glow			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 0 0 0;
+	shadow			: ;
+	textpadding		: 0 0 0 3;
+}
+Grid>#controlcheckbox:mouseover,Grid>#controlcheckbox:selected,Grid>#controlcheckbox:pushed
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	buttonalign		: left center;
+	buttonbackground	: #1a9dbc;
+	buttonborder		: 0 none #1a9dbc;
+	buttongradation		: ;
+	buttonimage		: Images::Basic/chk_ico_N.png;
+	buttonsize		: 20;
+	padding			: 0 0 0 0;
+	textpadding		: 0 0 0 3;
+}
+
+Grid>#controlcheckbox:disabled
+{
+	color			: #c5cad1;
+	buttonimage		: Images::Basic/chk_ico_N.png;
+	buttonborder		: 1 solid #b1c0cb;
+	buttongradation		: linear 0,0 #e9edf1 100,100 #e9edf1;
+}
+Grid>#controlbutton, Grid>#controlbutton:mouseover, Grid>#controlbutton:pushed, Grid>#controlbutton:disabled
+{
+	background		: #ffffff;
+	gradation		: ;
+	border 			: 1 solid #bbbbbb;
+	bordertype		: round 4 4;
+	font			: ;
+	color			: ;
+	cursor			: hand;
+	align			: center middle;
+	focusborder		: 0 none #808080;
+	padding			: 1 0 0 0;
+	margin			: 1 0 1 0;
+	shadow			: ;
+	pusheddrawoffset	: 0 0;
+}
+Grid>#controlbutton:mouseover
+{
+	background		: #ffffff;
+	gradation		: ;
+	border 			: 1 solid #1a9dbc;
+	color			: #1a9dbc;
+	focusborder		: 0 none #808080;
+	shadow			: ;
+}
+Grid>#controlbutton:pushed
+{
+	background		: #ffffff;
+	gradation		: ;
+	border 			: 1 solid #1a9dbc;
+	color			: #1a9dbc;
+	focusborder		: 0 none #808080;
+	shadow			: 0;
+}
+
+Grid>#controledit, Grid>#controledit:mouseover, Grid>#controledit:focused, Grid>#controledit:selected, Grid>#controledit:disabled
+{
+	background		: transparent;
+	border			: 0 none #aaaaaa;
+	bordertype		: normal 0 0;
+	align			: left middle;
+	font			: ;
+	color			: ;
+	padding			: 0 5 0 10;
+	caretcolor		: #30aeec;
+	selectbackground	: #30aeec;
+	selectcolor 		: #ffffff;
+}
+Grid>#controltextarea, Grid>#controltextarea:mouseover, Grid>#controltextarea:focused, Grid>#controltextarea:disabled
+{
+	background		: transparent;
+	border			: 0 none #aaaaaa;
+	bordertype		: normal 0 0;
+	align			: left middle;
+	font			: ;
+	color			: ;
+	padding			: 5 5 0 10;
+	caretcolor		: #30aeec;
+	selectbackground	: #30aeec;
+	selectcolor 		: #ffffff;
+}
+Grid>#controlmaskedit, Grid>#controlmaskedit:mouseover, Grid>#controlmaskedit:focused, Grid>#controlmaskedit:selected, Grid>#controlmaskedit:disabled
+{
+	background		: transparent;
+	border			: 1 solid #aaaaaa;
+	bordertype		: normal 0 0;
+	align			: left middle;
+	font			: ;
+	color			: ;
+	padding			: 0 5 0 10;
+	caretcolor		: #30aeec;
+	selectbackground	: #30aeec;
+	selectcolor 		: #ffffff;
+}
+
+Grid>#controlcalendar
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: #45596d;
+	cursor			: ;
+	daybackground		: #ffffff;
+	daycolor		: #45596d;
+	dayborder		: 1 solid #ffffff;
+	daybordertype		: round 3 3;
+	dayfont			: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	todaycolor		: #1a9dbc;
+	popupbackground		: #ffffff;
+	popupborder		: 1 solid #c5cad1;
+	popupbordertype		: round 5 5;
+	popupgradation		: ;
+	daysize 		: 33 33 ;
+	font			: ;
+	padding			: 0 0 0 0;
+	gradation		: ;
+	opacity			: ;
+	popupsize		: 252 292;
+	shadow			: ;
+}
+Grid>#controlcalendar:mouseover
+{
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+	daybackground		: #eeeff1;
+	dayborder		: 0 none #9daeb9;
+	dayfont			: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;	
+	daycolor		: ;
+}
+Grid>#controlcalendar:selected
+{
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+	daybackground		: #1a9dbc;
+	dayborder		: 0 none #055d93;
+	dayfont			: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	daycolor		: #ffffff;
+}
+Grid>#controlcalendar:disabled
+{
+	background		: #f7f7f7;
+	border			: 1 solid #c5cad1;
+	color			: #999999;
+}
+Grid>#controlcalendar>#calendaredit, Grid>#controlcalendar>#calendaredit:mouseover, Grid>#controlcalendar>#calendaredit:focused, Grid>#controlcalendar>#calendaredit:selected, Grid>#controlCalendar>#calendaredit:pushed
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	align			: right middle;
+	font			: ;
+	color			: ;
+	padding			: 0 5 0 5;
+	caretcolor		: #30aeec;
+	selectbackground	: transparent;
+	selectcolor 		: ;
+}
+Grid>#controlcalendar>#calendaredit:focused
+{
+	selectbackground	: #30aeec;
+	selectcolor 		: #ffffff;
+}
+Grid>#controlcalendar>#calendaredit:disabled
+{
+	color			: #a8a7a7;
+}
+
+Grid>#controlcalendar>#dropbutton
+{
+	align			: center middle;
+	background 		: transparent url('Images::Basic/cal_btn_N.png') stretch ;
+	border			: 2 solid #ffffff00;
+	bordertype		: ;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: 0 3 0 0;
+	shadow			: ;
+}
+Grid>#controlcalendar>#dropbutton:mouseover, Grid>#controlcalendar>#dropbutton:pushed
+{
+	background		: transparent url('Images::Basic/cal_btn_O.png') stretch;
+}
+Grid>#controlcalendar>#dropbutton:disabled
+{
+	background		: transparent url('Images::Basic/cal_btn_N.png') stretch;
+}
+
+Grid>#controlcalendar>#spinupbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/btn_spinup_N.png')center middle;
+	border			: 0 none, 0 none, 0 none, 1 solid #c5cad1;
+	bordertype		: ;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Grid>#controlcalendar>#spinupbutton:mouseover
+{
+	background		: transparent url('Images::Basic/btn_spinup_O.png')center middle;
+	border			: 0 none, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Grid>#controlcalendar>#spinupbutton:pushed
+{
+	background		: transparent url('Images::Basic/btn_spinup_O.png')center middle;
+	border			: 0 none, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Grid>#controlcalendar>#spinupbutton:disabled
+{
+	background		: transparent url('Images::Basic/btn_spinup_D.png')center middle;
+	border			: 0 none, 0 none, 0 none, 1 solid #c5cad1;
+}
+Grid>#controlcalendar>#spindownbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/btn_spindown_N.png')center middle;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #c5cad1;
+	bordertype		: ;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Grid>#controlcalendar>#spindownbutton:mouseover
+{
+	background		: transparent url('Images::Basic/btn_spindown_O.png')center middle;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Grid>#controlcalendar>#spindownbutton:pushed
+{
+	background		: transparent url('Images::Basic/btn_spindown_O.png')center middle;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Grid>#controlcalendar>#spindownbutton:disabled
+{
+	background		: transparent url('Images::Basic/btn_spindown_D.png')center middle;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #c5cad1;
+}
+
+Grid>#controlcalendar>#popupcalendar
+{
+
+	align			: center middle;
+	background		: #ffffff;
+	border			: 0 none #c5cad1;
+	bordertype		: round 5 5;
+	color			: #45596d;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 0 0 0;
+	saturdayborder		: 0 none;
+	saturdaycolor		: #448ccb;
+	sundayborder		: 0 none;
+	sundaycolor		: #f26522;
+	todaybackground		: #e1e1e1;
+	todayborder		: 1 solid #a6a6a6;
+	todaycolor		: #666666;
+	shadow			: outer 0,1 1 #0000003f;	
+	headerborder		: 0 none;
+	headerfont		: antialias bold 13 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	headerheight		: 57;
+	weekbackground		: #eeeff1;
+	weekfont		: antialias bold 10 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	weekcolor		: #2c3e50;
+	todayfont		: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	todaycolor		: #1a9dbc;
+}
+Grid>#controlcalendar>#popupcalendar>#prevbutton
+{
+	align			: ;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: Images::Basic/btn_prev.png;
+	imagealign		: center middle;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Grid>#controlcalendar>#popupcalendar>#prevbutton:mouseover
+{
+	image			: Images::Basic/btn_prev_O.png;
+}
+Grid>#controlcalendar>#popupcalendar>#prevbutton:pushed
+{
+	image			: Images::Basic/btn_prev_P.png;
+}
+Grid>#controlcalendar>#popupcalendar>#prevbutton:disabled
+{
+	opacity			: 30 ;
+}
+
+Grid>#controlcalendar>#popupcalendar>#nextbutton
+{
+	align			: ;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: Images::Basic/btn_next.png;
+	imagealign		: center middle;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Grid>#controlcalendar>#popupcalendar>#nextbutton:mouseover
+{
+	image 			: Images::Basic/btn_next_O.png;
+}
+Grid>#controlcalendar>#popupcalendar>#nextbutton:pushed
+{
+	image 			: Images::Basic/btn_next_P.png;
+}
+Grid>#controlcalendar>#popupcalendar>#yearspin
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: normal;
+	buttonalign		: ;
+	buttonsize		: 8;
+	color			: #505050;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	shadow			: ;
+}
+
+Grid>#controlcalendar>#popupcalendar>#yearspin>#spinedit
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #505050;
+	cursor			: ;
+	font			: antialias bold 13 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 3 0 3;
+	shadow			: ;
+}
+Grid>#controlcalendar>#popupcalendar>#yearspin>#spinedit:mouseover, Grid>#controlcalendar>#popupcalendar>#yearspin>#spinedit:focused
+{
+	background		: #fbf8f1;
+}
+
+Grid>#controlcalendar>#popupcalendar>#yearspin>#spinupbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/spn_btn_Up.png')stretch;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: 50;
+	padding			: ;
+	shadow			: ;
+}
+Grid>#controlcalendar>#popupcalendar>#yearspin>#spinupbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+}
+Grid>#controlcalendar>#popupcalendar>#yearspin>#spinupbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+}
+Grid>#controlcalendar>#popupcalendar>#yearspin>#spindownbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/spn_btn_Down.png')stretch;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: 50;
+	padding			: ;
+	shadow			: ;
+}
+Grid>#controlcalendar>#popupcalendar>#yearspin>#spindownbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+}
+Grid>#controlcalendar>#popupcalendar>#yearspin>#spindownbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+}
+Grid>#controlcalendar>#popupcalendar>#monthspin
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 0 none;
+	bordertype		: normal;
+	buttonalign		: ;
+	buttonsize		: 8;
+	color			: #505050;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 0 0 8;
+	shadow			: ;
+}
+Grid>#controlcalendar>#popupcalendar>#monthspin>#spinedit
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #505050;
+	cursor			: ;
+	font			: antialias bold 13 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 3 0 3;
+	shadow			: ;
+}
+Grid>#controlcalendar>#popupcalendar>#monthspin>#spinedit:mouseover, Grid>#controlcalendar>#popupcalendar>#monthspin>#spinedit:focused
+{
+	background		: #fbf8f1;
+}
+Grid>#controlcalendar>#popupcalendar>#monthspin>#spinupbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/spn_btn_Up.png')stretch;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: 50;
+	padding			: ;
+	shadow			: ;
+}
+Grid>#controlcalendar>#popupcalendar>#monthspin>#spinupbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+}
+Grid>#controlcalendar>#popupcalendar>#monthspin>#spinupbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Up_O.png')stretch;
+}
+Grid>#controlcalendar>#popupcalendar>#monthspin>#spindownbutton
+{
+	align			: ;
+	background		: transparent url('Images::Basic/spn_btn_Down.png')stretch;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: 50;
+	padding			: ;
+	shadow			: ;
+}
+Grid>#controlcalendar>#popupcalendar>#monthspin>#spindownbutton:mouseover
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+}
+Grid>#controlcalendar>#popupcalendar>#monthspin>#spindownbutton:pushed
+{
+	background		: transparent url('Images::Basic/spn_btn_Down_O.png')stretch;
+}
+
+Grid>#controlcombo, Grid>#controlcombo:mouseover, Grid>#controlcombo:selected, Grid>#controlcombo:focused, Grid>#controlcombo:disabled
+{
+	background		: transparent;
+	border			: 0 none #aaaaaa;
+	bordertype		: normal 0 0;
+	align			: left middle;
+	color			: ;
+	font			: ;
+	padding			: 0 0 0 10;
+	itemheight		: 21;
+	itembackground		: ;
+	itemborder		: 0 none #808080;
+	itempadding		: 0 5 0 5;
+	itemcolor		: #333333;
+	buttonsize 		: 20;
+}
+Grid>#controlcombo:selected, Grid>#controlcombo:focused
+{
+	itemcolor		: #ffffff;
+}
+Grid>#controlcombo>#comboedit
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	color			: ;
+	padding			: 0 5 0 10;
+	align			: left middle;
+	font			: ;
+	caretcolor		: #30aeec;
+	selectbackground	: #30aeec;
+	selectcolor 		: #ffffff;
+}
+Grid>#controlcombo>#comboedit:mouseover
+{
+	background		: transparent;
+}
+Grid>#controlcombo>#comboedit:focused, Grid>#controlcombo>#comboedit:selected
+{
+	background		: transparent;
+}
+Grid>#controlcombo>#comboedit:disabled
+{
+	background		: transparent;
+	color			: #a8a7a7;
+}
+
+Grid>#controlcombo>#dropbutton
+{
+	background		: #ffffff;
+	border			: 1 solid #abb1b6;
+	bordertype		: round 4 4;
+	image 			: url('Images::Basic/cmb_btn_N.png');
+}
+Grid>#controlcombo>#dropbutton:mouseover
+{
+	background		:#ffffff;
+	border			: 1 solid #abb1b6;
+	image 			: url('Images::Basic/cmb_btn_O.png');
+}
+Grid>#controlcombo>#dropbutton:pushed
+{
+	background		: #ffffff;
+	border			: 1 solid #abb1b6;
+	image 			: url('Images::Basic/cmb_btn_O.png');
+}
+Grid>#controlcombo>#dropbutton:disabled
+{
+	background		: #ffffff;
+	border			: 1 solid #abb1b6;
+	image 			: url('Images::Basic/cmb_btn_N.png');
+}
+Grid>#controlcombo>#combolist, Grid>#controlcombo>#combolist:disabled
+{
+	background		: #ffffff;
+	color			: ;
+	border			: 1 solid #adb5bd;
+	bordertype		: normal 0 0;
+	align			: left middle;
+	font			: ;
+	itembackground		: transparent;
+	itemheight		: 24;
+	itemborder		: 0 none #808080;
+	itempadding		: 0 7 0 7;
+	shadow			: drop 1,1 2 #00000033;
+	padding			: 1 1 1 0;
+	itempadding		: 0 7 0 7 ;
+}
+Grid>#controlcombo>#combolist:mouseover
+{
+	border	   		: 1 solid #2f313c;
+	itembackground		: #d1d4d9;
+}
+Grid>#controlcombo>#combolist:focused, Grid>#controlcombo>#combolist:selected
+{
+	border	   		: 1 solid #2f313c;
+	itembackground		:#646b76;
+}
+Grid>#controlprogressbar
+{
+	align			: center middle;
+	background		: #c5cad1;
+	barcolor		: #1a9dbc;
+	bargradation		: ;
+	bartype			: normal;
+	border			: 0 none #999999;
+	bordertype		: round 13 13;
+	color			: #ffffff;
+	cursor			: ;
+	direction		: forward;
+	endimage		: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 3 3 4 3;
+	progressimage		: Images::Basic/img_progress.png;
+	shadow			: ;
+	smooth			: true;
+	startimage		: ;
+}
+Grid>#controlprogressbar:disabled
+{
+	border			: 1 solid #d5d5d5;
+	background		: #ffffff ;
+	progressimage  		: Images::Basic/img_progress_D.png;
+	color			: #999999;
+}
+
+Grid>#vscrollbar, Grid>#vscrollbar:mouseover, Grid>#vscrollbar:pushed, Grid>#vscrollbar:focused
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #e5e7eb 100,0 #ffffff;
+	border			: 0 none #c3c3c3;
+	bordertype		: round 7 7 righttop rightbottom;
+	barminsize		: 40;
+	scrollbarsize		: 12;
+	incbtnsize 	 	: 0;
+	decbtnsize	 	: 0;
+	trackbarsize 		: ;
+	pusheddrawoffset 	: 0 0;
+}
+Grid>#vscrollbar>#trackbar, Grid>#vscrollbar>#trackbar:disabled
+{
+	background		: #c5cad1 ;
+	border			: 0 none #808080;
+	bordertype		: round 7 7 righttop rightbottom;
+	pusheddrawoffset 	: 0 0;
+	image			: url('Images::Basic/img_vscroll.png');
+	imagealign		: center middle;
+	padding			: 1 1 1 1;
+}
+Grid>#vscrollbar>#trackbar:focused, Grid>#vscrollbar>#trackbar:mouseover, Grid>#vscrollbar>#trackbar:pushed
+{
+	background		: #7f8c9a ;
+	border			: 0 none #808080;
+	bordertype		: round 7 7 righttop rightbottom;
+	pusheddrawoffset 	: 0 0;
+	image			: url('Images::Basic/img_vscroll.png');
+	imagealign		: center middle;
+	padding			: 1 1 1 1;
+}
+
+Grid>#hscrollbar, Grid>#hscrollbar:mouseover, Grid>#hscrollbar:pushed, Grid>#hscrollbar:focused
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #e5e7eb 0,75 #ffffff;
+	border			: 0 none #808080;
+	bordertype		: round 7 7 leftbottom rightbottom;
+	barminsize		: 40;
+	scrollbarsize		: 12;
+	incbtnsize 	 	: 0;
+	decbtnsize	 	: 0;
+	trackbarsize 		: ;
+}
+Grid>#hscrollbar>#trackbar, Grid>#hscrollbar>#trackbar:disabled
+{
+	background		: #c5cad1 ;
+	border			: 0 none #808080;
+	bordertype		: round 7 7 leftbottom rightbottom;
+	pusheddrawoffset 	: 0 0;
+	image			: url('Images::Basic/img_hscroll.png');
+	imagealign		: center middle;
+	padding			: 1 1 1 1;
+}
+Grid>#hscrollbar>#trackbar:focused, Grid>#hscrollbar>#trackbar:mouseover, Grid>#hscrollbar>#trackbar:pushed
+{
+	background		: #7f8c9a ;
+	border			: 0 none #808080;
+	bordertype		: round 7 7 leftbottom rightbottom;
+	pusheddrawoffset 	: 0 0;
+	image			: url('Images::Basic/img_hscroll.png');
+	imagealign		: center middle;
+	padding			: 1 1 1 1;
+}
+
+Grid>#resizebutton
+{
+	background		: url('Images::Basic/grd_resize.png');
+	border			: 0 none #808080;
+	padding			: 0 0 0 0 ;
+}
+
+GroupBox
+{
+	background		: #ffffff;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	shadow			: ;
+	titlebackground		: ;
+	titlegradation		: ;
+	titleimage		: Images::Basic/img_grouptitle.png;
+	titleimagealign		: lefttext middle;
+	titleview		: ;
+}
+GroupBox:disabled
+{
+	border 			: 1 solid #cccccc ;
+	color			: #aaaaaa;
+	titleimage 		: Images::Basic/img_grouptitle_D.png;
+}
+
+ImageViewer	
+{
+	align			: center middle;
+	background		: #ffffff;
+	border			: 0 none #e5e5e5;
+	bordertype		: normal;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: 100;
+	padding			: ;
+	shadow			: ;
+}
+ImageViewer:mouseover, ImageViewer:focused
+{
+	border 			: 0 none #456789;
+}
+
+ImageViewer:disabled
+{
+	opacity			: 50;
+}
+
+ListBox
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	itembackground		: #ffffff;
+	itemborder		: 1 solid #ffffff;
+	itembordertype		: ;
+	itemgradation		: ;
+	itemheight		: 26;
+	itempadding		: 0 2 0 6;
+	opacity			: ;
+	shadow			: ;
+}
+ListBox:mouseover
+{
+	border			: 1 solid #1a9dbc;
+	bordertype		: round 5 5;
+	itembackground		: #e5e7eb;
+	itemborder		: 1 solid #ffffff;
+}
+ListBox:selected
+{
+	border			: 1 solid #1a9dbc;
+	bordertype		: round 5 5;
+	color			: #ffffff;
+	itembackground		: #7f8c9a;
+	itemgradation		: ;
+	itemborder		: 1 solid #ffffff;
+}
+ListBox:disabled
+{
+	background		: #ffffff;
+	color			: #999999;
+	border			: 1 solid #c5cad1;
+	itembackground		: #f7f7f7;
+}
+
+MaskEdit
+{
+	align			: right middle;
+	background		: #ffffff;
+	blur			: ;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 3 0 3;
+	shadow			: ;
+}
+MaskEdit:mouseover
+{
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+}
+MaskEdit:pushed
+{
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+}
+MaskEdit:disabled
+{
+	background		: #f7f7f7;
+	border			: 1 solid #c5cad1;
+	color			: #999999;
+}
+
+/* itemfont는 fontfamily를 상속받지 않음 */
+Menu
+{
+	background 		: #7f8c9a;
+	gradation		: ;
+	align			: center middle;
+	border 			: 0 none #808080;
+	font 			: ;
+	color			: #ffffff;
+	padding			: 0 1 0 1;
+	itemcolor 		: #5a280b;
+	itempadding 		: 0 30 0 30;
+	itembackground		: transparent;
+	itemborder		: 0 none #f2f2f2, 1 solida #c5cad1, 0 none #f2f2f2, 0 none #f2f2f2;
+	checkboximage 		: Images::Basic/menu_check.png;
+	popupbackground		: #c5cad1;
+	popupborder 		: 0 none #a8a8a2;
+	popupbordertype		: round 5 5;
+	popuppadding		: 2 0 2 0;
+	popupcolor 		: #ffffff;
+	popupfont 		: ;
+	popupitemheight 	: 24;
+	popupitempadding 	: 1 6 1 8;
+	popupitemborder 	: 0 none #f2f2f2, 1 solid #c5cad1, 0 none #f2f2f2, 0 none #f2f2f2;
+	popupitembackground 	: #7f8c9a;
+	popupitemalign 		: left middle;
+	expandimage 		: Images::Basic/GNB_expand_N.png;
+}
+Menu:mouseover
+{
+	itembackground 		: #1a9dbc;
+	color			: #ffffff;
+	popupitembackground	: #1a9dbc;
+	popupitemgradation	: ;
+	popupitemborder 	: 1 solid #c5cad1;
+	popupitempadding 	: 1 4 1 6;
+	popupcolor		: #ffffff;
+	expandimage 		: Images::Basic/GNB_expand_O.png;
+}
+Menu:pushed
+{
+	color			: #fffff;
+	itembackground		: #7f8c9a;
+}
+Menu:disabled
+{
+	itemcolor		: #5a280b66;
+	popupcolor		: #999999;
+}
+
+/* ProgressBar */
+ProgressBar
+{
+	align			: center middle;
+	background		: #c5cad1;
+	barcolor		: #1a9dbc;
+	bargradation		: ;
+	bartype			: normal;
+	border			: 0 none #999999;
+	bordertype		: round 13 13;
+	color			: #ffffff;
+	cursor			: ;
+	direction		: forward;
+	endimage		: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 3 3 4 3;
+	progressimage		: Images::Basic/img_progress.png;
+	shadow			: ;
+	smooth			: true;
+	startimage		: ;
+}
+ProgressBar:disabled
+{
+	border			: 1 solid #d5d5d5;
+	background		: #ffffff ;
+	progressimage  		: Images::Basic/img_progress_D.png;
+	color			: #999999;
+}
+
+PopupDiv
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #444444;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+PopupMenu
+{
+	background 		: #ffffff;
+	align 			: left middle;
+	border 			: 0 none #a8a8a2;
+	bordertype		: round 5 5;
+	padding 		: 2 0 2 0;
+	font			: ;
+	color			: #46463d;
+	itembackground 		: #c5cad1;
+	itemborder		: 1 solid #ffffff;
+	itemheight 		: 20;
+	itempadding	 	: 1 2 1 5;
+	expandimage 		: Images::Basic/GNB_expand_N.png;
+	checkboximage 		: Images::Baisc/menu_check.png;
+}
+PopupMenu:mouseover
+{
+	color			: #ffffff;
+	itempadding 		: 1 0 1 3;
+	itembackground 		: #1a9dbc;
+	itemgradation 		: ;
+	itemborder		: 1 solid #ffffff;
+}
+PopupMenu:disabled
+{
+	color			: #999999;
+}
+
+Radio
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	buttonalign		: left center;
+	buttonbackground	: transprant;
+	buttonborder		: 3 solid #c5cad1;
+	buttonbordertype	: ;
+	buttongradation		: ;
+	buttonimage		: Images::Basic/rdo_ico_N.png;
+	buttonsize		: 20;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 0 0 0;
+	shadow			: ;
+	textpadding		: 0 0 0 3;
+}
+Radio:mouseover
+{
+	buttonborder		: 3 solid #2b8cd6;
+	buttongradation		: linear 0,0 #99cfef 100,100 #e4f1f9;
+}
+Radio:disabled
+{
+	color			: #999999;
+	buttonimage		: Images::Basic/rdo_ico_N.png;
+	buttonborder		: 3 solid #c5cad1;
+	buttongradation		: linear 0,0 #e9edf1 100,100 #e9edf1;
+}
+
+Shape
+{
+	background		: transparent;
+	color			: #ffffff;
+	align			: center middle;
+	font 			: ;
+	border 			: 0 none #808080;
+	fillbrush 		: solid #a4acb7 true ;
+	strokepen 		: 1 solid #a4acb7 ;
+	shadow			: 0,0 0	#080808;
+}
+Shape:disabled
+{
+	background		: #e5e7eb;
+	color			: #ffffff;
+	strokepen 		: 1 solid #e5e7eb;
+	fillbrush 		: solid #e5e7eb true ;
+}
+
+Spin
+{
+	align			: ;
+	background		: #ffffff;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+
+
+
+Spin:mouseover, Spin:focused, Spin:pushed
+{
+	background		: #ffffff;
+	border			: 1 solid #1a9dbc;
+}
+
+Spin:disabled
+{
+	background		: #f7f7f7;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: #999999;
+}
+
+Spin>#spinedit
+{
+	background		: #transparent;
+	align			: left middle;
+	padding			: 0 3 0 3;
+	border			: 0 none #ffffff;
+	bordertype		: normal 0 0;
+}
+Spin>#spinupbutton
+{
+	align			: ;
+	background		: transparant url('Images::Basic/spn_btn_Up.png') stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #c5cad1;
+	bordertype		: normal 0 0;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Spin>#spinupbutton:mouseover
+{
+	background		: transparant url('Images::Basic/spn_btn_Up_O.png') stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #1a9dbc;
+}
+
+Spin>#spinupbutton:pushed
+{
+	background		: transparant url('Images::Basic/spn_btn_Up_O.png') stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #1a9dbc;
+}
+
+Spin>#spinupbutton:disabled
+{
+	background		: transparant1 url('Images::Basic/spn_btn_Up_D.png') stretch;
+	border			: 0 none, 0 none, 0 none, 1 solid #c5cad1;
+}
+Spin>#spindownbutton
+{
+	align			: ;
+	background		: #transparant url('Images::Basic/spn_btn_Down.png') stretch;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #c5cad1;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	padding			: ;
+	shadow			: ;
+}
+Spin>#spindownbutton:mouseover
+{
+	background		: transparant url('Images::Basic/spn_btn_Down_O.png') stretch;
+	border			: 1 solid #1a9dbc, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Spin>#spindownbutton:pushed
+{
+	background		: transparant url('Images::Basic/spn_btn_Down_O.png') stretch;
+	border			: 1 solid #1a9dbc, 0 none, 0 none, 1 solid #1a9dbc;
+}
+Spin>#spindownbutton:disabled
+{
+	background		: transparant url('Images::Basic/spn_btn_Down_D.png') stretch;
+	border			: 1 solid #c5cad1, 0 none, 0 none, 1 solid #c5cad1;
+}Splitter
+{
+	background		: #c5cad1;
+	gradation		: ;
+	border			: 0 none #808080;
+	bordertype		: round 3 3;
+}
+Splitter:mouseover,Splitter:pushed
+{
+	background		: #1a9dbc;
+	gradation		: ;
+	border			: 0 none #808080;
+	bordertype		: round 3 3;
+}
+
+Static
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Static:disabled
+{
+	color			: #aaaaaa ;
+}
+
+Static.sta_TF_TopBg
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: #e2e2e2;
+	border			: 0 none, 0 none, 1 solid #ffffff, 0 none;
+	bordertype		: normal 0 0;
+	color			: #000000;
+	cursor			: ;
+	font			: 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Static.sta_TF_TopBg:mouseover
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: #e2e2e2;
+	border			: 0 none, 0 none, 1 solid #ffffff, 0 none;
+	bordertype		: normal 0 0;
+	color			: #000000;
+	cursor			: ;
+	font			: 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Static.sta_TF_TopBg:disabled
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: #e2e2e2;
+	border			: 0 none, 0 none, 1 solid #ffffff, 0 none;
+	bordertype		: normal 0 0;
+	color			: #000000;
+	cursor			: ;
+	font			: 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+
+Static.sta_TF_Admin
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: URL('Images::Frame/sta_TF_Admin.png') left middle;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #000000;
+	cursor			: ;
+	font			: bold 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: 2 0 0 25;
+	shadow			: ;
+}
+Static.sta_TF_Admin:mouseover
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: URL('Images::Frame/sta_TF_Admin.png') left middle;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #000000;
+	cursor			: ;
+	font			: bold 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: 2 0 0 25;
+	shadow			: ;
+}
+Static.sta_TF_Admin:disabled
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: URL('Images::Frame/sta_TF_Admin.png') left middle;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #000000;
+	cursor			: ;
+	font			: bold 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: 2 0 0 25;
+	shadow			: ;
+}
+
+Static.sta_LF_Logo
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: URL('Images::Frame/sta_LF_Logo.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #333333;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Static.sta_LF_Logo:mouseover
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: URL('Images::Frame/sta_LF_Logo.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #333333;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Static.sta_LF_Logo:disabled
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: URL('Images::Frame/sta_LF_Logo.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #333333;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Static.sta_LF_SearchBg
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: #2c3949;
+	border			: 0 none, 0 none, 1 double #212b39 #3a4757, 0 none;
+	bordertype		: normal 0 0;
+	color			: #333333;
+	cursor			: ;
+	font			: 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Static.sta_LF_SearchBg:mouseover
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: #2c3949;
+	border			: 0 none, 0 none, 1 double #212b39 #3a4757, 0 none;
+	bordertype		: normal 0 0;
+	color			: #333333;
+	cursor			: ;
+	font			: 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Static.sta_LF_SearchBg:disabled
+{
+	accessibility		: ;
+	align			: left middle;
+	background		: #2c3949;
+	border			: 0 none, 0 none, 1 double #212b39 #3a4757, 0 none;
+	bordertype		: normal 0 0;
+	color			: #333333;
+	cursor			: ;
+	font			: 9 Gulim;
+	gradation		: ;
+	linespace		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+
+StepControl
+{
+	align			: center middle;
+	background		: tranparent;
+	border			: 0 none;
+	bordertype		: normal;
+	buttonbackground	: @gradation;
+	buttonborder		: 1 solid #868686ff;
+	buttonbordertype	: round 7 7;
+	buttongradation		: linear 0,0 #fdfdfd 0,100 #f0f0f0;
+	buttonimage		: url('Images::Basic/WF_step_N.png');
+	buttonpadding		: 0 5 0 5;
+	buttonsize		: 15;
+	color			: #3f3f3f;
+	cursor			: hand;
+	font			: bold;
+	gradation		: ;
+	opacity			: ;
+	padding			: 5 5 5 5;
+	shadow			: ;
+}
+StepControl:mouseover
+{
+	buttonimage		: url('Images::Basic/WF_step_O.png');
+}
+StepControl:pushed
+{
+	buttonimage		: url('Images::Basic/WF_step_P.png');
+}
+StepControl:disabled
+{
+	opacity 		: 50;
+}
+
+Step
+{
+	align			: center middle;
+	background		: tranparent;
+	border			: 0 none;
+	bordertype		: normal;
+	buttonbackground	: @gradation;
+	buttonborder		: 1 solid #868686ff;
+	buttonbordertype	: round 7 7;
+	buttongradation		: linear 0,0 #fdfdfd 0,100 #f0f0f0;
+	buttonimage		: url('Images::Basic/WF_step_N.png');
+	buttonpadding		: 0 5 0 5;
+	buttonsize		: 15;
+	color			: #3f3f3f;
+	cursor			: hand;
+	font			: bold;
+	gradation		: ;
+	opacity			: ;
+	padding			: 5 5 5 5;
+	shadow			: ;
+}
+Step:mouseover
+{
+	buttonimage		: url('Images::Basic/WF_step_O.png');
+}
+Step:pushed
+{
+	buttonimage		: url('Images::Basic/WF_step_P.png');
+}
+Step:disabled
+{
+	opacity 		: 50;
+}
+
+Tab
+{
+	background		: transparent;
+	border			: 2 solid #1a9dbc, 0 none #d5d5d5, 0 none #d5d5d5, 0 none #d5d5d5;
+	bordertype		: normal 0 0;
+	buttonbackground	: #ffffff;
+	buttonborder		: 1 solid #7f8c9a;
+	buttonbordertype	: round 5 5  lefttop righttop;
+	buttongradation		: ;
+	buttonpadding		: 6 15 6 15;
+	buttonmargin 		: 0 2 2 0 ;
+	color			: #777777;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	shadow			: ;
+	showextrabutton		: true;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+Tab:mouseover
+{
+	color			: #1a9dbc;
+	buttonborder		: 1 solid #7f8c9a;
+}
+Tab:selected
+{
+	color			: #1a9dbc;
+	buttonbackground	: #ffffff;
+	buttonborder 		: 2 solid #1a9dbc;
+	buttonmargin 		: 0 3 2 1 ;
+}
+Tab:disabled
+{
+	color			: #889caa ;
+	buttonborder		: 1 solid #b1c0cb ;
+	buttonbackground	: #dfe4e8 ;
+}
+Tabpage
+{
+	background		: #ffffffff 
+	cursor			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+Tab>#spinupbutton
+{
+	border			: 0 none #808080;
+	bordertype		: normal;
+	background		: url('Images::Basic/tab_spinup_N.png') center middle;
+}
+Tab>#spinupbutton:mouseover
+{
+	background		: url('Images::Basic/tab_spinup_S.png') center middle;
+}
+Tab>#spinupbutton:disabled
+{
+	background		: url('Images::Basic/tab_spinup_D.png') center middle;
+}
+Tab>#spindownbutton
+{
+	border			: 0 none #808080;
+	bordertype		: normal;
+	background		: url('Images::Basic/tab_spindn_N.png') center middle;
+}
+Tab>#spindownbutton:mouseover
+{
+	background		: url('Images::Basic/tab_spindn_S.png') center middle;
+}
+
+Tab>#spindownbutton:disabled
+{
+	background		: url('Images::Basic/tab_spindn_D.png') center middle;
+}
+Tab>#extrabutton
+{
+	background		: transparent;
+	image			: url('Images::Basic/tab_extra.png');
+	imagealign		: center middle;
+	padding			: 2 0 0 0;
+}
+Tab.tab_left
+{
+	border			: 0 none #d5d5d5, 0 none #d5d5d5, 0 none #d5d5d5, 2 solid #1a9dbc;
+	buttonbordertype	: round 5 5 lefttop leftbottom;
+	buttonpadding		: 6 15 8 15;
+}
+Tab.tab_left:mouseover
+{
+	border			: 0 none #d5d5d5, 0 none #d5d5d5, 0 none #d5d5d5, 2 solid #1a9dbc;
+	buttonbordertype	: round 5 5 lefttop leftbottom;
+	buttonpadding		: 6 15 8 15;
+	color 			: #1a9dbc;
+}
+
+Tab.tab_left:selected
+{
+	border			: 0 none #d5d5d5, 0 none #d5d5d5, 0 none #d5d5d5, 2 solid #1a9dbc;
+	buttonbordertype	: round 5 5 lefttop leftbottom;
+	color			: #ffffff;
+	buttonbackground	: #1a9dbc;
+	buttonborder 		: 0 none #ffffff00;
+}
+
+Tab.tab_right
+{
+	border			: 0 none #d5d5d5, 2 solid #1a9dbc, 0 none #d5d5d5, 0 none #d5d5d5;
+	buttonbordertype	: round 5 5 righttop rightbottom;
+	buttonpadding		: 6 15 8 15;
+}
+Tab.tab_right:mouseover
+{
+	border			: 0 none #d5d5d5, 2 solid #1a9dbc, 0 none #d5d5d5, 0 none #d5d5d5;
+	buttonbordertype	: round 5 5 righttop rightbottom;
+	buttonpadding		: 6 15 8 15;
+	color 			: #1a9dbc;
+}
+
+Tab.tab_right:selected
+{
+	border			: 0 none #d5d5d5, 2 solid #1a9dbc, 0 none #d5d5d5, 0 none #d5d5d5;
+	buttonbordertype	: round 5 5 righttop rightbottom;
+	buttonpadding		: 6 15 8 15;
+	color			: #ffffff;
+	buttonbackground	: #1a9dbc;
+	buttonborder 		: 0 none #ffffff00;
+}
+Tab.tab_bottom
+{
+	border			: 0 none #d5d5d5, 0 none #d5d5d5, 2 solid #1a9dbc, 0 none #d5d5d5;
+	buttonbordertype	: round 5 5 leftbottom rightbottom;
+	buttonpadding		: 6 15 8 15;
+}
+Tab.tab_bottom:mouseover
+{
+	border			: 0 none #d5d5d5, 0 none #d5d5d5, 2 solid #1a9dbc, 0 none #d5d5d5;
+	buttonbordertype	: round 5 5 leftbottom rightbottom;
+	buttonpadding		: 6 15 8 15;
+	color 			: #1a9dbc;
+}
+
+Tab.tab_bottom:selected
+{
+	border			: 0 none #d5d5d5, 0 none #d5d5d5, 2 solid #1a9dbc, 0 none #d5d5d5;
+	buttonbordertype	: round 5 5 leftbottom rightbottom;
+	buttonpadding		: 6 15 8 15;
+	color			: #ffffff;
+	buttonbackground	: #1a9dbc;
+	buttonborder 		: 0 none #ffffff00;
+}
+
+TextArea
+{
+	align			: left top;
+	background		: #ffffff;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	linespace		: 3;
+	opacity			: ;
+	shadow			: ;
+	padding			: 7 0 0 7;
+}
+TextArea:mouseover,TextArea:pushed,TextArea:focused
+{ 	
+	background		: ;
+	border			: 1 solid #1a9dbc;
+	bordertype		: round 5 5;
+}
+TextArea:disabled
+{	
+	background		: #ffffff;
+}
+
+Tooltip
+{
+	background		: #bcd71e;
+	border			: 0 none #a67756;
+	bordertype		: normal 0 0;
+	font			: ;
+	color			: #ffffff;
+	align			: left middle;
+	padding			: 2 5 2 5;
+}
+
+
+/***** BASIC COMPONENT END *****/
+
+/***** 필수입력 Class - input_point - Start*****/
+.input_must, .input_must:focused, .input_must:mouseover, .input_must:pushed
+{
+	background		: #ffffff;
+	border			: 2 solid #f79a00;
+	shadow			: drop 0,0 0 #00000024;
+}
+
+CheckBox.input_must,CheckBox.input_must:mouseover,CheckBox.input_must:pushed,CheckBox.input_must:focused
+{
+	background		: transparent;
+	border			: 0 none;
+	buttonborder		: 0 none;
+	buttonbackground	: #f79a00;
+}
+
+Radio.input_must,Radio.input_must:mouseover,Radio.input_must:pushed,Radio.input_must:focused
+{
+	background		: transparent;
+	border			: 0 none;
+	buttonborder		: 2 solid #f79a00;
+	buttonimage		: Images::Basic/rdo_ico_O.png;
+}
+
+/***** 필수입력 Class - input_point - End*****/
+
+/**** READONLY (Attribute Selector) ****/
+Edit:readonly
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	padding			: 0 6 0 6;
+	color			: 2c3e50;
+}
+
+TextArea:readonly
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	padding			: 6 6 6 6;
+	color			: 2c3e50;
+}
+
+MaskEdit:readonly
+{
+	background		: transparent;
+	border			: 0 none #808080;
+	padding			: 0 6 0 6;
+	color			: 2c3e50;
+}
+
+Spin:readonly
+{
+	background		: #ffffff;
+	border			: 0 none #808080;
+	buttonsize		: -3;
+	itembackground		: red;
+	color			: 2c3e50;
+}
+
+Combo:readonly
+{
+	background		: #ffffff;
+	border			: 0 none #808080;
+	buttonsize		: -3;
+	color			: 2c3e50;
+}
+
+Calendar:readonly
+{
+	background		: #ffffff;
+	border			: 0 none #808080;
+	buttonsize		: -3;
+	color			: 2c3e50;
+}
+
+Button.BF_btn_Home, Button.BF_btn_Home:focused
+{
+	background		: transparent url('Images::Class/BF_btn_Home_N.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.BF_btn_Home:mouseover, Button.BF_btn_Home:pushed
+{
+	background		: transparent url('Images::Class/BF_btn_Home_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Static.BF_sta_NaviBG
+{
+	align			: left middle;
+	background 		: #c5cad1ff URL('Images::Class/BF_sta_NaviBG.png') repeat-x left bottom;
+	border			: 3 solid #262c34, 0 none #c5cad1, 0 none #c5cad1, 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: ;
+	font			: ;
+}
+Button.LF_btn_Menulist, Button.LF_btn_Menulist:focused
+{
+	background		: transparent url('Images::Class/LF_btn_List.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.LF_btn_Menulist:mouseover, Button.LF_btn_Menulist:pushed
+{
+	background		: transparent url('Images::Class/LF_btn_List_O.png') center middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.navi01_btn_MenuH, Button.navi01_btn_MenuH:focused
+{
+	align			: left middle;
+	background		: transparent;
+	font			: antialias bold 13 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffff80;
+	border			: 0 none;
+	padding			: 0 15 0 15;
+	image			: url('Images::Class/Navi_btn_MenuArrow.png');
+	imagealign		: right middle;
+}
+
+Button.navi01_btn_MenuH:mouseover
+{
+	background		: transparent;
+	image			: url('Images::Class/Navi_btn_MenuArrow_O.png');
+	color			: #ffffffff;
+	border			: 0 none;
+}
+
+Button.navi01_btn_MenuH:pushed
+{
+	background		: transparent;
+	image			: url('Images::Class/Navi_btn_MenuArrow_O.png');
+	color			: #ffffffff;
+	border			: 0 none;
+}
+
+Button.navi01_btn_MenuH:disabled
+{
+	background		: transparent;
+	image			: url('Images::Class/Navi_btn_MenuArrow.png');
+	color			: #ffffffa6;
+	border			: 0 none;
+}
+Button.navi01_btn_MenuH_S, Button.navi01_btn_MenuH_S:focused
+{
+	align			: left middle;
+	background		: transparent;
+	font			: antialias bold 13 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffffff;
+	border			: 0 none;
+	padding			: 0 15 0 15;
+	image			: url('Images::Class/Navi_btn_MenuArrow_O.png');
+	imagealign		: right middle;
+}
+
+Button.navi01_btn_MenuH_S:mouseover
+{
+	background		: transparent;
+	image			: url('Images::Class/Navi_btn_MenuArrow_O.png');
+	color			: #ffffffff;
+	border			: 0 none;
+}
+
+Button.navi01_btn_MenuH_S:pushed
+{
+	background		: transparent;
+	image			: url('Images::Class/Navi_btn_MenuArrow_O.png');
+	color			: #ffffffff;
+	border			: 0 none;
+}
+
+Button.navi01_btn_MenuH_S:disabled
+{
+	background		: transparent;
+	image			: url('Images::Class/Navi_btn_MenuArrow_O.png');
+	color			: #ffffffa6;
+	border			: 0 none;
+}
+Button.navi01_btn_2depth, Button.navi01_btn_2depth:focused
+{
+	align			: left middle;
+	background		: transparent;
+	font			: antialias bold 15 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #306dab;
+	border			: 0 none;
+	padding			: 0 10 0 10;
+}
+
+Button.navi01_btn_2depth:mouseover
+{
+	background		: transparent;
+	color			: #f79a00;
+	border			: 0 none;
+}
+
+Button.navi01_btn_2depth:pushed
+{
+	background		: transparent;
+	color			: #f79a00;
+	border			: 0 none;
+}
+
+Button.navi01_btn_2depth:disabled
+{
+	background		: transparent;
+	color			: #f79a00;
+	border			: 0 none;
+}
+
+Button.navi01_btn_3depth, Button.navi01_btn_3depth:focused
+{
+	align			: left middle;
+	background		: transparent;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #5a6673;
+	border			: 0 none;
+	padding			: 0 5 0 12;	
+}
+
+Button.navi01_btn_3depth:mouseover
+{
+	background		: transparent;
+	image			: url('Images::Class/Navi_btn_SubArrow.png');
+	imagealign		: left middle;
+	imagepadding		: 0 0 0 -12;
+	color			: #f79a00;
+	border			: 0 none;
+}
+
+Button.navi01_btn_3depth:pushed
+{
+	background		: transparent;
+	image			: url('Images::Class/Navi_btn_SubArrow.png');
+	imagealign		: left middle;
+	imagepadding		: 0 0 0 -12;
+	color			: #f79a00;
+	border			: 0 none;
+}
+
+Button.navi01_btn_3depth:disabled
+{
+	background		: transparent;
+	image			: url('Images::Class/Navi_btn_SubArrow.png');
+	imagealign		: left middle;
+	imagepadding		: 0 0 0 -12;
+	color			: #f79a00;
+	border			: 0 none;
+}
+
+Button.btn_TF_Logout
+{
+	accessibility		: ;
+	align			: ;
+	background		: #0077db URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Logout:mouseover
+{
+	accessibility		: ;
+	align			: ;
+	background		: #0096e4 URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Logout:focused
+{
+	accessibility		: ;
+	align			: ;
+	background		: #0096e4 URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Logout:selected
+{
+	accessibility		: ;
+	align			: ;
+	background		: #0096e4 URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Logout:pushed
+{
+	accessibility		: ;
+	align			: ;
+	background		: #005fba URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #bacbd9;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Logout:disabled
+{
+	accessibility		: ;
+	align			: ;
+	background		: #9d9d9d URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #d3d3d3;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Admin
+{
+	accessibility		: ;
+	align			: ;
+	background		: #0068bf URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #bcddf9;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Admin:mouseover
+{
+	accessibility		: ;
+	align			: ;
+	background		: #0083d0 URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #bcddf9;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Admin:focused
+{
+	accessibility		: ;
+	align			: ;
+	background		: #0083d0 URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #bcddf9;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Admin:selected
+{
+	accessibility		: ;
+	align			: ;
+	background		: #0083d0 URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #bcddf9;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Admin:pushed
+{
+	accessibility		: ;
+	align			: ;
+	background		: #0053a2 URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #89b0d4;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_Admin:disabled
+{
+	accessibility		: ;
+	align			: ;
+	background		: #9d9d9d URL('Images::Frame/btn_TF_Logout.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #cfcfcf;
+	cursor			: hand;
+	font			: 8 Tahoma, Dotum;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+
+PopupDiv.navi01_pdiv_MenuH
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 1 solid #45596d,1 solid #45596d,1 solid #45596d,0 none #306dab;
+	bordertype		: normal 0 0;
+	color			: #666666;
+	font			: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	glow			: ;
+	gradation		: ;
+	hideeffect		: ;
+	margin			: ;
+	mouseentereffect	: ;
+	mouseleaveeffect	: ;
+	moveeffect		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: drop 1,1 2 #00000080;
+	showeffect		: ;
+	stepalign		: ;
+	stepshowtype		: ;
+	urlchangeeffect		: ;
+}
+
+Div.MF_div_Attach
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Attach.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Attach:mouseover, Div.MF_div_Attach:pushed, Div.MF_div_Attach:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Attach.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Childbirth
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Childbirth.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Childbirth:mouseover, Div.MF_div_Childbirth:pushed, Div.MF_div_Childbirth:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Childbirth.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_DB
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_DB.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_DB:mouseover, Div.MF_div_DB:pushed, Div.MF_div_DB:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_DB.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Diary
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Diary.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Diary:mouseover, Div.MF_div_Diary:pushed, Div.MF_div_Diary:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Diary.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Exequies
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Exequies.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Exequies:mouseover, Div.MF_div_Exequies:pushed, Div.MF_div_Exequies:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Exequies.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Global
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Global.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Global:mouseover, Div.MF_div_Global:pushed, Div.MF_div_Global:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Global.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Lab
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Lab.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Lab:mouseover, Div.MF_div_Lab:pushed, Div.MF_div_Lab:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Lab.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Marriage
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Marriage.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Marriage:mouseover, Div.MF_div_Marriage:pushed, Div.MF_div_Marriage:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Marriage.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_News
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_News.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_News:mouseover, Div.MF_div_News:pushed, Div.MF_div_News:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_News.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Normal
+{
+	align			: left top;
+	background		: #ffffff;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Normal:mouseover, Div.MF_div_Normal:pushed
+{
+	align			: left top;
+	background		: #ffffff;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Photo
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Photo.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Photo:mouseover, Div.MF_div_Photo:pushed, Div.MF_div_Photo:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Photo.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Praise
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Praise.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Praise:mouseover, Div.MF_div_Praise:pushed, Div.MF_div_Praise:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Praise.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Sharing
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Sharing.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Sharing:mouseover, Div.MF_div_Sharing:pushed, Div.MF_div_Sharing:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Sharing.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Talk
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Talk.png') right bottom;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	padding			: 10 0 0 10;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;	
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Talk:mouseover, Div.MF_div_Talk:pushed, Div.MF_div_Talk:focused
+{
+	align			: left top;
+	background		: #ffffff url('Images::Class/MF_ico_Talk.png') right bottom;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 10 0 0 10;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.MF_div_Red
+{
+	align			: center top;
+	background		: #d7b389;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #de391c;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Div.MF_div_Orange
+{
+	align			: center top;
+	background		: #e4881f;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #ffffff;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Div.MF_div_Yellow
+{
+	align			: center top;
+	background		: #e4d71f;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #ffffff;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Div.MF_div_Grassgreen
+{
+	align			: center top;
+	background		: #bce58a;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #208601;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Div.MF_div_Green
+{
+	align			: center top;
+	background		: #bcd71e;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #ffffff;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Div.MF_div_Skyblue
+{
+	align			: center top;
+	background		: #1abd9c;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #ffffff;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Div.MF_div_Blue
+{
+	align			: center top;
+	background		: #1a70bd;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #ffffff;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Div.MF_div_Navy
+{
+	align			: center top;
+	background		: #1a1ebd;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #ffffff;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Div.MF_div_Purple
+{
+	align			: center top;
+	background		: #6b1abd;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #ffffff;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Div.MF_div_Gray
+{
+	align			: center top;
+	background		: #9ea4ad;
+	border			: 0 none;
+	padding			: 10 0 0 10;
+	color			: #ffffff;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Static.MF_sta_GaugesN
+{
+	align			: left middle;
+	background		: #eeeff1;
+	border			: 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: ;
+	font			: ;
+}
+
+Static.MF_sta_GaugesN:mouseover
+{
+	align			: left middle;
+	background		: #9ea4ad;
+	border			: 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: ;
+	font			: ;
+}
+
+Static.MF_sta_GaugesA
+{
+	align			: left middle;
+	background		: #9ea4ad;
+	border			: 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: ;
+	font			: ;
+}
+
+Static.MF_sta_GaugesS
+{
+	align			: left middle;
+	background		: #73d7c2;
+	border			: 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: ;
+	font			: ;
+}
+
+Static.MF_sta_LineS
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 2 solid #73d7c2;
+	bordertype		: normal 0 0;
+	color			: ;
+	font			: ;
+}
+
+Button.POP_btn_CloseM, Button.POP_btn_CloseM:focused
+{
+	background		: transparent url('Images::Class/POP_btn_Close.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: ;
+	margin			: ;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.POP_btn_CloseM:mouseover, Button.POP_btn_CloseM:pushed
+{
+	background		: transparent url('Images::Class/POP_btn_Close_O.png') center middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.POP_btn_CloseS, Button.POP_btn_CloseS:focused
+{
+	background		: transparent url('Images::Class/POP_btn_Close_N.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: ;
+	margin			: ;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.POP_btn_CloseS:mouseover, Button.POP_btn_CloseS:pushed
+{
+	background		: transparent url('Images::Class/POP_btn_Close_O.png') center middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.POP_btn_Attach, Button.POP_btn_Attach:focused
+{
+	background		: transparent url('Images::Class/POP_btn_Attach.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: ;
+	margin			: ;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.POP_btn_Attach:mouseover, Button.POP_btn_Attach:pushed
+{
+	background		: transparent url('Images::Class/POP_btn_Attach_O.png') center middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.POP_btn_List, Button.POP_btn_List:focused
+{
+	background		: transparent url('Images::Class/POP_btn_List.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: ;
+	margin			: ;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.POP_btn_List:mouseover, Button.POP_btn_List:pushed
+{
+	background		: transparent url('Images::Class/POP_btn_List_O.png') center middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.POP_btn_Message, Button.POP_btn_Message:focused
+{
+	background		: transparent url('Images::Class/POP_btn_Message.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: ;
+	margin			: ;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.POP_btn_Message:mouseover, Button.POP_btn_Message:pushed
+{
+	background		: transparent url('Images::Class/POP_btn_Message_O.png') center middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.POP_btn_Print, Button.POP_btn_Print:focused
+{
+	background		: transparent url('Images::Class/POP_btn_Print.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: ;
+	margin			: ;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.POP_btn_Print:mouseover, Button.POP_btn_Print:pushed
+{
+	background		: transparent url('Images::Class/POP_btn_Print_O.png') center middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.POP_btn_Setting, Button.POP_btn_Setting:focused
+{
+	background		: transparent url('Images::Class/POP_btn_Setting.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: ;
+	margin			: ;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.POP_btn_Setting:mouseover, Button.POP_btn_Setting:pushed
+{
+	background		: transparent url('Images::Class/POP_btn_Print_O.png') center middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.POP_btn_Search, Button.POP_btn_Search:focused
+{
+	background		: transparent url('Images::Class/POP_btn_Search.png') center middle;
+	border			: 2 solid #1a9dbc;
+	bordertype		: round 3 3;		
+	font			: ;
+	color			: #ffffff;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: ;
+	margin			: ;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.POP_btn_Search:mouseover, Button.POP_btn_Search:pushed
+{
+	background		: #1a9dbc url('Images::Class/POP_btn_Search_O.png') center middle;
+	border			: 0 none #1a9dbc;
+	bordertype		: round 3 3;
+	image			: ;
+	color			: #e4881f;
+}
+
+Div.POP_div_Popup
+{
+	align			: left top;
+	background		: #ffffff;
+	border			: 2 solid #2c3e50;
+	bordertype		: round 5 5;
+	padding			: 0 0 0 0;
+	color			: #ffffff;
+	font			: antialias bold 10 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+}
+
+Form.POP_form_PopupM
+{
+	align			: ;
+	background		: #ffffff url('Images::Class/pop_div_BG.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: #45596d;
+	cursor			: ;
+	font			: antialias bold 10 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+Form.POP_form_PopupS
+{
+	align			: ;
+	background		: #ffffff url('Images::Class/pop_div_Line.png') repeat-x;
+	border			: 0 none;
+	bordertype		: normal;
+	color			: #45596d;
+	cursor			: ;
+	font			: antialias bold 10 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Static.POP_sta_MessageM
+{
+	align			: left middle;
+	background 		: transparent url('Images::Class/POP_sta_MessageM.png') left middle;
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	gradation		: linear 0,0 #f70101 0,100 #a9090d;
+	color			: #ffffff;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	shadow 			: ;
+	padding 		: 0 0 0 20 ;
+}
+
+Static.POP_sta_MessageS
+{
+	align			: left middle;
+	background 		: transparent url('Images::Class/POP_sta_MessageS.png') left middle;
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	gradation		: linear 0,0 #f70101 0,100 #a9090d;
+	color			: #2c3e50;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	shadow 			: ;
+	padding 		: 0 0 0 20 ;
+}
+
+Static.POP_sta_MessengerM
+{
+	align			: left middle;
+	background 		: transparent url('Images::Class/POP_sta_MessengerM.png') left middle;
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	gradation		: linear 0,0 #f70101 0,100 #a9090d;
+	color			: #ffffff;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	shadow 			: ;
+	padding 		: 0 0 0 20 ;
+}
+
+Static.POP_sta_MessengerS
+{
+	align			: left middle;
+	background 		: transparent url('Images::Class/POP_sta_MessengerS.png') left middle;
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	gradation		: linear 0,0 #f70101 0,100 #a9090d;
+	color			: #2c3e50;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	shadow 			: ;
+	padding 		: 0 0 0 20 ;
+}
+
+Static.POP_sta_MessengerReceive
+{
+	align			: left top;
+	background 		: transparent url('Images::Class/POP_sta_MessengerReceive.png') stretch 20,10;
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	gradation		: linear 0,0 #f70101 0,100 #a9090d;
+	color			: #2c3e50;
+	font			: ;
+	shadow 			: ;
+	padding 		: 5 0 0 5 ;
+}
+
+Static.POP_sta_MessengerSend
+{
+	align			: left top;
+	background 		: transparent url('Images::Class/POP_sta_MessengerSend.png') stretch 20,10;
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	gradation		: linear 0,0 #f70101 0,100 #a9090d;
+	color			: #ffffff;
+	font			: ;
+	shadow 			: ;
+	padding 		: 5 0 0 5 ;
+}
+
+Static.POP_sta_ContactsM
+{
+	align			: left middle;
+	background 		: transparent url('Images::Class/POP_sta_ContactsM.png') left middle;
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	gradation		: linear 0,0 #f70101 0,100 #a9090d;
+	color			: #ffffff;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	shadow 			: ;
+	padding 		: 0 0 0 20 ;
+}
+
+Static.POP_sta_MailM
+{
+	align			: left middle;
+	background 		: transparent url('Images::Class/POP_sta_MailM.png') left middle;
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	gradation		: linear 0,0 #f70101 0,100 #a9090d;
+	color			: #ffffff;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	shadow 			: ;
+	padding 		: 0 0 0 20 ;
+}
+
+Button.QF_btn_Approval, Button.QF_btn_Approval:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Approval.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.QF_btn_Approval:mouseover, Button.QF_btn_Approval:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Approval_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.QF_btn_Archives, Button.QF_btn_Archives:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Archives.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.QF_btn_Archives:mouseover, Button.QF_btn_Archives:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Archives_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.QF_btn_Cloud, Button.QF_btn_Cloud:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Cloud.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.QF_btn_Cloud:mouseover, Button.QF_btn_Cloud:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Cloud_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.QF_btn_Contact, Button.QF_btn_Contact:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Contact.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.QF_btn_Contact:mouseover, Button.QF_btn_Contact:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Contact_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.QF_btn_Knowledge, Button.QF_btn_Knowledge:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Knowledge.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.QF_btn_Knowledge:mouseover, Button.QF_btn_Knowledge:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Knowledge_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.QF_btn_Mail, Button.QF_btn_Mail:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Mail.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+
+Button.QF_btn_Mail:mouseover, Button.QF_btn_Mail:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Mail_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}Button.QF_btn_Message, Button.QF_btn_Message:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Message.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+
+Button.QF_btn_Message:mouseover, Button.QF_btn_Message:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Message_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}Button.QF_btn_Messenger, Button.QF_btn_Messenger:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Messenger.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.QF_btn_Messenger:mouseover, Button.QF_btn_Messenger:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Messenger_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.QF_btn_Represh, Button.QF_btn_Represh:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Represh.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.QF_btn_Represh:mouseover, Button.QF_btn_Represh:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Represh_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.QF_btn_Schedule, Button.QF_btn_Schedule:focused
+{
+	background		: transparent url('Images::Class/quick_btn_Schedule.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.QF_btn_Schedule:mouseover, Button.QF_btn_Schedule:pushed
+{
+	background		: transparent url('Images::Class/quick_btn_Schedule_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.QF_btn_Setting, Button.QF_btn_Setting:focused
+{
+	background		: transparent url('Images::Class/BF_btn_Setting_N.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.QF_btn_Setting:mouseover, Button.QF_btn_Setting:pushed
+{
+	background		: transparent url('Images::Class/BF_btn_Setting_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Static.QF_sta_Push
+{
+	align			: center middle;
+	background 		: @gradation;
+	border			: 3 solid #ec008c;
+	bordertype		: round 20 20;
+	gradation		: linear 0,0 #f70101 0,100 #a9090d;
+	color			: #ffffff;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	shadow 			: outer 0,0 0 #000000ff ;
+}
+
+Button.WF_btn_ArrowL
+{
+	background		: transparent url('Images::Class/WF_btn_ArrowL.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	opacity			: 50;
+	shadow			: ;
+}
+Button.WF_btn_ArrowL:mouseover, Button.WF_btn_ArrowL:pushed, Button.WF_btn_ArrowL:focused
+{
+	background		: transparent url('Images::Class/WF_btn_ArrowL.png') left middle;
+	image			: ;
+	color			: #e4881f;
+	opacity			: 100;
+}
+
+Button.WF_btn_ArrowR
+{
+	background		: transparent url('Images::Class/WF_btn_ArrowR.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	opacity			: 50;
+	shadow			: ;
+}
+Button.WF_btn_ArrowR:mouseover, Button.WF_btn_ArrowR:pushed, Button.WF_btn_ArrowR:focused
+{
+	background		: transparent url('Images::Class/WF_btn_ArrowR.png') left middle;
+	image			: ;
+	color			: #e4881f;
+	opacity			: 100;
+}
+
+Button.WF_btn_BlockArrow
+{
+	background		: transparent url('Images::Class/WF_btn_BlockArrow.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	opacity			: 50;
+	shadow			: ;
+}
+Button.WF_btn_BlockArrow:mouseover, Button.WF_btn_BlockArrow:pushed, Button.WF_btn_BlockArrow:focused
+{
+	background		: transparent url('Images::Class/WF_btn_BlockArrow.png') left middle;
+	image			: ;
+	color			: #e4881f;
+	opacity			: 100;
+}
+Button.WF_btn_Menu, Button.WF_btn_Menu:focused
+{
+	background		: transparent url('Images::Class/WF_btn_MenuArrow_N.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Menu:mouseover, Button.WF_btn_Menu:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_MenuArrow_O.png') left middle;
+	image			: ;
+	color			: #e4881f;
+}
+
+Button.WF_btn_Add, Button.WF_btn_Add:focused
+{
+	background		: transparent url('Images::Class/WF_btn_Add_N.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Add:mouseover, Button.WF_btn_Add:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_Add_O.png') center middle;
+}
+
+Button.WF_btn_Del, Button.WF_btn_Del:focused
+{
+	background		: transparent url('Images::Class/WF_btn_Del_N.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Del:mouseover, Button.WF_btn_Del:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_Del_O.png') center middle;
+}
+
+Button.WF_btn_Down, Button.WF_btn_Down:focused
+{
+	background		: transparent url('Images::Class/WF_btn_Down_N.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Down:mouseover, Button.WF_btn_Down:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_Down_O.png') center middle;
+}
+
+Button.WF_btn_FileDown, Button.WF_btn_FileDown:focused
+{
+	background		: transparent url('Images::Class/WF_btn_FileDown_N.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_FileDown:mouseover, Button.WF_btn_FileDown:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_FileDown_O.png') center middle;
+}
+
+Button.WF_btn_Login, Button.WF_btn_Login:focused
+{
+	background		: #45596d;
+	border			: 0 none #dddddd;
+	bordertype		: round 10 10;		
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffff;
+	align			: center middle;
+	image			: ;
+	padding			: 0 0 0 0;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Login:mouseover, Button.WF_btn_Login:pushed
+{
+	background		: #1a9dbc;
+}
+
+Button.WF_btn_Print, Button.WF_btn_Print:focused
+{
+	background		: transparent url('Images::Class/WF_btn_Print_N.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Print:mouseover, Button.WF_btn_Print:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_Print_O.png') center middle;
+}
+
+Button.WF_btn_Refresh, Button.WF_btn_Refresh:focused
+{
+	background		: transparent url('Images::Class/WF_btn_Reset.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 32;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Refresh:mouseover, Button.WF_btn_Refresh:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_Reset.png') left middle;
+}
+
+Button.WF_btn_Search, Button.WF_btn_Search:mouseover, Button.WF_btn_Search:focused, Button.WF_btn_Search:pushed
+{
+	background		: #45596d url('Images::Class/WF_btn_Search.png') left middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Search:mouseover, Button.WF_btn_Search:pushed
+{
+	background		: #45596d url('Images::Class/WF_btn_Search_O.png') left middle;
+}
+
+Button.WF_btn_Share, Button.WF_btn_Share:mouseover, Button.WF_btn_Share:focused, Button.WF_btn_Share:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_Share_N.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Share:mouseover, Button.WF_btn_Share:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_Share_O.png') center middle;
+}
+
+Button.WF_btn_Up, Button.WF_btn_Up:focused
+{
+	background		: transparent url('Images::Class/WF_btn_Up_N.png') center middle;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #929ba4;
+	align			: left middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 16;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_Up:mouseover, Button.WF_btn_Up:pushed
+{
+	background		: transparent url('Images::Class/WF_btn_Up_N.png') center middle;
+}
+
+Button.WF_btn_TabOn, Button.WF_btn_TabOn:focused
+{
+	background		: #ffffff url('Images::Class/WF_btn_bullet.png') right middle;
+	border			: 1 solid #ffffff;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #1a9dbc;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 0;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_TabOn:mouseover, Button.WF_btn_TabOn:pushed
+{
+	background		: #ffffff url('Images::Class/WF_btn_bullet.png') right middle;
+	image			: ;
+	color			: #1a9dbc;
+}
+
+Button.WF_btn_TabOff, Button.WF_btn_TabOff:focused
+{
+	background		: #ffffff3f;
+	border			: 1 solid #ffffff3f;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #ffffff;
+	align			: center middle;
+	image			: ;
+	focusborder		: 0 none #808080;
+	padding			: 0 0 0 0;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WF_btn_TabOff:mouseover, Button.WF_btn_TabOff:pushed
+{
+	background		: #ffffff3f url('Images::Class/WF_btn_bullet.png') right middle;
+	border			: 1 solid #ffffff;
+	image			: ;
+	color			: #ffffff;
+}
+
+/* Button */
+Button.btn_TF_LeftMenuOpen
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Open_N.png') left top;
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuOpen:mouseover
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Open_O.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuOpen:focused
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Open_O.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuOpen:selected
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Open_O.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuOpen:pushed
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Open_P.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuOpen:disabled
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Open_D.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+
+Button.btn_TF_LeftMenuClose
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Close_N.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuClose:mouseover
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Close_O.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuClose:focused
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Close_O.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuClose:selected
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Close_O.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuClose:pushed
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Close_P.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+Button.btn_TF_LeftMenuClose:disabled
+{
+	accessibility		: ;
+	align			: ;
+	background		: URL('Images::Frame/btn_TF_Close_D.png');
+	border			: 0 none;
+	bordertype		: normal 0 0;
+	color			: #555555;
+	cursor			: hand;
+	font			: 9 Gulim;
+	gradation		: ;
+	image			: ;
+	imagealign		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+}
+
+Div.WF_div_Block
+{
+	align			: center middle;
+	background		: #c5cad1;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #444444;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.WF_div_Block:mouseover, Div.WF_div_Block:pushed
+{
+	align			: center middle;
+	background		: #1a9dbc;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #444444;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.WF_div_Box
+{
+	align			: center middle;
+	background		: #ffffff ;
+	border			: 3 solid #45596d, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #34495e;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.WF_div_Box:mouseover, Div.WF_div_Box:pushed, Div.WF_div_Box:focused
+{
+	align			: center middle;
+	background		: #ffffff;
+	border			: 3 solid #ec008c, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #444444;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.WF_div_Left
+{
+	align			: center middle;
+	background		: #45596d;
+	border			: 0 none;
+	bordertype		: ;
+	color			: #444444;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Div.WF_div_Quick
+{
+	align			: center middle;
+	background		: #45596d;
+	border			: 3 solid #2c3e50, 0 none, 0 none, 0 none;
+	bordertype		: ;
+	color			: #444444;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	stepalign		: ;
+	stepshowtype		: ;
+}
+
+Edit.WF_edt_Login
+{
+	align			: left middle;
+	background		: #45596d;
+	blur			: ;
+	border			: 2 solid #45596d;
+	bordertype		: round 10 10;
+	color			: #ffffff;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 3 0 3;
+	shadow			: ;
+}
+Edit.WF_edt_Login:mouseover, Edit.WF_edt_Login:pushed, Edit.WF_edt_Login:focused
+{
+	background		: #45596d;
+	border			: 2 solid #1a9dbc;
+}
+Edit.WF_edt_Login:disabled
+{
+	background		: #45596d;
+	color			: #999999;
+}
+
+Edit.WF_edt_Search, Edit.WF_edt_Search:mouseover, Edit.WF_edt_Search:pushed, Edit.WF_edt_Search:focused
+{
+	align			: left middle;
+	background		: transparent;
+	blur			: ;
+	border			: 4 solid #ffffff;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 5 0 5;
+	shadow			: ;
+}
+
+
+
+Grid.WF_grd_Sub
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 1 solid #45596d, 0 none #9f8f71, 1 solid #7f8c9a, 0 none #9f8f71;
+	bordertype		: normal 0 0;
+	color			: #5a6673;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	line			: ;
+	linetype		: ;
+	opacity			: ;
+	selectline		: ;
+	selectlinetype		: ;
+	shadow			: ;
+	treeclosebuttonimage	: Images::Basic/ico_treeclose.png;
+	treecollapseimage	: Images::Basic/ico_treecollapse.png;
+	treeexpandimage		: Images::Basic/ico_treeexpand.png;
+	treeitemimage		: Images::Basic/ico_treeitem.png;
+	treeitemmargin		: ;
+	treelinetype		: 1 dotted #a5b6b6;
+	treeopenbuttonimage	: Images::Basic/ico_treeopen.png;
+}
+Grid.WF_grd_Sub>#head
+{
+	background		: transparent;
+	border			: 0 none #bbbbbb;
+	bordertype		: ;
+	cellalign		: ;
+	cellbackground		: /***transparent url:(Images::basic/grd_header_line.png) right middle***/;
+	cellbackground2		: ;
+	cellcolor		: #2c3e50;
+	cellcolor2		: ;
+	cellfont		: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 1 solid #7f8c9a;
+	celllinetype		: exhorz ;
+	cellpadding		: 0 1 0 1;
+	gradation		: linear 0,0 #f9f9f8 0,100 #dadad3;
+	selectbackground	: ;
+	selectborder		: ;
+	selectcolor		: ;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: ;
+	selectlinetype		: ;
+}
+
+Grid.WF_grd_calender
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 0 none #9f8f71;
+	bordertype		: normal 0 0;
+	color			: #45596d;
+	cursor			: ;
+	font			: antialias bold 8 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	line			: ;
+	linetype		: ;
+	opacity			: ;
+	selectline		: ;
+	selectlinetype		: ;
+	shadow			: ;
+}
+Grid.WF_grd_calender>#head
+{
+	background		: transparent;
+	border			: 0 none #bbbbbb;
+	bordertype		: ;
+	cellalign		: center middle;
+	cellbackground		: #eeeff1;
+	cellbackground2		: #eeeff1;
+	cellcolor		: #45596d;
+	cellcolor2		: ;
+	cellfont		: ;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 1 solid #ffffff;
+	celllinetype		: exvert;
+	cellpadding		: ;
+	gradation		: linear 0,0 #f9f9f8 0,100 #dadad3;
+	selectbackground	: ;
+	selectborder		: ;
+	selectcolor		: ;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: ;
+	selectlinetype		: ;
+}
+Grid.WF_grd_calender>#body
+{
+	background		: #ffffff;
+	border			: 0 none #e5e5e5;
+	bordertype		: ;
+	cellalign		: right bottom;
+	cellbackground		: transparent;
+	cellbackground2		: transparent;
+	cellcolor		: #45596d;
+	cellcolor2		: #45596d;
+	cellfont		: ;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 0 none #9ea4ad;
+	celllinetype		: onlyhorz;
+	cellpadding		: 0 3 0 3;
+	gradation		: ;
+	selectbackground	: transparent;
+	selectborder		: ;
+	selectcolor		: #45596d;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: 0 none #9ea4ad;
+	selectlinetype		: ;
+}
+Grid.WF_grd_calender>#body:mouseover
+{
+	border			: 0 none #9ea4ad;
+	cellbackground		: #b8c6d3;
+	cellbackground2		: #b8c6d3;
+	cellcolor		: #45596d;
+	cellline		: 0 none #9ea4ad;
+	selectbackground	: #aed8e9;
+	selectcolor		: #ffffff;
+}
+
+Grid.WF_grd_lineless
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 0 none #9f8f71;
+	bordertype		: normal 0 0;
+	color			: #45596d;
+	cursor			: ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	line			: ;
+	linetype		: ;
+	opacity			: ;
+	selectline		: ;
+	selectlinetype		: ;
+	shadow			: ;
+}
+Grid.WF_grd_lineless>#head
+{
+	background		: transparent;
+	border			: 0 none #bbbbbb;
+	bordertype		: ;
+	cellalign		: center middle;
+	cellbackground		: transparent;
+	cellbackground2		: ;
+	cellcolor		: #45596d;
+	cellcolor2		: #45596d;
+	cellfont		: ;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 0 none #9ea4ad;
+	celllinetype		: exvert;
+	cellpadding		: 0 3 0 3;
+	gradation		: linear 0,0 #f9f9f8 0,100 #dadad3;
+	selectbackground	: ;
+	selectborder		: ;
+	selectcolor		: ;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: ;
+	selectlinetype		: ;
+}
+
+Grid.WF_grd_lineless>#body
+{
+	background		: transparent;
+	border			: 0 none #e5e5e5;
+	bordertype		: ;
+	cellalign		: left middle;
+	cellbackground		: transparent;
+	cellbackground2		: transparent;
+	cellcolor		: #45596d;
+	cellcolor2		: #45596d;
+	cellfont		: ;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 1 solid #ffffff;
+	celllinetype		: onlyhorz;
+	cellpadding		: 0 3 0 3;
+	gradation		: ;
+	selectbackground	: transparent;
+	selectborder		: ;
+	selectcolor		: #1a9dbc;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: 1 solid #ffffff;
+	selectlinetype		: ;
+}
+Grid.WF_grd_lineless>#body:mouseover
+{
+	border			: 0 none #9ea4ad;
+	cellbackground		: transparent;
+	cellbackground2		: transparent;
+	cellcolor		: #1a9dbc;
+	cellcolor2		: #1a9dbc;
+	selectbackground	: transparent;
+	selectcolor		: #1a9dbc;
+	selectline		: 1 solid #ffffff;
+}
+
+Grid.WF_grd_CellBG
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 0 none #9f8f71;
+	bordertype		: normal 0 0;
+	color			: #45596d;
+	cursor			: ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	line			: ;
+	linetype		: ;
+	opacity			: ;
+	selectline		: ;
+	selectlinetype		: ;
+	shadow			: ;
+}
+Grid.WF_grd_CellBG>#head
+{
+	background		: transparent;
+	border			: 0 none #bbbbbb;
+	bordertype		: ;
+	cellalign		: center middle;
+	cellbackground		: #eeeff1;
+	cellbackground2		: #eeeff1;
+	cellcolor		: #45596d;
+	cellcolor2		: #45596d;
+	cellfont		: ;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 0 none #9ea4ad;
+	celllinetype		: exvert;
+	cellpadding		: 0 3 0 3;
+	gradation		: linear 0,0 #f9f9f8 0,100 #dadad3;
+	selectbackground	: ;
+	selectborder		: ;
+	selectcolor		: ;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: ;
+	selectlinetype		: ;
+}
+
+Grid.WF_grd_CellBG>#body
+{
+	background		: transparent;
+	border			: 0 none #e5e5e5;
+	bordertype		: ;
+	cellalign		: left middle;
+	cellbackground		: #eeeff1;
+	cellbackground2		: #eeeff1;
+	cellcolor		: #45596d;
+	cellcolor2		: #45596d;
+	cellfont		: ;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 1 solid #ffffff;
+	celllinetype		: onlyhorz;
+	cellpadding		: 0 3 0 3;
+	gradation		: ;
+	selectbackground	: #eeeff1;
+	selectborder		: ;
+	selectcolor		: #1a9dbc;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: 1 solid #ffffff;
+	selectlinetype		: ;
+}
+Grid.WF_grd_CellBG>#body:mouseover
+{
+	border			: 0 none #9ea4ad;
+	cellbackground		: #eeeff1;
+	cellbackground2		: #eeeff1;
+	cellcolor		: #1a9dbc;
+	cellcolor2		: #1a9dbc;
+	selectbackground	: #eeeff1;
+	selectcolor		: #1a9dbc;
+	selectline		: 1 solid #ffffff;
+}
+
+Grid.WF_grd_Status
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 0 none #9f8f71;
+	bordertype		: normal 0 0;
+	color			: #333333;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	line			: ;
+	linetype		: ;
+	opacity			: ;
+	selectline		: ;
+	selectlinetype		: ;
+	shadow			: ;
+}
+
+Grid.WF_grd_Status>#head
+{
+	background		: transparent;
+	border			: 0 none #bbbbbb;
+	bordertype		: ;
+	cellalign		: center middle;
+	cellbackground		: #d9dbe0;
+	cellbackground2		: ;
+	cellcolor		: #ffffff;
+	cellcolor2		: ;
+	cellfont		: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 0 none, 3 solid #ffffff00,0 none , 0 none;
+	celllinetype 		: onlyvert ;
+	cellpadding		: ;
+	gradation		: linear 0,0 #f9f9f8 0,100 #dadad3;
+	selectbackground	: ;
+	selectborder		: ;
+	selectcolor		: ;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: ;
+	selectlinetype		: onlyvert;
+}
+Grid.WF_grd_Status>#body
+{
+	background		: transparent;
+	border			: 0 none #e5e5e5;
+	bordertype		: ;
+	cellalign		: center middle;
+	cellbackground		: #eff0f2;
+	cellbackground2		: #eff0f2;
+	cellcolor		: #929ba4;
+	cellcolor2		: #929ba4;
+	cellfont		: antialias bold 16 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	cellgradation		: ;
+	cellgradation2		: ;
+	cellline		: 0 none, 3 solid #ffffff00,0 none , 0 none;	
+	celllinespace 		: 5 ;
+	celllinetype		: onlyvert;
+	cellpadding		: 0 0 0 0;
+	gradation		: ;
+	selectbackground	: #eff0f2;
+	selectborder		: ;
+	selectcolor		: #1a9dbc;
+	selectfont		: ;
+	selectgradation		: ;
+	selectline		: 3 solid #ffffff00;
+	selectlinetype		: onlyvert;
+}
+Grid.WF_grd_Status>#body:mouseover
+{
+	border			: 0 none #e5e5e5;
+	cellbackground		: #eff0f2;
+	cellbackground2		: #eff0f2;
+	cellcolor		: #1a9dbc;
+	cellcolor2		: #1a9dbc;
+	selectbackground	: ;
+	selectcolor		: #1a9dbc;
+	selectlinetype		: onlyvert;
+}
+ListBox.WF_lst_Selet
+{
+	align			: left middle;
+	background		: #eff0f2;
+	border			: 0 none #ffffff;
+	bordertype		: normal 0 0;
+	color			: ;
+	cursor			: ;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	itembackground		: #eff0f2;
+	itemborder		: 0 none #ffffff;
+	itembordertype		: ;
+	itemgradation		: ;
+	itemheight		: 26;
+	itempadding		: 0 2 0 6;
+	opacity			: ;
+	shadow			: ;
+}
+ListBox.WF_lst_Selet:mouseover
+{
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	itembackground		: #7f8c9a url('Images::Class/WF_btn_bulletW.png') right middle;
+	itemborder		: 0 none #ffffff;
+}
+ListBox.WF_lst_Selet:selected
+{
+	border			: 0 none #1a9dbc;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	itembackground		: #1a9dbc url('Images::Class/WF_btn_bulletW.png') right middle;
+	itemgradation		: ;
+	itemborder		: 0 none #ffffff;
+}
+ListBox.WF_lst_Selet:disabled
+{
+	background		: #ffffff;
+	color			: #999999;
+	border 			: 2solid #ffffff;
+	itembackground		: #f7f7f7 url('Images::Class/WF_btn_bulletW.png') right middle;
+}
+
+MaskEdit.WF_msk_Login,MaskEdit.WF_msk_Login:mouseover, MaskEdit.WF_msk_Login:pushed, MaskEdit.WF_msk_Login:focused
+{
+	align			: left middle;
+	background		: #45596d;
+	blur			: ;
+	border			: 2 solid #45596d;
+	bordertype		: round 10 10;
+	color			: #ffffff;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 3 0 3;
+	shadow			: ;
+}
+MaskEdit.WF_msk_Login:mouseover, MaskEdit.WF_msk_Login:pushed, MaskEdit.WF_msk_Login:focused
+{
+	background		: #45596d;
+	border			: 2 solid #1a9dbc;
+}
+MaskEdit.WF_msk_Login:disabled
+{
+	background		: #45596d;
+	color			: #999999;
+}
+
+Radio.WF_rdo_white
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	buttonalign		: left center;
+	buttonbackground	: transprant;
+	buttonborder		: 3 solid #ffffff80;
+	buttonbordertype	: ;
+	buttongradation		: ;
+	buttonimage		: Images::Class/rdo_ico_white.png;
+	buttonsize		: 20;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 0 0 0;
+	shadow			: ;
+	textpadding		: 0 0 0 3;
+}
+Radio.WF_rdo_white:mouseover
+{
+	background		: transparent;
+	buttonborder		: 3 solid #ffffff;
+	buttonimage		: Images::Class/rdo_ico_white.png;
+}
+Radio.WF_rdo_white:disabled
+{
+	color			: #999999;
+	buttonimage		: Images::Class/rdo_ico_white.png;
+	buttonborder		: 3 solid #c5cad1;
+}
+
+Static.WF_sta_BG
+{
+	align			: left middle;
+	background		: #e5e7eb;
+	border			: 0 none #c5cad1;
+	bordertype		: round 7 7;
+	color			: #34495e;
+	font			: ;
+}
+
+Static.WF_sta_BarUnder
+{
+	align			: center middle;
+	background		: #9ea4ad80;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	border			: 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	font			: ;
+}
+
+Static.WF_sta_BarOver
+{
+	align			: center middle;
+	background		: #27ae603f;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	border			: 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	font			: ;
+}
+Static.WF_sta_BarOver:mouseover
+{
+	background		: #27ae60;
+}
+
+Static.WF_sta_Title
+{
+	align			: left middle;
+	background		: url('Images::Class/WF_sta_TitleArrow.png') left middle;
+	border			: 0 none #c5cad1;
+	color			: #34495e;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	padding : 2 0 0 20 ;
+}
+
+Static.WF_sta_TitleSub
+{
+	align			: left middle;
+	background		: url('Images::Class/WF_sta_Titleblat.png') left middle;
+	border			: 0 none #c5cad1;
+	color			: #34495e;
+	font			: antialias bold 10 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	padding : 2 0 0 20 ;
+}
+
+Static.WF_sta_TitleLine
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 1 solid #8b95a380,0 none #808080ff,1 solid #ffffff4c,0 none #808080ff;
+	color			: #34495e;
+	font			: ;
+	padding 		: ;
+}
+
+Static.WF_sta_TitleBG
+{
+	align			: center middle;
+	background		: #3c4551;
+	font			: antialias bold 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	border			: 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: #ffffff;
+	font			: ;
+}
+
+Button.WFSA_btn_Search, Button.WFSA_btn_Search:focused
+{
+	background		: #1a9dbc;
+	border			: 0 none #dddddd;
+	bordertype		: normal 0 0;		
+	font			: ;
+	color			: #ffffff;
+	align			: center middle;
+	image			: url('Images::Class/WFSA_btn_Search.png');
+	imagealign		: center middle;
+	focusborder		: 0 none #808080;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: ;
+}
+Button.WFSA_btn_Search:mouseover, Button.WFSA_btn_Search:pushed
+{
+	background		: #1a9dbc;
+	shadow			: drop 0,0 0 #00000026;
+}
+
+
+
+Combo.WFSA_cmb_Search
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 2 solid #1a9dbc;
+	bordertype		: normal 0 0;
+	color			: #46463d;
+	cursor			: ;
+	font			: ;
+	glow			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: ;
+	shadow			: ;
+	itemheight		: 24;
+}
+Combo.WFSA_cmb_Search:mouseover
+{
+	background		: #ffffff;
+	border			: 2 solid #1a9dbc;
+	color			: #46463d;
+}
+Combo.WFSA_cmb_Search:selected
+{
+	border			: 2 solid #1a9dbc;
+	color			: #ffffff;
+}
+Combo.WFSA_cmb_Search:disabled
+{
+	background		: #ffffff;
+	border			: 2 solid #7f8c9a;
+	color			: #999999;
+}Combo.WFSA_cmb_Search>#dropbutton
+{
+	align			: ;
+	background		: transparent ;
+	border			: 0 none #ffffff;
+	bordertype		: normal 0 0;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	image			: url('Images::Class/WFSA_cmb_Drop.png');
+	imagealign		: center middle;
+	opacity			: ;
+	padding			: -1 -1 -1 -1;
+	shadow			: ;
+}
+Combo.WFSA_cmb_Search>#dropbutton:mouseover
+{
+	background		: transparent;
+	image			: url('Images::Class/WFSA_cmb_Drop.png');
+	imagealign		: center middle;
+}
+Combo.WFSA_cmb_Search>#dropbutton:pushed
+{
+	background		: transparent;
+	image			: url('Images::Class/WFSA_cmb_Drop.png');
+	imagealign		: center middle;
+}
+Combo.WFSA_cmb_Search>#dropbutton:disabled
+{
+	background		: transparent;
+	image			: url('Images::Class/WFSA_cmb_Drop.png');
+	imagealign		: center middle;
+}
+Combo.WFSA_cmb_Search>#combolist
+{
+	align			: left middle;
+	background		: #ffffff;
+	border			: 4 solid #1a9dbc;
+	bordertype		: normal 0 0;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	itembackground		: #ffffff;
+	itemborder		: 0 none #ffffff;
+	itembordertype		: normal 0 0;
+	itemgradation		: ;
+	itempadding		: 0 2 0 6;
+	opacity			: ;
+	shadow			: ;
+}
+
+Combo.WFSA_cmb_Search>#combolist:disabled
+{
+	background		: #e5e7eb;
+	color			: #888888;
+	border			: 4 solid #1a9dbc;
+	itembackground		: #e5e7eb;
+	itemborder		: 0 none #ffffff;
+}
+Combo.WFSA_cmb_Search>#combolist:mouseover
+{
+	border	   		: 4 solid #1a9dbc;
+	itembackground		: #e5e7eb;
+}
+Combo.WFSA_cmb_Search>#combolist:focused, Combo.WFSA_cmb_Search>#combolist:selected
+{
+	color	   		: #ffffff;
+	itembackground		: #1a9dbc;
+	itemgradation		: ;
+	itemborder		: 0 none #ffffff;
+}
+
+CheckBox.WF_chk_Login
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	bordertype		: ;
+	buttonalign		: left center;
+	buttonbackground	: #45596d;
+	buttonborder		: 0 none #999999;
+	buttonbordertype	: round 10 10;
+	buttongradation		: ;
+	buttonimage		: Images::Class/WF_chk_login.png;
+	buttonsize		: 27;
+	color			: #8e97a0;
+	cursor			: ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	glow			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 0 0 0;
+	shadow			: ;
+	textpadding		: 0 0 0 3;
+}
+CheckBox.WF_chk_Login:mouseover,CheckBox.WF_chk_Login:selected,CheckBox.WF_chk_Login:focused,CheckBox.WF_chk_Login:pushed
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 0 none;
+	buttonalign		: left center;
+	buttonbackground	: #1a9dbc;
+	buttonborder		: 0 none #1a9dbc;
+	buttongradation		: ;
+	buttonimage		: Images::Class/WF_chk_login.png;
+	buttonsize		: 27;
+	padding			: 0 0 0 0;
+	textpadding		: 0 0 0 3;
+}
+
+CheckBox.WF_chk_Login:disabled
+{
+	color			: #999999;
+	buttonimage		: Images::Class/WF_chk_login.png;
+}
+
+Edit.WFSA_edt_Search
+{
+	align			: left middle;
+	background		: #ffffff;
+	blur			: ;
+	border			: 2 solid #1a9dbc;
+	bordertype		: normal 0 0;
+	color			: ;
+	cursor			: ;
+	font			: ;
+	gradation		: ;
+	opacity			: ;
+	padding			: 0 3 0 3;
+	shadow			: ;
+}
+Edit.WFSA_edt_Search:mouseover, Edit.WFSA_edt_Search:pushed, Edit.WFSA_edt_Search:focused
+{
+	background		: #ffffff;
+	border			: 4 solid #1a9dbc;
+}
+Edit.WFSA_edt_Search:disabled
+{
+	background		: #ffffff;
+	color			: #999999;
+}
+
+Static.WFSA_sta_BG
+{
+	align			: left middle;
+	background		: #c5cad1;
+	border			: 0 none #c5cad1;
+	bordertype		: normal 0 0;
+	color			: #34495e;
+	font			: ;
+	padding 		: 0 5 0 5 ;
+}
+
+Static.basic_sta_block
+{
+	align			: left middle;
+	background		: #eff0f2;
+	border			: 1 solid #c5cad1;
+	bordertype		: round 5 5;
+	color			: #444a52;
+	font			: ;
+	padding 		: 0 5 0 5 ;
+}
+
+Static.basic_sta_box
+{
+	align			: center middle;
+	background		: #ffffff;
+	border			: 1 solid #c5cad1;
+	color			: #444a52;
+	font			: ;
+	padding 		: 0 5 0 5 ;
+}
+
+/*** Module Button ***/
+Button.WF_btn_module, Button.WF_btn_module:focused
+{
+	background		: #ffffff;
+	gradation		: linear 0,0 #ffffff 0,100 #e1e3e6;
+	border			: 1 solid #1a9dbc;
+	bordertype		: round 3 3;		
+	font			: ;
+	color			: #1a9dbc;
+	align			: center middle;
+	focusborder		: 0 none #808080;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: drop 0,1 1 #00000026;
+}
+Button.WF_btn_module:mouseover, Button.WF_btn_module:pushed
+{
+	background		: #1a9dbc;
+	gradation		: linear 0,0 #ffffff 0,100 #d1d4d9;
+	border			: 0 none #ffffff;
+	color			: #ffffff;
+}
+Button.WF_btn_module:disabled
+{
+	color			: #1a9dbc80;
+	shadow			: drop 0,0 0 #00000026;
+}
+/*****/
+
+/*** Custom Buttom ***/
+Button.WF_btn_custom, Button.WF_btn_custom:focused, Button.WF_btn_custom:disabled
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #d5d8de 0,100 #8d949f [3% #bbbfc7][47% #a2a9b3][50% #959ba6];
+	border			: 1 solid #4b4f58;
+	bordertype		: round 3 3;		
+	font			: ;
+	color			: #ffffff;
+	align			: center middle;
+	focusborder		: 0 none #808080;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: drop 0,1 1 #0000003f;
+}
+Button.WF_btn_custom:mouseover, Button.WF_btn_custom:focused, Button.WF_btn_custom:selected
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #bbbfc7 0,100 #676e79 [3% #a1a7b1][47% #8d949f][50% #7e8590];
+}
+Button.WF_btn_custom:pushed
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #d5d8de 0,100 #bbbfc7 [3% #a2a9b3];
+	shadow			: drop 0,0 0 #00000026;
+}
+Button.WF_btn_custom:disabled
+{
+	color			: #ffffff;
+	opacity			: 75;
+	shadow			: drop 0,0 0 #00000026;
+}
+/*****/
+
+/*** Button test***/
+Button.WF_btn_test1, Button.WF_btn_test1:focused
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #ffffff 0,100 #e1e3e6;
+	border			: 2 double #a4a6ae #ffffff;
+	bordertype		: round 3 3;		
+	font			: ;
+	color			: #525252;
+	align			: center middle;
+	focusborder		: 0 none #808080;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: drop 0,1 1 #00000026;
+}
+Button.WF_btn_test1:mouseover, Button.WF_btn_test1:focused, Button.WF_btn_test1:selected
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #ffffff 0,100 #d1d4d9;
+	border			: 2 double #3e81d4 #ffffff;
+	color			: #3e81d4;
+}
+Button.WF_btn_test1:pushed
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #d1d4d9 0,100 #ffffff;
+	border			: 2 double #3e81d4 #ffffff;
+	color			: #3e81d4;
+	shadow			: drop 0,0 0 #00000026;
+}
+Button.WF_btn_test1:disabled
+{
+	color			: #999999;
+	shadow			: drop 0,0 0 #00000026;
+}
+/*****/
+
+/*** Custom Buttom ***/
+Button.WF_btn_test2, Button.WF_btn_test2:focused, Button.WF_btn_test2:disabled
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #d5d8de 0,100 #8d949f [3% #bbbfc7][47% #a2a9b3][50% #959ba6];
+	border			: 1 solid #4b4f58;
+	bordertype		: round 3 3;		
+	font			: ;
+	color			: #ffffff;
+	align			: center middle;
+	focusborder		: 0 none #808080;
+	margin			: 0 0 0 0;
+	pusheddrawoffset	: 0 0;
+	shadow			: drop 0,1 1 #0000003f;
+}
+Button.WF_btn_test2:mouseover, Button.WF_btn_test2:focused, Button.WF_btn_test2:selected
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #bbbfc7 0,100 #676e79 [3% #a1a7b1][47% #8d949f][50% #7e8590];
+}
+Button.WF_btn_test2:pushed
+{
+	background		: @gradation;
+	gradation		: linear 0,0 #d5d8de 0,100 #bbbfc7 [3% #a2a9b3];
+	shadow			: drop 0,0 0 #00000026;
+}
+Button.WF_btn_test2:disabled
+{
+	color			: #ffffff;
+	opacity			: 75;
+	shadow			: drop 0,0 0 #00000026;
+}
+/*****/
+
+/** Font family **/
+
+Static.font_9pt_black
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #293030;
+	padding			: 0 0 0 0;
+}
+Static.font_9pt_dark
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #41536e;
+	padding			: 0 0 0 0;
+}
+Static.font_9pt_gray
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #838d9d;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9ptbold_black
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #293030;
+	padding			: 0 4 0 4;
+}
+Static.font_9ptbold_dark
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #41536e;
+	padding			: 0 0 0 0;
+}
+Static.font_24ptbold_dark
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 24 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #41536e;
+	padding			: 0 0 0 0;
+}
+Static.font_9ptbold_gray
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #838d9d;
+	padding			: 0 0 0 0;
+}
+Static.font_12ptbold_gray
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #838d9d;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9pt_Blue
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #2462af;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9ptbold_Blue
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #2462af;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_Blue
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #2462af;
+	padding			: 0 0 0 0;
+}
+
+Static.font_24ptbold_Blue
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 24 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #2462af;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9pt_Green
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #619405;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9ptbold_Green
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #619405;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_Green
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #619405;
+	padding			: 0 0 0 0;
+}
+
+Static.font_24ptbold_Green
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 24 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #619405;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9pt_Red
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			:#db3b23ff;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9ptbold_Red
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #db3b23ff;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_Red
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #db3b23ff;
+	padding			: 0 0 0 0;
+}
+
+Static.font_24ptbold_Red
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 24 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #db3b23ff;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9pt_Orange
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #d05126;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9ptbold_Orange
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #d05126;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_Orange
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #d05126;
+	padding			: 0 0 0 0;
+}
+
+Static.font_24ptbold_Orange
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 24 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #d05126;
+	padding			: 0 0 0 0;
+}
+
+
+
+Static.font_9pt_Skyblue
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #1a9dbc;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9ptbold_Skyblue
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #1a9dbc;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_Skyblue
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #1a9dbc;
+	padding			: 0 0 0 0;
+}
+
+Static.font_24ptbold_Skyblue
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 24 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #1a9dbc;
+	padding			: 0 0 0 0;
+}Static.font_9pt_Violet
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #a151bb;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9ptbold_Violet
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #a151bb;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_Violet
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #a151bb;
+	padding			: 0 0 0 0;
+}
+
+Static.font_24ptbold_Violet
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 24 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #a151bb;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9pt_White
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffff;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9ptbold_White
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffff;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_White
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffff;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_WhiteHalf
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffff80;
+	padding			: 0 0 0 0;
+}
+
+Static.font_15ptbold_White
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 15 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffff;
+	padding			: 0 0 0 0;
+}
+
+Static.font_24ptbold_White
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 24 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #ffffff;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9pt_Yellow
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #f79a00;
+	padding			: 0 0 0 0;
+}
+
+Static.font_9ptbold_Yellow
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 9 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #f79a00;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_Yellow
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #f79a00;
+	padding			: 0 0 0 0;
+}
+
+Static.font_24ptbold_Yellow
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 24 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #f79a00;
+	padding			: 0 0 0 0;
+}
+
+Static.font_11pt_black
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #293030;
+	padding			: 0 0 0 0;
+}
+Static.font_11pt_dark
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #41536e;
+	padding			: 0 0 0 0;
+}
+Static.font_11pt_gray
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias 11 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #838d9d;
+	padding			: 0 0 0 0;
+}
+
+Static.font_12ptbold_dark
+{
+	background		: transparent;
+	border			: 0 none #5992ba;
+	bordertype		: normal 0 0;
+	align			: left middle ;
+	font			: antialias bold 12 Meriyo UI, malgun gothic, Helvetica, Droid Sans;
+	color			: #41536e;
+	padding			: 0 0 0 0;
+}
+
+
+/** Font family end**/
+
+/* Line & Dot */
+Static.Line_sta_V
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 1 solid #c5cad1, 0 none #808080ff, 0 none #808080ff, 0 none #808080ff ;
+	bordertype		: normal 0 0;
+	font			: ;
+	color			: #2c3e50;
+	padding			: 0 0 0 0;
+}
+
+Static.Line_sta_DarkV
+{
+	align			: left middle;
+	background		: transparent;
+	border			: 1 solid #45596d, 0 none #808080ff, 0 none #808080ff, 0 none #808080ff ;
+	bordertype		: normal 0 0;
+	font			: ;
+	color			: #2c3e50;
+	padding			: 0 0 0 0;
+}
+
+Static.Line_sta_H
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 0 none #808080ff, 0 none #808080ff, 0 none #808080ff, 1 solid #c5cad1 ;
+	bordertype		: normal 0 0;
+	font			: ;
+	color			: #2c3e50;
+	padding			: 0 0 0 0;
+}
+
+Static.Line_sta_DubleV
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 1 solid #2d3a47, 0 none #808080ff, 1 solid #5d7893, 0 none #808080ff ;
+	bordertype		: normal 0 0;
+	font			: ;
+	color			: #2c3e50;
+	padding			: 0 0 0 0;
+}
+
+Static.Line_sta_DubleH
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 0 none #808080ff, 1 solid #5d7893, 0 none #808080ff, 1 solid #2d3a47 ;
+	bordertype		: normal 0 0;
+	font			: ;
+	color			: #2c3e50;
+	padding			: 0 0 0 0;
+}
+
+Static.Dot_sta_V
+{
+	align			: left middle;
+	background		: transparent;
+	border 			: 1 dotted #7f8c9a,0 none #808080ff,0 none #808080ff,0 none #808080ff ;
+	bordertype		: normal 0 0;
+	font			: ;
+	color			: #2c3e50;
+	padding			: 0 0 0 0;
+}
+
+Static.Dot_sta_H
+{
+	align			: center middle;
+	background		: transparent;
+	border			: 0 none #808080ff, 0 none #808080ff, 0 none #808080ff, 1 dotted #7f8c9a ;
+	bordertype		: normal 0 0;
+	font			: ;
+	color			: #2c3e50;
+	padding			: 0 0 0 0;
+}
+
+/* FLAG LINE */
+Static.FlagLine_sta_LB
+{
+	background		: url('Images::GUIDE_LINE/img_LeftBottom_FlagLine.png') stretch 6,6 left top;
+}
+Static.FlagLine_sta_LT
+{
+	background		: url('Images::GUIDE_LINE/img_LeftTop_FlagLine.png') stretch 6,6 left top;
+}
+Static.FlagLine_sta_R
+{
+	background		: url('Images::GUIDE_LINE/img_Right_FlagLine.png') stretch 6,6 left top;
+}
+Static.FlagLine_sta_L
+{
+	background		: url('Images::GUIDE_LINE/img_left_FlagLine.png') stretch 6,6 left top;
+}
+Static.FlagLine_sta_LT2
+{
+	background		: url('Images::GUIDE_LINE/img_LT_FlagLine.png') stretch 6,6 left top;
+}
+Static.FlagLine_sta_RT
+{
+	background		: url('Images::GUIDE_LINE/img_RightTop_FlagLine.png') stretch 6,6 left top;
+}
+Static.FlagLine_sta_RB
+{
+	background		: url('Images::GUIDE_LINE/img_RightBottom_FlagLine.png') stretch 6,6 left top;
+}
+Static.FlagLine_sta_TR
+{
+	background		: url('Images::GUIDE_LINE/img_TopRight_FlagLine.png') stretch 6,6 left top;
+}
+Static.FlagLine_sta_T
+{
+	background		: url('Images::GUIDE_LINE/img_Top_FlagLine.png') stretch 6,6 left top;
+}
+Static.FlagLine_sta_B
+{
+	background		: url('Images::GUIDE_LINE/img_Bottom_FlagLine.png') stretch 6,6 left top;
+}

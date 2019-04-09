@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="coomd" classname="EcoChartSample" left="0" top="0" width="1024" height="723" titletext="coomd" style="background:gainsboro;" onload="coomd_onload">
+    <Layouts>
+      <Layout>
+        <Static id="st_male" taborder="18" top="37" height="20" width="111" right="198" style="align:right middle;"/>
+        <Static id="st_female" taborder="19" top="37" height="20" width="94" right="29" style="align:right middle;"/>
+        <Grid id="Grid00" taborder="20" useinputpanel="false" left="26.37%" top="107" right="55.47%" height="253" cantreestatuschange="Grid00_cantreestatuschange" binddataset="dsTotal" style="align:center middle;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="코드"/>
+                <Cell col="1" text="명칭"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:detailCode"/>
+                <Cell col="1" text="bind:detailName"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="21" useinputpanel="false" left="29.1%" top="492" right="55.18%" height="212" binddataset="dsTotal2">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="코드"/>
+                <Cell col="1" text="명칭"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:detailCode"/>
+                <Cell col="1" text="bind:detailName"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="22" text="명칭" left="46.68%" top="200" right="44.53%" height="35"/>
+        <Edit id="Edit00" taborder="23" left="50.68%" top="200" right="37.6%" height="35" oneditclick="Edit00_oneditclick"/>
+        <Button id="Button01" taborder="25" text="저장" left="57.81%" top="264" right="37.79%" height="22"/>
+        <Button id="Button02" taborder="26" text="신규" left="47.17%" top="264" right="48.44%" height="22" onclick="Button02_onclick"/>
+        <Button id="Button00" taborder="27" text="삭제" left="52.54%" top="264" right="43.07%" height="22"/>
+        <Edit id="Edit01" taborder="28" oneditclick="Edit00_oneditclick" left="50.68%" top="144" right="37.6%" height="35"/>
+        <Static id="Static01" taborder="29" text="코드" left="46.68%" top="144" right="44.53%" height="35"/>
+        <Edit id="Edit02" taborder="30" oneditclick="Edit00_oneditclick" left="50.68%" top="568" right="37.6%" height="35"/>
+        <Button id="Button03" taborder="31" text="저장" left="57.81%" top="632" right="37.79%" height="22"/>
+        <Button id="Button04" taborder="32" text="신규" left="47.17%" top="632" right="48.44%" height="22"/>
+        <Button id="Button05" taborder="33" text="삭제" left="52.54%" top="632" right="43.07%" height="22"/>
+        <Edit id="Edit03" taborder="34" oneditclick="Edit00_oneditclick" left="50.68%" top="512" right="37.6%" height="35"/>
+        <Static id="Static02" taborder="35" text="코드" left="46.68%" top="512" right="44.53%" height="35"/>
+        <Static id="Static03" taborder="36" text="명칭" left="46.68%" top="568" right="44.53%" height="35"/>
+        <Static id="Static04" taborder="37" text="분류 관리" left="3.81%" top="17" right="64.16%" height="77" style="color:#000000ff;font:bold 20 Dotum;" onclick="Static04_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="svcid">selectComList</Col>
+            <Col id="sController">admin/selectComList.do</Col>
+            <Col id="inds"/>
+            <Col id="bAsync">true</Col>
+            <Col id="args"/>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="outds">dsTotal=dsTotal dsTotal2=dsTotal2</Col>
+            <Col id="Column0"/>
+            <Col id="Column1"></Col>
+          </Row>
+          <Row>
+            <Col id="svcid">saveTotal1</Col>
+            <Col id="sController">admin/saveTotal1.do</Col>
+            <Col id="inds">dsTotal=dsTotal:U</Col>
+            <Col id="outds"/>
+            <Col id="args"/>
+            <Col id="bCompress">false</Col>
+            <Col id="Column0"></Col>
+            <Col id="Column1"></Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsTotal">
+        <ColumnInfo>
+          <Column id="commCode" type="STRING" size="256"/>
+          <Column id="detailCode" type="STRING" size="256"/>
+          <Column id="detailName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsTotal2">
+        <ColumnInfo>
+          <Column id="commCode" type="STRING" size="256"/>
+          <Column id="detailCode" type="STRING" size="256"/>
+          <Column id="detailName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Edit00" propid="value" datasetid="dsTotal" columnid="detailName"/>
+      <BindItem id="item1" compid="Edit01" propid="value" datasetid="dsTotal" columnid="detailCode"/>
+      <BindItem id="item2" compid="Edit02" propid="value" datasetid="dsTotal2" columnid="detailName"/>
+      <BindItem id="item3" compid="Edit03" propid="value" datasetid="dsTotal2" columnid="detailCode"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs";
+
+
+this.lfn_cmmCallback = function(svcId, errorcode, errormsg){
+	
+	
+	if(errorcode < 0)
+	{
+	   Iject.alert(errormsg,"오류");			
+	   return;
+	} 
+	else{ 
+		trace("dd");
+		this.dsTotal.filter("commCode == 'A01'");
+		this.dsTotal2.filter("commCode == 'P01'");
+	}
+}
+
+
+
+this.coomd_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//var abc = this.dsTotal.filter("commCode == 'P01'");
+	this.gfn_serviceCall("selectComList");
+	//this.Grid00.setBindDataset(abc);
+	//this.Grid00.setBindDataset(this.dsTotal.filter("commCode == 'P01'"));
+}
+
+
+
+
+
+this.Button02_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.dsTotal.addRow();
+}
+]]></Script>
+  </Form>
+</FDL>

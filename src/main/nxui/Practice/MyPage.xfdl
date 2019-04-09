@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Mypage" left="0" top="0" width="1024" height="930" titletext="New Form" onload="fn_onload">
+    <Layouts>
+      <Layout>
+        <GroupBox id="GroupBox00" text="My Page" taborder="7" left="5.27%" top="91" right="10.55%" height="423" onlbuttondown="GroupBox00_onlbuttondown" style="background:#ffffffff;border:2 solid #339966ff ;color:#339966ff;font:18 맑은 고딕;"/>
+        <Div id="Div01" taborder="2" left="5.27%" top="552" right="10.84%" height="141" style="background:transparent;border:2 solid #339966ff ;bordertype:round 10 10 ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="Static04" taborder="3" text="＊타 사이트와는 다른 비밀번호를 사용하고, 비밀번호는 주기적으로 변경해주세요." left="7.81%" top="654" right="48.24%" height="34"/>
+        <Static id="Static03" taborder="4" text="＊개인정보보호를 위해 비밀번호를 타인과 공유하지 마세요." left="7.81%" top="620" right="46.78%" height="34"/>
+        <Static id="Static02" taborder="5" text="＊개인정보보호를 위해 공유 PC에서는 반드시 사용 후 로그아웃을 확인하세요." left="7.81%" top="586" right="50.49%" height="34"/>
+        <Static id="Static01" taborder="6" left="7.81%" top="552" right="49.02%" height="34" text="＊서비스의 원활한 이용을 위해 개인연락처는 최신정보를 유지해주시기 바랍니다." onclick="Static01_onclick"/>
+        <Div id="Div00" taborder="8" left="5.57%" top="135" right="10.84%" height="363" style="background:transparent;font:9 맑은 고딕;">
+          <Layouts>
+            <Layout width="810" height="392">
+              <Static id="Static00" taborder="51" text="이름(아이디)" onclick="Div00_Static00_onclick" left="2.92%" top="14" right="87.62%" height="42" style="background:#ccffccff;border:2 solid #339966ff ;bordertype:round 10 10 ;align:center middle;font:9 맑은 고딕;"/>
+              <Static id="Static01" taborder="52" text="대출증번호" left="2.92%" top="73" right="87.62%" height="42" style="background:#ccffccff;border:2 solid #339966ff ;bordertype:round 10 10 ;align:center middle;font:9 맑은 고딕;"/>
+              <Static id="Static02" taborder="53" text="전화번호" left="2.92%" top="132" right="87.62%" height="42" style="background:#ccffccff;border:2 solid #339966ff ;bordertype:round 10 10 ;align:center middle;font:9 맑은 고딕;"/>
+              <Static id="Static03" taborder="54" text="이메일" left="2.92%" top="191" right="87.62%" height="42" style="background:#ccffccff;border:2 solid #339966ff ;bordertype:round 10 10 ;align:center middle;font:9 맑은 고딕;"/>
+              <Static id="Static04" taborder="55" text="주소" left="2.92%" top="250" right="87.62%" height="42" style="background:#ccffccff;border:2 solid #339966ff ;bordertype:round 10 10 ;align:center middle;font:9 맑은 고딕;"/>
+              <Button id="Button00" taborder="56" text="개인정보수정" onclick="Div00_Button00_onclick" left="2.92%" top="323" right="83.41%" height="23" style="font:9 맑은 고딕;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;"/>
+              <Div id="Div00" taborder="57" text="Div00" left="47.2%" top="35" right="32.01%" height="96" style="background:#ccffccff;border:2 solid #339966ff ;bordertype:round 10 10 ;font:9 맑은 고딕;">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="6" text="대출건수" onclick="Div00_Div00_Static00_onclick" left="4.6%" top="25" right="57.47%" height="42" style="align:center middle;font:12 맑은 고딕;cursor:hand;"/>
+                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="align:center middle;font:20 맑은 고딕;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div01" taborder="58" text="Div00" left="47.2%" top="155" right="32.01%" height="96" style="background:#ccffccff;border:2 solid #339966ff ;bordertype:round 10 10 ;font:9 맑은 고딕;">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="6" text="예약건수" onclick="Div00_Div01_Static00_onclick" left="4.6%" top="25" right="57.47%" height="42" style="align:center middle;font:12 맑은 고딕;cursor:hand;"/>
+                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="align:center middle;font:20 맑은 고딕;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div02" taborder="59" text="Div00" left="71.26%" top="155" right="7.94%" height="96" style="background:#ccffccff;border:2 solid #339966ff ;bordertype:round 10 10 ;font:9 맑은 고딕;">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="6" text="재제건수" onclick="Div00_Div02_Static00_onclick" left="4.6%" top="25" right="57.47%" height="42" style="align:center middle;font:12 맑은 고딕;cursor:hand;"/>
+                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="align:center middle;font:20 맑은 고딕;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div03" taborder="60" text="Div00" left="71.26%" top="35" right="7.94%" height="96" style="background:#ccffccff;border:2 solid #339966ff ;bordertype:round 10 10 ;font:9 맑은 고딕;">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="6" text="연체건수" onclick="Div00_Div03_Static00_onclick" left="4.6%" top="25" right="57.47%" height="42" style="align:center middle;font:12 맑은 고딕;cursor:hand;"/>
+                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="align:center middle;font:20 맑은 고딕;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="Static05" taborder="61" text="Static05" onclick="Div00_Static05_onclick" left="17.64%" top="22" right="64.95%" height="31" style="font:9 맑은 고딕;"/>
+              <Static id="Static07" taborder="62" text="Static05" left="17.64%" top="80" right="64.95%" height="31" style="font:9 맑은 고딕;"/>
+              <Static id="Static08" taborder="63" text="Static05" left="17.64%" top="138" right="64.95%" height="31" style="font:9 맑은 고딕;"/>
+              <Static id="Static09" taborder="64" text="Static05" left="17.64%" top="196" right="64.95%" height="31" style="font:9 맑은 고딕;"/>
+              <Static id="Static10" taborder="65" text="Static05" left="17.64%" top="254" right="64.95%" height="31" style="font:9 맑은 고딕;"/>
+              <Button id="Button01" taborder="66" text="회원탈퇴" left="18.81%" top="323" right="67.52%" height="23" style="font:9 맑은 고딕;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" onclick="Div00_Button01_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsCntNum">
+        <ColumnInfo>
+          <Column id="brNum" type="STRING" size="256" description="대출"/>
+          <Column id="arrNum" type="STRING" size="256" description="연체"/>
+          <Column id="resNum" type="STRING" size="256" description="예약"/>
+          <Column id="sanNum" type="STRING" size="256" description="재제"/>
+          <Column id="userId" type="STRING" size="256" description="회원아이디"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="brNum">1</Col>
+            <Col id="arrNum">2</Col>
+            <Col id="resNum">3</Col>
+            <Col id="sanNum">4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsMypageMap">
+        <ColumnInfo>
+          <Column id="userNo" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="userNo">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sController">practice/selectMypageList.do</Col>
+            <Col id="svcid">selectMypageList</Col>
+            <Col id="inds">dsMypageMap=dsMypageMap</Col>
+            <Col id="outds">dsUserInfo=dsUserInfo</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+          <Row>
+            <Col id="svcid">saveUserInfo</Col>
+            <Col id="sController">practice/saveUserInfo.do</Col>
+            <Col id="inds">dsUserInfo=dsUserInfo:U</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsUserInfo">
+        <ColumnInfo>
+          <Column id="userNm" type="STRING" size="256" description="이름"/>
+          <Column id="userId" type="STRING" size="256" description="아이디"/>
+          <Column id="userNo" type="STRING" size="256" description="고유번호"/>
+          <Column id="userPhone" type="STRING" size="256" description="전화번호"/>
+          <Column id="userAddr" type="STRING" size="256" description="주소"/>
+          <Column id="authorCd" type="STRING" size="256" description="권한"/>
+          <Column id="userBirth" type="STRING" size="256" description="생일"/>
+          <Column id="userGender" type="STRING" size="256" description="성별"/>
+          <Column id="brrCdnum" type="STRING" size="256" description="대출증"/>
+          <Column id="email" type="STRING" size="256" description="이메일"/>
+          <Column id="domain" type="STRING" size="256" description="도메인"/>
+          <Column id="userEmail" type="STRING" size="256" description="이메일+도메인"/>
+          <Column id="domaincode" type="STRING" size="256"/>
+          <Column id="userPwd" type="STRING" size="256" description="비밀번호"/>
+          <Column id="userIspwd" type="STRING" size="256" description="비번확인"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsUserDel">
+        <ColumnInfo>
+          <Column id="userNm" type="STRING" size="256" description="이름"/>
+          <Column id="userNo" type="STRING" size="256" description="고유번호"/>
+          <Column id="userPhone" type="STRING" size="256" description="전화번호"/>
+          <Column id="userAddr" type="STRING" size="256" description="주소"/>
+          <Column id="userEmail" type="STRING" size="256" description="이메일+도메인"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00.Div00.Static01" propid="text" datasetid="dsCntNum" columnid="brNum"/>
+      <BindItem id="item1" compid="Div00.Div03.Static01" propid="text" datasetid="dsCntNum" columnid="arrNum"/>
+      <BindItem id="item2" compid="Div00.Div01.Static01" propid="text" datasetid="dsCntNum" columnid="resNum"/>
+      <BindItem id="item3" compid="Div00.Div02.Static01" propid="text" datasetid="dsCntNum" columnid="sanNum"/>
+      <BindItem id="item4" compid="Div00.Static05" propid="text" datasetid="dsUserInfo" columnid="userNm"/>
+      <BindItem id="item5" compid="Div00.Static07" propid="text" datasetid="dsUserInfo" columnid="brrCdnum"/>
+      <BindItem id="item6" compid="Div00.Static08" propid="text" datasetid="dsUserInfo" columnid="userPhone"/>
+      <BindItem id="item7" compid="Div00.Static09" propid="text" datasetid="dsUserInfo" columnid="userEmail"/>
+      <BindItem id="item8" compid="Div00.Static10" propid="text" datasetid="dsUserInfo" columnid="userAddr"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::Comm.xjs";
+
+// 페이지 온로드 후
+this.fn_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.lfn_searchList();
+}
+
+
+this.lfn_searchList = function(){
+	this.gfn_serviceCall("selectMypageList");
+}
+
+//공통 콜백
+this.lfn_cmmCallback = function(svcId, errorcode, errormsg){
+ 
+	//this.alert(svcId);
+	
+	if(errorcode < 0)
+	{
+	   Iject.alert(errormsg,"오류");			
+	   return;
+	}
+	/*
+	else{
+		if(svcId == "saveSubjectList"){
+			
+			this.alert("저장되었습니다.");
+			//this.gfn_alertMsg(this.Msg_Inf_0004);		
+			this.gfn_serviceCall("selectSubjectList");
+		}
+		//콜백정의	
+		//Iject.alert(errormsg,"알림");	
+	}
+	*/
+}
+
+
+
+//------------------------------------------------------
+//정보수정
+this.Div00_Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{	
+	// form dataset을 global dataset으로 복사
+	application.gds_UserInfo.assign(this.dsUserInfo);
+	var sURL = "Practice::Update_persnal.xfdl";
+	this.gfn_main(sURL);
+}
+
+// 대출
+this.Div00_Div00_Static00_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	application.gds_UserInfo.setColumn(0,"userNo",this.dsUserInfo.getColumn(0,"userNo"))
+	var sURL = "Practice::UserBorrow.xfdl";
+	this.gfn_main(sURL);
+}
+
+// 연체
+this.Div00_Div03_Static00_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	var sURL = "Practice::UserOverdue.xfdl";
+	this.gfn_main(sURL);
+}
+// 예약
+this.Div00_Div01_Static00_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	var sURL = "Practice::UserReservation.xfdl";
+	this.gfn_main(sURL);
+}
+
+
+// 제재
+this.Div00_Div02_Static00_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	var sURL = "Practice::UserSanctions.xfdl";
+	this.gfn_main(sURL);
+}
+
+
+//회원탈퇴
+this.Div00_Button01_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var withdraw;
+	withdraw = this.confirm("정말로 탈퇴하시겟습니까?")
+	if(withdraw==true){
+		this.dsUserInfo.deleteRow(this.dsUserInfo.rowposition);
+		this.gfn_serviceCall("saveUserInfo");
+		application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(false);
+		application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(0);	
+		var sURL = "Practice::login.xfdl"
+		this.gfn_main(sURL);
+	}
+	
+}
+]]></Script>
+  </Form>
+</FDL>

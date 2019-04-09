@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="leftMenuFrame" left="0" top="0" width="240" height="668" titletext="New Form" style="background:aquamarine;">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_menu" taborder="0" useinputpanel="false" left="3.33%" top="9" right="3.75%" height="651" binddataset="gds_menu" treeinitstatus="expand,all" autofittype="col" treeusecheckbox="false" oncelldblclick="grd_menu_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="179"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="menuNm"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="tree" text="bind:menuNm" treestartlevel="1" treelevel="bind:level"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+   //1. 정의 : Grid에서 menu douclick시 화면 조회 script개발
+
+//메뉴클릭 시 > 업무화면 open
+this.grd_menu_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+ var nChildCnt = obj.getTreeChildCount(e.row);
+ if (nChildCnt == 0){
+  var sMenuId = application.gds_menu.getColumn(e.row, "menuId");
+  application.afn_menuOpen(sMenuId);
+ }
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

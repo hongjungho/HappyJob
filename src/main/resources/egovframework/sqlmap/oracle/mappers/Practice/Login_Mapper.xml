@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample.service.dao.mybatis.LoginMapper">
+
+
+<select id="selectloginUser" parameterType="java.util.Map" resultType="egovMap">
+	
+   <!--*******************************************************-->
+   <!-- 게시판 검색 총 행의 개수 검색하는 select 문을 내포한 select 태그 선언-->
+   <!-- parameterType은 외부에서 들어오는 데이터 타입 설정 resultType은 반환형 설정 -->
+   <!--*******************************************************-->
+   		
+  		 <!-- <select> 태그 속성 설명-->
+  		 	<!--id="getAdminCnt" => SQL 구문의 고유 아이디값 설정 .DAO 클래스의 메소드 이름과 동일함.-->
+  		 	<!--parameterType="hashmap" => SQL 구문에 삽입될 외부 데이터의 자료형 HashMap 설정-->
+  		 	<!--                        => parameterType="java.util.HashMap"도 가능-->
+  		 	<!-- resultType="int"       => SQL 구문의 실행 후 리턴값 자료형 int 설정-->
+   <!-- <select id="getAdminCnt" parameterType="hashmap" resultType="int"> -->
+   		
+  		 <!-- <select> 쿼리 선언 -->
+  		 	<!--HashMap 객체에 저장된 외부 데이터를 SQL 구문에 삽입하는 방법은 아래와 같다.-->
+  		 	<!-- #{키값명} =>키값에 대응하는 데이터가 문자열이면 '(싱글쿼트)로 감싸 삽입. 아니면 그대로 삽입. -->
+  		 	<!-- ${키값명} =>키값에 대응하는 데이터를 그대로 삽입. -->
+      select 
+          count(*)
+      from user  
+      where id= #{id} and pwd = #{pwd}  
+   </select>
+	<!-- 
+	SELECT 
+		ROWNUM,
+		EMPL_ID ,
+		FULL_NAME,
+		HIRE_DATE,
+		MARRIED,
+		GENDER ,
+		DEPT_ID,
+		EMPL_MEMO,
+		EMAIL,
+		RANK
+	FROM OFFEDU_TESTDB.EMPLOYEES
+	WHERE 1=1
+	
+	 <if test="SCH_TEXT != null">
+	 	<if test="SCH_TEXT != ''">
+	 	AND FULL_NAME LIKE '%'||#{SCH_TEXT}||'%'
+	 	</if>
+	 </if>
+	 
+	 <if test="HIRE_START != null and HIRE_START!=''">
+	 	AND HIRE_DATE &gt;= #{HIRE_START}
+	 </if>
+	 
+	 
+	 <if test="HIRE_END != null and HIRE_END!=''">
+	 	AND HIRE_DATE &lt;= #{HIRE_END}
+	 </if>
+	 
+	 
+	 <if test="COL_ORDER != null">
+	 	<if test="COL_ORDER != ''">
+	 	ORDER BY ${COL_ORDER}
+	 	</if>
+	 </if>
+
+	
+	</select> -->
+
+   
+
+<!-- 
+<select id="selectSampleSubjectList" parameterType="java.util.Map" resultType="egovMap">
+	
+		SELECT 
+			PJ_TASK_NO, 
+			BPLC_GB, 
+			FRST_CNTRCT_DT, 
+			SPNT_MIRYFC, 
+			SPNT_NM, 
+			SPNT_BSNS_NM, 
+		   	RSRCH_TASK_CHARCT, 
+			TASK_ENG_NM, 
+			RSRCH_RSPNBER, 
+		   	SPNT_TASK_NO, 
+			TASK_BGNDE, 
+			TASK_ENDDE, 
+		   	SPRMNY_KND, 
+			RSRCH_YYCNT, 
+			INDRCT_LEV, 
+		   	TASK_RSRCCT
+		
+		FROM OFFEDU_TESTDB.TB_OFFEDU_TASK
+			
+				<trim prefix="WHERE" prefixOverrides="AND">
+					<if test="bplcGb != null">
+			 			<if test="bplcGb != ''">
+			 				AND BPLC_GB = #{bplcGb}
+			 			</if>
+					 </if>
+					 <if test="taskNm != null">
+					 	<if test="taskNm != ''">
+					 	AND TASK_NM LIKE '%'||#{taskNm}||'%'
+					 	</if>
+					 </if>
+					 
+					 <if test ="searchYn != 'Y'.toString()">
+					 	AND 1=1
+					 </if>
+				</trim>
+			 
+			 ORDER BY PJ_TASK_NO
+	</select>
+	
+	 공통코드 콤보 조회
+     <select id="selectCmmnCdCboList" parameterType="java.util.Map" resultType="egovMap">
+        
+        SELECT
+        	CL_CODE_DT AS CD_ID
+        	,NVL(CL_CODE_NAME_DT ,'') AS CD_NM
+        FROM CL_CODE_DT
+        	<trim prefix="WHERE" prefixOverrides="AND">
+        		<if test="lrgClsfCd != null">
+        			<if test="lrgClsfCd != ''">
+        				AND CL_CODE = #{lrgClsfCd}
+        			</if>
+        		</if>   
+        	</trim>
+            AND CL_CODE_YN_DT='Y'
+            ORDER BY CL_CODE_DT
+       <if test="lrgClsfCd == 000">     	
+              SELECT
+                CAMPUS_GB AS CD_ID,
+                NVL(CAMPUS_NM,'') AS CD_NM
+            FROM    TB_CAMPUS
+            WHERE    1=1
+            ORDER BY ORDERBY
+            
+       </if>    
+    </select>
+    
+    <insert id="insertSubjectList" parameterType="java.util.Map">
+		<selectKey resultType="string" keyProperty="taskNoSeq" order="BEFORE">
+             SELECT  /*+ INDEX_DESC(TASK_NO_PK) */
+			             DECODE(SUBSTR(MAX(PJ_TASK_NO), 1,8)
+			             ,TO_CHAR(SYSDATE, 'YYYYMMDD'), MAX(PJ_TASK_NO) + 1
+			             ,TO_CHAR(SYSDATE, 'YYYYMMDD')||'01')PJ_TASK_NO
+			           FROM OFFEDU_TESTDB.TB_OFFEDU_TASK
+			 WHERE PJ_TASK_NO <![CDATA[<]]> TO_CHAR(SYSDATE,'YYYYMMDD')||'99'
+			 AND ROWNUM =1  
+        </selectKey>
+        	
+        	
+        	INSERT INTO OFFEDU_TESTDB.TB_OFFEDU_TASK (
+				   PJ_TASK_NO, BPLC_GB, FRST_CNTRCT_DT, 
+				   SPNT_MIRYFC, SPNT_NM, SPNT_BSNS_NM, 
+				   RSRCH_TASK_CHARCT, TASK_ENG_NM, RSRCH_RSPNBER, 
+				   SPNT_TASK_NO, TASK_BGNDE, TASK_ENDDE, 
+				   SPRMNY_KND, RSRCH_YYCNT, INDRCT_LEV, 
+				   TASK_RSRCCT, TASK_REGIST_DATE, TASK_REGIST_ID, 
+				   TASK_UPDT_DATE, TASK_UPDT_ID) 
+				VALUES ( #{taskNoSeq}/* PJ_TASK_NO */,
+				 #{bplcGb}/* BPLC_GB */,
+				 #{frstCntrctDt}/* FRST_CNTRCT_DT */,
+				 #{spntMiryfc}/* SPNT_MIRYFC */,
+				 #{spntNm} /* SPNT_NM */,
+				 #{spntBsnsNm}/* SPNT_BSNS_NM */,
+				 #{rsrchTaskCharct}/* RSRCH_TASK_CHARCT */,
+				 #{taskEngNm}/* TASK_ENG_NM */,
+				 #{rsrchRspnber}/* RSRCH_RSPNBER */,
+				 #{spntTaskNo}/* SPNT_TASK_NO */,
+				 #{taskBgnde}/* TASK_BGNDE */,
+				 #{taskEndde}/* TASK_ENDDE */,
+				 #{sprmnyKnd}/* SPRMNY_KND */,
+				 #{rsrchYycnt}/* RSRCH_YYCNT */,
+				 #{indrctLev}/* INDRCT_LEV */,
+				 ${taskRsrcct} /* TASK_RSRCCT */,
+				 sysdate/* TASK_REGIST_DATE */,
+				 'Admin01'/* TASK_REGIST_ID */,
+				 sysdate/* TASK_UPDT_DATE */,
+				 'Admin01'/* TASK_UPDT_ID */ )
+ 
+ 
+		 	 	
+		 	 
+    </insert>
+    
+    
+    <update  id="updateSubjectList" parameterType="java.util.Map">
+    
+    	UPDATE OFFEDU_TESTDB.TB_OFFEDU_TASK
+				SET    BPLC_GB           = #{bplcGb},
+				       FRST_CNTRCT_DT    = #{frstCntrctDt},
+				       SPNT_MIRYFC       = #{spntMiryfc},
+				       SPNT_NM           = #{spntNm},
+				       SPNT_BSNS_NM      = #{spntBsnsNm},
+				       RSRCH_TASK_CHARCT = #{rsrchTaskCharct},
+				       TASK_ENG_NM       = #{taskEngNm},
+				       RSRCH_RSPNBER     = #{rsrchRspnber},
+				       SPNT_TASK_NO      = #{spntTaskNo},
+				       TASK_BGNDE        = #{taskBgnde},
+				       TASK_ENDDE        = #{taskEndde},
+				       SPRMNY_KND        = #{sprmnyKnd},
+				       RSRCH_YYCNT       = #{rsrchYycnt},
+				       INDRCT_LEV        = #{indrctLev},
+				       TASK_RSRCCT       = ${taskRsrcct},
+				       TASK_UPDT_DATE    = sysdate,
+				       TASK_UPDT_ID      = 'Admin01'
+				WHERE  PJ_TASK_NO        = #{pjTaskNo}
+
+
+    </update>
+    
+    <delete id="deleteSubjectList"  parameterType="java.util.Map">
+    	DELETE FROM OFFEDU_TESTDB.TB_OFFEDU_TASK WHERE PJ_TASK_NO = #{pjTaskNo}
+    </delete>
+    
+    
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    
+     <insert id="insertTestList" parameterType="java.util.Map">
+	
+        	INSERT INTO OFFEDU_TESTDB.EMPLOYEES (
+     	             EMPL_ID ,
+				  FULL_NAME,
+				  HIRE_DATE,
+				  MARRIED,
+				  EMAIL,
+				  GENDER ,
+				  DEPT_ID,
+				  EMPL_MEMO,
+				  RANK
+        	
+        	
+				   ) 
+				VALUES (
+				
+				  #{emplId},
+				  #{fullName},
+				  #{hireDate},
+				  #{married},
+				  #{email},
+				  #{gender},
+				  #{deptId},
+				  #{emplMemo},
+				  #{rank}
+        	
+				
+				)
+ 
+    </insert>
+    
+    
+    <update  id="updateTestList" parameterType="java.util.Map">
+    
+    	UPDATE OFFEDU_TESTDB.EMPLOYEES
+				SET   
+				  FULL_NAME = #{fullName},
+				  HIRE_DATE = #{hireDate},
+				  MARRIED = #{married},
+				  EMAIL = #{email},
+				  GENDER  = #{gender},
+				  DEPT_ID = #{deptId},
+				  EMPL_MEMO = #{emplMemo},
+				  RANK = #{rank}
+				  
+				WHERE  EMPL_ID  = #{emplId}
+
+
+    </update>
+    
+    <delete id="deleteTestList"  parameterType="java.util.Map">
+    	DELETE FROM OFFEDU_TESTDB.EMPLOYEES WHERE EMPL_ID = #{emplId}
+    </delete> -->
+	
+</mapper>	

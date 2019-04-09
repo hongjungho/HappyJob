@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="UserReservation" left="0" top="0" width="1024" height="768" titletext="New Form" onload="fn_onload">
+    <Layouts>
+      <Layout>
+        <GroupBox id="GroupBox00" text="예약도서검색" taborder="0" left="4.79%" top="24" right="11.23%" height="180" style="border:2 solid #339966ff ;color:#339966ff;font:18 맑은 고딕;"/>
+        <Grid id="Grid00" taborder="1" binddataset="dsUserRes" useinputpanel="false" autofittype="col" left="5.57%" top="304" right="10.94%" height="383">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="ISBN"/>
+                <Cell col="1" text="도서명"/>
+                <Cell col="2" text="도서분류"/>
+                <Cell col="3" text="도서구분"/>
+                <Cell col="4" text="출판사"/>
+                <Cell col="5" text="저자"/>
+                <Cell col="6" text="대출가능일"/>
+                <Cell col="7" text="예약순위"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:bookIsbn"/>
+                <Cell col="1" text="bind:bookNm"/>
+                <Cell col="2" text="bind:divCd"/>
+                <Cell col="3" text="bind:classCd"/>
+                <Cell col="4" text="bind:bookPub"/>
+                <Cell col="5" text="bind:bookWriter"/>
+                <Cell col="6" text="bind:bookRevBrr"/>
+                <Cell col="7" text="bind:rank"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Combo id="Combo00" taborder="2" text="Combo00" innerdataset="dsgridrow" codecolumn="showRowCode" datacolumn="showRow" left="78.42%" top="257" right="10.94%" height="28"/>
+        <Static id="Static00" taborder="3" text="예약도서목록" left="39.06%" top="254" right="45.51%" height="26" style="align:center middle;font:16 맑은 고딕;"/>
+        <Static id="Static03" taborder="7" text="키워드 : " left="53.91%" top="108" right="40.63%" height="30" style="align:center middle;"/>
+        <Edit id="Edit00" taborder="8" left="59.86%" top="110" right="13.28%" height="26"/>
+        <Combo id="cbo_bkclass" taborder="10" onitemchanged="Combo01_onitemchanged" left="58.11%" top="63" right="32.03%" height="30"/>
+        <Static id="Static04" taborder="11" text="도서구분 : " left="52.05%" top="62" right="42.48%" height="30" style="align:center middle;"/>
+        <Combo id="cbo_bkdiv" taborder="12" left="76.86%" top="63" right="13.28%" height="30"/>
+        <Static id="Static05" taborder="13" text="도서분류 : " left="70.02%" top="62" right="24.51%" height="30" style="align:center middle;"/>
+        <Static id="Static08" taborder="17" text="저자 : " left="9.28%" top="108" right="85.25%" height="30" style="align:center middle;"/>
+        <Edit id="Edit01" taborder="18" left="14.55%" top="110" right="72.66%" height="26"/>
+        <Edit id="Edit02" taborder="19" left="34.08%" top="110" right="52.34%" height="26"/>
+        <Static id="Static09" taborder="20" text="출판사 : " left="28.81%" top="108" right="65.72%" height="30" style="align:center middle;"/>
+        <Static id="Static01" taborder="23" text="대출가능일 : " left="7.42%" top="63" right="85.55%" height="30" style="align:center middle;" onclick="Static01_onclick"/>
+        <Calendar id="Calendar00" taborder="24" left="14.55%" top="64" right="71.09%" height="28" innerdataset="@dsResSchMap" dateformat="yyyy-MM-dd" value="null"/>
+        <Static id="Static02" taborder="25" text="~" left="29.59%" top="64" right="67.19%" height="27" style="align:center middle;"/>
+        <Calendar id="Calendar01" taborder="26" left="33.3%" top="64" right="52.34%" height="28" dateformat="yyyy-MM-dd" value="null"/>
+        <Button id="Button00" taborder="27" text="조회" onclick="fn_ressch" left="35.16%" top="160" right="52.34%" height="22"/>
+        <Button id="Button01" taborder="28" text="초기화" onclick="fn_reset" left="49.61%" top="160" right="42.97%" height="22"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Combo00" propid="value" datasetid="dsgridrow" columnid="showRow"/>
+      <BindItem id="item1" compid="cbo_bkclass" propid="value" datasetid="dsResSchMap" columnid="clCd"/>
+      <BindItem id="item2" compid="cbo_bkdiv" propid="value" datasetid="dsResSchMap" columnid="divCd"/>
+      <BindItem id="item3" compid="Edit01" propid="value" datasetid="dsResSchMap" columnid="writer"/>
+      <BindItem id="item4" compid="Edit02" propid="value" datasetid="dsResSchMap" columnid="pub"/>
+      <BindItem id="item5" compid="Edit00" propid="value" datasetid="dsResSchMap" columnid="keyword"/>
+      <BindItem id="item6" compid="Calendar00" propid="value" datasetid="dsResSchMap" columnid="brrStr"/>
+      <BindItem id="item7" compid="Calendar01" propid="value" datasetid="dsResSchMap" columnid="brrEnd"/>
+    </Bind>
+    <Objects>
+      <Dataset id="dsgridrow">
+        <ColumnInfo>
+          <Column id="showRow" type="STRING" size="256"/>
+          <Column id="showRowCode" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="showRow">10</Col>
+            <Col id="showRowCode">10</Col>
+          </Row>
+          <Row>
+            <Col id="showRow">15</Col>
+            <Col id="showRowCode">15</Col>
+          </Row>
+          <Row>
+            <Col id="showRow">20</Col>
+            <Col id="showRowCode">20</Col>
+          </Row>
+          <Row>
+            <Col id="showRow">25</Col>
+            <Col id="showRowCode">25</Col>
+          </Row>
+          <Row>
+            <Col id="showRow">30</Col>
+            <Col id="showRowCode">30</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCommCbo">
+        <ColumnInfo>
+          <Column id="commCbo" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sController">practice/selectResList.do</Col>
+            <Col id="svcid">selectResList</Col>
+            <Col id="inds">dsResSchMap=dsResSchMap</Col>
+            <Col id="outds">dsUserRes=dsUserRes</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsResSchMap">
+        <ColumnInfo>
+          <Column id="userNo" type="STRING" size="256"/>
+          <Column id="bookNo" type="STRING" size="256"/>
+          <Column id="brrStr" type="STRING" size="256"/>
+          <Column id="brrEnd" type="STRING" size="256"/>
+          <Column id="clCd" type="STRING" size="256"/>
+          <Column id="divCd" type="STRING" size="256"/>
+          <Column id="writer" type="STRING" size="256"/>
+          <Column id="pub" type="STRING" size="256"/>
+          <Column id="keyword" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsUserRes">
+        <ColumnInfo>
+          <Column id="bookIsbn" type="STRING" size="256"/>
+          <Column id="bookNm" type="STRING" size="256"/>
+          <Column id="divCd" type="STRING" size="256"/>
+          <Column id="classCd" type="STRING" size="256"/>
+          <Column id="bookPub" type="STRING" size="256"/>
+          <Column id="bookWriter" type="STRING" size="256"/>
+          <Column id="rank" type="STRING" size="256"/>
+          <Column id="bookRevBrr" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::Comm.xjs";
+
+this.fn_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	// 회원번호 받아옴
+	var no = application.gds_UserInfo.getColumn(0,"userNo");
+	
+	this.dsResSchMap.setColumn(0,"userNo",no);
+	
+	//회원연체도서검색
+	this.lfn_searchList();
+	//공통코드 세팅
+	this.lfn_settingSearchBar(); 	
+}
+
+
+// 조회함수
+this.lfn_searchList = function(){
+	// 연체도서검색
+	this.gfn_serviceCall("selectResList"); 
+}
+
+
+//공통코드 세팅
+this.lfn_settingSearchBar = function(){
+
+	
+	var cdParam = new Array();
+	
+	//캠퍼스조회	
+	cdParam[0]  = ["CBO",  "A02", "cbo_bkdiv", 0, "ALL"];
+	cdParam[1]  = ["CBO",  "A01", "cbo_bkclass", 0, "ALL"];
+	this.gfn_getCboComplexCmmnCd1(this.name, cdParam);
+	this.cbo_bkdiv.index = 0;
+	this.cbo_bkclass.index = 0;
+	this.dsCommCbo.setColumn(0,'commCbo',"");
+
+}
+
+
+
+//공통 콜백
+this.lfn_cmmCallback = function(svcId, errorcode, errormsg){
+ 
+	//this.alert(svcId);
+	
+	if(errorcode < 0)
+	{
+	   Iject.alert(errormsg,"오류");
+	   return;
+	}
+		//콜백정의	
+		//Iject.alert(errormsg,"알림");	
+	
+}
+
+// 조회버튼 클릭
+this.fn_ressch = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.lfn_searchList();
+}
+
+this.fn_reset = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+]]></Script>
+  </Form>
+</FDL>

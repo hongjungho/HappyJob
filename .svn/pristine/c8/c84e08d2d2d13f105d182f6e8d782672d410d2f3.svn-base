@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="userProject" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="none" themeid="userProject.xtheme" onload="application_onload">
+    <Layout>
+      <MainFrame id="mainframe" title="maintitle" defaultfont="" resizable="true" showtitlebar="true" showstatusbar="false" left="0" top="0" width="1200" height="700" titletext="NEXA CRUD PROJECT">
+        <VFrameSet id="VFrameSet" separatesize="0,*,42">
+          <Frames>
+            <ChildFrame id="LoginFrame" showtitlebar="false" showtitleicon="false" dragmovetype="normal" resizable="false"/>
+            <HFrameSet id="HFrameSet" showtitleicon="false" separatesize="0,*">
+              <Frames>
+                <ChildFrame id="LeftFrame" dragmovetype="none" showtitlebar="false" formurl="Frame::LeftFrame.xfdl"/>
+                <VFrameSet id="VFrameSet1" separatesize="30,*">
+                  <Frames>
+                    <ChildFrame id="TopFrame" dragmovetype="none" showtitlebar="false" formurl="Frame::TopFrame.xfdl"/>
+                    <FrameSet id="WorkFrame" topmost="true">
+                      <Frames>
+                        <ChildFrame id="MainForm" formurl="Frame::MainFrame.xfdl" showcascadestatustext="false" showcascadetitletext="false" showtitlebar="false" showtitleicon="false"/>
+                      </Frames>
+                    </FrameSet>
+                  </Frames>
+                </VFrameSet>
+              </Frames>
+            </HFrameSet>
+            <ChildFrame id="MDIFrame" formurl="Frame::MDIFrame.xfdl" dragmovetype="none" showtitlebar="false"/>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+    <ScreenInfo/>
+    <Style url="Css::userProject.css"/>
+    <Style url="Css::userProjectMdi.css"/>
+  </Application>
+  <Script type="xscript5.0"><![CDATA[//Application Script
+
+this.application_onload = function(obj:Application, e:nexacro.LoadEventInfo)
+{
+	//초기 application onload setting
+    Iject.appOnload(obj);   
+}
+]]></Script>
+</ADL>

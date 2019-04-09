@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="sample.service.dao.mybatis.BookMapper">
+
+	<select id="getList" resultType="egovMap">
+	<![CDATA[
+			select book_nm, 
+		           book_writer, 
+		           book_pub,
+		           to_char(book_date, 'yyyy-MM-dd') book_date, 
+		           div_cd, 
+		           class_cd, 
+		           book_isbn, 
+		           book_sum, 
+		           place_cd, 
+		           book_img, 
+		           book_idx, 
+		           s_book_img,
+		           count(book_nm) book_count
+			from hl_book
+	 		group by
+		           book_nm, 
+		           book_writer, 
+		           book_pub,
+		           book_date, 
+		           div_cd, 
+		           class_cd, 
+		           book_isbn, 
+		           book_sum, 
+		           place_cd, 
+		           book_img, 
+		           book_idx, 
+		           s_book_img 
+			]]>
+			<choose>
+				<when test="type == 'title'">
+					having book_nm like '%'||#{keyword}||'%'
+    			</when>
+    			<when test="type == 'writer'">
+    				having book_writer like '%'||#{keyword}||'%'
+    			</when>
+    			<when test="type == 'both'">
+    				having book_nm like '%'||#{keyword}||'%' or book_writer like '%'||#{keyword}||'%'
+    			</when>
+    		</choose>
+	</select>
+	
+	<select id="getBookByTitle" resultType="egovMap">
+	<![CDATA[
+	 select book_no, 
+            book_nm, 
+            to_char(book_regdate, 'yyyy-MM-dd') book_regdate
+		    from hl_book
+            where book_no not in (
+               select 
+                   b.book_no
+                   from hl_book b
+                   join hl_service s
+                   on b.book_no = s.book_no
+                   and
+                   (#{serviceStart} between s.service_start and s.service_end)
+                   )
+			and book_nm = #{bookNm}
+			and book_writer = #{bookWriter}
+			and book_pub = #{bookPub}
+			order by book_no
+            desc
+	]]>  
+	</select>
+	
+	<insert id="brrBook" parameterType="java.util.Map">
+		 insert into hl_service values(
+  		 	seq_service.nextval, #{userNo}, #{bookNo}, #{serviceCd}, #{serviceStart}, #{serviceEnd}
+ 		)
+	</insert>
+	
+	<insert id="regBook" parameterType="java.util.Map">
+		insert into hl_book(
+    		book_no, 
+		    book_nm, 
+		    book_writer, 
+		    book_pub, 
+		    book_date, 
+		    book_isbn, 
+		    book_idx, 
+		    book_sum, 
+		    place_cd, 
+		    div_cd, 
+		    class_cd,
+		    book_img,
+		    book_regdate)
+		values(
+		    seq_book.nextval,
+		    #{bookNm},
+		    #{bookWriter},
+		    #{bookPub},
+		    #{bookDate},
+		    #{bookIsbn},
+		    #{bookIdx},
+		    #{bookSum},
+		    #{placeCd},
+		    #{divCd},
+		    #{classCd},
+		    'URL',
+		    sysdate
+		    )
+	</insert>
+
+</mapper>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Login" left="0" top="0" width="480" height="390" titletext="New Form" onload="Login_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div" taborder="0" left="0%" top="0" right="0%" bottom="0" style="background:#2c3e50ff;color:#45596dff;" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" left="94" top="171" width="320" height="16" style="background:transparent URL('Images::Class/WF_img_Line_V.png') left top;"/>
+              <Edit id="Edit00" taborder="1" value="Admin" cssclass="WF_edt_Login" left="119" top="205" width="216" height="35"/>
+              <MaskEdit id="MaskEdit00" taborder="2" value="●●●●●●●●" displaynulltext="●●●●●●●●" cssclass="WF_msk_Login" left="119" top="245" width="216" height="35"/>
+              <Button id="btn_login" taborder="3" text="Login" cssclass="WF_btn_Login" left="341" top="205" width="79" height="75" onclick="Div_btn_login_onclick"/>
+              <Static id="Static01" taborder="4" left="75" top="217" width="37" height="62" style="background:transparent URL('Images::Class/WF_img_IDPW.png') left top;"/>
+              <CheckBox id="CheckBox00" taborder="5" text="ID/Password Save" cssclass="WF_chk_Login" left="126" top="291" width="182" height="29"/>
+              <Button id="btn_close" taborder="6" text="X" left="91.63%" top="10" right="1.67%" height="18" onclick="Div_Button01_onclick" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static06" taborder="1" left="69" top="64" width="370" height="95" style="background:transparent URL('Images::Class/Login_logo2.png') left top;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+* SYSTEM      : UserProject
+* BUSINESS    : UserProject-교육용
+* FILE NAME   : Login.xfdl
+* PROGRAMMER  : 
+* DATE        : 
+* DESCRIPTION : 로그인 화면
+*------------------------------------------------------------------
+* MODIFY DATE   PROGRAMMER			DESCRIPTION
+*------------------------------------------------------------------
+* 
+*------------------------------------------------------------------
+***********************************************************************************/
+
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+this.Login_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	if(nexacro.Browser == "Runtime") this.Div.btn_close.set_visible(true);
+}
+
+/***********************************************************************************
+* Component Event
+***********************************************************************************/
+
+//닫기버튼 event
+this.Div_Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.exit();
+}
+
+//로그인버튼 event
+this.Div_btn_login_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_login();
+}
+/***********************************************************************************
+* User Function
+***********************************************************************************/
+
+//로그인 
+this.fn_login = function()
+{
+	
+     //application.gds_userInfo.setColumn(0,"USER_ID",this.div_login.txt_userId.value);
+ 	 //application.gds_userInfo.setColumn(0,"USER_NM","사용자");
+	
+	
+	if(nexacro.Browser == "Runtime")
+	{
+		var oArgs = "close";
+    	Iject.popClose(this,oArgs);
+
+	}
+	else
+	{
+	    Iject.setSeprateFrame();	//로그인 처리후 메인 프레임 세팅
+	}
+}
+
+]]></Script>
+  </Form>
+</FDL>

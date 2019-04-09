@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Rent" left="0" top="0" width="600" height="800" titletext="New Form" onload="form_onload" style="color:black;font:10 verdana;">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="img_book" taborder="0" text="img_book" left="5%" top="62" right="62.33%" height="109"/>
+        <Edit id="edit_title" taborder="1" left="40.83%" top="62" right="5.5%" height="27" readonly="true"/>
+        <Edit id="edit_writer" taborder="2" left="40.83%" top="102" right="5.5%" height="27" readonly="true"/>
+        <Edit id="edit_publisher" taborder="3" left="40.83%" top="142" right="5.5%" height="27" readonly="true"/>
+        <Grid id="grd_stock" taborder="4" useinputpanel="false" left="4.83%" top="398" right="4.83%" height="322" binddataset="dsBook">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="80"/>
+                <Column size="112"/>
+                <Column size="112"/>
+              </Columns>
+              <Rows>
+                <Row size="24"/>
+              </Rows>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" style="selectcolor:gray;controlcolor:gray;" combodisplay="display"/>
+                <Cell col="1" text="bind:bookNo"/>
+                <Cell col="2" text="bind:bookNm"/>
+                <Cell col="3" text="bind:bookRegdate"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Calendar id="cal_from" taborder="5" left="4.33%" top="193" right="5.33%" height="36" onchanged="cal_from_onchanged" displaynulltext="원하는 대출일자를 선택해주세요." style="displaynulltextcolor:#00000080;"/>
+        <Calendar id="cal_to" taborder="6" left="4.33%" top="254" right="5.33%" height="36" onchanged="cal_to_onchanged" displaynulltext="원하는 반납일자를 선택해주세요." style="displaynulltextcolor:#00000080;"/>
+        <Button id="btn_rent_search" taborder="7" text="대여 가능 도서 검색" left="69.83%" top="311" right="5.33%" height="31" onclick="btn_rent_search_onclick" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;"/>
+        <Static id="stc_total" taborder="8" left="8.83%" top="313" right="70.67%" height="39"/>
+        <Button id="btn_rent_confirm" taborder="9" text="선택" left="41.33%" top="738" right="41.17%" height="32" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;" onclick="btn_rent_confirm_onclick"/>
+        <Static id="stc_header" taborder="10" left="0%" top="0" right="0%" height="43" style="background:#339966ff;color:white;font:bold 20 verdana;" text="   대여 도서 검색"/>
+        <Static id="stc_grd_info" taborder="11" text="        도서번호     |       도서명      |       등록일자" left="5.17%" top="364" right="5%" height="29" style="background:#339966ff;color:white;bordertype:round 10 10  righttop leftbottom;font:bold 10 verdana;"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="edit_title" propid="value" datasetid="dsBooks" columnid="bookNm"/>
+      <BindItem id="item1" compid="edit_writer" propid="value" datasetid="dsBooks" columnid="bookWriter"/>
+      <BindItem id="item2" compid="edit_publisher" propid="value" datasetid="dsBooks" columnid="bookPub"/>
+    </Bind>
+    <Objects>
+      <Dataset id="dsBook">
+        <ColumnInfo>
+          <Column id="bookNo" type="STRING" size="256"/>
+          <Column id="bookNm" type="STRING" size="256"/>
+          <Column id="bookRegdate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="256"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="svcid">getList</Col>
+            <Col id="sController">book/getList.do</Col>
+            <Col id="inds">dsSearch=dsSearch</Col>
+            <Col id="outds">dsBooks=dsBooks</Col>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">regBook</Col>
+            <Col id="sController">book/regBook.do</Col>
+            <Col id="inds">dsBooks=dsBooks</Col>
+            <Col id="outds"/>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">getBookByTitle</Col>
+            <Col id="sController">book/getBookByTitle.do</Col>
+            <Col id="inds">dsArgs=dsArgs</Col>
+            <Col id="outds">dsBook=dsBook</Col>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">rent</Col>
+            <Col id="sController">book/rent.do</Col>
+            <Col id="inds">dsRent=dsRent</Col>
+            <Col id="outds"/>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsArgs">
+        <ColumnInfo>
+          <Column id="bookNm" type="STRING" size="256"/>
+          <Column id="bookWriter" type="STRING" size="256"/>
+          <Column id="bookPub" type="STRING" size="256"/>
+          <Column id="serviceStart" type="STRING" size="256"/>
+          <Column id="serviceEnd" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="bookNm"/>
+            <Col id="bookWriter"/>
+            <Col id="bookPub"/>
+            <Col id="serviceStart"/>
+            <Col id="serviceEnd"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsRent">
+        <ColumnInfo>
+          <Column id="serviceNo" type="STRING" size="256"/>
+          <Column id="userNo" type="STRING" size="256"/>
+          <Column id="bookNo" type="STRING" size="256"/>
+          <Column id="serviceCd" type="STRING" size="256"/>
+          <Column id="serviceStart" type="STRING" size="256"/>
+          <Column id="serviceEnd" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs"
+
+this.selected = this.opener.grd_books.getSelectedRows();
+this.selBook = this.opener.dsBooks.getColumn(this.selected, "bookNm");
+this.selWriter = this.opener.dsBooks.getColumn(this.selected, "bookWriter");
+this.selRegdate = this.opener.dsBooks.getColumn(this.selected, "bookRegdate");
+this.selBookPub = this.opener.dsBooks.getColumn(this.selected, "bookPub");
+
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	trace("form_rent");
+}
+
+this.fn_callback = function(){
+	this.total = this.dsBook.getRowCount();
+	this.stc_total.set_text(this.total + " 권 대여 가능");
+}
+
+this.cal_to_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	var startDate = this.cal_from.value;
+	var endDate = this.cal_to.value;
+	if(startDate > endDate){
+		alert("반납일자를 확인해주세요.");
+		return this.cal_to.set_value(startDate);
+	}
+}
+
+this.cal_from_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	var today = new Date();
+	var year = today.getFullYear();
+	var month = today.getMonth() + 1;
+	if(month < 10){
+		month = "0"+ month;
+	}
+	var date = today.getDate();
+	if(date < 10){
+		date = "0"+date;
+	}
+	today = year + month + date;
+
+	if(obj.value < today){
+		alert("대출일자를 확인해주세요.");
+	}
+}
+
+
+this.fn_rent_callback = function(){
+	
+	this.btn_rent_search_onclick();
+	trace("available books searched");
+	
+}
+
+
+this.btn_rent_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var startDate = this.cal_from.value;
+	var endDate = this.cal_to.value;
+	trace(startDate);
+	trace(endDate);
+	
+	if(startDate != null && endDate != null){
+
+		this.dsArgs.setColumn(0, "bookNm", this.selBook);
+		this.dsArgs.setColumn(0, "bookWriter", this.selWriter);
+		this.dsArgs.setColumn(0, "bookPub", this.selBookPub);
+		this.dsArgs.setColumn(0, "serviceStart", startDate);
+		this.dsArgs.setColumn(0, "serviceEnd", endDate);
+		
+		this.gfn_serviceCall("getBookByTitle");
+	} else{
+		alert("날짜를 확인해주세요.");
+		return false;
+	}
+}
+
+this.btn_rent_confirm_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var startDate = this.cal_from.value;
+	var endDate = this.cal_to.value;
+	var selRow = this.grd_stock.getSelectedRows();
+	var bookNo = this.dsBook.getColumn(selRow, "bookNo");
+	
+	if(startDate != null && endDate != null && selRow != null){
+	
+		this.dsRent.setColumn(0, "userNo", 1);
+		this.dsRent.setColumn(0, "bookNo", bookNo);
+		this.dsRent.setColumn(0, "serviceCd", 01);
+		this.dsRent.setColumn(0, "serviceStart", startDate);
+		this.dsRent.setColumn(0, "serviceEnd", endDate);
+		
+		this.gfn_serviceCall("rent");
+	}
+}
+
+]]></Script>
+  </Form>
+</FDL>

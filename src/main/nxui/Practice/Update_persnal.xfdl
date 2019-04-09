@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Update_persnal" left="0" top="0" width="1024" height="797" titletext="New Form" onload="fn_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="0%" top="0" right="0%" height="798" style="background:#ffffffff;"/>
+        <Static id="Static00" taborder="1" text="정보수정" onclick="Div00_Static00_onclick" left="11.52%" top="29" right="70.9%" height="39" style="color:#339966ff;font:bold 16 Dotum;"/>
+        <Static id="Static01" taborder="2" text="허위로 작성된 가입정보일 경우 임의로 삭제처리될 수 있으니 주의해 주세요. &#13;&#10;  &#13;&#10;대출증번호를 입력하신 회원은 온라인서비스(이용자서비스,예약대출) 등을 이용하실수 있습니다.  &#13;&#10;&#13;&#10;* 는 필수 입력 항목입니다." left="15.04%" top="70" width="702" height="103" style="border:2 solid #339966ff ;color:#ff0000ff;font:bold 10 Dotum;"/>
+        <Button id="Button00" taborder="10" text="수정" left="41.11%" top="592" right="51.56%" height="33" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 10 Dotum;" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="11" text="취소" left="51.86%" top="592" right="40.82%" height="33" style="background:#ffffffff;border:1 solid #c0c0c0ff ;color:#000000ff;font:bold 10 Dotum;"/>
+        <Div id="Div01" taborder="12" text="Div00" left="15.04%" top="195" width="702" height="362" style="border:1 solid #339966ff ;">
+          <Layouts>
+            <Layout width="702" height="365">
+              <Static id="Static00" taborder="61" text="이름(실명)" left="0%" top="0" width="150" height="30" style="background:#ceffceff;border:1 solid #339966ff ;align:center middle;font:bold 9 Dotum;"/>
+              <Static id="Static01" taborder="62" text="아이디" onclick="Div00_Div00_Static01_onclick" left="0%" top="30" width="150" height="60" style="background:#ceffceff;border:1 solid #339966ff ;align:center middle;font:bold 9 Dotum;"/>
+              <Static id="Static02" taborder="63" text="대출증번호" left="0%" top="90" width="150" height="60" style="background:#ceffceff;border:1 solid #339966ff ;align:center middle;font:bold 9 Dotum;"/>
+              <Static id="Static03" taborder="64" text="비밀번호" left="0%" top="150" width="150" height="60" style="background:#ceffceff;border:1 solid #339966ff ;align:center middle;font:bold 9 Dotum;"/>
+              <Static id="Static04" taborder="65" text="비밀번호확인" left="0%" top="210" width="150" height="30" style="background:#ceffceff;border:1 solid #339966ff ;align:center middle;font:bold 9 Dotum;"/>
+              <Static id="Static05" taborder="66" text="생년월일/성별" onclick="Div00_Div00_Static05_onclick" left="0%" top="240" width="150" height="30" style="background:#ceffceff;border:1 solid #339966ff ;align:center middle;font:bold 9 Dotum;"/>
+              <Static id="Static06" taborder="67" text="주소" left="0%" top="270" width="150" height="30" style="background:#ceffceff;border:1 solid #339966ff ;align:center middle;font:bold 9 Dotum;"/>
+              <Static id="Static07" taborder="68" text="휴대전화번호" left="0%" top="300" width="150" height="30" style="background:#ceffceff;border:1 solid #339966ff ;align:center middle;font:bold 9 Dotum;"/>
+              <Static id="Static08" taborder="69" text="이메일" left="0%" top="330" width="150" height="30" style="background:#ccffccff;border:1 solid #339966ff ;align:center middle;font:bold 9 Dotum;"/>
+              <Div id="Div00" taborder="70" text="Div00" left="4%" top="22" right="89.29%" height="47">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="*" left="29.79%" top="28" right="46.81%" height="19" style="color:#ff6600ff;font:bold 16 Dotum;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div02" taborder="71" text="Div01" left="21.43%" top="30" width="550" height="60" style="border:1 solid #339966ff ;">
+                <Layouts>
+                  <Layout>
+                    <Edit id="Edit00" taborder="6" left="0.55%" top="4" right="60.95%" height="20"/>
+                    <Button id="Button00" taborder="7" text="아이디 중복 확인" left="40.15%" top="4" right="35.04%" height="24" style="background:#ffffffff;border:1 solid #339966ff ;color:#339966ff;font:bold 9 Dotum;"/>
+                    <Static id="Static00" taborder="8" text="(영문소문자, 숫자 조합 최소 5자 이상 최대 12자 이하입니다.)" left="0.73%" top="31" right="31.75%" height="22"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div04" taborder="72" text="Div01" left="21.43%" top="150" width="550" height="60" style="border:1 solid #339966ff ;">
+                <Layouts>
+                  <Layout>
+                    <Edit id="Edit00" taborder="4" left="0.55%" top="4" right="60.95%" height="20" visible="true" password="true"/>
+                    <Static id="Static00" taborder="5" text="※ 영문소문자, 숫자, 특수문자 조합으로 최소 10자리이상" left="0.73%" top="31" right="31.75%" height="22"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div05" taborder="73" text="Div01" left="21.43%" top="210" width="550" height="30" style="border:1 solid #339966ff ;">
+                <Layouts>
+                  <Layout>
+                    <Edit id="Edit00" taborder="0" left="0.55%" top="4" right="60.95%" height="20" tabstop="true" password="true"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div06" taborder="74" text="Div01" left="21.43%" top="240" width="550" height="30" style="border:1 solid #339966ff ;">
+                <Layouts>
+                  <Layout>
+                    <Combo id="cmb_year02" taborder="21" innerdataset="@ds_gender" codecolumn="code" datacolumn="value" displayrowcount="5" onitemchanged="Div00_Div00_Div07_cmb_year_onitemchanged" left="64.6%" top="4" right="24.82%" height="20" index="-1"/>
+                    <Calendar id="Calendar00" taborder="22" left="11.86%" top="3" right="49.64%" height="22" dateformat="yyyy-MM-dd" value="null" editformat="yyyy-MM-dd"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div07" taborder="75" text="Div01" left="21.43%" top="270" width="550" height="30" style="border:1 solid #339966ff ;">
+                <Layouts>
+                  <Layout>
+                    <Edit id="Edit00" taborder="0" left="0.55%" top="4" right="60.95%" height="20"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div03" taborder="76" text="Div01" left="21.43%" top="90" width="550" height="60" style="border:1 solid #339966ff ;">
+                <Layouts>
+                  <Layout>
+                    <Edit id="Edit00" taborder="9" left="0.55%" top="4" right="60.95%" height="20"/>
+                    <Button id="Button00" taborder="10" text="대출증번호 확인" left="40.15%" top="4" right="35.04%" height="24" style="background:#ffffffff;border:1 solid #339966ff ;color:#339966ff;font:bold 9 Dotum;"/>
+                    <Static id="Static00" taborder="11" text="(무인예약 신청을 이용하려면 반드시 입력하세요.)" left="0.73%" top="31" right="31.75%" height="22"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="Static09" taborder="77" text="*" left="5%" top="170" right="71.71%" height="19" style="color:#ff6600ff;font:bold 16 Dotum;"/>
+              <Static id="Static10" taborder="78" text="*" left="3.29%" top="215" right="73.43%" height="19" style="color:#ff6600ff;font:bold 16 Dotum;"/>
+              <Static id="Static11" taborder="79" text="*" left="2.71%" top="245" right="74%" height="19" style="color:#ff6600ff;font:bold 16 Dotum;"/>
+              <Static id="Static12" taborder="80" text="*" left="3.29%" top="305" right="73.43%" height="19" style="color:#ff6600ff;font:bold 16 Dotum;"/>
+              <Div id="Div08" taborder="81" text="Div01" left="21.43%" top="300" width="550" height="30" style="border:1 solid #339966ff ;">
+                <Layouts>
+                  <Layout>
+                    <Edit id="Edit00" taborder="0" left="0.55%" top="4" right="60.95%" height="20"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div09" taborder="82" text="Div01" left="21.43%" top="330" width="550" height="30" style="border:1 solid #339966ff ;">
+                <Layouts>
+                  <Layout>
+                    <Edit id="Edit00" taborder="12" left="0.55%" top="4" right="78.47%" height="20"/>
+                    <Edit id="Edit01" taborder="13" left="25.73%" top="4" right="53.28%" height="20"/>
+                    <Static id="Static00" taborder="14" text="@" left="22.08%" top="5" right="73.91%" height="19" style="font:12 Dotum;"/>
+                    <Combo id="Combo00" taborder="15" value="1" text="이메일 도메인 선택" innerdataset="@ds_email" codecolumn="code" datacolumn="value" index="0" displayrowcount="5" left="47.99%" top="5" right="25.73%" height="19" onitemchanged="Div01_Div09_Combo00_onitemchanged"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="Static13" taborder="83" left="21.43%" top="0" height="30" style="border:1 solid #339966ff ;" width="550"/>
+              <Edit id="Edit00" taborder="84" left="22%" top="3" right="49.86%" height="23"/>
+              <Static id="Static14" taborder="85" text="생년월일" left="21.43%" top="246" right="68.86%" height="21" style="align:center middle;"/>
+              <Static id="Static15" taborder="86" text="성별" left="63%" top="245" right="27.29%" height="21" style="align:center middle;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item3" compid="Div01.Edit00" propid="value" datasetid="dsUserInfo" columnid="userNm"/>
+      <BindItem id="item4" compid="Div01.Div02.Edit00" propid="value" datasetid="dsUserInfo" columnid="userId"/>
+      <BindItem id="item5" compid="Div01.Div03.Edit00" propid="value" datasetid="dsUserInfo" columnid="brrCdnum"/>
+      <BindItem id="item6" compid="Div01.Div08.Edit00" propid="value" datasetid="dsUserInfo" columnid="userPhone"/>
+      <BindItem id="item7" compid="Div01.Div09.Edit00" propid="value" datasetid="dsUserInfo" columnid="email"/>
+      <BindItem id="item8" compid="Div01.Div06.cmb_year02" propid="value" datasetid="dsUserInfo" columnid="userGender"/>
+      <BindItem id="item1" compid="Div01.Div07.Edit00" propid="value" datasetid="dsUserInfo" columnid="userAddr"/>
+      <BindItem id="item0" compid="Div01.Div06.Calendar00" propid="value" datasetid="dsUserInfo" columnid="userBirth"/>
+      <BindItem id="item2" compid="Div01.Div09.Combo00" propid="value" datasetid="dsUserInfo" columnid="domaincode"/>
+      <BindItem id="item9" compid="Div01.Div09.Edit01" propid="value" datasetid="dsUserInfo" columnid="domain"/>
+      <BindItem id="item10" compid="Div01.Div04.Edit00" propid="value" datasetid="dsUserInfo" columnid="userPwd"/>
+      <BindItem id="item11" compid="Div01.Div05.Edit00" propid="value" datasetid="dsUserInfo" columnid="userIspwd"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_email">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">이메일 도메인 선택</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">naver.com</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">daum.net</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="value">gmail.com</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="value">lycos.co.kr</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="value">nate.com</Col>
+          </Row>
+          <Row>
+            <Col id="code">7</Col>
+            <Col id="value">직접입력</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_gender">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">M</Col>
+            <Col id="value">남자</Col>
+          </Row>
+          <Row>
+            <Col id="code">W</Col>
+            <Col id="value">여자</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsMypageMap">
+        <ColumnInfo>
+          <Column id="userNo" type="STRING" size="256"/>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="authorityCode" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sController">practice/selectMypageList.do</Col>
+            <Col id="svcid">selectMypageList</Col>
+            <Col id="inds">dsMypageMap=dsMypageMap</Col>
+            <Col id="outds">dsUserInfo=dsUserInfo</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+          <Row>
+            <Col id="svcid">saveUserInfo</Col>
+            <Col id="sController">practice/saveUserInfo.do</Col>
+            <Col id="inds">dsUserInfo=dsUserInfo:U</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsUserInfo">
+        <ColumnInfo>
+          <Column id="userNm" type="STRING" size="256" description="이름"/>
+          <Column id="userId" type="STRING" size="256" description="아이디"/>
+          <Column id="userNo" type="STRING" size="256" description="고유번호"/>
+          <Column id="userPhone" type="STRING" size="256" description="전화번호"/>
+          <Column id="userAddr" type="STRING" size="256" description="주소"/>
+          <Column id="authorCd" type="STRING" size="256" description="권한"/>
+          <Column id="userBirth" type="STRING" size="256" description="생일"/>
+          <Column id="userGender" type="STRING" size="256" description="성별"/>
+          <Column id="brrCdnum" type="STRING" size="256" description="대출증"/>
+          <Column id="email" type="STRING" size="256" description="이메일"/>
+          <Column id="domain" type="STRING" size="256" description="도메인"/>
+          <Column id="userEmail" type="STRING" size="256" description="이메일+도메인"/>
+          <Column id="domaincode" type="STRING" size="256"/>
+          <Column id="userPwd" type="STRING" size="256" description="비밀번호"/>
+          <Column id="userIspwd" type="STRING" size="256" description="비번확인"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::Comm.xjs";
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+
+this.fn_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	
+	this.dsUserInfo.assign(application.gds_UserInfo);
+}
+
+
+
+
+
+// 이메일 온체인지이벤트
+this.Div01_Div09_Combo00_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	var a = obj.value
+	var b = obj.text
+	
+	if(a!="7"){
+		this.Div01.Div09.Edit01.set_readonly(true);
+	}
+	if(a=="7"){
+		this.Div01.Div09.Edit01.set_readonly(false);
+	}
+	
+	this.fn_insertDomain(a,b);
+	
+}
+
+// 이메일 온체인지 함수
+this.fn_insertDomain = function(a,b){
+	if(a=="1" || a=="7"){
+		this.Div01.Div09.Edit01.set_value('');
+	}
+	else{
+	this.Div01.Div09.Edit01.set_value(b);
+	}
+}
+
+// 수정버튼
+this.Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	// 비밀번호 확인 로직
+	var pwd = this.Div01.Div04.Edit00.value;
+	var isPwd = this.Div01.Div05.Edit00.value;
+	
+	this.dsUserInfo.setColumn(0,"userPwd",pwd)
+	this.dsUserInfo.setColumn(0,"userIspwd",isPwd)
+	
+	
+	// 유효비밀번호인지 확인
+	if(pwd==null){
+		alert("비밀번호 입력 요망(when null)");
+		this.Div01.Div04.Edit00.setFocus;
+		return;
+	}
+	if(pwd!=null){
+		if(pwd.split(" ").join("")==""){
+			alert("비밀번호 입력 요망");
+			this.Div01.Div04.Edit00.set_value('');
+			return;
+		}
+		
+		// 일치불일치확인
+		if(pwd!=isPwd){
+			alert("비번확인요망")
+			this.Div01.Div05.Edit00.set_value('');		
+			this.Div01.Div04.Edit00.set_value('');
+			return;
+		}
+	}
+	// 일치시
+	if(this.confirm("저장하시겠습니까?")){
+	this.gfn_serviceCall("saveUserInfo");
+	
+	
+	var sURL = "Practice::MyPage.xfdl";
+	this.gfn_main(sURL);
+	}
+	
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

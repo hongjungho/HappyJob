@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="TopFrame" left="0" top="0" width="1024" height="30" onload="TopFrame_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" cssclass="sta_TF_TopBg" left="0" top="0" right="0" height="30"/>
+        <Button id="btn_leftMenuOpen" taborder="1" onclick="btn_leftMenuOpen_onclick" cssclass="btn_TF_LeftMenuOpen" left="0" top="0" width="34" height="29"/>
+        <Static id="stNm" taborder="2" usedecorate="true" cssclass="sta_TF_Admin" top="0" right="152" width="157" height="29"/>
+        <Button id="btn_logout" taborder="3" text="Log-out" cssclass="btn_TF_Logout" top="0" right="45" width="67" height="29" onclick="btn_logout_onclick"/>
+        <Button id="btn_help" taborder="4" text="Help" cssclass="btn_TF_Admin" top="0" right="0" width="45" height="29" onclick="btn_help_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************
+ * Name			: TopFrame.xfdl
+ * Title		: 상단화면
+ * Desc			: 사용자 , Log-out , 도움말 , 좌측 메뉴 버튼
+ * 작성자		: 
+ * 작성일		: 2018.01.20
+ * 변경사항	: 
+ *******************************************************************************/
+
+include "Lib::Comm.xjs";
+
+/*===============================================================================
+* Form 관련 Script
+*=============================================================================*/
+
+//form onload
+this.TopFrame_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	
+}
+
+/*===============================================================================
+* Component 관련 Script
+*=============================================================================*/
+
+//좌측메뉴 펼침 접힙 실행
+this.btn_leftMenuOpen_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	Iject.Mdi.leftMenuAction(this,obj);
+}
+
+//로그아웃
+this.btn_logout_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	Iject.logout();
+}
+
+this.fn_set = function()
+{
+
+   this.stNm.set_text(Iject.$["usernm"] + " <b v='false'>님 환영합니다.</b>");
+}
+
+
+//도움말
+this.btn_help_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.alert("도움말은 준비중 입니다.");
+}
+]]></Script>
+  </Form>
+</FDL>

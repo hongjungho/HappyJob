@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="Sample" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="none" themeid="default.xtheme" onload="fn_test">
+    <Layout>
+      <MainFrame id="mainframe" title="maintitle" defaultfont="" resizable="true" showtitlebar="true" showstatusbar="false" left="0" top="0" width="1024" height="768" showcascadestatustext="false" showcascadetitletext="false">
+        <VFrameSet id="VFrameSet0" showcascadetitletext="false" separatesize="52">
+          <Frames>
+            <ChildFrame id="ChildFrame0" showstatusbar="false" formurl="Frame::TopFrameLib.xfdl" showtitlebar="false" showtitleicon="false" dragmovetype="none"/>
+            <VFrameSet id="VFrameSet1" separatesize="50">
+              <Frames>
+                <ChildFrame id="ChildFrame1" formurl="Frame::MenuBar.xfdl" dragmovetype="none" showtitlebar="false" showtitleicon="false"/>
+                <HFrameSet id="HFrameSet0" separatesize="200">
+                  <Frames>
+                    <ChildFrame id="ChildFrame2" dragmovetype="none" showtitlebar="false" showtitleicon="false" formurl="Frame::LeftFrame.xfdl"/>
+                    <ChildFrame id="ChildFrame3" showtitlebar="false" showtitleicon="false" dragmovetype="none"/>
+                  </Frames>
+                </HFrameSet>
+              </Frames>
+            </VFrameSet>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+    <ScreenInfo/>
+  </Application>
+  <Script type="xscript5.0"><![CDATA[
+include "Lib::Comm.xjs";
+
+this.fn_test = function(obj:Application, e:nexacro.LoadEventInfo)
+{
+	
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(false);
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(0);	
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_width(1024);	
+	var sURL = "Practice::Main.xfdl";
+    this.gfn_main(sURL);
+}
+]]></Script>
+</ADL>

@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="test001" left="0" top="0" width="1024" height="768" titletext="New Form" style="background:#ffffffff;color:white;font:antialias 10 Meriyo UI, malgun gothic, Helvetica, Droid Sans;" onload="test001_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="2" text="search" left="41.6%" top="36" right="48.34%" height="22" onclick="fn_search"/>
+        <Button id="Button02" taborder="4" text="add" left="54.88%" top="36" right="35.06%" height="22" onclick="fn_add"/>
+        <Button id="Button03" taborder="5" text="delete" left="68.16%" top="36" right="21.78%" height="22" onclick="fn_delete"/>
+        <Button id="Button04" taborder="6" text="save" left="81.45%" top="36" right="8.5%" height="22" onclick="btn_Save_onclick"/>
+        <Div id="Div00" taborder="11" text="Div00" left="5.18%" top="339" right="9.38%" height="373">
+          <Layouts>
+            <Layout width="920" height="299">
+              <Static id="Static00" taborder="19" text="name" left="1.63%" top="12" right="88.8%" height="23" style="background:darkgray;color:blue;"/>
+              <Static id="Static01" taborder="20" text="empl" left="1.63%" top="50" right="88.8%" height="23" style="background:darkgray;color:blue;"/>
+              <Static id="Static02" taborder="21" text="date of hire" left="46.09%" top="238" right="44.35%" height="23" style="background:darkgray;color:blue;"/>
+              <Static id="Static03" taborder="22" text="department" left="1.63%" top="88" right="88.8%" height="23" style="background:darkgray;color:blue;"/>
+              <Static id="Static04" taborder="23" text="position" left="1.63%" top="126" right="88.8%" height="23" style="background:darkgray;color:blue;"/>
+              <Static id="Static05" taborder="24" text="gender" left="1.63%" top="225" right="88.8%" height="23" style="background:darkgray;color:blue;"/>
+              <Static id="Static06" taborder="25" text="married" onclick="Div00_Static06_onclick" left="1.63%" top="265" right="88.8%" height="23" style="background:darkgray;color:blue;"/>
+              <Static id="Static07" taborder="26" text="notes" left="46.09%" top="56" right="44.35%" height="23" style="background:darkgray;color:blue;"/>
+              <Static id="Static08" taborder="27" text="email" left="46.09%" top="12" right="44.35%" height="23" style="background:darkgray;color:blue;"/>
+              <Edit id="Edit02" taborder="29" left="58.37%" top="12" right="26.85%" height="25" ontextchanged="Div00_Edit02_ontextchanged"/>
+              <TextArea id="TextArea00" taborder="30" left="58.37%" top="55" right="16.3%" height="135"/>
+              <MaskEdit id="MaskEdit00" taborder="31" type="string" left="13.37%" top="50" right="72.28%" height="22" readonly="false" mask="AA-###"/>
+              <Combo id="Combo00" taborder="32" innerdataset="@ds_dept" codecolumn="CODE" datacolumn="VALUE" onitemchanged="Div00_Combo00_onitemchanged" left="13.37%" top="94" right="72.17%" height="19"/>
+              <Radio id="Radio00" taborder="33" columncount="2" innerdataset="@ds_gender" left="13.26%" top="227" right="60.54%" height="26" datacolumn="VALUE" codecolumn="CODE" onitemclick="Div00_Radio00_onitemclick"/>
+              <ListBox id="ListBox00" taborder="34" innerdataset="@ds_rank" codecolumn="CODE" datacolumn="VALUE" left="13.26%" top="128" right="72.5%" height="82" onitemclick="Div00_ListBox00_onitemclick"/>
+              <CheckBox id="CheckBox00" taborder="35" left="13.15%" top="266" right="75.76%" height="28" onclick="Div00_CheckBox00_onclick"/>
+              <Calendar id="Calendar00" taborder="36" dateformat="yyyy.MM.dd" editformat="yyyy.MM.dd" oneditclick="Div00_Calendar00_oneditclick" left="57.93%" top="238" right="15.76%" height="33" value="null"/>
+              <Edit id="Edit00" taborder="37" oneditclick="Div00_Edit00_oneditclick" left="13.14%" top="12" right="72.11%" height="25"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <ImageViewer id="ImageViewer00" taborder="13" text="ImageViewer00" left="45.12%" top="642" right="11.72%" height="54" image="URL('kakao_account_login_btn_medium_wide')" onclick="ImageViewer00_onclick" style="background:transparent;color:transparent;cursor:hand;"/>
+        <Grid id="Grid00" taborder="14" binddataset="dsEmployees" autoenter="none" useinputpanel="false" autofittype="col" left="2.64%" top="109" right="7.32%" height="186" onheadclick="fn_cellAlign">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="153"/>
+                <Column size="153"/>
+                <Column size="153"/>
+                <Column size="153"/>
+                <Column size="153"/>
+                <Column size="153"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No"/>
+                <Cell col="1" text="Name"/>
+                <Cell col="2" text="Employee ID"/>
+                <Cell col="3" text="Department"/>
+                <Cell col="4" text="Position"/>
+                <Cell col="5" text="Married"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="currow+1"/>
+                <Cell col="1" edittype="none" text="bind:fullName"/>
+                <Cell col="2" edittype="none" text="bind:emplId" mask="AA-###"/>
+                <Cell col="3" displaytype="combo" edittype="none" text="bind:deptId" combodataset="ds_dept" combocodecol="CODE" combodatacol="VALUE"/>
+                <Cell col="4" displaytype="combo" edittype="none" text="bind:rank" combodataset="ds_rank" combocodecol="CODE" combodatacol="VALUE"/>
+                <Cell col="5" displaytype="checkbox" edittype="checkbox" text="bind:married"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="15" text="검색결과초기화" left="41.6%" top="72" right="48.34%" height="22" onclick="fn_reset"/>
+        <Edit id="sch_box" taborder="16" left="25%" top="32" right="60.74%" height="25" oneditclick="Edit00_oneditclick" onkeyup="searchEnter" style="color:black;"/>
+        <Static id="Static01" taborder="17" text="이름검색" left="17.97%" top="32" right="75.88%" height="26" style="background:#8b8b8bff;border:1 solid #646464ff ;color:white;"/>
+        <Static id="Static02" taborder="18" text="부서검색" left="17.97%" top="68" right="75.88%" height="26" style="background:#8b8b8bff;border:1 solid #646464ff ;color:white;"/>
+        <Combo id="schDept" taborder="19" left="25.29%" top="68" right="60.55%" height="26" index="-1" innerdataset="@ds_dept" codecolumn="CODE" datacolumn="VALUE"/>
+        <Calendar id="hire_Start" taborder="20" left="60.84%" top="72" right="25.98%" height="22" onchanged="fn_hireStart"/>
+        <Calendar id="hire_End" taborder="21" left="78.32%" top="72" right="8.5%" height="22" onchanged="fn_hireEnd"/>
+        <Static id="Static03" taborder="22" text="~" left="74.61%" top="78" right="22.27%" height="14" style="align:center middle;"/>
+        <Static id="Static04" taborder="23" text="hiredate" left="53.42%" top="72" right="40.43%" height="22" style="background:#7f8c9aff;border:0 none #999999ff ;color:#ffffffff;bordertype:round 5 5 ;align:center middle;"/>
+        <Static id="Static05" taborder="24" text="Employee Management" left="2.05%" top="41" right="83.59%" height="43" style="background:#8b8b8bff;border:1 solid #646464ff ;color:white;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dept">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">01</Col>
+            <Col id="VALUE">부서1</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">02</Col>
+            <Col id="VALUE">부서2</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">03</Col>
+            <Col id="VALUE">부서3</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">04</Col>
+            <Col id="VALUE">부서4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rank">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">01</Col>
+            <Col id="VALUE">1등</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">02</Col>
+            <Col id="VALUE">2등</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">03</Col>
+            <Col id="VALUE">3등</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">04</Col>
+            <Col id="VALUE">4등</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_gender">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">1</Col>
+            <Col id="VALUE">M</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2</Col>
+            <Col id="VALUE">W</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsEmployees" oncolumnchanged="ds_employees_oncolumnchanged" cancolumnchange="ds_employees_cancolumnchange">
+        <ColumnInfo>
+          <Column id="emplId" type="STRING" size="256"/>
+          <Column id="fullName" type="STRING" size="256"/>
+          <Column id="deptId" type="STRING" size="256"/>
+          <Column id="rank" type="STRING" size="256"/>
+          <Column id="gender" type="STRING" size="256"/>
+          <Column id="hireDate" type="STRING" size="256"/>
+          <Column id="married" type="STRING" size="256"/>
+          <Column id="email" type="STRING" size="256"/>
+          <Column id="emplMemo" type="STRING" size="256"/>
+          <Column id="rownum" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsemlpID">
+        <ColumnInfo>
+          <Column id="EMPL_ID" type="STRING" size="256"/>
+          <Column id="SCH_TEXT" type="STRING" size="256"/>
+          <Column id="SCH_DEPT" type="STRING" size="256"/>
+          <Column id="COL_ORDER" type="STRING" size="256"/>
+          <Column id="HIRE_START" type="STRING" size="256"/>
+          <Column id="HIRE_END" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sController">practice/testSearchList.do</Col>
+            <Col id="svcid">testSearchList</Col>
+            <Col id="inds">dsemlpID=dsemlpID</Col>
+            <Col id="outds">dsEmployees=dsEmployees</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+          <Row>
+            <Col id="svcid">testSaveList</Col>
+            <Col id="sController">practice/testSaveList.do</Col>
+            <Col id="inds">dsEmployees=dsEmployees:U</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="outds"/>
+            <Col id="args"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00.Edit00" propid="value" datasetid="dsEmployees" columnid="fullName"/>
+      <BindItem id="item1" compid="Div00.MaskEdit00" propid="value" datasetid="dsEmployees" columnid="emplId"/>
+      <BindItem id="item2" compid="Div00.Edit02" propid="value" datasetid="dsEmployees" columnid="email"/>
+      <BindItem id="item3" compid="Div00.CheckBox00" propid="value" datasetid="dsEmployees" columnid="married"/>
+      <BindItem id="item4" compid="Div00.Combo00" propid="value" datasetid="dsEmployees" columnid="deptId"/>
+      <BindItem id="item5" compid="Div00.TextArea00" propid="value" datasetid="dsEmployees" columnid="emplMemo"/>
+      <BindItem id="item6" compid="Div00.Calendar00" propid="value" datasetid="dsEmployees" columnid="hireDate"/>
+      <BindItem id="item7" compid="Div00.ListBox00" propid="value" datasetid="dsEmployees" columnid="rank"/>
+      <BindItem id="item8" compid="Div00.Radio00" propid="value" datasetid="dsEmployees" columnid="gender"/>
+      <BindItem id="item9" compid="sch_box" propid="value" datasetid="dsemlpID" columnid="SCH_TEXT"/>
+      <BindItem id="item10" compid="schDept" propid="value" datasetid="dsemlpID" columnid="SCH_DEPT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::Comm.xjs";
+
+
+
+
+this.ImageViewer00_onclick = function(obj:ImageViewer, e:nexacro.ClickEventInfo)
+{
+	alert("이미지클릭");
+}
+
+this.Div00_Edit02_ontextchanged = function(obj:Edit, e:nexacro.TextChangedEventInfo)
+{
+	//alert("Edit_email OnChanged");
+}
+
+
+this.ds_employees_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	//alert("ds_employees oncolumnchanged");
+}
+
+
+this.ds_employees_cancolumnchange = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+		if (e.columnid == "EMAIL")
+	{
+		if (e.newvalue.length > 0 
+		 && e.newvalue.indexOf("@") < 0)
+		{
+			alert("email에는 @가 반드시 입력되어야 합니다.");
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	else if (e.columnid == "FULL_NAME")
+	{
+		if (e.newvalue.length == 0)
+		{
+			alert("성명은 반드시 입력하세요");
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}	
+}
+
+
+
+// 엔터서치
+this.searchEnter = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == "13"){
+		this.fn_search();
+	}
+}
+
+
+
+
+
+// 조회
+this.fn_search = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+	this.lfn_searchList();
+}
+
+// 조회함수
+this.lfn_searchList = function(){
+	this.gfn_serviceCall("testSearchList"); //테스트페이지 검색
+}
+
+
+//추가
+this.fn_add = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.dsEmployees.addRow();
+}
+
+//삭제
+this.fn_delete = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.dsEmployees.deleteRow(this.dsEmployees.rowposition);
+}
+
+
+
+//저장하기
+this.btn_Save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.confirm("저장하시겠습니까?")){
+		this.gfn_serviceCall("testSaveList");
+	}
+}
+
+// 초기화 함수
+this.fn_reset = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	// Edit검색
+	var sch_box = this.sch_box.set_value('');
+	
+	// Calendar 검색
+	var hire_start = this.hire_Start.set_value(null);
+	this.dsemlpID.setColumn(0,"HIRE_START",hire_start)
+	var hire_end = this.hire_End.set_value(null);
+	this.dsemlpID.setColumn(0,"HIRE_END",hire_end)
+	
+	// 조회함수호출
+	this.lfn_searchList();
+	
+}
+
+
+
+this.fn_cellAlign = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var cell = e.cell
+	if(cell==1){
+		if(this.dsemlpID.getColumn(0,"COL_ORDER")=="FULL_NAME ASC"){
+			this.dsemlpID.setColumn(0,"COL_ORDER","FULL_NAME DESC")
+			this.lfn_searchList();
+			return;
+		}
+		else{
+			this.dsemlpID.setColumn(0,"COL_ORDER","FULL_NAME ASC")
+			this.lfn_searchList();
+			return;
+		}
+	}
+	else if(cell==2){
+		if(this.dsemlpID.getColumn(0,"COL_ORDER")=="EMPL_ID ASC"){
+			this.dsemlpID.setColumn(0,"COL_ORDER","EMPL_ID DESC")
+			this.lfn_searchList();
+			return;
+		}
+		else{
+			this.dsemlpID.setColumn(0,"COL_ORDER","EMPL_ID ASC")
+			this.lfn_searchList();
+			return;
+		}
+	}
+	else if(cell==3){
+		if(this.dsemlpID.getColumn(0,"COL_ORDER")=="DEPT_ID ASC"){
+			this.dsemlpID.setColumn(0,"COL_ORDER","DEPT_ID DESC")
+			this.lfn_searchList();
+			return;
+		}
+		else{
+			this.dsemlpID.setColumn(0,"COL_ORDER","DEPT_ID ASC")
+			this.lfn_searchList();
+			return;
+		}
+	}
+	else if(cell==4){
+		if(this.dsemlpID.getColumn(0,"COL_ORDER")=="RANK ASC"){
+			this.dsemlpID.setColumn(0,"COL_ORDER","RANK DESC")
+			this.lfn_searchList();
+			return;
+		}
+		else{
+			this.dsemlpID.setColumn(0,"COL_ORDER","RANK ASC")
+			this.lfn_searchList();
+			return;
+		}
+	}
+	
+	
+	
+}
+
+this.fn_hireStart = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	var hireStart = obj.value
+	this.dsemlpID.setColumn(0,"HIRE_START",hireStart)
+	this.lfn_searchList();
+}
+
+this.fn_hireEnd = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	var hireEnd = obj.value
+	this.dsemlpID.setColumn(0,"HIRE_END",hireEnd)
+	this.lfn_searchList();
+}
+]]></Script>
+  </Form>
+</FDL>

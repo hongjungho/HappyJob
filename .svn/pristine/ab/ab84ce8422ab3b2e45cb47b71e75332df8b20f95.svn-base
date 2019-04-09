@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="MainFrame" left="0" top="0" width="1024" height="768">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" text="메인대쉬보드개발중" left="0.2" top="4" right="1" bottom="4"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

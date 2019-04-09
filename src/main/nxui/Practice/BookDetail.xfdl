@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="BookDetail" left="0" top="0" width="600" height="800" titletext="New Form" style=":focused {color:black;}" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_bookdetail" taborder="0" left="0%" top="88" right="0.17%" height="692">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="img_book_cover" taborder="0" left="4.34%" top="7" right="56.26%" height="337" stretch="fixaspectratio"/>
+              <Edit id="edit_title" taborder="1" left="44.07%" top="8" right="2.34%" height="54" style="background:transparent;border:1 none #808080ff ;color:black;font:bold 20 Dotum;" oneditclick="div_bookdetail_edit_title_oneditclick" readonly="true"/>
+              <Edit id="edit_writer" taborder="2" left="45.91%" top="65" height="20" style="background:transparent;border:1 none #808080ff ;color:black;" width="97" readonly="true"/>
+              <Edit id="edit_publisher" taborder="3" left="64.94%" top="65" height="20" style="background:transparent;border:1 none #808080ff ;color:black;" width="107" readonly="true"/>
+              <Static id="Static01" taborder="6" text="출간" left="94.99%" top="64" width="24" height="23"/>
+              <Static id="Static02" taborder="7" left="44.57%" top="54" height="2" width="332" style="background:gray;"/>
+              <Edit id="Edit00" taborder="8" left="72.29%" top="140" right="20.03%" height="20" style="background:transparent;border:1 none #808080 ;"/>
+              <Static id="Static03" taborder="9" text="에 위치" left="77.96%" top="140" right="10.35%" height="20"/>
+              <TextArea id="ta_index" taborder="12" left="48.41%" top="200" right="4.17%" height="142" wordwrap="char" style="background:transparent;border:1 none #808080 ;" readonly="true"/>
+              <TextArea id="ta_synopsis" taborder="13" left="4.34%" top="386" right="2.17%" height="279" wordwrap="char" style="background:transparent;border:1 none #808080ff ;"/>
+              <Static id="Static05" taborder="15" text="줄거리 및 내용" left="6.01%" top="340" right="73.96%" height="60"/>
+              <Static id="stt_index" taborder="16" text="목차" left="48.91%" top="152" right="31.05%" height="60" style="font:bold 12 Dotum;"/>
+              <Button id="btn_rent" taborder="18" text="대여 신청" left="86.48%" top="94" right="1.5%" height="32" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 9 Dotum;" onclick="div_bookdetail_btn_rent_onclick"/>
+              <Static id="Static06" taborder="20" text="분류" left="49.58%" top="99" width="48" height="23"/>
+              <Static id="Static07" taborder="21" text="ISBN" left="49.58%" top="138" width="48" height="23"/>
+              <Combo id="Combo00" taborder="22" left="55.93%" top="101" right="33.72%" height="20" style="itembackground:transparent;itemborder:1 none #808080ff ;buttonsize:0;displaynulltextcolor:black;background:transparent;border:1 none #808080ff ;color:black;" enable="true" enableevent="true" innerdataset="@dsCategory" codecolumn="code" datacolumn="value" readonly="true"/>
+              <Edit id="Edit01" taborder="23" left="56.09%" top="140" right="28.55%" height="20" style="selectcolor:black;background:transparent;border:1 none #808080ff ;color:black;" readonly="true"/>
+              <Edit id="Edit02" taborder="24" left="80.63%" top="65" height="20" width="80" style="background:transparent;border:1 none #808080 ;"/>
+              <Static id="Static00" taborder="25" text="저" left="58.6%" top="65" right="33.72%" height="20"/>
+              <CheckBox id="chk_ebook" taborder="26" text="ebook" left="71.62%" top="102" right="15.86%" height="20"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stt_bookdetail_top" taborder="1" text="     도서 상세 페이지" left="0%" top="0" right="0%" height="71" style="background:#339966ff;color:white;font:bold 20 휴먼매직체;"/>
+      </Layout>
+    </Layouts>
+    <Style url="Css::book_style.css"/>
+    <Bind>
+      <BindItem id="item3" compid="div_bookdetail.edit_title" propid="value" datasetid="dsBooks" columnid="bookNm"/>
+      <BindItem id="item0" compid="div_bookdetail.edit_writer" propid="value" datasetid="dsBooks" columnid="bookWriter"/>
+      <BindItem id="item1" compid="div_bookdetail.edit_publisher" propid="value" datasetid="dsBooks" columnid="bookPub"/>
+      <BindItem id="item2" compid="div_bookdetail.Edit02" propid="value" datasetid="dsBooks" columnid="bookDate"/>
+      <BindItem id="item4" compid="div_bookdetail.Combo00" propid="value" datasetid="dsBooks" columnid="classCd"/>
+      <BindItem id="item5" compid="div_bookdetail.Edit01" propid="value" datasetid="dsBooks" columnid="bookIsbn"/>
+      <BindItem id="item6" compid="div_bookdetail.Edit00" propid="value" datasetid="dsBooks" columnid="placeCd"/>
+      <BindItem id="item7" compid="div_bookdetail.ta_index" propid="value" datasetid="dsBooks" columnid="bookIdx"/>
+      <BindItem id="item8" compid="div_bookdetail.ta_synopsis" propid="value" datasetid="dsBooks" columnid="bookSum"/>
+    </Bind>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[this.div_bookdetail_btn_rent_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	application.open("rent", "Practice::Rent.xfdl", this.getOwnerFrame(), {mode:"modeless", ds:this.dsBooks}, "showtitlebar=true showstatusbar=false", 400, 200);
+}
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+}
+]]></Script>
+  </Form>
+</FDL>

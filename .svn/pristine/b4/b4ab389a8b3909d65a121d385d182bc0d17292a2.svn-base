@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="TopFrameLib" left="0" top="0" width="1024" height="50" titletext="New Form" onload="TopFrameLib_onload" style="background:antiquewhite;">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="ImageViewer00" taborder="0" left="0%" top="0" right="-8.4%" height="75" image="URL('theme://Bottom.png')"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************
+ * Name			: TopFrame.xfdl
+ * Title		: 상단화면
+ * Desc			: 사용자 , Log-out , 도움말 , 좌측 메뉴 버튼
+ * 작성자		: 
+ * 작성일		: 2018.01.20
+ * 변경사항	: 
+ *******************************************************************************/
+
+include "Lib::Comm.xjs";
+
+/*===============================================================================
+* Form 관련 Script
+*=============================================================================*/
+
+//form onload
+this.TopFrameLib_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	
+}
+
+/*===============================================================================
+* Component 관련 Script
+*=============================================================================*/
+
+//로그인 버튼 클릭시
+this.btn_login_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{ 
+	var sURL = "Practice::login.xfdl";
+    this.gfn_main(sURL);
+	//this.go("Practice::login.xfdl");
+	//this.set_url("Practice::login.xfdl");
+	//this.WorkFrame.set_url("Practice::login.xfdl");
+}
+
+//아이디/비번찾기 클릭시
+
+this.btn_findID_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var sURL = "Practice::find_ID.xfdl";
+    this.gfn_main(sURL);
+}
+
+
+//로그아웃
+this.btn_logout_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	Iject.logout();
+}
+]]></Script>
+  </Form>
+</FDL>

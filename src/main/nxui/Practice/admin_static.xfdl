@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="pie" classname="EcoChartSample" left="0" top="0" width="1024" height="723" titletext="pie" style="background:gainsboro;" onload="pie_onload">
+    <Layouts>
+      <Layout>
+        <EcoChart id="ecochart" top="69" left="264" height="323" style="background:#ffffffff;border:0 solid #808080ff ;bordertype:round 15 15 ;" right="269"/>
+        <Static id="st_male" taborder="18" top="37" height="20" width="111" right="198" style="align:right middle;"/>
+        <Static id="st_female" taborder="19" top="37" height="20" width="94" right="29" style="align:right middle;"/>
+        <Grid id="Grid00" taborder="20" useinputpanel="false" left="6.15%" top="9.96%" height="24.9%" binddataset="dsTotal" position="fixed" right="76.56%" style="color:black;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="93"/>
+                <Column size="84"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="카테고리"/>
+                <Cell col="1" text="합계"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:category"/>
+                <Cell col="1" edittype="normal" text="bind:value"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <EcoChart id="ecochart2" left="264" top="413" right="269" height="323" style="background:#ffffffff;border:0 solid #808080ff ;bordertype:round 15 15 ;"/>
+        <Grid id="Grid01" taborder="24" binddataset="dsTotal2" useinputpanel="false" position="fixed" left="6.15%" top="61.96%" height="8.58%" right="76.56%">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="93"/>
+                <Column size="84"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="성별"/>
+                <Cell col="1" text="합계"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:category"/>
+                <Cell col="1" text="bind:value"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="25" text="도서 통계" left="30.86%" top="19" right="30.86%" height="77" style="align:center middle;font:bold 18 Dotum;"/>
+        <Static id="Static01" taborder="26" text="회원 성별 통계" left="30.08%" top="357" right="31.64%" height="77" style="align:center middle;font:bold 18 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsTotal">
+        <ColumnInfo>
+          <Column id="category" type="STRING" size="256"/>
+          <Column id="value" type="FLOAT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="svcid">selectTotalCate</Col>
+            <Col id="sController">admin/selectTotalCate.do</Col>
+            <Col id="inds"/>
+            <Col id="bAsync">true</Col>
+            <Col id="args"/>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="outds">dsTotal=dsTotal dsTotal2=dsTotal2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsTotal2">
+        <ColumnInfo>
+          <Column id="category" type="STRING" size="256"/>
+          <Column id="value" type="FLOAT" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs";
+var chart;
+var chart2;
+
+
+
+this.pie_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	this.gfn_serviceCall("selectTotalCate");
+	
+	
+}
+this.lfn_cmmCallback = function(svcId, errorcode, errormsg){
+	
+	
+	if(errorcode < 0)
+	{
+	   Iject.alert(errormsg,"오류");			
+	   return;
+	} 
+	else{ 
+			this.drawChart2();
+			this.drawChart();
+			
+	}
+}
+
+
+this.drawChart = function()
+{
+	if (!chart)
+	{	
+		var config = {
+			"type": "Pie",
+			"chart": {
+				"id": "pie chart",
+				"bindDataset": "dsTotal",
+				"bindCategory": "category",
+				"bindValue": "value",
+				"colors": "color20",
+				"plotHoverable": true,
+				"radius": 1,
+				"borderWidth": 2,
+				"labelRadius": 0.7,
+				"labelFontSize": 8,
+				"labelColor": "black",
+				"labelFontType": "bold",
+				"labelWordwrap": true,
+				"labelMaxWidth": 100
+			},
+			"legend": {
+				"align": "center",
+				"labelFontSize": 8,
+				"switchable": false
+			},
+			"tooltip": {
+				"text": "[%x] [%y]%",
+				"fontType": "normal",
+				"fontSize": 10
+			}
+		};
+	
+		this.ecochart.set_config(config);
+	}
+	
+	chart = this.ecochart.getChart();
+	
+	this.ecochart.draw();
+
+}
+
+this.drawChart2 = function()
+{
+	if (!chart2)
+	{	
+		var config = {
+			"type": "Pie",
+			"chart": {
+				"id": "pie chart2",
+				"bindDataset": "dsTotal2",
+				"bindCategory": "category",
+				"bindValue": "value",
+				"colors": "color20",
+				"plotHoverable": true,
+				"radius": 1,
+				"borderWidth": 2,
+				"labelRadius": 0.7,
+				"labelFontSize": 8,
+				"labelColor": "black",
+				"labelFontType": "bold",
+				"labelWordwrap": true,
+				"labelMaxWidth": 100
+			},
+			"legend": {
+				"align": "center",
+				"labelFontSize": 8,
+				"switchable": false
+			},
+			"tooltip": {
+				"text": "[%x] [%y]%",
+				"fontType": "normal",
+				"fontSize": 10
+			}
+		};
+	
+		this.ecochart2.set_config(config);
+	}
+	
+	chart2 = this.ecochart2.getChart();
+	
+	this.ecochart2.draw();
+}
+
+
+
+
+
+
+this.Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.drawChart();
+}
+
+this.Button01_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.drawChart2();
+}
+]]></Script>
+  </Form>
+</FDL>

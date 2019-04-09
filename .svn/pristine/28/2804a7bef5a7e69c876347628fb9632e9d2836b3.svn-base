@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="BookReg" left="0" top="0" width="600" height="800" titletext="New Form" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="stt_bookdetail_top" taborder="0" text="     도서 등록" left="0%" top="0" right="0%" height="71" style="background:#339966ff;color:white;font:bold 20 휴먼매직체;"/>
+        <ImageViewer id="book_img" taborder="1" stretch="fixaspectratio" left="3%" top="95" right="57.67%" height="337"/>
+        <Static id="Static02" taborder="2" left="44.5%" top="142" width="332" height="2" style="background:gray;"/>
+        <Edit id="edit_title" taborder="3" left="44.5%" top="102" right="30.67%" height="34" displaynulltext="도서명"/>
+        <Edit id="edit_writer" taborder="4" displaynulltext="작가" left="44.5%" top="158" right="30.33%" height="34"/>
+        <Edit id="edit_pub" taborder="5" displaynulltext="출판사" left="71.17%" top="158" right="3.67%" height="34"/>
+        <Edit id="edit_bookdate" taborder="6" displaynulltext="출판일" left="44.67%" top="200" right="30.17%" height="34"/>
+        <Edit id="edit_isbn" taborder="7" displaynulltext="ISBN" left="71.33%" top="200" right="3.5%" height="34"/>
+        <TextArea id="ta_idx" taborder="10" left="45%" top="294" right="3.67%" height="138" displaynulltext="목차" wordwrap="char"/>
+        <TextArea id="ta_sum" taborder="11" left="3.17%" top="444" right="3.5%" height="284" displaynulltext="줄거리" wordwrap="char"/>
+        <Button id="btn_reg" taborder="12" text="등록" left="43%" top="738" right="40.17%" height="35" style="background:#339966ff;border:1 none #808080ff ;color:white;" onclick="btn_reg_onclick"/>
+        <Combo id="cmb_place" taborder="13" left="44.67%" top="246" right="30%" height="34" displaynulltext="위치" innerdataset="@dsPlace" codecolumn="code" datacolumn="value"/>
+        <Combo id="cmb_class" taborder="14" left="71.33%" top="245" right="3.33%" height="34" displaynulltext="분류" innerdataset="@dsCategory" codecolumn="code" datacolumn="value"/>
+        <Combo id="cmb_ebook" taborder="15" displaynulltext="전자책" innerdataset="@dsEbook" codecolumn="code" datacolumn="value" left="70.67%" top="101" right="3.5%" height="34"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="edit_title" propid="value" datasetid="dsBooks" columnid="bookNm"/>
+      <BindItem id="item1" compid="cmb_ebook" propid="value" datasetid="dsBooks" columnid="divCd"/>
+      <BindItem id="item2" compid="edit_writer" propid="value" datasetid="dsBooks" columnid="bookWriter"/>
+      <BindItem id="item3" compid="edit_pub" propid="value" datasetid="dsBooks" columnid="bookPub"/>
+      <BindItem id="item4" compid="edit_bookdate" propid="value" datasetid="dsBooks" columnid="bookDate"/>
+      <BindItem id="item5" compid="edit_isbn" propid="value" datasetid="dsBooks" columnid="bookIsbn"/>
+      <BindItem id="item6" compid="cmb_place" propid="value" datasetid="dsBooks" columnid="placeCd"/>
+      <BindItem id="item7" compid="cmb_class" propid="value" datasetid="dsBooks" columnid="classCd"/>
+      <BindItem id="item8" compid="ta_idx" propid="value" datasetid="dsBooks" columnid="bookIdx"/>
+      <BindItem id="item9" compid="ta_sum" propid="value" datasetid="dsBooks" columnid="bookSum"/>
+    </Bind>
+    <Objects>
+      <Dataset id="dsBooks">
+        <ColumnInfo>
+          <Column id="bookNo" type="STRING" size="256"/>
+          <Column id="bookNm" type="STRING" size="256"/>
+          <Column id="bookWriter" type="STRING" size="256"/>
+          <Column id="bookPub" type="STRING" size="256"/>
+          <Column id="bookDate" type="STRING" size="256"/>
+          <Column id="divCd" type="STRING" size="256"/>
+          <Column id="classCd" type="STRING" size="256"/>
+          <Column id="bookIsbn" type="STRING" size="256"/>
+          <Column id="bookRegdate" type="STRING" size="256"/>
+          <Column id="bookSum" type="STRING" size="256"/>
+          <Column id="placeCd" type="STRING" size="256"/>
+          <Column id="bookImg" type="STRING" size="256"/>
+          <Column id="sBookImg" type="STRING" size="256"/>
+          <Column id="bookIdx" type="STRING" size="256"/>
+          <Column id="bookCount" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="256"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="svcid">getList</Col>
+            <Col id="sController">book/getList.do</Col>
+            <Col id="inds">dsSearch=dsSearch</Col>
+            <Col id="outds">dsBooks=dsBooks</Col>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">regBook</Col>
+            <Col id="sController">book/regBook.do</Col>
+            <Col id="inds">dsBooks=dsBooks</Col>
+            <Col id="outds"/>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsEbook">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">01</Col>
+            <Col id="value">종이책</Col>
+          </Row>
+          <Row>
+            <Col id="code">02</Col>
+            <Col id="value">전자책</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsPlace">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">01</Col>
+            <Col id="value">1층</Col>
+          </Row>
+          <Row>
+            <Col id="code">02</Col>
+            <Col id="value">2층</Col>
+          </Row>
+          <Row>
+            <Col id="code">03</Col>
+            <Col id="value">3층</Col>
+          </Row>
+          <Row>
+            <Col id="code">04</Col>
+            <Col id="value">4층</Col>
+          </Row>
+          <Row>
+            <Col id="code">05</Col>
+            <Col id="value">5층</Col>
+          </Row>
+          <Row>
+            <Col id="code">06</Col>
+            <Col id="value">6층</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCategory">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+            <Col id="value">총류</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">철학</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">종교</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">사회과학</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="value">자연과학</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="value">기술과학</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="value">예술</Col>
+          </Row>
+          <Row>
+            <Col id="code">7</Col>
+            <Col id="value">언어</Col>
+          </Row>
+          <Row>
+            <Col id="code">8</Col>
+            <Col id="value">문학</Col>
+          </Row>
+          <Row>
+            <Col id="code">9</Col>
+            <Col id="value">역사</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs"
+
+this.btn_reg_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfn_serviceCall("regBook");
+}
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	this.dsBooks.addRow();
+}]]></Script>
+  </Form>
+</FDL>

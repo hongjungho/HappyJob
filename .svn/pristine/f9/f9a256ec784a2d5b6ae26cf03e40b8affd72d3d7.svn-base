@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="BookSearch" left="0" top="0" width="1620" height="1144" titletext="New Form" onload="frm_book_search_onload">
+    <Layouts>
+      <Layout>
+        <Edit id="edit_search" taborder="0" left="10.93%" top="32" right="61.6%" height="40" style="border:2 solid #339966ff ;font:14 Dotum;" onkeydown="edit_search_onkeydown"/>
+        <Button id="btn_search" taborder="1" left="38.15%" top="32" right="50.83%" height="40" text="Search" style="background:#339966ff;border:1 solid #339966ff ;color:white;bordertype:normal 0 0 ;font:15 Aharoni;" onclick="btn_search_onclick"/>
+        <Grid id="grd_books" taborder="2" useinputpanel="false" left="2.47%" top="152" right="50.8%" height="875" style="line:1 none #808080ff ;selectline:1 none #808080ff ;border:1 none #808080ff ; :disabled {background:white;border:1 none white ;color:slategray;font:10 Book Antiqua;shadow:outer 0,0 0 white;gradation:none 0,0 white 100,100 black;}" enable="true" enableevent="true" binddataset="dsBooks" selecttype="row" scrollbars="autovert" wheelscrollrow="1" oncellclick="grd_books_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="200"/>
+                <Column size="100"/>
+                <Column size="175"/>
+              </Columns>
+              <Rows>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="5"/>
+              </Rows>
+              <Band id="body">
+                <Cell rowspan="4" style="line:1 none #808080ff ;background:transparent;background2:transparent;selectbackground:#71b894ff;selectline:1 none #808080ff ;"/>
+                <Cell col="1" rowspan="4" displaytype="image" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="C:\project\eGovFrameDev-3.6.0-32bit\workspace\happylib\src\main\nxui\Images\Pictures\s_photo1.png" imagestretch="fit"/>
+                <Cell col="2" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="도서"/>
+                <Cell col="3" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;font:bold 12 arial;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="bind:bookNm"/>
+                <Cell col="4" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="분류"/>
+                <Cell col="5" displaytype="combo" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;font:bold 9 arial;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="bind:classCd" combodataset="dsCategory" combocodecol="code" combodatacol="value"/>
+                <Cell row="1" col="2" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="작가"/>
+                <Cell row="1" col="3" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;font:bold 9 arial;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="bind:bookWriter"/>
+                <Cell row="1" col="4" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="ISBN"/>
+                <Cell row="1" col="5" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;font:bold 9 arial;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="bind:bookIsbn"/>
+                <Cell row="2" col="2" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="출판"/>
+                <Cell row="2" col="3" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;font:bold 9 arial;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="bind:bookPub"/>
+                <Cell row="2" col="4" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="전자책"/>
+                <Cell row="2" col="5" displaytype="combo" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;font:bold 9 arial;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="bind:divCd" combodataset="dsEbook" combocodecol="code" combodatacol="value"/>
+                <Cell row="3" col="2" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="발간"/>
+                <Cell row="3" col="3" displaytype="normal" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;font:bold 9 arial;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="bind:bookDate"/>
+                <Cell row="3" col="4" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="대여"/>
+                <Cell row="3" col="5" displaytype="normal" style="line:1 none #808080ff ;background:transparent;background2:transparent;color:#39393cff;color2:#39393cff;font:bold 9 arial;selectbackground:#71b894ff;selectcolor:black;selectline:1 none #808080ff ;controlcolor:black;" text="bind:bookCount" expr="expr:bookCount + &quot;권 보유 중&quot;"/>
+                <Cell row="4" style="line:1 none #808080ff ;background:transparent;background2:transparent;selectbackground:transparent;selectline:1 none #808080ff ;"/>
+                <Cell row="4" col="1" style="line:1 none #808080ff ;background:transparent;background2:transparent;selectbackground:transparent;selectline:1 none #808080ff ;controlcolor:#339966ff;"/>
+                <Cell row="4" col="2" style="line:1 none #808080ff ;background:transparent;background2:transparent;selectbackground:transparent;selectline:1 none #808080ff ;controlcolor:#339966ff;"/>
+                <Cell row="4" col="3" style="line:1 none #808080ff ;background:transparent;background2:transparent;selectbackground:transparent;selectline:1 none #808080ff ;controlcolor:#339966ff;"/>
+                <Cell row="4" col="4" style="line:1 none #808080ff ;background:transparent;background2:transparent;selectbackground:transparent;selectline:1 none #808080ff ;controlcolor:#339966ff;"/>
+                <Cell row="4" col="5" style="line:1 none #808080ff ;background:transparent;background2:transparent;selectbackground:transparent;selectline:1 none #808080ff ;controlcolor:#339966ff;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="3" left="2.47%" top="109" right="50.8%" height="12" style="background:#339966ff;"/>
+        <Menu id="Menu00" taborder="4" left="2.47%" top="114" right="50.8%" height="33" style="background:#339966ff;opacity:70;"/>
+        <Static id="Static01" taborder="5" left="5.12%" top="147" right="50.77%" height="1" style="background:#339966ff;opacity:90;"/>
+        <Static id="stt_top3" taborder="7" left="3.33%" top="87" right="96.17%" height="18" style="background:#339966ff;bordertype:round 5 5 ;"/>
+        <Combo id="combo_search_option" taborder="9" left="2.59%" top="32" right="89.07%" height="40" style="itembackground:transparent;itemcolor:gray;itemgradation:none 0,0 white 100,100 black;itemborder:1 none #808080ff ;buttonsize:20;displaynulltextcolor:lavender;background:transparent;border:2 solid #339966ff ;align:center middle;font:12 arial;cursor:pointer;" displaynulltext="검색조건" innerdataset="@dsType" codecolumn="code" datacolumn="value" onitemchanged="combo_onchange"/>
+        <Static id="Static04" taborder="12" text="검색옵션" left="5%" top="87" height="20" width="60"/>
+        <Edit id="Edit00" taborder="13" left="11.31%" top="87" height="20" width="60" style="background:transparent;border:1 none #808080ff ;" readonly="true"/>
+        <Static id="Static05" taborder="14" text="검색 결과" left="14.88%" top="87" height="20" width="60"/>
+        <Static id="Static06" taborder="16" text="건" left="29.23%" top="87" height="20" width="20"/>
+        <Edit id="edit_total" taborder="17" left="23.15%" top="87" height="20" style="selectcolor:black;background:transparent;border:1 none #808080ff ;" width="40" displaynulltext="null" readonly="true"/>
+        <Div id="div_page" taborder="18" text="div_page" left="2.47%" top="1037" right="51.17%" height="60" position="fixed">
+          <Layouts>
+            <Layout>
+              <Static id="stc_no1" taborder="14" text="1" left="28.95%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="stc_no2" taborder="15" text="2" left="32.91%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="stc_no3" taborder="16" text="3" left="36.86%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="stc_no4" taborder="17" text="4" left="40.82%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="stc_no5" taborder="18" text="5" left="45.06%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="stc_no6" taborder="19" text="6" left="49.01%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="stc_no7" taborder="20" text="7" left="52.97%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="stc_no8" taborder="21" text="8" left="56.92%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="stc_no9" taborder="22" text="9" left="61.02%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="stc_no10" taborder="23" text="10" left="64.97%" top="20" width="20" height="20" position="fixed"/>
+              <Static id="btn_next" taborder="25" text="next" left="72.46%" top="20" width="40" height="20" position="fixed" onclick="div_page_btn_next_onclick"/>
+              <Static id="btn_prev" taborder="26" text="prev" onclick="div_page_btn_prev_onclick" position="fixed" left="20.76%" top="20" width="40" height="20"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="21" left="75.74%" top="248" width="392" height="5" style="background:gray;"/>
+        <ImageViewer id="book_cover" taborder="22" left="54.63%" top="28" right="26.36%" height="366" image="URL('C:\project\eGovFrameDev-3.6.0-32bit\workspace\happylib\src\main\nxui\Images\Pictures\photo1.png')" style="background:transparent;border:1 none #808080 ;"/>
+        <Static id="stc_title" taborder="23" text="제목" left="75.93%" top="145" right="4.88%" height="83" style="font:bold 20 vernada;"/>
+        <Static id="stc_writer" taborder="24" text="writer" left="76.79%" top="270" right="16%" height="37" style="font:12 verdana;"/>
+        <Static id="stc_pub" taborder="25" text="pub" left="76.79%" top="330" right="16%" height="37" style="font:12 verdana;"/>
+        <Static id="stc_bookdate" taborder="26" text="bookdate" left="76.79%" top="390" right="16%" height="37" style="font:12 verdana;"/>
+        <Static id="stc_isbn" taborder="27" text="isbn" left="86.42%" top="330" right="7%" height="37" style="font:12 verdana;"/>
+        <Static id="stc_place" taborder="28" text="place" left="86.42%" top="390" right="7%" height="37" style="font:12 verdana;"/>
+        <Static id="stc_class" taborder="29" text="class" left="86.42%" top="270" right="7%" height="37" style="font:12 verdana;"/>
+        <Static id="stc_idx" taborder="30" text="idx" left="75.93%" top="437" right="5.12%" height="169" style="align:left top;font:12 vernada;" wordwrap="char"/>
+        <Button id="btn_rent" taborder="31" text="대여 신청" left="56.3%" top="440" right="36.23%" height="35" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;" onclick="btn_rent_onclick"/>
+        <Static id="Static08" taborder="33" text="Static08" left="54.63%" top="648" right="5.19%" height="278" style="align:left top;font:12 vernada;" wordwrap="char"/>
+        <Static id="Static09" taborder="34" text="Static09" left="51.79%" top="-5" right="48.09%" height="1149" style="background:#339966ff;"/>
+        <Button id="btn_rent_ebook" taborder="35" text="ebook 대여 신청" left="64.51%" top="440" right="28.02%" height="35" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;" onclick="btn_rent_ebook_onclick"/>
+      </Layout>
+    </Layouts>
+    <Style url="Css::book_style.css"/>
+    <Objects>
+      <Dataset id="dsService">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="256"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="svcid">getList</Col>
+            <Col id="sController">book/getList.do</Col>
+            <Col id="inds">dsSearch=dsSearch</Col>
+            <Col id="outds">dsBooks=dsBooks</Col>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">regBook</Col>
+            <Col id="sController">book/regBook.do</Col>
+            <Col id="inds">dsBooks=dsBooks</Col>
+            <Col id="outds"/>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsBooks">
+        <ColumnInfo>
+          <Column id="bookNo" type="STRING" size="256"/>
+          <Column id="bookNm" type="STRING" size="256"/>
+          <Column id="bookWriter" type="STRING" size="256"/>
+          <Column id="bookPub" type="STRING" size="256"/>
+          <Column id="bookDate" type="STRING" size="256"/>
+          <Column id="divCd" type="STRING" size="256"/>
+          <Column id="classCd" type="STRING" size="256"/>
+          <Column id="bookIsbn" type="STRING" size="256"/>
+          <Column id="bookRegdate" type="STRING" size="256"/>
+          <Column id="bookSum" type="STRING" size="256"/>
+          <Column id="placeCd" type="STRING" size="256"/>
+          <Column id="bookImg" type="STRING" size="256"/>
+          <Column id="sBookImg" type="STRING" size="256"/>
+          <Column id="bookIdx" type="STRING" size="256"/>
+          <Column id="bookCount" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsEbook">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">01</Col>
+            <Col id="value">종이책</Col>
+          </Row>
+          <Row>
+            <Col id="code">02</Col>
+            <Col id="value">전자책</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsSearch">
+        <ColumnInfo>
+          <Column id="type" type="STRING" size="256"/>
+          <Column id="keyword" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsType">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">title</Col>
+            <Col id="value">도서명</Col>
+          </Row>
+          <Row>
+            <Col id="code">writer</Col>
+            <Col id="value">작가명</Col>
+          </Row>
+          <Row>
+            <Col id="code">both</Col>
+            <Col id="value">통합</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCategory">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+            <Col id="value">총류</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">철학</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">종교</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">사회과학</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="value">자연과학</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="value">기술과학</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="value">예술</Col>
+          </Row>
+          <Row>
+            <Col id="code">7</Col>
+            <Col id="value">언어</Col>
+          </Row>
+          <Row>
+            <Col id="code">8</Col>
+            <Col id="value">문학</Col>
+          </Row>
+          <Row>
+            <Col id="code">9</Col>
+            <Col id="value">역사</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsPlace">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">01</Col>
+            <Col id="value">1층</Col>
+          </Row>
+          <Row>
+            <Col id="code">02</Col>
+            <Col id="value">2층</Col>
+          </Row>
+          <Row>
+            <Col id="code">03</Col>
+            <Col id="value">3층</Col>
+          </Row>
+          <Row>
+            <Col id="code">04</Col>
+            <Col id="value">4층</Col>
+          </Row>
+          <Row>
+            <Col id="code">05</Col>
+            <Col id="value">5층</Col>
+          </Row>
+          <Row>
+            <Col id="code">06</Col>
+            <Col id="value">6층</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="combo_search_option" propid="value" datasetid="dsSearch" columnid="type"/>
+      <BindItem id="item0" compid="edit_search" propid="value" datasetid="dsSearch" columnid="keyword"/>
+      <BindItem id="item2" compid="stc_title" propid="text" datasetid="dsBooks" columnid="bookNm"/>
+      <BindItem id="item3" compid="stc_writer" propid="text" datasetid="dsBooks" columnid="bookWriter"/>
+      <BindItem id="item4" compid="stc_pub" propid="text" datasetid="dsBooks" columnid="bookPub"/>
+      <BindItem id="item5" compid="stc_bookdate" propid="text" datasetid="dsBooks" columnid="bookDate"/>
+      <BindItem id="item6" compid="stc_class" propid="text" datasetid="dsBooks" columnid="classCd"/>
+      <BindItem id="item7" compid="stc_isbn" propid="text" datasetid="dsBooks" columnid="bookIsbn"/>
+      <BindItem id="item8" compid="stc_place" propid="text" datasetid="dsBooks" columnid="placeCd"/>
+      <BindItem id="item9" compid="stc_idx" propid="text" datasetid="dsBooks" columnid="bookIdx"/>
+      <BindItem id="item10" compid="Static08" propid="text" datasetid="dsBooks" columnid="bookSum"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs"
+
+this.total = 0;
+this.startPage = 1;
+this.endPage = 0;
+this.loadPage = 1;
+this.next = false;
+this.prev = false;
+
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if(this.combo_search_option.value == null){
+		alert("Please select search type.");
+		return;
+	}
+	
+	if(this.edit_search.value == null){
+		alert("Please type your keyword into the search bar.");
+	}
+	
+		trace(this.dsSearch.getColumn(0, "keyword"));
+		this.gfn_serviceCall("getList");
+}
+
+this.frm_book_search_onload = function(obj:Form, e:nexacro.LoadEventInfo){
+	this.gfn_serviceCall("getList");
+}
+
+this.lfn_get_pages = function(){
+
+	this.dsBooks.filter("");
+	this.total = this.dsBooks.getRowCount();
+	this.edit_total.set_value(this.total);
+	trace("total: " + this.total);
+	
+	this.endPage = Math.ceil(this.loadPage / 10.0) * 10;
+	trace(this.endPage);
+	this.startPage = this.endPage - 9;
+	
+	if((this.endPage * 10) >= this.total){
+		this.endPage = Math.ceil(this.total / 10);
+	}
+	
+	trace("endPage: " + this.endPage);
+	
+	if(this.startPage != 1){
+		this.prev = true;
+	} else {
+		this.prev = false;
+	}
+	
+	
+	if(this.endPage * 10 < this.total){
+		this.next = true;
+	} else {
+		this.next = false;
+	}
+	
+	
+	if(this.prev){
+		this.div_page.btn_prev.set_visible(true);
+		trace("prev button on");
+		this.div_page.btn_prev.addEventHandler("onclick", this.div_page_btn_prev_onclick, this);
+	} else {
+		this.div_page.btn_prev.set_visible(false);
+		trace("prev button off");
+	}
+	
+	for(var i = 1; i <= 10; i++){
+	
+		if(i <= this.endPage){
+			this.div_page.components["stc_no"+i].set_visible(true);
+			this.div_page.components["stc_no"+i].set_text((this.startPage-1) + i);
+			this.div_page.components["stc_no"+i].addEventHandler("onclick", this.fn_idx_btn_onclick, this);		
+		}
+		
+		if(i + (this.startPage-1) > this.endPage){
+			this.div_page.components["stc_no"+i].set_visible(false);
+		}
+	}
+	
+	if(this.next){
+		this.div_page.btn_next.set_visible(true);
+		trace("next button on");
+		this.div_page.btn_next.addEventHandler("onclick", this.div_page_btn_next_onclick, this);
+	} else {
+		this.div_page.btn_next.set_visible(false);
+		trace("next button off");
+	}
+	
+	this.dsBooks.filter("currow >= " + (this.loadPage-1) * 10 + " && currow <" + this.loadPage * 10);
+	// currow >= 0 && currow <= 10
+	this.fn_setStyle();
+	this.div_page.stc_no1.style.set_color("red");
+}
+
+this.fn_idx_btn_onclick = function(obj:Static, e:ClickEventInfo){
+	this.fn_setStyle();
+	obj.style.set_color("red");
+	var page = new Number(obj.text);
+	this.dsBooks.filter("currow >=" +(page-1) * 10+ "&& currow <" + (page * 10));
+	
+}
+
+this.fn_setStyle = function(obj:Static, e:ClickEventInfo){
+
+	trace("fn_setStyle()");
+	for(var i = 1; i <= 10; i++){
+		this.div_page.components["stc_no"+i].style.set_color("green");
+	}
+	this.div_page.components["btn_prev"].style.set_color("green");
+	this.div_page.components["btn_next"].style.set_color("green");
+
+}
+
+
+this.div_page_btn_next_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	trace("next button clicked");
+	this.loadPage = this.endPage + 1;
+	this.lfn_get_pages();
+	trace(this.loadPage);
+}
+
+this.div_page_btn_prev_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	trace("prev button clicked");
+	this.loadPage = this.startPage -1;
+	this.lfn_get_pages();
+	trace(this.loadPage);
+}
+
+
+this.combo_onchange = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.Edit00.set_value(obj.text);
+}
+
+this.edit_search_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.btn_search_onclick();
+	}
+}
+
+this.Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.go("Practice::test000.xfdl");
+}
+
+
+this.btn_rent_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	application.open("rent", "Practice::Rent.xfdl", this.getOwnerFrame(), {mode:"modeless", ds:this.dsBooks}, "showtitlebar=true showstatusbar=false", 400, 200);
+}
+
+this.grd_books_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var selRow = obj.getSelectedRows();
+	var selCol = this.dsBooks.getColumn(selRow, "divCd");
+	trace(selCol);
+	if(selCol != "02"){
+		this.btn_rent_ebook.set_enable(false);
+	}
+	
+}
+
+this.btn_rent_ebook_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	alert("ebook 대여 신청");
+}
+]]></Script>
+  </Form>
+</FDL>

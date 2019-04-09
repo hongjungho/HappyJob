@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Frame" left="0" top="0" width="1280" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="0" url="Practice::Main.xfdl" text="Div01" left="0" bottom="-126" width="1024" height="894"/>
+        <Div id="Div00" taborder="1" url="Frame::TopFrameLib.xfdl" left="0" top="0" width="1024" height="52"/>
+        <Div id="Div03" taborder="3" text="Div03" left="0" top="52" height="50" width="1024" url="Frame::MenuBar.xfdl"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>
