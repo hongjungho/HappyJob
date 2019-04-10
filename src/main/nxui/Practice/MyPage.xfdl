@@ -27,7 +27,7 @@
                 <Layouts>
                   <Layout>
                     <Static id="Static00" taborder="6" text="대출건수" onclick="Div00_Div00_Static00_onclick" left="4.6%" top="25" right="57.47%" height="42" style="align:center middle;font:12 맑은 고딕;cursor:hand;"/>
-                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="align:center middle;font:20 맑은 고딕;"/>
+                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="color:blue;align:center middle;font:20 맑은 고딕;cursor:hand;" onclick="Div00_Div00_Static00_onclick"/>
                   </Layout>
                 </Layouts>
               </Div>
@@ -35,7 +35,7 @@
                 <Layouts>
                   <Layout>
                     <Static id="Static00" taborder="6" text="예약건수" onclick="Div00_Div01_Static00_onclick" left="4.6%" top="25" right="57.47%" height="42" style="align:center middle;font:12 맑은 고딕;cursor:hand;"/>
-                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="align:center middle;font:20 맑은 고딕;"/>
+                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="color:blue;align:center middle;font:20 맑은 고딕;cursor:hand;" onclick="Div00_Div01_Static00_onclick"/>
                   </Layout>
                 </Layouts>
               </Div>
@@ -43,7 +43,7 @@
                 <Layouts>
                   <Layout>
                     <Static id="Static00" taborder="6" text="재제건수" onclick="Div00_Div02_Static00_onclick" left="4.6%" top="25" right="57.47%" height="42" style="align:center middle;font:12 맑은 고딕;cursor:hand;"/>
-                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="align:center middle;font:20 맑은 고딕;"/>
+                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="color:blue;align:center middle;font:20 맑은 고딕;cursor:hand;" onclick="Div00_Div02_Static00_onclick"/>
                   </Layout>
                 </Layouts>
               </Div>
@@ -51,7 +51,7 @@
                 <Layouts>
                   <Layout>
                     <Static id="Static00" taborder="6" text="연체건수" onclick="Div00_Div03_Static00_onclick" left="4.6%" top="25" right="57.47%" height="42" style="align:center middle;font:12 맑은 고딕;cursor:hand;"/>
-                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="align:center middle;font:20 맑은 고딕;"/>
+                    <Static id="Static01" taborder="7" text="건수Binding" left="53.45%" top="27" right="4.6%" height="33" style="color:blue;align:center middle;font:20 맑은 고딕;cursor:hand;" onclick="Div00_Div03_Static00_onclick"/>
                   </Layout>
                 </Layouts>
               </Div>
@@ -69,19 +69,14 @@
     <Objects>
       <Dataset id="dsCntNum">
         <ColumnInfo>
-          <Column id="brNum" type="STRING" size="256" description="대출"/>
-          <Column id="arrNum" type="STRING" size="256" description="연체"/>
-          <Column id="resNum" type="STRING" size="256" description="예약"/>
-          <Column id="sanNum" type="STRING" size="256" description="재제"/>
+          <Column id="brr" type="STRING" size="256" description="대출"/>
+          <Column id="arr" type="STRING" size="256" description="연체"/>
+          <Column id="rev" type="STRING" size="256" description="예약"/>
+          <Column id="san" type="STRING" size="256" description="재제"/>
           <Column id="userId" type="STRING" size="256" description="회원아이디"/>
         </ColumnInfo>
         <Rows>
-          <Row>
-            <Col id="brNum">1</Col>
-            <Col id="arrNum">2</Col>
-            <Col id="resNum">3</Col>
-            <Col id="sanNum">4</Col>
-          </Row>
+          <Row/>
         </Rows>
       </Dataset>
       <Dataset id="dsMypageMap">
@@ -90,7 +85,7 @@
         </ColumnInfo>
         <Rows>
           <Row>
-            <Col id="userNo">1</Col>
+            <Col id="userNo"/>
           </Row>
         </Rows>
       </Dataset>
@@ -120,6 +115,15 @@
             <Col id="svcid">saveUserInfo</Col>
             <Col id="sController">practice/saveUserInfo.do</Col>
             <Col id="inds">dsUserInfo=dsUserInfo:U</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">staticMypage</Col>
+            <Col id="sController">practice/staticMypage.do</Col>
+            <Col id="inds">dsMypageMap=dsMypageMap</Col>
+            <Col id="outds">dsCntNum=dsCntNum</Col>
             <Col id="bAsync">true</Col>
             <Col id="nDataType">0</Col>
             <Col id="bCompress">false</Col>
@@ -162,15 +166,15 @@
       </Dataset>
     </Objects>
     <Bind>
-      <BindItem id="item0" compid="Div00.Div00.Static01" propid="text" datasetid="dsCntNum" columnid="brNum"/>
-      <BindItem id="item1" compid="Div00.Div03.Static01" propid="text" datasetid="dsCntNum" columnid="arrNum"/>
-      <BindItem id="item2" compid="Div00.Div01.Static01" propid="text" datasetid="dsCntNum" columnid="resNum"/>
-      <BindItem id="item3" compid="Div00.Div02.Static01" propid="text" datasetid="dsCntNum" columnid="sanNum"/>
       <BindItem id="item4" compid="Div00.Static05" propid="text" datasetid="dsUserInfo" columnid="userNm"/>
       <BindItem id="item5" compid="Div00.Static07" propid="text" datasetid="dsUserInfo" columnid="brrCdnum"/>
       <BindItem id="item6" compid="Div00.Static08" propid="text" datasetid="dsUserInfo" columnid="userPhone"/>
       <BindItem id="item7" compid="Div00.Static09" propid="text" datasetid="dsUserInfo" columnid="userEmail"/>
       <BindItem id="item8" compid="Div00.Static10" propid="text" datasetid="dsUserInfo" columnid="userAddr"/>
+      <BindItem id="item0" compid="Div00.Div00.Static01" propid="text" datasetid="dsCntNum" columnid="brr"/>
+      <BindItem id="item1" compid="Div00.Div01.Static01" propid="text" datasetid="dsCntNum" columnid="rev"/>
+      <BindItem id="item2" compid="Div00.Div03.Static01" propid="text" datasetid="dsCntNum" columnid="arr"/>
+      <BindItem id="item3" compid="Div00.Div02.Static01" propid="text" datasetid="dsCntNum" columnid="san"/>
     </Bind>
     <Script type="xscript5.0"><![CDATA[
 /***********************************************************************************
@@ -181,12 +185,25 @@ include "Lib::Comm.xjs";
 // 페이지 온로드 후
 this.fn_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
-	this.lfn_searchList();
+	var no = application.gds_UserInfo.getColumn(0,"userNo")
+	this.dsMypageMap.setColumn(0,"userNo",no);
+	
+	if(no==null){
+		alert("로그인 후 접근 가능한 페이지입니다 \n 로그인 후 이용해주세요")
+		var sURL = "Practice::login.xfdl";
+		this.gfn_main(sURL);
+	}
+	else{
+		this.lfn_searchList();
+	}
+	
+	
 }
 
 
 this.lfn_searchList = function(){
 	this.gfn_serviceCall("selectMypageList");
+	this.gfn_serviceCall("staticMypage")
 }
 
 //공통 콜백
@@ -228,7 +245,6 @@ this.Div00_Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 // 대출
 this.Div00_Div00_Static00_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
 {
-	application.gds_UserInfo.setColumn(0,"userNo",this.dsUserInfo.getColumn(0,"userNo"))
 	var sURL = "Practice::UserBorrow.xfdl";
 	this.gfn_main(sURL);
 }

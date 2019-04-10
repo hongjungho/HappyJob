@@ -20,8 +20,6 @@
            var oLF = application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2;
            oLF.set_formurl(sURL);
         }
-
-        
         });
 
 

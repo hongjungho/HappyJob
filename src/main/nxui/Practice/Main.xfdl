@@ -4,38 +4,38 @@
   <Form id="Main" left="0" top="0" width="1224" height="768" titletext="New Form">
     <Layouts>
       <Layout>
-        <Div id="Div00" taborder="0" text="Div00" left="0" top="3" height="847" style="background:#ffffffff;" width="1024" dragscrolltype="both" position="absolute">
+        <Div id="Div00" taborder="0" text="Div00" left="0%" top="3" height="847" style="background:#ffffffff;" dragscrolltype="both" position="absolute" right="0%">
           <Layouts>
             <Layout width="1024" height="847">
-              <ImageViewer id="ImageViewer00" taborder="0" image="URL('E:\Saved Pictures\주석 2019-03-18 180633.jpg')" left="57" top="125" height="219" repeatcount="-1" onclick="Div00_ImageViewer00_onclick" width="657"/>
-              <Div id="Div01" taborder="3" text="Div01" left="57" top="73" height="50" style="border:2 solid #339966ff ;" width="902">
+              <ImageViewer id="ImageViewer00" taborder="0" image="URL('theme://주석 2019-03-18 180633.jpg')" left="5.57%" top="125" height="219" repeatcount="0" onclick="Div00_ImageViewer00_onclick" right="30.27%" imagealign="center middle" stretch="fit"/>
+              <Div id="Div01" taborder="3" text="Div01" left="5.57%" top="57" height="50" style="border:2 solid #339966ff ;" right="6.35%">
                 <Layouts>
                   <Layout>
-                    <Combo id="Combo00" taborder="0" text="전체" left="0.67%" top="3" right="76.28%" height="40" innerdataset="@ds_search" codecolumn="code" datacolumn="value" index="0" value="1"/>
+                    <Combo id="Combo00" taborder="0" text="전체" left="0.67%" top="3" right="76.28%" height="40" innerdataset="@ds_search" codecolumn="code" datacolumn="value" index="0" value="1" onitemchanged="Div00_Div01_Combo00_onitemchanged"/>
                     <Edit id="Edit00" taborder="1" left="23.72%" top="3" right="8.69%" height="40"/>
-                    <Button id="Search" taborder="2" text="검색" left="91.31%" top="3" right="0.78%" height="40" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 12 Dotum;"/>
+                    <Button id="Search" taborder="2" text="검색" left="91.31%" top="3" right="0.78%" height="40" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 12 Dotum;" onclick="Div00_Div01_Search_onclick"/>
                   </Layout>
                 </Layouts>
               </Div>
-              <ImageViewer id="ImageViewer02" taborder="6" left="5.76%" top="364" right="6.25%" height="204" image="URL('theme://main bot.png')" repeatcount="0" style="border:1 solid #ffffffff ;"/>
-              <ImageViewer id="ImageViewer03" taborder="7" image="URL('theme://images/Bottom.png')" left="0%" top="761" right="0.2%" height="84" style="background:#ffffffff;border:1 solid #ffffffff ;"/>
-              <Static id="Static00" taborder="8" text="신작자료" left="9.47%" top="370" right="77.15%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
-              <Static id="Static01" taborder="9" text="연령대별 인기도서" left="41.31%" top="370" right="42.38%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
-              <Static id="Static02" taborder="10" text="성별 인기도서" left="60.84%" top="370" right="25.78%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
-              <Static id="Static03" taborder="11" text="사서추천자료" left="76.17%" top="370" right="10.45%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
-              <Static id="Static04" taborder="12" text="지난달 인기도서" left="22.56%" top="370" right="61.13%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
+              <ImageViewer id="ImageViewer02" taborder="6" left="5.76%" top="364" right="6.25%" height="204" image="URL('theme://main bot.png')" repeatcount="0" style="border:1 solid #ffffffff ;" stretch="fit"/>
+              <ImageViewer id="ImageViewer03" taborder="7" image="URL('theme://images/Bottom.png')" left="0%" top="761" right="0.2%" height="84" style="background:#ffffffff;border:1 solid #ffffffff ;" stretch="fit"/>
+              <Static id="Static00" taborder="8" text="신작자료" left="6.21%" top="362" right="80.39%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
+              <Static id="Static01" taborder="9" text="연령대별 인기도서" left="41.34%" top="362" right="42.4%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
+              <Static id="Static02" taborder="10" text="성별 인기도서" left="62.17%" top="362" right="24.51%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
+              <Static id="Static03" taborder="11" text="사서추천자료" left="80.07%" top="362" right="6.54%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;" onclick="Div00_Static03_onclick"/>
+              <Static id="Static04" taborder="12" text="지난달 인기도서" left="22.55%" top="362" right="61.11%" height="38" style="background:#ffffffff;color:#333333ff;align:center;font:bold 14 Dotum,Arial Black;"/>
               <Static id="Static05" taborder="13" left="82.23%" top="171" right="8.3%" height="42" style="background:#ffffffff;border:1 solid #ffffffff ;"/>
               <Div id="Div02" taborder="14" text="Div02" left="68.55%" top="125" right="6.45%" height="221" style="color:#333333ff;">
                 <Layouts>
                   <Layout width="256" height="279">
-                    <Button id="Button00" taborder="4" left="21" top="9" right="130" height="97" style="image:URL('theme://주석 2019-03-18 180259.jpg');border:1 solid #339966ff ;"/>
-                    <Button id="Button01" taborder="5" left="140" top="9" right="11" height="97" style="image:URL('theme://주석 2019-03-18 180338.jpg');border:1 solid #339966ff ;"/>
-                    <Button id="Button02" taborder="6" left="21" top="115" right="130" height="97" style="image:URL('theme://주석 2019-03-18 180355.jpg');border:1 solid #339966ff ;"/>
-                    <Button id="Button03" taborder="7" onclick="Div00_Div02_Button03_onclick" left="141" top="115" right="10" height="97" style="image:URL('theme://주석 2019-03-18 180412.jpg');border:1 solid #339966ff ;"/>
+                    <Button id="Button00" taborder="4" left="8.17%" top="9" right="50.65%" height="97" style="image:URL('theme://주석 2019-03-18 180259.jpg');background:#ffffffff;border:1 solid #339966ff ;" onclick="Div00_Div02_Button00_onclick"/>
+                    <Button id="Button01" taborder="5" left="54.69%" top="9" right="4.3%" height="97" style="image:URL('theme://주석 2019-03-18 180338.jpg');background:#ffffffff;border:1 solid #339966ff ;" onclick="Div00_Div02_Button01_onclick"/>
+                    <Button id="Button02" taborder="6" left="8.2%" top="115" right="50.78%" height="97" style="image:URL('theme://주석 2019-03-18 180355.jpg');background:#ffffffff;border:1 solid #339966ff ;" onclick="Div00_Div02_Button02_onclick"/>
+                    <Button id="Button03" taborder="7" onclick="Div00_Div02_Button03_onclick" left="55.08%" top="115" right="3.91%" height="97" style="image:URL('theme://주석 2019-03-18 180412.jpg');background:#ffffffff;border:1 solid #339966ff ;"/>
                   </Layout>
                 </Layouts>
               </Div>
-              <ImageViewer id="ImageViewer01" taborder="15" left="8.2%" top="549" right="7.91%" height="174" image="URL('theme://bookplus.png')" style="border:1 solid #ffffffff ;"/>
+              <ImageViewer id="ImageViewer01" taborder="15" left="8.2%" top="549" right="7.91%" height="174" image="URL('theme://bookplus.png')" style="border:1 solid #ffffffff ;" stretch="fit"/>
             </Layout>
           </Layouts>
         </Div>
@@ -67,6 +67,132 @@
         </Rows>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[]]></Script>
+    <Script type="xscript5.0"><![CDATA[
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::Comm.xjs";
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+this.SampleCrud_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	Iject.formOnload(obj);			//폼 초기화 : 필요시 구현
+	
+	//this.lfn_settingSearchBar(); 	//검색영역 세팅
+}
+/***********************************************************************************
+
+***********************************************************************************/
+//검색버튼 클릭시
+this.lfn_searchList = function(){
+	this.gfn_serviceCall("selectMainList"); //검색  조회
+}
+//검색영역셋팅
+/*
+this.lfn_settingSearchBar = function(){
+
+	var cdParam = new Array();
+	
+	cdParam[0]  = ["CBO",  "A01", "cbo_BsnsGb", 0, "ALL"];
+	cdParam[1]  = ["CBO",  "A01", "cbo_bspnGb_sel", 0, "SEL"];
+	cdParam[2]  = ["CBO",  "B01", "Combo03", 0, "SEL"];
+	cdParam[3]  = ["CBO",  "B02", "Combo02", 0, "SEL"];
+	this.gfn_getCboComplexCmmnCd(this.name, cdParam);
+	this.cbo_BsnsGb.index = 0;
+	this.dsSchMap.setColumn(0,'pjTaskNo',"");
+
+}
+*/
+//검색 버튼 클릭
+this.Div00_Div01_Search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.lfn_searchList();
+	if ( this.Div00.Div01.Combo00.value == 2 ){
+		if  (application.dsBookList.getColumn(0,"bookWriter") == this.Div00.Div01.Edit00.value){
+			alert("test1");
+			application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+			application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
+			var sURL = "Practice::Search.xfdl";
+			this.gfn_main(sURL);
+			var sURL = "Frame::LeftFrame_1.xfdl";
+			this.gfn_left(sURL);
+		}
+	}
+	else if ( this.Div00.Div01.Combo00.value == 3 ){
+		if  (application.dsBookList.getColumn(0,"bookNm") == this.Div00.Div01.Edit00.value){
+			alert("test2");
+			application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+			application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
+			var sURL = "Practice::Search.xfdl";
+			this.gfn_main(sURL);
+			var sURL = "Frame::LeftFrame_1.xfdl";
+			this.gfn_left(sURL);
+		}
+	}
+	else if ( this.Div00.Div01.Combo00.value == 4 ){
+		if  (application.dsBookList.getColumn(0,"bookPub") == this.Div00.Div01.Edit00.value){
+			alert("test3");
+			application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+			application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
+			var sURL = "Practice::Search.xfdl";
+			this.gfn_main(sURL);
+			var sURL = "Frame::LeftFrame_1.xfdl";
+			this.gfn_left(sURL);
+		}
+	} 
+	else{
+		if (application.dsBookList.getColumn(0) == this.Div00.Div01.Edit00.value){
+			alert("test4");
+			application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+			application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
+			var sURL = "Practice::Search.xfdl";
+			this.gfn_main(sURL);
+			var sURL = "Frame::LeftFrame_1.xfdl";
+			this.gfn_left(sURL);
+		}
+	}
+}
+
+//사업번호 키보드 입력시
+/*
+this.Div00.Div01.Edit00.onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == "13"){
+		this.btn_Seach_onclick();
+	}
+}
+*/
+
+// 예약 버튼 클릭시
+this.Div00_Div02_Button02_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+	if(application.dsUserList.getColumn(0,"authorCd") == 02 ){
+	//if(this.dsUserList.getColumn(0,"authorCd") == 1) {
+		application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+		application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
+		
+		var sURL = "Practice::UserReservation.xfdl";
+		this.gfn_main(sURL);
+		var sURL = "Frame::LeftFrame_3.xfdl";
+		this.gfn_left(sURL);
+	}
+	else{
+		alert("회원만 접근가능합니다.");	
+		application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(false);
+		application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(0);	
+		application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_width(1024);		
+		var sURL = "Practice::Main.xfdl";
+		this.gfn_main(sURL);
+	}
+}
+//좌석예약 버튼 클릭시
+this.Div00_Div02_Button01_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+		application.open("modeless","Practice::Reserve.xfdl",this.getOwnerFrame());
+}
+]]></Script>
   </Form>
 </FDL>

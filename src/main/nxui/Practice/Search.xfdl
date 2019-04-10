@@ -1,18 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="Main" left="0" top="0" width="1024" height="768" titletext="New Form">
+  <Form id="Main" left="0" top="0" width="1024" height="768" titletext="New Form" onload="test01">
     <Layouts>
       <Layout>
-        <Div id="Div00" taborder="0" text="Div00" left="0" top="0" height="769" style="background:#ffffffff;" width="824">
-          <Layouts>
-            <Layout>
-              <Button id="Button00" taborder="0" text="일반도서검색!!!!!!!!!!" left="9.77%" top="70" right="14.55%" height="98" style="background:#ffff99ff;font:bold 24 Dotum;"/>
-            </Layout>
-          </Layouts>
-        </Div>
+        <Grid id="Grid00" taborder="1" binddataset="dsTest02" useinputpanel="false" left="7.81%" top="32" right="60.94%" height="416" scrollbars="autovert">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row band="body" size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell col="0" disptype="normal" text="name"/>
+                <Cell col="1" disptype="normal" text="age"/>
+                <Cell col="2" disptype="normal" text="addr"/>
+                <Cell col="3" disptype="normal" text="job"/>
+              </Band>
+              <Band id="body">
+                <Cell col="0" disptype="normal" text="bind:name"/>
+                <Cell col="1" disptype="normal" text="bind:age"/>
+                <Cell col="2" disptype="normal" text="bind:addr"/>
+                <Cell col="3" disptype="normal" text="bind:job"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <FileUpload id="fup_image" taborder="2" retry="0" index="0" left="42.68%" top="32" right="23.34%" height="22"/>
+        <Button id="btn_upload" taborder="3" text="Upload" left="66.21%" top="68" right="23.34%" height="32" onclick="btn_upload_onclick"/>
       </Layout>
     </Layouts>
-    <Script type="xscript5.0"><![CDATA[]]></Script>
+    <Objects>
+      <Dataset id="dsTest">
+        <ColumnInfo>
+          <Column id="chk" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="chk">true</Col>
+            <Col id="value">checked</Col>
+          </Row>
+          <Row>
+            <Col id="chk">false</Col>
+            <Col id="value">non-checked</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsTest02">
+        <ColumnInfo>
+          <Column id="name" type="STRING" size="256"/>
+          <Column id="age" type="STRING" size="256"/>
+          <Column id="addr" type="STRING" size="256"/>
+          <Column id="job" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+this.test01 = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var nameArr = ["Micheal", "Tom", "Faye", "Hiki", "Jordan", "Jane", "Amy", "Nike"];
+	var addrArr = ["Seoul", "New York", "Tokyo", "Sydney", "Seatle", "Beijing", "Shanghai", "Taipei", "Manila"];
+	var jobArr = ["Programmer", "Farmer", "Cook", "Barista", "Software Engineer", "Lawyer", "Police Officer", "Soldier"];
+	
+	for(var j = 0; j < 20; j++){
+	
+		var randomNameIdx = Math.floor(Math.random() * nameArr.length); 
+		var randomAddrIdx = Math.floor(Math.random() * addrArr.length);
+		var randomJobIdx = Math.floor(Math.random() * jobArr.length); 
+		var randomAge = Math.floor((Math.random() * 20)) + 21; // from 20 to 40
+		
+		this.dsTest02.addRow();
+		this.dsTest02.setColumn(j, "name", nameArr[randomNameIdx]);
+		this.dsTest02.setColumn(j, "age", randomAge);
+		this.dsTest02.setColumn(j, "addr", addrArr[randomAddrIdx]);
+		this.dsTest02.setColumn(j, "job", jobArr[randomJobIdx]);
+	}
+	
+	this.fn_call_game();
+	
+}
+
+this.fn_call_game = function(){
+	
+	var images = new ImageViewer();
+	//ImageViewer.init(strName, position, nLeft, nTop[, nWidth, nHeight[, nRight, nBottom]])
+	images.init("rock", "absolute", 200, 500, 200, 200, null, null); 
+	//this.form.addChild("strChildID", objComponent00);
+	this.addChild("rock", images);
+	this.rock.show();
+}
+
+]]></Script>
   </Form>
 </FDL>

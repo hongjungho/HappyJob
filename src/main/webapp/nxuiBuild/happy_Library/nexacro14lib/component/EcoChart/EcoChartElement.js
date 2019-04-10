@@ -24,7 +24,7 @@ if (!JsNamespace.exist("Eco.Chart"))
             };
 
             this._plotWidth = 0;
-            this._plotHeight = 0;
+            this._plotHeight = 0; 
             this._colorsCategory = [];
 
             // d3 color category 참조
@@ -1507,6 +1507,21 @@ if (!JsNamespace.exist("Eco.ChartBase"))
                 {
                     text = text.replace("[%x]", x || "");
                     text = text.replace("[%y]", y || "");
+					if(text.indexOf("[%val]") > -1 ){
+						
+						var tmpVal = series.data[0][1];
+						
+						var a,b;
+					    if (tmpVal.toString().indexOf('.') != -1){
+					        var nums = tmpVal.toString().split('.');
+					        a = nums[0];
+					        b = '.' + nums[1];
+					    }else{
+					        a = tmpVal;
+					        b = "";
+					    }
+                    	text = text.replace("[%val]", a.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + b);	
+                    }
 
                     if (value)
                     {
@@ -4024,7 +4039,7 @@ if (!JsNamespace.exist("Eco.SeriesBase"))
                             {
                                 if (obj["key"])
                                 {
-                                    if (!(obj[bindValue] == ""))
+                                    if (!(obj[bindValue] === ""))
                                     {
                                         if (barHorizontal)
                                         {

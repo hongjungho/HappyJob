@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="test" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Button00" left="10.74%" top="46" right="74.22%" height="70" onclick="Button00_onclick"/>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="22.75%" top="180" right="26.46%" height="169" binddataset="dsTest3" oncelldblclick="move">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row band="body" size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell col="0" disptype="normal" text="hit"/>
+                <Cell col="1" disptype="normal" text="test1"/>
+                <Cell col="2" disptype="normal" text="test2"/>
+              </Band>
+              <Band id="body">
+                <Cell col="0" disptype="normal" text="bind:hit"/>
+                <Cell col="1" disptype="normal" text="bind:test1"/>
+                <Cell col="2" disptype="normal" text="bind:test2"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsTest3">
+        <ColumnInfo>
+          <Column id="hit" type="INT" size="256"/>
+          <Column id="test1" type="STRING" size="256"/>
+          <Column id="test2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="hit">0</Col>
+            <Col id="test1">a</Col>
+            <Col id="test2">f</Col>
+          </Row>
+          <Row>
+            <Col id="hit">1</Col>
+            <Col id="test1">b</Col>
+            <Col id="test2">g</Col>
+          </Row>
+          <Row>
+            <Col id="hit">2</Col>
+            <Col id="test1">c</Col>
+            <Col id="test2">h</Col>
+          </Row>
+          <Row>
+            <Col id="hit">3</Col>
+            <Col id="test1">d</Col>
+            <Col id="test2">i</Col>
+          </Row>
+          <Row>
+            <Col id="hit">4</Col>
+            <Col id="test1">e</Col>
+            <Col id="test2">j</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.move = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	application.open("test2", "Practice::test2.xfdl", this.getOwnerFrame(), {mode:"modeless", ds:this.dsTest3}, "showtitlebar=true showstatusbar=false", 400, 200);
+}
+]]></Script>
+  </Form>
+</FDL>

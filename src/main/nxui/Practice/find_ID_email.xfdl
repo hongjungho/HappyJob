@@ -20,7 +20,7 @@
               <Button id="btn_FindPWD" taborder="12" text="비밀번호찾기" onclick="Div00_btn_FindPWD_onclick" cssclass="WF_btn_Login" left="262" top="171" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
               <Button id="btn_login1" taborder="13" text="로그인 화면" onclick="Div00_btn_login1_onclick" cssclass="WF_btn_Login" left="374" top="171" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
               <Static id="Static03" taborder="15" text="Email 인증을 하기 위해서는&#13;&#10;등록된 정보(이메일)과 입력한 정보가 동일해야, 아이디를 받을 수 있습니다." onclick="Div_Static03_onclick" left="50" top="19" width="503" height="38" style="font:10 Dotum;"/>
-              <Edit id="Edit00" taborder="16" left="50" top="106" height="34" width="500"/>
+              <Edit id="Edit00" taborder="16" left="50" top="106" height="34" width="500" readonly="false"/>
             </Layout>
           </Layouts>
         </Div>
@@ -28,11 +28,13 @@
       </Layout>
     </Layouts>
     <Objects>
-      <Dataset id="dsUser">
+      <Dataset id="dsSchMap">
         <ColumnInfo>
-          <Column id="User_ID" type="STRING" size="256"/>
-          <Column id="User_PWD" type="STRING" size="256"/>
+          <Column id="userEmailFul" type="STRING" size="256"/>
         </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
       </Dataset>
       <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
@@ -47,19 +49,14 @@
         </ColumnInfo>
         <Rows>
           <Row>
-            <Col id="sController">Practice/loginForm.do</Col>
-            <Col id="svcid">loginForm</Col>
-            <Col id="inds">login=login</Col>
-            <Col id="outds">dsresult_login=dsresult_login</Col>
+            <Col id="svcid">findIdUserList2</Col>
+            <Col id="sController">practice/findIdUserList2.do</Col>
+            <Col id="inds">dsSchMap=dsSchMap</Col>
+            <Col id="outds">dsUserList=dsUserList</Col>
+            <Col id="args"/>
             <Col id="bAsync">true</Col>
             <Col id="nDataType">0</Col>
             <Col id="bCompress">false</Col>
-            <Col id="args"/>
-          </Row>
-          <Row>
-            <Col id="svcid">joinForm</Col>
-            <Col id="sController">Practice/joinForm.do</Col>
-            <Col id="inds">dsuser=dsuser</Col>
           </Row>
         </Rows>
       </Dataset>
@@ -149,7 +146,9 @@
         </Rows>
       </Dataset>
     </Objects>
-    <Bind/>
+    <Bind>
+      <BindItem id="item0" compid="Div00.Edit00" propid="value" datasetid="dsSchMap" columnid="userEmailFul"/>
+    </Bind>
     <Script type="xscript5.0"><![CDATA[/***********************************************************************************
 * SYSTEM      : UserProject
 * BUSINESS    : UserProject-교육용
@@ -179,8 +178,26 @@ this.Login_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 	
 	//this.lfn_settingSearchBar(); 	//검색영역 세팅
 	//if(nexacro.Browser == "Runtime") this.Div.btn_close.set_visible(true);
+	
 }
 
+//공통 콜백
+
+this.lfn_cmmCallback = function(svcId, errorcode, errormsg){
+ 
+	//this.alert(svcId);
+	
+	if(errorcode < 0)
+	{
+	   Iject.alert(errormsg,"오류");			
+	   return;
+	}else{
+		if(svcId == "findIdUserList2"){
+			this.alert("저장되었습니다.");	
+			this.gfn_serviceCall("findIdUserList2");
+		}
+	}
+}
 
 /***********************************************************************************
 * Component Event
@@ -196,12 +213,25 @@ this.Div_Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 //아이디발송 버튼
 this.Div00_btn_login_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
+	
+	this.lfn_searchList("findIdUserList2");
+	alert("정보확인중");
 	var sValue = this.Div00.Edit00.value;
+	var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 	if (sValue == null ) {
 		alert("이메일을 적어주세요.");
 	}
 	else {
-		alert ("이메일발송넣어야함...");
+		//if(application.dsUserList.getColumn(0,"userEmail") == this.Div00.Edit00.value && regExp.test(this.Div00.Edit00.value)== false ){
+		//if(application.dsUserList.getColumn(0,"userEmail") == this.Div00.Edit00.value ){
+		if(application.dsUserList.getColumn(0,"userEmail") == this.dsSchMap.getColumn(0,"userEmailFul") ){
+			alert("아이디발송완료");
+		}
+		else
+		{
+			alert ("올바른 메일주소가 아닙니다.");
+			this.Div00.Edit00.set_value("");
+		}
 	}
 }
 
@@ -217,6 +247,10 @@ this.Div00_btn_FindPWD_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var sURL = "Practice::find_PWD.xfdl";
     this.gfn_main(sURL);
+}
+
+this.lfn_searchList = function(){
+	this.gfn_serviceCall("findIdUserList2"); //아이디조회
 }
 
 /***********************************************************************************

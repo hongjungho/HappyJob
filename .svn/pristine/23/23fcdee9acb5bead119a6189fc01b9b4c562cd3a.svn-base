@@ -1,0 +1,17 @@
+package spring.com.happybook.service;
+
+import java.util.List;
+import java.util.Map;
+
+public interface HappyLibraryService {
+
+
+	List<Map<String, Object>> selectBookList(Map<String, Object> dsSchMap);
+
+	List<Map<String, Object>> selectEmplList(Map<String, Object> dsSchMap);
+
+	List<Map<String, Object>> selectUserList(Map<String, Object> dsSchMap);
+
+	
+
+}

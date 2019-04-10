@@ -1,5 +1,5 @@
 ﻿/**
- * @fileoverview nexacro Component의 Position 및 Size 관련 함수.
+ * @fileoverview nexacro Component의 Position과 Size와 관련된 함수.
  */
  
 if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
@@ -11,8 +11,8 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 	 */
 	JsNamespace.declare("Eco.XComp.PositionSize", {
 		 /**
-		 * TopLevel Form에서 보이는 위치를 기준으로 component 좌표 및 size를 반환.
-		 * @param {XComp} XComp XComponent
+		 * TopLevel Form 상에 현재 보이는 위치 기준으로 component 좌표 및 size를 반환.
+		 * @param {XComp} XComp nexacro Component
 		 * @return {array.<number>} [ leftPosition, topPosition, wdith, height ]
 		 * @example
 		 * trace(Eco.XComp.PositionSize.getTopLevelFormBox(Div00.Button00)); //output: [829,135,63,43]
@@ -31,10 +31,10 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 
 
 		 /**
-		 * XCompB 기준의 XY좌표를 XCompA 기준의 XY좌표로 변환.
-		 * @param {XComp} XCompA XComponent.
+		 * XCompB기준의 XY좌표를 XCompA기준의 XY좌표로 변환.
+		 * @param {XComp} XCompA nexacro Component
 		 * @param {array.<number>} xy XCompB기준의 XY좌표.
-		 * @param {XComp} XCompB XComponent.
+		 * @param {XComp} XCompB nexacro Component
 		 * @return {array.<number>} XCompA기준의 좌표. [ x좌표, y좌표]
 		 * @example
 		 * 
@@ -83,9 +83,9 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 
 
 		 /**
-		 * 수직스크롤바의 trackbar 위치를 반환한다.
-		 * @param {XComp} XComp XComponent.
-		 * @return {number} 수직스크롤바의 trackbar 위치(수직스크롤바가 없을때는 0).
+		 * 수직스크롤바의 trackbar위치를 반환한다.
+		 * @param {XComp} XComp nexacro Component
+		 * @return {number} 수직스크롤바의 trackbar위치(수직스크롤바가 없을때는 0).
 		 * @example
 		 * trace(Eco.XComp.PositionSize.getScrollTop(Div01)); //output: 20
 		 * trace(Eco.XComp.PositionSize.getScrollTop(Div01)); //output: 0
@@ -98,9 +98,9 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		},
 
 		 /**
-		 * 수평스크롤바의 trackbar 위치를 반환한다.
-		 * @param {XComp} XComp XComponent.
-		 * @return {number} 수평스크롤바의 trackbar 위치(수평스크롤바가 없을때는 0).
+		 * 수평스크롤바의 trackbar위치를 반환한다.
+		 * @param {XComp} XComp nexacro Component
+		 * @return {number} 수평스크롤바의 trackbar위치(수평스크롤바가 없을때는 0).
 		 * @example
 		 * trace(Eco.XComp.PositionSize.getScrollLeft(Div01)); //output: 10
 		 * trace(Eco.XComp.PositionSize.getScrollLeft(Div01)); //output: 0
@@ -113,10 +113,10 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		},
 		
 		 /**
-		 * 수평 스크롤바 height 또는 수직스크롤바의 width size를 반환한다.
-		 * @param {XComp} XComp XComponent.
+		 * 스크롤바 height(수평스크롤바) 또는 width(수직스크롤바)의 size를 반환한다.
+		 * @param {XComp} XComp nexacro Component
 		 * @param {string} type 스크롤바 종류(수평스크롤바:"horz", 수직스크롤바:"vert")
-		 * @return {number} 수평 스크롤바 height 또는 수직스크롤바의 width size를 반환한다.<br>
+		 * @return {number} 스크롤바 height(수평스크롤바) 또는 width(수직스크롤바)의 size를 반환한다.<br>
 		 *                  스크롤바를 지원하지 않는 컴포넌트 일때는 0.
 		 * @example
 		 * trace(Eco.XComp.PositionSize.getScrollBarSize(Div03, "vert")); //output:  11
@@ -159,9 +159,9 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		
 		/**
 		 * XComp의 boder, scrollbar width 크기를 제외한 client 영역 width 를 반환한다.
-		 * @param {XComp} XComp nexacro Component.
-		 * @param {number=} wholeWidth 컴포넌트의 전체폭(boder,scrollbar width 포함).
-		 * @return {number} client 영역 width.
+		 * @param {XComp} XComp nexacro Component
+		 * @param {number=} wholeWidth 컴포넌트의 전체폭(boder,scrollbar width 포함)
+		 * @return {number} client 영역 width
 		 * @example
 		 *
 		 * ex) Div01
@@ -214,9 +214,9 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		
 		/**
 		 * XComp의 boder,scrollbar height 크기를 제외한 client 영역 height 를 반환한다.
-		 * @param {XComp} XComp nexacro Component.
-		 * @param {number=} wholeHeight 컴포넌트의 전체높이(boder,scrollbar height 포함).
-		 * @return {number} client 영역 height.
+		 * @param {XComp} XComp nexacro Component
+		 * @param {number=} wholeHeight 컴포넌트의 전체높이(boder,scrollbar height 포함)
+		 * @return {number} client 영역 height
 		 * @example
 		 *
 		 * ex) Div01
@@ -270,8 +270,8 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		/**
 		 * XComp의 boder,margin,scrollbar width 크기를 제외한 client 영역 width 를 반환한다.
 		 * scroll이 생기는 경우에는 scroll 가능한 전체 영역을 포함한 width 를 반환한다.
-		 * @param {XComp} XComp nexacro Component.
-		 * @return {number} client 영역 width.
+		 * @param {XComp} XComp nexacro Component
+		 * @return {number} client 영역 width
 		 * @example
 		 *
 		 * ex) Div00 (width:100)
@@ -307,8 +307,8 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		/**
 		 * XComp의 boder,scrollbar height 크기를 제외한 client 영역 height 를 반환한다.
 		 * scroll이 생기는 경우에는 scroll 가능한 전체 영역을 포함한 height 를 반환한다.
-		 * @param {XComp} XComp nexacro Component.
-		 * @return {number} client 영역 height.
+		 * @param {XComp} XComp nexacro Component
+		 * @return {number} client 영역 height
 		 * @example
 		 *
 		 * ex) Div00 (height:100)
@@ -350,11 +350,11 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		 * 컴포넌트에 지정된 text 의 너비,높이를 반환.<br><br>
 		 * 2번째 인자에 문자열 값을 지정하면 컴포넌트의 text 속성에 지정된 문자열을 대체하여<br>
 		 * 계산된 결과를 반환한다. (text 속성값이 변경되지는 않는다.)
-		 * @param {XComp|Font} XComp nexacro Component 또는 Font 객체.
+		 * @param {XComp|Font} XComp nexacro Component 또는 Font 개체
 		 * @param {string=} text text 속성을 대체할 text (default : text 속성)
 		 * @param {boolean=} multiline 여부.
-		 * @param {number=} content_width word wrap이 일어나는 문자열의 경우, 길이를 제한하는 정수 값.
-		 * @param {boolean=} fitText 컴포넌트에 적용된 크기가 아닌 텍스트 자체의 크기만 반환할지 여부 (default:false, HTML 전용).
+		 * @param {number=} content_width word wrap이 일어나는 문자열의 경우 길이를 제한하는 정수 값입니다.
+		 * @param {boolean=} fitText 컴포넌트에 적용된 크기가 아닌 텍스트 자체의 크기만 반환할지 여부 (default:false, HTML 전용)
 		 * @return {array} [너비, 높이]
 		 * @example
 		 *
@@ -398,11 +398,10 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 						multiline = XComp["wordwrap"] != "none"? true: false;
 					}
 				}
-				
-				//if ( multiline && content_width == null )
-				//{
-				//	content_width = XComp.getOffsetWidth();
-				//}
+				if ( multiline && content_width == null )
+				{
+					content_width = XComp.getOffsetWidth();
+				}
 			}
 			
 			var size = [0, 0];
@@ -425,10 +424,7 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 				
 				if ( multiline )
 				{			
-					if(content_width) {
-						_style.width = content_width + "px";
-					}
-					
+					_style.width = content_width + "px";
 					_style.height = "auto";
 					_style.whiteSpace = "pre-wrap";
 					_style.wordBreak = "break-all";
@@ -470,9 +466,7 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 			}
 			else
 			{
-				size = nexacro.getTextSize(text, font, content_width, multiline);
-				size[0] = size.nx;
-				size[1] = size.ny;				
+				size = nexacro._getTextSize2(text, font, multiline, content_width);
 			}
 			
 			size[0] = Math.ceil(size[0]);
@@ -482,12 +476,12 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		},
 		
 		 /**
-		 * 경로에 해당하는 이미지의 너비,높이 반환.<br>
-		 * 해당 이미지의 너비, 높이는 callback 함수를 통해 반환되며<br>
-		 * callback 함수의 인자는 url, width, height.
-		 * @param {string} url 이미지경로(절대경로, 상대경로, url경로, prefix경로).
-		 * @param {function} callback 구해진 이미지 사이즈를 반환할 함수로 (url, width, height) 인자를 보냄.
-		 * @param {*} scope callback 내부에서 this 로 사용할 대상.
+		 * 주어진 url 에 해당하는 이미지의 너비,높이 반환.<br>
+		 * 해당 이미지지 너비, 높이는 callback 함수를 통해 반환되며<br>
+		 * callback 함수의 인자는 url, width, height 임.
+		 * @param {string} url 이미지경로(절대경로, 상대경로, url경로, prefix경로)
+		 * @param {function} callback 구해진 이미지 사이즈를 반환할 함수로 (url, width, height) 인자를 보냄
+		 * @param {*} scope callback 내부에서 this 로 사용할 대상
 		 * @example
 		 *
 		 * this.imageLoadCallback = function(url, width, height)
@@ -598,8 +592,7 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		 * ※ text 가 없는 경우 기본글자 크기 적용.<br>
 		 * ※ scroll 을 가지는 컴포넌트는 현재 자신의 사이즈를 반환.
 		 * @param {XComp} XComp nexacro Component
-		 * @param {=number} width word wrap이 일어나는 문자열의 경우, 길이를 제한하는 정수 값.
-		 * @param {boolean=} multiLine multi line 사용여부(default: false).
+		 * @param {=number} width Maximum width of the string in pixels. if wordwrap property is true(not "none").
 		 * @return {array} [너비, 높이]
 		 * @example
 		 *
@@ -620,10 +613,9 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		 *
 		 * @memberOf Eco.XComp.PositionSize
 		 */
-		getContentSize: function(XComp, width, multiLine)
+		getContentSize: function(XComp, width)
 		{
 			var size = [0,0];
-			multiLine = (!multiLine)? false: true;
 			if ( Eco.isXComponent(XComp) )
 			{		
 				var w = 0, h = 0;		
@@ -660,14 +652,11 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 					{
 						if ( Eco.isNumber(width) )
 						{
-							var spaceSize = this._getStyleSpaceSize(XComp);
-							width -= spaceSize[0];
-							
 							sz = Eco.XComp.PositionSize.getTextSize(XComp, text, true, width);
 						}
 						else
 						{
-							sz = Eco.XComp.PositionSize.getTextSize(XComp, text, multiLine);
+							sz = Eco.XComp.PositionSize.getTextSize(XComp, text, false);
 						}
 					}
 										
@@ -741,9 +730,7 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 						w += isNaN(textpadding.right) ? 0 : textpadding.right;						
 						h += isNaN(textpadding.top) ? 0 : textpadding.top;						
 						h += isNaN(textpadding.bottom) ? 0 : textpadding.bottom;		
-						
 					}
-					
 					if ( !isNaN(buttonsize) )
 					{
 						
@@ -757,7 +744,7 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		},
 		
 		/**
-		 * border, padding 을 더한 size (너비,높이) 반환.
+		 * border, padding 을 더한 size (너비,높이) 반환 
 		 * @private
 		 * @param {XComp} XComp nexacro Component
 		 * @return {array} [너비, 높이]
@@ -803,10 +790,10 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		 *    4.2번과정 반복<br>
 		 *    5.1~4번으로도 공간확보가 안되면 direction을 무시하고 표시가능한 영역을 찾는다.<br>
 		 *    6.영역을 초과하는 공간을 요청하면,표시가능한 x,y좌표 및 size를 반환한다.
-		 * @param {XComp} XComp 기준이 되는 nexacro Component. 
-		 * @param {number} width 표시할 팝업 width.
-		 * @param {number} height 표시할 팝업 height.
-		 * @param {string=} direction 팝업표시 방향."vert": vertical(default),"horz": horizontal.
+		 * @param {XComp} XComp 기준이 되는 nexacro Component 
+		 * @param {number} width 표시할 팝업 width
+		 * @param {number} height 표시할 팝업 height
+		 * @param {string=} direction 팝업표시 방향."vert": vertical(default),"horz": horizontal
 		 * @param {number=} offset 표시될때 XComp와의 간격(default: 0).
 		 * @return {array.<string...number>} [XComp 기준 팝업위치("left", "top", "right", "bottom"), x, y [ ,width, height] ]
 		 *   <pre>※주어진 width와 height, offset으로 
@@ -908,8 +895,8 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		},			
 		
 		/**
-		 * 컴포넌트 표시를 위한 좌표반환.<br><br>
-		 * ※표시될 공간이 없을 경우 우선순위.<br>
+		 * 컴포넌트 표시를 위한 좌표반환<br><br>
+		 *  ※표시될 공간이 없을 경우 우선순위<br>
 		 *     direction이 vertical 일때 : 하단(왼쪽맞춤->오른쪽맞춤) -> 상단(왼쪽맞춤->오른쪽맞춤)
 		 * @private
 		 * @param {number} width 표시할 width
@@ -969,14 +956,14 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		 },
 	 	
 		/**
-		 * 컴포넌트 표시를 위한 수직방향 좌표 반환.
+		 * 컴포넌트 표시를 위한 수직방향 좌표 반환
 		 * @private
-		 * @param {number} width 표시할 width.
-		 * @param {number} height 표시할 height.
-		 * @param {string} direction 팝업표시 방향."vert": vertical,"horz": horizontal.
+		 * @param {number} width 표시할 width
+		 * @param {number} height 표시할 height
+		 * @param {string} direction 팝업표시 방향."vert": vertical,"horz": horizontal
 		 * @param {number} offset 표시될때 XComp와의 간격.
 		 * @param {boolean} isChange direction 전환 후 재호출 여부.
-		 * @return {array.<number>} [screenX, screenY 좌표, 최종 direction]
+		 * @return {array.<number>} screenX, screenY 좌표, 최종 direction
 		 * @memberOf Eco.XComp.PositionSize
 		 */	
 		 _getVerticalPosition: function(width, height, screenX, screenY, screenRect, direction, offset, isChange)
@@ -1020,14 +1007,14 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		
 
 		/**
-		 * 컴포넌트 표시를 위한 수평방향 좌표 반환.
+		 * 컴포넌트 표시를 위한 수평방향 좌표 반환
 		 * @private
-		 * @param {number} width 표시할 width.
-		 * @param {number} height 표시할 height.
-		 * @param {string=} direction 팝업표시 방향."vert": vertical,"horz": horizontal.
+		 * @param {number} width 표시할 width
+		 * @param {number} height 표시할 height
+		 * @param {string=} direction 팝업표시 방향."vert": vertical,"horz": horizontal
 		 * @param {number} offset 표시될때 XComp와의 간격.
 		 * @param {boolean} isChange direction 전환 후 재호출 여부.
-		 * @return {array.<number>} [screenX, screenY 좌표, 최종 direction]
+		 * @return {array.<number>} screenX, screenY 좌표, 최종 direction
 		 * @memberOf Eco.XComp.PositionSize
 		 */	
 		 _getHorizontalPosition: function(width, height, screenX, screenY, screenRect, direction, offset, isChange)
@@ -1070,11 +1057,11 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		/**
 		 * direction이 vertical일때 컴포넌트 표시를 위한 수평정렬위치 반환.
 		 * @private
-		 * @param {number} width 표시할 width.
-		 * @param {number} height 표시할 height.
-		 * @param {string} direction 팝업표시 방향."vert": vertical,"horz": horizontal.
+		 * @param {number} width 표시할 width
+		 * @param {number} height 표시할 height
+		 * @param {string} direction 팝업표시 방향."vert": vertical,"horz": horizontal
 		 * @param {number} offset 표시될때 XComp와의 간격.
-		 * @return {number} screenX 좌표.
+		 * @return {number} screenX 좌표
 		 * @memberOf Eco.XComp.PositionSize
 		 */	
 		 _getHorizontalAlign: function(width, height, screenX, screenY, screenRect, direction, offset)
@@ -1106,13 +1093,13 @@ if ( !JsNamespace.exist("Eco.XComp.PositionSize") )
 		 },	
 		 		 
 		/**
-		 * direction이 horizontal일때 컴포넌트 표시를 위한 수직정렬위치 반환.
+		 * direction이 horizontal일때 컴포넌트 표시를 위한 수직정렬위치 반환
 		 * @private
-		 * @param {number} width 표시할 width.
-		 * @param {number} height 표시할 height.
-		 * @param {string} direction 팝업표시 방향."vert": vertical,"horz": horizontal.
+		 * @param {number} width 표시할 width
+		 * @param {number} height 표시할 height
+		 * @param {string} direction 팝업표시 방향."vert": vertical,"horz": horizontal
 		 * @param {number} offset 표시될때 XComp와의 간격.
-		 * @return {number} screenY 좌표.
+		 * @return {number} screenY 좌표
 		 * @memberOf Eco.XComp.PositionSize
 		 */	
 		 _getVerticalAlign: function(width, height, screenX, screenY, screenRect, direction, offset)

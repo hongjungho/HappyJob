@@ -4,50 +4,147 @@
   <Form id="Login" left="0" top="0" width="1024" height="768" titletext="New Form" onload="Login_onload">
     <Layouts>
       <Layout>
-        <Div id="Div" taborder="0" left="0" top="-8" right="0%" bottom="8" style="background:white;color:#45596dff;" scrollbars="none">
+        <Div id="Div" taborder="0" left="0%" top="-8" right="0%" bottom="8" style="background:white;color:#45596dff;" scrollbars="none">
           <Layouts>
             <Layout width="480" height="390">
               <Static id="Static00" taborder="0" left="200" top="160" width="652" height="16" onclick="Div_Static00_onclick"/>
-              <Static id="Static02" taborder="6" text="아이디찾기" left="200" top="101" height="51" style="color:black;font:bold 20 Dotum;" onclick="Div_Static02_onclick" right="560"/>
-              <Static id="Static03" taborder="7" text="●  아이디 찾기를 진행할 이름, 생년월일, 핸드폰번호를 입력하세요" left="200" top="479" height="35" onclick="Div_Static03_onclick" width="599"/>
-              <Static id="Static04" taborder="8" text="●  문의사항이 있으시면 관리자에게 연락주시기 바랍니다." onclick="Div_Static03_onclick" left="200" top="514" height="35" width="599"/>
+              <Static id="Static02" taborder="6" text="아이디찾기" left="19.53%" top="101" height="51" style="color:black;font:bold 20 Dotum;" onclick="Div_Static02_onclick" right="54.69%"/>
+              <Static id="Static03" taborder="7" text="●  아이디 찾기를 진행할 이름, 생년월일, 핸드폰번호를 입력하세요" left="19.53%" top="479" height="35" onclick="Div_Static03_onclick" right="21.97%"/>
+              <Static id="Static04" taborder="8" text="●  문의사항이 있으시면 관리자에게 연락주시기 바랍니다." onclick="Div_Static03_onclick" left="19.53%" top="514" height="35" right="21.97%"/>
+              <Grid id="Grid00" taborder="9" useinputpanel="false" left="25.68%" top="47" right="2.83%" height="64" binddataset="dsUserList" visible="false">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row band="head" size="24"/>
+                      <Row band="body" size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell col="0" disptype="normal" text="userNo"/>
+                      <Cell col="1" disptype="normal" text="userNm"/>
+                      <Cell col="2" disptype="normal" text="userId"/>
+                      <Cell col="3" disptype="normal" text="userPwd"/>
+                      <Cell col="4" disptype="normal" text="userIspwd"/>
+                      <Cell col="5" disptype="normal" text="userPhone"/>
+                      <Cell col="6" disptype="normal" text="authorCd"/>
+                      <Cell col="7" disptype="normal" text="brrCdnum"/>
+                      <Cell col="8" disptype="normal" text="userAddr"/>
+                      <Cell col="9" disptype="normal" text="userBirth"/>
+                      <Cell col="10" disptype="normal" text="userGender"/>
+                      <Cell col="11" disptype="normal" text="userEmail"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell col="0" disptype="normal" text="bind:userNo"/>
+                      <Cell col="1" disptype="normal" text="bind:userNm"/>
+                      <Cell col="2" disptype="normal" text="bind:userId"/>
+                      <Cell col="3" disptype="normal" text="bind:userPwd"/>
+                      <Cell col="4" disptype="normal" text="bind:userIspwd"/>
+                      <Cell col="5" disptype="normal" text="bind:userPhone"/>
+                      <Cell col="6" disptype="normal" text="bind:authorCd"/>
+                      <Cell col="7" disptype="normal" text="bind:brrCdnum"/>
+                      <Cell col="8" disptype="normal" text="bind:userAddr"/>
+                      <Cell col="9" disptype="normal" text="bind:userBirth"/>
+                      <Cell col="10" disptype="normal" text="bind:userGender"/>
+                      <Cell col="11" disptype="normal" text="bind:userEmail"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="Grid01" taborder="10" binddataset="dsSchMap" useinputpanel="false" left="37.01%" top="117" right="4.2%" height="80" visible="false">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row band="head" size="24"/>
+                      <Row band="body" size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell col="0" disptype="normal" text="userNm"/>
+                      <Cell col="1" disptype="normal" text="userPhone"/>
+                      <Cell col="2" disptype="normal" text="userPhone1"/>
+                      <Cell col="3" disptype="normal" text="userPhone2"/>
+                      <Cell col="4" disptype="normal" text="userPhone3"/>
+                      <Cell col="5" disptype="normal" text="userPhoneFul"/>
+                      <Cell col="6" disptype="normal" text="userBirth"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell col="0" disptype="normal" text="bind:userNm"/>
+                      <Cell col="1" disptype="normal" text="bind:userPhone"/>
+                      <Cell col="2" disptype="normal" text="bind:userPhone1"/>
+                      <Cell col="3" disptype="normal" text="bind:userPhone2"/>
+                      <Cell col="4" disptype="normal" text="bind:userPhone3"/>
+                      <Cell col="5" disptype="normal" text="bind:userPhoneFul"/>
+                      <Cell col="6" disptype="normal" text="bind:userBirth"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="Div00" taborder="1" text="Div00" left="200" top="157" height="300" style="border:3 solid #80ff00ff ;" width="600" position="fixed">
+        <Div id="Div00" taborder="1" text="Div00" left="19.53%" top="157" height="300" style="border:3 solid #80ff00ff ;" position="fixed" right="21.88%">
           <Layouts>
             <Layout width="613" height="371">
-              <Static id="Static03" taborder="1" text="* 이름" onclick="Div_Static03_onclick" left="50" top="17" height="16" style="color:#ff6600ff;font:11 Dotum;" right="461"/>
-              <Edit id="Edit00" taborder="3" cssclass="WF_edt_Login" left="50" top="40" width="500" height="34" oneditclick="Div00_Edit00_oneditclick"/>
-              <Static id="Static04" taborder="4" text="* 핸드폰번호" onclick="Div_Static03_onclick" left="50" top="82" height="16" style="color:#ff6600ff;font:11 Dotum;" right="430"/>
-              <Button id="find_ID_ans" taborder="5" text="유효아이디 확인" onclick="Div00_btn_find_ID_ans_onclick" cssclass="WF_btn_Login" left="119" top="228" width="120" height="34" style="background:#ff6600ff;border:1 solid #ff6600ff ;color:#ffffffff;font:bold 9 Dotum;"/>
-              <Static id="Static00" taborder="10" text="* 생년월일" onclick="Div_Static03_onclick" left="50" top="146" right="430" height="16" style="color:#ff6600ff;font:11 Dotum;"/>
-              <Button id="btn_FindPWD" taborder="12" text="비밀번호찾기" onclick="Div00_btn_FindPWD_onclick" cssclass="WF_btn_Login" left="262" top="227" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
-              <Button id="btn_login1" taborder="13" text="로그인 화면" onclick="Div00_btn_login1_onclick" cssclass="WF_btn_Login" left="374" top="227" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
-              <Div id="Div08" taborder="14" text="Div01" left="50" top="106" width="500" height="34" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;">
+              <Static id="Static03" taborder="1" text="* 이름" onclick="Div_Static03_onclick" left="8.42%" top="17" height="16" style="color:#ff6600ff;font:11 Dotum;" right="77.61%"/>
+              <Edit id="Edit00" taborder="3" cssclass="WF_edt_Login" left="8.42%" top="40" height="34" oneditclick="Div00_Edit00_oneditclick" imemode="hangul" maxlength="10" inputfilter="dot,comma,sign,symbol,digit,alpha,space" right="7.41%"/>
+              <Static id="Static04" taborder="4" text="* 핸드폰번호" onclick="Div_Static03_onclick" left="8.42%" top="82" height="16" style="color:#ff6600ff;font:11 Dotum;" right="72.39%"/>
+              <Button id="find_ID_ans" taborder="5" text="유효아이디 확인" onclick="Div00_btn_find_ID_ans_onclick" cssclass="WF_btn_Login" left="20.03%" top="228" height="34" style="background:#ff6600ff;border:1 solid #ff6600ff ;color:#ffffffff;font:bold 9 Dotum;" right="59.76%"/>
+              <Static id="Static00" taborder="10" text="* 생년월일" onclick="Div_Static03_onclick" left="8.42%" top="146" right="72.39%" height="16" style="color:#ff6600ff;font:11 Dotum;"/>
+              <Button id="btn_FindPWD" taborder="12" text="비밀번호찾기" onclick="Div00_btn_FindPWD_onclick" cssclass="WF_btn_Login" left="44.11%" top="227" height="34" style="color:#808080ff;font:bold 9 Dotum;" right="40.91%"/>
+              <Button id="btn_login1" taborder="13" text="로그인 화면" onclick="Div00_btn_login1_onclick" cssclass="WF_btn_Login" left="62.96%" top="227" height="34" style="color:#808080ff;font:bold 9 Dotum;" right="22.05%"/>
+              <Div id="Div08" taborder="14" text="Div01" left="8.42%" top="106" height="34" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;" right="7.41%">
                 <Layouts>
                   <Layout>
                     <Combo id="cmb_tel" taborder="13" innerdataset="ds_tel" codecolumn="code" datacolumn="value" displayrowcount="5" onitemchanged="Div00_Div00_Div07_cmb_year_onitemchanged" left="0.6%" top="6" right="86.14%" height="20"/>
-                    <Combo id="cmb_tel1" taborder="14" innerdataset="ds_tel1" codecolumn="code" datacolumn="value" onitemchanged="Div00_Div00_Div07_cmb_year_onitemchanged" left="100" top="6" right="69.28%" height="20"/>
+                    <Combo id="cmb_tel1" taborder="14" innerdataset="ds_tel1" codecolumn="code" datacolumn="value" onitemchanged="Div00_Div00_Div07_cmb_year_onitemchanged" left="20.08%" top="6" right="69.28%" height="20"/>
                     <Static id="Static01" taborder="15" text=" -" onclick="Div01_Div08_Static01_onclick" left="30.72%" top="4" right="65.46%" height="22"/>
-                    <Edit id="Edit00" taborder="16" left="169" top="6" right="281" height="20"/>
+                    <Edit id="Edit00" taborder="16" left="33.94%" top="6" right="56.43%" height="20" inputtype="digit" maxlength="4"/>
                     <Static id="Static00" taborder="17" text=" -" left="43.78%" top="4" right="52.41%" height="22"/>
-                    <Edit id="Edit01" taborder="18" left="233" top="6" right="217" height="20"/>
+                    <Edit id="Edit01" taborder="18" left="46.79%" top="6" right="43.57%" height="20" inputtype="digit" maxlength="4"/>
                   </Layout>
                 </Layouts>
               </Div>
-              <Calendar id="Calendar00" taborder="16" left="50" top="170" height="34" width="500"/>
+              <Calendar id="Calendar00" taborder="16" left="8.42%" top="170" height="34" right="7.41%"/>
             </Layout>
           </Layouts>
         </Div>
       </Layout>
     </Layouts>
     <Objects>
-      <Dataset id="dsUser">
+      <Dataset id="dsSchMap">
         <ColumnInfo>
-          <Column id="User_ID" type="STRING" size="256"/>
-          <Column id="User_PWD" type="STRING" size="256"/>
+          <Column id="userNm" type="STRING" size="256"/>
+          <Column id="userPhone" type="STRING" size="256"/>
+          <Column id="userPhone1" type="STRING" size="256"/>
+          <Column id="userPhone2" type="STRING" size="256"/>
+          <Column id="userPhone3" type="STRING" size="256"/>
+          <Column id="userPhoneFul" type="STRING" size="256"/>
+          <Column id="userBirth" type="STRING" size="256"/>
         </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
       </Dataset>
       <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
@@ -62,19 +159,14 @@
         </ColumnInfo>
         <Rows>
           <Row>
-            <Col id="sController">Practice/loginForm.do</Col>
-            <Col id="svcid">loginForm</Col>
-            <Col id="inds">login=login</Col>
-            <Col id="outds">dsresult_login=dsresult_login</Col>
+            <Col id="svcid">findIdUserList</Col>
+            <Col id="sController">practice/findIdUserList.do</Col>
+            <Col id="inds">dsSchMap=dsSchMap</Col>
+            <Col id="outds">dsUserList=dsUserList</Col>
+            <Col id="args"/>
             <Col id="bAsync">true</Col>
             <Col id="nDataType">0</Col>
             <Col id="bCompress">false</Col>
-            <Col id="args"/>
-          </Row>
-          <Row>
-            <Col id="svcid">joinForm</Col>
-            <Col id="sController">Practice/joinForm.do</Col>
-            <Col id="inds">dsuser=dsuser</Col>
           </Row>
         </Rows>
       </Dataset>
@@ -166,7 +258,12 @@
     </Objects>
     <Bind>
       <BindItem id="item3" compid="Div00.Div08.cmb_tel" propid="value" datasetid="ds_year" columnid=""/>
-      <BindItem id="item4" compid="Div00.Div08.cmb_tel1" propid="value" datasetid="ds_year" columnid=""/>
+      <BindItem id="item4" compid="Div00.Div08.cmb_tel1" propid="value" datasetid="dsSchMap" columnid="userPhone1"/>
+      <BindItem id="item0" compid="Div00.Edit00" propid="value" datasetid="dsSchMap" columnid="userNm"/>
+      <BindItem id="item1" compid="Div00.Div08" propid="url" datasetid="dsSchMap" columnid="userPhone"/>
+      <BindItem id="item2" compid="Div00.Calendar00" propid="value" datasetid="dsSchMap" columnid="userBirth"/>
+      <BindItem id="item5" compid="Div00.Div08.Edit00" propid="value" datasetid="dsSchMap" columnid="userPhone2"/>
+      <BindItem id="item6" compid="Div00.Div08.Edit01" propid="value" datasetid="dsSchMap" columnid="userPhone3"/>
     </Bind>
     <Script type="xscript5.0"><![CDATA[/***********************************************************************************
 * SYSTEM      : UserProject
@@ -199,6 +296,23 @@ this.Login_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 	//if(nexacro.Browser == "Runtime") this.Div.btn_close.set_visible(true);
 }
 
+//공통 콜백
+
+this.lfn_cmmCallback = function(svcId, errorcode, errormsg){
+ 
+	//this.alert(svcId);
+	
+	if(errorcode < 0)
+	{
+	   Iject.alert(errormsg,"오류");			
+	   return;
+	}else{
+		if(svcId == "findIdUserList"){
+			this.alert("저장되었습니다.");	
+			this.gfn_serviceCall("findIdUserList");
+		}
+	}
+}
 
 /***********************************************************************************
 * Component Event
@@ -211,7 +325,7 @@ this.Div_Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 }
 */
 
-//로그인 버튼
+//로그인화면 버튼
 this.Div00_btn_login1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var sURL = "Practice::login.xfdl";
@@ -228,52 +342,48 @@ this.Div00_btn_FindPWD_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 /***********************************************************************************
 * User Function
 ***********************************************************************************/
-/*
-암호보이는 함수
-this.Div00_CheckBox01_onclick = function(obj:nexacro.CheckBox,e:nexacro.CheckBoxChangedEventInfo)
-{
-	
-	if(e.postvalue == 1) 
-	{
-		this.edit_password.set_password("false");
-	}
-	else
-	{
-		this.edit_password.set_password("true");
-	}
-}
-*/
 
 //아이디찾기 버튼
 this.Div00_btn_find_ID_ans_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 {
-	var sName = this.Div00.Edit00.value;
-	var sName1 = this.Div00.Div08.cmb_tel.value;
-	var sName2 = this.Div00.Div08.cmb_tel1.value;
-	var sName3 = this.Div00.Div08.Edit00.value;
-	var sName4 = this.Div00.Div08.Edit01.value;
-	var sName5 = this.Div00.Calendar00.value;
-	if (sName == null){
+	
+	this.dsSchMap.setColumn(0,"userPhoneFul",this.Div00.Div08.cmb_tel1.text+"-"+this.Div00.Div08.Edit00.value+"-"+this.Div00.Div08.Edit01.value)
+	this.lfn_searchList("findIdUserList");
+	alert("정보 확인중");
+	/*if (this.Div00.Edit00.value == null){
 		alert("이름을 입력하세요.");
 	}
-	else if (sName1 == null){
+	else if (this.Div00.Div08.cmb_tel.value == null){
 		alert("통신사를 선택하세요.");
 	}
-	else if (sName2 == null){
+	else if (this.Div00.Div08.cmb_tel1.value == null){
 		alert("핸드폰 앞자리를 선택하세요.");
 	}
-	else if (sName3 == null || sName4 == null){
+	else if (this.Div00.Div08.Edit00.value == null || this.Div00.Div08.Edit01.value == null){
 		alert("핸드폰를 입력하세요.");
 	}
-	else if (sName5 == null){
+	else if (this.Div00.Calendar00.value == null){
 		alert("생년월일을 선택하세요.");
 	}
-	else {
+	else*/ 
+	
+	if((application.dsUserList.getColumn(0,"userNm") == this.Div00.Edit00.value) || (application.dsUserList.getColumn(0,"userPhone") == this.dsSchMap.getColumn(0,"userPhoneFul") )
+		|| (application.dsUserList.getColumn(0,"userBirth") == this.Div00.Calendar00.value))
+	{
 		var sURL = "Practice::find_ID_ans.xfdl";
 		this.gfn_main(sURL);
 	}
+	else if((application.dsUserList.getColumn(0,"userNm") != this.Div00.Edit00.value) && (application.dsUserList.getColumn(0,"userPhone") != this.dsSchMap.getColumn(0,"userPhoneFul"))
+		&& (application.dsUserList.getColumn(0,"userBirth") != this.Div00.Calendar00.value))
+	{
+		alert("입력정보를 확인해주세요.");
+	} 
 }
 
+
+this.lfn_searchList = function(){
+	this.gfn_serviceCall("findIdUserList"); //아이디조회
+}
 ]]></Script>
   </Form>
 </FDL>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sidemenu" left="0" top="0" width="200" height="768" titletext="New Form" onload="fn_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="0%" top="0" width="200" height="86" style="background:#339966ff;color:white;">
+          <Layouts>
+            <Layout width="200" height="86"/>
+          </Layouts>
+        </Div>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="0%" top="86" height="122" width="200" binddataset="ds_libMenu" oncellclick="fn_changeMenu" readonly="true" tabstop="false" selecttype="row">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="24"/>
+              </Rows>
+              <Band id="body">
+                <Cell text="bind:sidename"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_libMenu">
+        <ColumnInfo>
+          <Column id="sidename" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sidename">정보수정</Col>
+            <Col id="value">0</Col>
+          </Row>
+          <Row>
+            <Col id="sidename">대출현황</Col>
+            <Col id="value">1</Col>
+          </Row>
+          <Row>
+            <Col id="sidename">연체건수</Col>
+            <Col id="value">2</Col>
+          </Row>
+          <Row>
+            <Col id="sidename">예약현황</Col>
+            <Col id="value">3</Col>
+          </Row>
+          <Row>
+            <Col id="sidename">제재건수</Col>
+            <Col id="value">4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00" propid="text" datasetid="gds_libmenu" columnid="menuName"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs";
+
+
+this.fn_changeMenu = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.changeMenu();
+}
+
+
+this.changeMenu = function(){
+	// 선택된 셀의 행의 번호
+	var cell = this.Grid00.currentrow
+	
+	if(cell==0){
+	application.gds_UserInfo.assign(this.dsUserInfo);
+	var sURL = "Practice::Update_persnal.xfdl";
+	this.gfn_main(sURL);
+	var sURL = "Practice::Mypageside.xfdl";
+	this.gfn_left(sURL);
+	}
+	else if(cell==1){
+	var sURL = "Practice::UserBorrow.xfdl";
+	this.gfn_main(sURL);
+	}
+	else if(cell==2){
+	var sURL = "Practice::UserOverdue.xfdl";
+	this.gfn_main(sURL);
+	}
+	else if(cell==3){
+	var sURL = "Practice::UserReservation.xfdl";
+	this.gfn_main(sURL);
+	}
+	else if(cell==4){
+	var sURL = "Practice::UserSanctions.xfdl";
+	this.gfn_main(sURL);
+	}
+	
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

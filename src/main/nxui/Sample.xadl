@@ -10,7 +10,7 @@
             <ChildFrame id="ChildFrame0" showstatusbar="false" formurl="Frame::TopFrameLib.xfdl" showtitlebar="false" showtitleicon="false" dragmovetype="none"/>
             <VFrameSet id="VFrameSet1" separatesize="50">
               <Frames>
-                <ChildFrame id="ChildFrame1" formurl="Frame::MenuBar.xfdl" dragmovetype="none" showtitlebar="false" showtitleicon="false"/>
+                <ChildFrame id="ChildFrame1" formurl="Frame::MenuFrame.xfdl" dragmovetype="none" showtitlebar="false" showtitleicon="false"/>
                 <HFrameSet id="HFrameSet0" separatesize="200">
                   <Frames>
                     <ChildFrame id="ChildFrame2" dragmovetype="none" showtitlebar="false" showtitleicon="false" formurl="Frame::LeftFrame.xfdl"/>

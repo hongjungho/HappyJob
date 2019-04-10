@@ -20,7 +20,9 @@ import spring.nexacro.data.DataSetRowTypeAccessor;
 @Service("happyLibraryService")
 public class HappyLibraryServiceImpl extends EgovAbstractServiceImpl implements HappyLibraryService {
 	
-	
+
+	@Resource(name = "happyLibraryMapper")
+    private HappyLibraryMapper happyLibraryMapper;
 
 	@Override
 	public List<Map<String, Object>> staticMypage(Map<String, Object> dsMypageMap) throws Exception {
@@ -30,8 +32,6 @@ public class HappyLibraryServiceImpl extends EgovAbstractServiceImpl implements 
 
 	
 	
-	@Resource(name = "happyLibraryMapper")
-    private HappyLibraryMapper happyLibraryMapper;
 
 	@Override
 	public List<Map<String, Object>> selectMypageList(Map<String, Object> dsMypageMap) throws Exception  {
@@ -95,6 +95,40 @@ public class HappyLibraryServiceImpl extends EgovAbstractServiceImpl implements 
 	public List<Map<String, Object>> CboSanList() {
 		// TODO Auto-generated method stub
 		return happyLibraryMapper.CboSanList();
+	}
+
+
+
+
+	@Override
+	public List<Map<String, Object>> getBookDt(Map<String, Object> dsBkSchMap) throws Exception {
+		// TODO Auto-generated method stub
+		return happyLibraryMapper.getBookDt(dsBkSchMap);
+	}
+
+
+
+
+	@Override
+	public List<Map<String,Object>> checkRes(Map<String, Object> dsBkSchMap) throws Exception {
+		// TODO Auto-generated method stub
+		return happyLibraryMapper.checkRes(dsBkSchMap);
+	}
+
+
+
+
+	@Override
+	public void extendBk(List<Map<String, Object>> dtaMapList) throws Exception {
+		// TODO Auto-generated method stub
+		for (Map<String, Object>  dtaMap : dtaMapList) {			
+			int rowType = Integer.parseInt(String.valueOf(dtaMap.get(DataSetRowTypeAccessor.NAME))) ;
+			
+			if(rowType  == DataSet.ROW_TYPE_UPDATED){
+				happyLibraryMapper.extendBk(dtaMap);
+			}
+		}
+		
 	}
 
 

@@ -37,7 +37,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsSchMap", this);
-            obj._setContents("<ColumnInfo><Column id=\"bookNo\" type=\"STRING\" size=\"256\"/><Column id=\"bookNm\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"bookNo\" type=\"STRING\" size=\"256\"/><Column id=\"bookNm\" type=\"STRING\" size=\"256\"/><Column id=\"collectioncd\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -151,12 +151,12 @@
             obj.set_text("신규");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("Edit05", "absolute", "2.73%", "128", null, "24", "70.31%", null, this);
+            obj = new Edit("Edit05", "absolute", "2.73%", "128", null, "24", "75.78%", null, this);
             obj.set_taborder("38");
             obj.set_displaynulltext("도서명으로 검색");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button07", "absolute", "31.05%", "127", null, "25", "63.77%", null, this);
+            obj = new Button("Button07", "absolute", "19.04%", "128", null, "25", "75.78%", null, this);
             obj.set_taborder("39");
             obj.set_text("검색");
             this.addChild(obj.name, obj);
@@ -236,7 +236,7 @@
 
             obj = new Button("Button06", "absolute", "44.82%", "36", null, "62", "43.16%", null, this);
             obj.set_taborder("55");
-            obj.set_text("통계");
+            obj.set_text("공통분류관리");
             obj.style.set_image("URL('theme://images/img_grip.png')");
             this.addChild(obj.name, obj);
 
@@ -299,9 +299,53 @@
 
         if (this.executeIncludeScript) { this.executeIncludeScript("Lib::Comm.xjs", null, exports); }	//include "Lib::Comm.xjs";
         if (this.executeIncludeScript) { this.executeIncludeScript("Lib::CommCboCode.xjs", null, exports); }	//include "Lib::CommCboCode.xjs";
+        // 그리드안에 컬럼을 눌렀을떄 id값 가져오는 function
+        this.getBindColumnIDByIndex = function(grid,index) 
+        {
+          var text = "";
+          var columnid = null;
+          var subCell = grid.getCellProperty("body", index, "subcell");
+          if ( subCell > 0 )
+          {
+            text = grid.getSubCellProperty("body", index, 0, "text");
+          }
+          else
+          {
+            text = grid.getCellProperty("body", index, "text");
+          }
+          
+          if ( text && text.length > 0 )
+          {
+            if ( text.search(/^bind:/) > -1 ) 
+            {
+              columnid = text.replace(/^bind:/, "");
+            }  
+            else if ( text.search(/^BIND\(/) > -1 ) 
+            {  
+              columnid = text.replace(/^BIND\(/, "");
+              columnid = columnid.substr(0, columnid.length-1);
+            } 
+          }
+          
+         
+          
+          return columnid;
+        }
+        //그리드 클릭시 사용하는 공통함수 
 
         
+        this.Grid00_oncelldblclick = function(obj,e)
+        {
+        	var columnId = this.getBindColumnIDByIndex(obj, e.cell);
+        	/*
+        	if(columnId= "bookNo") {
+        	this.dsSchMap.setColumn(0,"collectioncd",bookNo);
+        	}
+        	*/
+        	
+        }
 
+        
         //공통코드 리스트 불려오기
         this.lfn_settingSearchBar = function(){
 
@@ -353,11 +397,7 @@
         	this.go("Practice::admin_empl.xfdl");
         }
 
-        this.Button06_onclick = function(obj,e)
-        {
-        	this.go("Practice::admin_main.xfdl");
-        }
-
+        
         // 화면구성시 list 출력
 
         this.adminUser_onload = function(obj,e)
@@ -432,10 +472,12 @@
             this.Edit05.addEventHandler("oneditclick", this.Edit05_oneditclick, this);
             this.Button07.addEventHandler("onclick", this.Button07_onclick, this);
             this.Button08.addEventHandler("onclick", this.Button08_onclick, this);
+            this.Grid00.addEventHandler("oncellclick", this.Grid00_oncellclick, this);
+            this.Grid00.addEventHandler("oncelldblclick", this.Grid00_oncelldblclick, this);
             this.Calendar00.addEventHandler("oneditclick", this.Calendar00_oneditclick, this);
             this.Static06.addEventHandler("onclick", this.Static14_onclick, this);
             this.Static21.addEventHandler("onclick", this.Static21_onclick, this);
-            this.Button06.addEventHandler("onclick", this.Button06_onclick, this);
+            this.Button06.addEventHandler("onclick", this.Button08_onclick, this);
 
         };
 

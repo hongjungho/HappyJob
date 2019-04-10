@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="test000" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Edit id="edit_hello" taborder="0" left="5.57%" top="20" right="79%" height="47" value="hello"/>
+        <Button id="Button00" taborder="1" text="hello" left="23.83%" top="20" right="58.69%" height="47" onclick="btn_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.btn_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	alert("누름");
+	this.edit_hello.set_value("abc");
+}
+]]></Script>
+  </Form>
+</FDL>

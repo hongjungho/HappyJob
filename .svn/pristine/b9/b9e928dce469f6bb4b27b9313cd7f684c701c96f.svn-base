@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Login" left="0" top="0" width="1024" height="768" titletext="New Form" onload="Login_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div" taborder="0" left="0%" top="-8" right="0%" bottom="8" style="background:white;color:#45596dff;" scrollbars="none">
+          <Layouts>
+            <Layout width="480" height="390">
+              <Static id="Static00" taborder="0" left="100" top="160" width="652" height="16" onclick="Div_Static00_onclick"/>
+              <Static id="Static02" taborder="6" text="아이디찾기" left="200" top="101" height="51" style="color:black;font:bold 20 Dotum;" onclick="Div_Static02_onclick" right="560"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div00" taborder="1" text="Div00" left="200" top="150" height="235" style="border:3 solid #80ff00ff ;" width="600" position="fixed">
+          <Layouts>
+            <Layout width="613" height="371">
+              <Static id="Static04" taborder="4" text="* 핸드폰번호" onclick="Div_Static03_onclick" left="50" top="74" height="16" style="color:#ff6600ff;font:11 Dotum;" right="430"/>
+              <Button id="btn_login" taborder="5" text="아이디 발송" onclick="Div_btn_login_onclick" cssclass="WF_btn_Login" left="119" top="171" width="120" height="34" style="background:#ff6600ff;border:1 solid #ff6600ff ;color:#ffffffff;font:bold 9 Dotum;"/>
+              <Button id="btn_FindPWD" taborder="12" text="비밀번호찾기" onclick="Div00_btn_FindPWD_onclick" cssclass="WF_btn_Login" left="262" top="171" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
+              <Button id="btn_login1" taborder="13" text="로그인 화면" onclick="Div00_btn_login1_onclick" cssclass="WF_btn_Login" left="374" top="171" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
+              <Div id="Div08" taborder="14" text="Div01" left="50" top="106" width="500" height="34" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;">
+                <Layouts>
+                  <Layout>
+                    <Combo id="cmb_tel" taborder="13" innerdataset="ds_tel" codecolumn="code" datacolumn="value" displayrowcount="5" onitemchanged="Div00_Div00_Div07_cmb_year_onitemchanged" left="0.6%" top="6" right="86.14%" height="20"/>
+                    <Combo id="cmb_tel1" taborder="14" innerdataset="ds_tel1" codecolumn="code" datacolumn="value" onitemchanged="Div00_Div00_Div07_cmb_year_onitemchanged" left="100" top="6" right="69.28%" height="20"/>
+                    <Static id="Static01" taborder="15" text=" -" onclick="Div01_Div08_Static01_onclick" left="30.72%" top="4" right="65.46%" height="22"/>
+                    <Edit id="Edit00" taborder="16" left="169" top="6" right="281" height="20"/>
+                    <Static id="Static00" taborder="17" text=" -" left="43.78%" top="4" right="52.41%" height="22"/>
+                    <Edit id="Edit01" taborder="18" left="233" top="6" right="217" height="20"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="Static03" taborder="15" text="전화번호 인증을 하기 위해서는&#13;&#10;등록된 정보(전화번호)과 입력한 정보가 동일해야, 아이디를 받을 수 있습니다." onclick="Div_Static03_onclick" left="50" top="19" width="503" height="38" style="font:10 Dotum;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static04" taborder="2" text="●  문의사항이 있으시면 관리자에게 연락주시기 바랍니다." onclick="Div_Static03_onclick" left="200" top="410" width="599" height="35"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsUser">
+        <ColumnInfo>
+          <Column id="User_ID" type="STRING" size="256"/>
+          <Column id="User_PWD" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sController">Practice/loginForm.do</Col>
+            <Col id="svcid">loginForm</Col>
+            <Col id="inds">login=login</Col>
+            <Col id="outds">dsresult_login=dsresult_login</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+          <Row>
+            <Col id="svcid">joinForm</Col>
+            <Col id="sController">Practice/joinForm.do</Col>
+            <Col id="inds">dsuser=dsuser</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dspwd">
+        <ColumnInfo>
+          <Column id="pwd" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="pwd">14123423412</Col>
+          </Row>
+          <Row>
+            <Col id="pwd">3214214124</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_tel1">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">010</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">011</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">016</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="value">017</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="value">019</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_tel">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">SK</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">KT</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">LG</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="value">알뜰폰</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_year">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">1999 </Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">1998</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">1997</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item3" compid="Div00.Div08.cmb_tel" propid="value" datasetid="ds_year" columnid=""/>
+      <BindItem id="item4" compid="Div00.Div08.cmb_tel1" propid="value" datasetid="ds_year" columnid=""/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+* SYSTEM      : UserProject
+* BUSINESS    : UserProject-교육용
+* FILE NAME   : Login.xfdl
+* PROGRAMMER  : 
+* DATE        : 
+* DESCRIPTION : 로그인 화면
+*------------------------------------------------------------------
+* MODIFY DATE   PROGRAMMER			DESCRIPTION
+*------------------------------------------------------------------
+* 
+*------------------------------------------------------------------
+***********************************************************************************/
+
+/***********************************************************************************
+* Common Library
+***********************************************************************************/
+
+include "Lib::Comm.xjs";
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+this.Login_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	Iject.formOnload(obj);			//폼 초기화 : 필요시 구현
+	
+	//this.lfn_settingSearchBar(); 	//검색영역 세팅
+	//if(nexacro.Browser == "Runtime") this.Div.btn_close.set_visible(true);
+}
+
+
+/***********************************************************************************
+* Component Event
+***********************************************************************************/
+/*
+//닫기버튼 event
+this.Div_Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.exit();
+}
+*/
+
+//로그인화면 버튼
+this.Div00_btn_login1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sURL = "Practice::login.xfdl";
+    this.gfn_main(sURL);
+}
+
+//비밀번호찾기버튼
+this.Div00_btn_FindPWD_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sURL = "Practice::find_PWD.xfdl";
+    this.gfn_main(sURL);
+}
+
+/***********************************************************************************
+* User Function
+***********************************************************************************/
+/*
+암호보이는 함수
+this.Div00_CheckBox01_onclick = function(obj:nexacro.CheckBox,e:nexacro.CheckBoxChangedEventInfo)
+{
+	
+	if(e.postvalue == 1) 
+	{
+		this.edit_password.set_password("false");
+	}
+	else
+	{
+		this.edit_password.set_password("true");
+	}
+}
+*/]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="UserSanctions" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <GroupBox id="GroupBox00" text="재제현황검색" taborder="0" left="4.79%" top="24" right="11.23%" height="200" style="border:2 solid #339966ff ;color:#339966ff;font:18 맑은 고딕;"/>
+        <Grid id="Grid00" taborder="1" binddataset="dssanctionsList" useinputpanel="false" autofittype="col" left="5.57%" top="304" right="10.94%" height="383">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="81"/>
+                <Column size="565"/>
+                <Column size="208"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="번호"/>
+                <Cell col="1" text="제재내용"/>
+                <Cell col="2" text="제재날짜"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:no"/>
+                <Cell col="1" text="bind:sanctionName"/>
+                <Cell col="2" text="bind:sanctionDate"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Combo id="Combo00" taborder="2" text="Combo00" innerdataset="dsgridrow" codecolumn="showRowCode" datacolumn="showRow" left="78.42%" top="257" right="10.94%" height="28"/>
+        <Static id="Static00" taborder="3" text="재제현황목록" left="39.06%" top="254" right="45.51%" height="26" style="align:center middle;font:16 맑은 고딕;"/>
+        <Static id="Static03" taborder="7" text="키워드 : " left="24.12%" top="156" right="70.41%" height="30" style="align:center middle;"/>
+        <Edit id="Edit00" taborder="8" left="30.18%" top="158" right="31.25%" height="26"/>
+        <Calendar id="Calendar02" taborder="14" left="52.83%" top="64" right="32.81%" height="28"/>
+        <Calendar id="Calendar03" taborder="15" left="71.58%" top="64" right="14.06%" height="28"/>
+        <Static id="Static07" taborder="16" text="~" left="67.87%" top="64" right="28.91%" height="27" style="align:center middle;"/>
+        <Static id="Static06" taborder="21" text="제재날짜 : " left="46.78%" top="63" right="47.75%" height="30" style="align:center middle;"/>
+        <Button id="Button00" taborder="22" text="조회" left="70.51%" top="157" right="13.48%" height="32"/>
+        <Static id="Static01" taborder="23" text="제재내용 : " left="46.78%" top="103" right="47.75%" height="30" style="align:center middle;"/>
+        <Combo id="Combo01" taborder="24" text="Combo01" left="52.83%" top="104" right="14.06%" height="28" innerdataset="@dssanCodeList" codecolumn="sanctionCode" datacolumn="sanctionName"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Combo00" propid="value" datasetid="dsgridrow" columnid="showRow"/>
+    </Bind>
+    <Objects>
+      <Dataset id="dssanCodeList">
+        <ColumnInfo>
+          <Column id="sanctionCode" type="STRING" size="256"/>
+          <Column id="sanctionName" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dssanctionsList">
+        <ColumnInfo>
+          <Column id="no" type="STRING" size="256"/>
+          <Column id="sanctionName" type="STRING" size="256"/>
+          <Column id="sanctionDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

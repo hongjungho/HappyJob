@@ -59,6 +59,8 @@
                    on b.book_no = s.book_no
                    and
                    (#{serviceStart} between s.service_start and s.service_end)
+                   and
+                   (s.service_cd = 1)
                    )
 			and book_nm = #{bookNm}
 			and book_writer = #{bookWriter}
@@ -105,5 +107,6 @@
 		    sysdate
 		    )
 	</insert>
+	
 
 </mapper>

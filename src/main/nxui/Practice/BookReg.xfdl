@@ -18,6 +18,8 @@
         <Combo id="cmb_place" taborder="13" left="44.67%" top="246" right="30%" height="34" displaynulltext="위치" innerdataset="@dsPlace" codecolumn="code" datacolumn="value"/>
         <Combo id="cmb_class" taborder="14" left="71.33%" top="245" right="3.33%" height="34" displaynulltext="분류" innerdataset="@dsCategory" codecolumn="code" datacolumn="value"/>
         <Combo id="cmb_ebook" taborder="15" displaynulltext="전자책" innerdataset="@dsEbook" codecolumn="code" datacolumn="value" left="70.67%" top="101" right="3.5%" height="34"/>
+        <FileUpload id="fup_book_cover" taborder="16" retry="0" index="0" left="30.83%" top="24" right="20%" height="21" style="buttonbackground:#f6a109ff;buttonborder:1 none #808080ff ;buttonfont:bold 10 verdana;buttoncolor:white;color:white;"/>
+        <Button id="Button00" taborder="17" text="upload" left="81.33%" top="22" right="5.5%" height="24" onclick="Button00_onclick"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -51,40 +53,6 @@
           <Column id="bookIdx" type="STRING" size="256"/>
           <Column id="bookCount" type="STRING" size="256"/>
         </ColumnInfo>
-      </Dataset>
-      <Dataset id="dsService">
-        <ColumnInfo>
-          <Column id="svcid" type="STRING" size="256"/>
-          <Column id="sController" type="STRING" size="256"/>
-          <Column id="inds" type="STRING" size="256"/>
-          <Column id="outds" type="STRING" size="256"/>
-          <Column id="args" type="STRING" size="256"/>
-          <Column id="bAsync" type="STRING" size="256"/>
-          <Column id="nDataType" type="STRING" size="256"/>
-          <Column id="bCompress" type="STRING" size="256"/>
-        </ColumnInfo>
-        <Rows>
-          <Row>
-            <Col id="svcid">getList</Col>
-            <Col id="sController">book/getList.do</Col>
-            <Col id="inds">dsSearch=dsSearch</Col>
-            <Col id="outds">dsBooks=dsBooks</Col>
-            <Col id="args"/>
-            <Col id="bAsync">true</Col>
-            <Col id="nDataType">0</Col>
-            <Col id="bCompress">false</Col>
-          </Row>
-          <Row>
-            <Col id="svcid">regBook</Col>
-            <Col id="sController">book/regBook.do</Col>
-            <Col id="inds">dsBooks=dsBooks</Col>
-            <Col id="outds"/>
-            <Col id="args"/>
-            <Col id="bAsync">true</Col>
-            <Col id="nDataType">0</Col>
-            <Col id="bCompress">false</Col>
-          </Row>
-        </Rows>
       </Dataset>
       <Dataset id="dsEbook">
         <ColumnInfo>
@@ -182,6 +150,75 @@
           </Row>
         </Rows>
       </Dataset>
+      <Dataset id="dsService">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="256"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="svcid">getList</Col>
+            <Col id="sController">book/getList.do</Col>
+            <Col id="inds">dsSearch=dsSearch</Col>
+            <Col id="outds">dsBooks=dsBooks</Col>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">regBook</Col>
+            <Col id="sController">book/regBook.do</Col>
+            <Col id="inds">dsBooks=dsBooks</Col>
+            <Col id="outds"/>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">getBookByTitle</Col>
+            <Col id="sController">book/getBookByTitle.do</Col>
+            <Col id="inds">dsArgs=dsArgs</Col>
+            <Col id="outds">dsBook=dsBook</Col>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">rent</Col>
+            <Col id="sController">book/rent.do</Col>
+            <Col id="inds">dsRent=dsRent</Col>
+            <Col id="outds"/>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">fileUpload</Col>
+            <Col id="sController">book/fileUpload.do</Col>
+            <Col id="inds">dsFiles=dsFiles</Col>
+            <Col id="outds"/>
+            <Col id="args"/>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsFiles">
+        <ColumnInfo>
+          <Column id="fileName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
     </Objects>
     <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs"
 
@@ -193,6 +230,19 @@ this.btn_reg_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {	
 	this.dsBooks.addRow();
-}]]></Script>
+}
+
+this.Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var fileName = this.fup_book_cover.value;
+	trace(fileName);
+	this.dsFiles.addRow();
+	
+	
+	this.dsFiles.setColumn(0, "fileName", fileName);
+
+	this.gfn_serviceCall("fileUpload");
+}
+]]></Script>
   </Form>
 </FDL>

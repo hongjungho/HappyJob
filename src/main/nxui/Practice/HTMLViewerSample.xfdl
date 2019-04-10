@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="HTMLViewerSample" classname="HTMLViewerSample" left="0" top="0" width="1024" height="768" titletext="New Form" onload="HTMLViewerSample_onload">
+    <Layouts>
+      <Layout>
+        <HTMLViewer id="HTMLViewer00" left="54" top="43" width="200" height="200" style="border:1px solid red ;padding:5 5 5 5;" onloadcompleted="HTMLViewer00_onloadcompleted" onsize="HTMLViewer00_onsize"/>
+        <Static id="Static00" taborder="1" text="scrollbars" left="8" top="13" width="72" height="15" style="font:bold antialias 9 Verdana, malgun gothic;"/>
+        <Combo id="Combo00" taborder="2" value="autoboth" text="autoboth" displaynulltext="scrollbars" innerdataset="@ds_scrollbars" codecolumn="Column0" datacolumn="Column0" index="3" onitemchanged="Combo00_onitemchanged" left="82" top="11" width="102" height="20"/>
+        <Static id="Static01" taborder="3" text="autofittype" left="200" top="13" width="80" height="15" style="font:bold antialias 9 Verdana, malgun gothic;"/>
+        <Radio id="Radio00" taborder="4" columncount="4" index="0" innerdataset="@ds_autofittype" codecolumn="Column0" datacolumn="Column0" value="none" onitemchanged="Radio00_onitemchanged" left="287" top="10" width="287" height="21"/>
+        <Button id="Button00" taborder="5" text="test 1" left="579" top="8" width="88" height="26" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="6" text="test 2" left="675" top="8" width="88" height="26" onclick="Button01_onclick"/>
+        <TextArea id="TextArea00" taborder="7" left="472" top="47" width="393" height="195" wordwrap="char"/>
+        <HTMLViewer id="HTMLViewer01" left="472" top="392" width="200" height="200" style="border:1px solid blue ;padding:5 5 5 5;" autofittype="both"/>
+        <Grid id="Grid00" taborder="8" useinputpanel="false" left="474" top="264" width="390" height="111" binddataset="ds_sample" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="261"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Data binding"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:html"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_autofittype" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">none</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">width</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">height</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">both</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_scrollbars" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">none</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">autovert</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">autohorz</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">autoboth</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">fixedvert</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">fixedhorz</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">fixedboth</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">alwaysvert</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">alwayshorz</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sample" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="html" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="html">&lt;div style="width:300px; background: yellow; font-family: verdana; font-weight: bold; font-size:10pt;"&gt;HTMLViewer Component !!&lt;/div&gt;</Col>
+          </Row>
+          <Row>
+            <Col id="html">&lt;div style="width:300px; background: green; font-family: verdana; font-weight: bold; font-size:12pt;"&gt;HTMLViewer Component !!&lt;/div&gt;</Col>
+          </Row>
+          <Row>
+            <Col id="html">&lt;div style="width:300px; background: orange; font-family: verdana; font-weight: bold; font-size:14pt;"&gt;HTMLViewer Component !!&lt;/div&gt;</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="HTMLViewer01" propid="html" datasetid="ds_sample" columnid="html"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+this.HTMLViewerSample_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	this.HTMLViewer00.set_scrollbars(this.Combo00.value);
+	this.HTMLViewer00.set_autofittype(this.Radio00.value);
+}
+
+this.HTMLViewer00_onloadcompleted = function(obj:nexacro.HTMLViewer,  e:nexacro.HTMLViewerLoadCompletedEventInfo)
+{
+	trace("HTMLViewer00_onloadcompleted==>"+e.html);
+}
+
+this.HTMLViewer00_onsize = function(obj:HTMLViewer, e:nexacro.SizeEventInfo)
+{
+	trace("HTMLViewer00_onsize==>"+ e.cx + " : " + e.cy);
+}
+
+this.Combo00_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.HTMLViewer00.set_scrollbars(e.postvalue);
+}
+
+this.Radio00_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	this.HTMLViewer00.set_autofittype(e.postvalue);
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var html = '<img src="http://www.playnexacro.com/image/frame/logo_top.png"><br><br>';
+		html += '<div style="width:300px; background: yellow; font-family: verdana; font-weight: bold; font-size:10pt;">HTMLViewer Component !!</div>';
+
+	this.HTMLViewer00.set_html(html);
+	this.TextArea00.set_value(html);
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var html = '<img src="http://lorempixel.com/200/200/"><br><br><img src="http://lorempixel.com/300/300/">';
+	
+	this.HTMLViewer00.set_html(html);
+	this.TextArea00.set_value(html);
+}
+]]></Script>
+  </Form>
+</FDL>

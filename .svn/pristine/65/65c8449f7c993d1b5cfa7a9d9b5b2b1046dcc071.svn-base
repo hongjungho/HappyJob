@@ -1,0 +1,215 @@
+﻿(function()
+{
+    return function()
+    {
+        if (!this._is_form)
+            return;
+        
+        this.on_create = function()
+        {
+            // Declare Reference
+            var obj = null;
+            
+            if (Form == this.constructor) {
+                this.set_name("Useroverdue");
+                this.set_titletext("New Form");
+                this._setFormPosition(0,0,1024,768);
+            }
+
+            
+            // Object(Dataset, ExcelExportObject) Initialize
+            obj = new Dataset("dsbookdiv", this);
+            obj._setContents("<ColumnInfo><Column id=\"divCode\" type=\"STRING\" size=\"256\"/><Column id=\"bookDiv\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"divCode\">1</Col><Col id=\"bookDiv\">일반도서</Col></Row><Row><Col id=\"divCode\">2</Col><Col id=\"bookDiv\">전자도서</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+            obj = new Dataset("dsbookclass", this);
+            obj._setContents("<ColumnInfo><Column id=\"classCode\" type=\"STRING\" size=\"256\"/><Column id=\"bookClass\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"classCode\">01</Col><Col id=\"bookClass\">총류</Col></Row><Row><Col id=\"classCode\">02</Col><Col id=\"bookClass\">철학</Col></Row><Row><Col id=\"classCode\">03</Col><Col id=\"bookClass\">종교</Col></Row><Row><Col id=\"classCode\">04</Col><Col id=\"bookClass\">사회과학</Col></Row><Row><Col id=\"classCode\">05</Col><Col id=\"bookClass\">자연과학</Col></Row><Row><Col id=\"classCode\">06</Col><Col id=\"bookClass\">기술과학</Col></Row><Row><Col id=\"classCode\">07</Col><Col id=\"bookClass\">예술</Col></Row><Row><Col id=\"classCode\">08</Col><Col id=\"bookClass\">언어</Col></Row><Row><Col id=\"classCode\">09</Col><Col id=\"bookClass\">문학</Col></Row><Row><Col id=\"classCode\">10</Col><Col id=\"bookClass\">역사</Col></Row><Row><Col id=\"classCode\">99</Col><Col id=\"bookClass\">기타</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+            obj = new Dataset("dsgridrow", this);
+            obj._setContents("<ColumnInfo><Column id=\"showRow\" type=\"STRING\" size=\"256\"/><Column id=\"showRowCode\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"showRow\">10</Col><Col id=\"showRowCode\">10</Col></Row><Row><Col id=\"showRow\">15</Col><Col id=\"showRowCode\">15</Col></Row><Row><Col id=\"showRow\">20</Col><Col id=\"showRowCode\">20</Col></Row><Row><Col id=\"showRow\">25</Col><Col id=\"showRowCode\">25</Col></Row><Row><Col id=\"showRow\">30</Col><Col id=\"showRowCode\">30</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+            obj = new Dataset("dsbookList", this);
+            obj._setContents("<ColumnInfo><Column id=\"no\" type=\"STRING\" size=\"256\"/><Column id=\"title\" type=\"STRING\" size=\"256\"/><Column id=\"borrowDate\" type=\"STRING\" size=\"256\"/><Column id=\"returnDate\" type=\"STRING\" size=\"256\"/><Column id=\"bookDiv\" type=\"STRING\" size=\"256\"/><Column id=\"bookClass\" type=\"STRING\" size=\"256\"/><Column id=\"author\" type=\"STRING\" size=\"256\"/><Column id=\"publisher\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
+            this.addChild(obj.name, obj);
+
+
+            
+            // UI Components Initialize
+            obj = new GroupBox("GroupBox00", "absolute", "4.79%", "24", null, "200", "11.23%", null, this);
+            obj.set_text("연체현황검색");
+            obj.set_taborder("0");
+            obj.style.set_border("2 solid #339966ff");
+            obj.style.set_color("#339966ff");
+            obj.style.set_font("18 맑은 고딕");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("Grid00", "absolute", "5.57%", "304", null, "383", "10.94%", null, this);
+            obj.set_taborder("1");
+            obj.set_binddataset("dsbookList");
+            obj.set_autofittype("col");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"107\"/><Column size=\"107\"/><Column size=\"107\"/><Column size=\"107\"/><Column size=\"107\"/><Column size=\"107\"/><Column size=\"107\"/><Column size=\"107\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"제목\"/><Cell col=\"2\" text=\"대출날짜\"/><Cell col=\"3\" text=\"반납예정날짜\"/><Cell col=\"4\" text=\"도서분류\"/><Cell col=\"5\" text=\"도서구분\"/><Cell col=\"6\" text=\"저자\"/><Cell col=\"7\" text=\"출판사\"/></Band><Band id=\"body\"><Cell text=\"bind:no\"/><Cell col=\"1\" text=\"bind:title\"/><Cell col=\"2\" text=\"bind:borrowDate\"/><Cell col=\"3\" text=\"bind:returnDate\"/><Cell col=\"4\" text=\"bind:bookDiv\"/><Cell col=\"5\" text=\"bind:bookClass\"/><Cell col=\"6\" text=\"bind:author\"/><Cell col=\"7\" text=\"bind:publisher\"/></Band></Format></Formats>");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("Combo00", "absolute", "78.42%", "257", null, "28", "10.94%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("2");
+            obj.set_text("Combo00");
+            obj.set_innerdataset("dsgridrow");
+            obj.set_codecolumn("showRowCode");
+            obj.set_datacolumn("showRow");
+
+            obj = new Static("Static00", "absolute", "39.06%", "254", null, "26", "45.51%", null, this);
+            obj.set_taborder("3");
+            obj.set_text("연체도서목록");
+            obj.style.set_align("center middle");
+            obj.style.set_font("16 맑은 고딕");
+            this.addChild(obj.name, obj);
+
+            obj = new Calendar("Calendar00", "absolute", "53.61%", "64", null, "28", "32.03%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("4");
+
+            obj = new Calendar("Calendar01", "absolute", "72.36%", "64", null, "28", "13.28%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("5");
+
+            obj = new Static("Static01", "absolute", "47.56%", "63", null, "30", "46.97%", null, this);
+            obj.set_taborder("6");
+            obj.set_text("반납날짜 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static03", "absolute", "6.15%", "156", null, "30", "88.38%", null, this);
+            obj.set_taborder("7");
+            obj.set_text("키워드 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit00", "absolute", "12.21%", "158", null, "26", "36.72%", null, this);
+            obj.set_taborder("8");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static02", "absolute", "68.65%", "64", null, "27", "28.13%", null, this);
+            obj.set_taborder("9");
+            obj.set_text("~");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("Combo01", "absolute", "12.21%", "106", null, "30", "77.93%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("10");
+            obj.set_text("Combo01");
+            obj.set_innerdataset("dsbookdiv");
+            obj.set_codecolumn("divCode");
+            obj.set_datacolumn("bookDiv");
+
+            obj = new Static("Static04", "absolute", "6.15%", "105", null, "30", "88.38%", null, this);
+            obj.set_taborder("11");
+            obj.set_text("도서구분 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("Combo02", "absolute", "30.96%", "106", null, "30", "59.18%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("12");
+            obj.set_text("Combo01");
+            obj.set_innerdataset("dsbookclass");
+            obj.set_codecolumn("classCode");
+            obj.set_datacolumn("bookClass");
+
+            obj = new Static("Static05", "absolute", "24.12%", "105", null, "30", "70.41%", null, this);
+            obj.set_taborder("13");
+            obj.set_text("도서분류 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Calendar("Calendar02", "absolute", "12.21%", "64", null, "28", "73.44%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("14");
+
+            obj = new Calendar("Calendar03", "absolute", "30.96%", "64", null, "28", "54.69%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("15");
+
+            obj = new Static("Static07", "absolute", "27.25%", "64", null, "27", "69.53%", null, this);
+            obj.set_taborder("16");
+            obj.set_text("~");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static08", "absolute", "46.78%", "108", null, "30", "47.75%", null, this);
+            obj.set_taborder("17");
+            obj.set_text("저자 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit01", "absolute", "50.49%", "110", null, "26", "36.72%", null, this);
+            obj.set_taborder("18");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit02", "absolute", "73.14%", "110", null, "26", "13.28%", null, this);
+            obj.set_taborder("19");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static09", "absolute", "67.87%", "108", null, "30", "26.66%", null, this);
+            obj.set_taborder("20");
+            obj.set_text("출판사 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static06", "absolute", "6.15%", "63", null, "30", "88.38%", null, this);
+            obj.set_taborder("21");
+            obj.set_text("대출날짜 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00", "absolute", "70.51%", "157", null, "32", "13.48%", null, this);
+            obj.set_taborder("22");
+            obj.set_text("조회");
+            this.addChild(obj.name, obj);
+
+
+            
+            // Layout Functions
+            //-- Default Layout
+            obj = new Layout("default", "", 1024, 768, this,
+            	//-- Layout function
+            	function(p) {
+            		p.set_titletext("New Form");
+
+            	}
+            );
+            this.addLayout(obj.name, obj);
+
+
+            
+            // BindItem Information
+            obj = new BindItem("item0","Combo00","value","dsgridrow","showRow");
+            this.addChild(obj.name, obj);
+            obj.bind();
+
+            
+            // Remove Reference
+            obj = null;
+        };
+        
+
+        
+        // User Script
+
+        
+        // Regist UI Components Event
+        this.on_initEvent = function()
+        {
+            this.Combo01.addEventHandler("onitemchanged", this.Combo01_onitemchanged, this);
+
+        };
+
+        this.loadIncludeScript("UserOverdue.xfdl", true);
+
+       
+    };
+}
+)();

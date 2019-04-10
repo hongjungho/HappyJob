@@ -296,7 +296,7 @@
 
             obj = new Button("Button03", "absolute", "44.82%", "36", null, "62", "43.16%", null, this);
             obj.set_taborder("86");
-            obj.set_text("통계");
+            obj.set_text("공통분류관리");
             obj.style.set_image("URL('theme://images/img_grip.png')");
             this.addChild(obj.name, obj);
 
@@ -408,11 +408,7 @@
         	this.go("Practice::admin_user.xfdl");
         }
 
-        this.Button08_onclick = function(obj,e)
-        {
-        	this.go("Practice::admin_empl.xfdl");
-        }
-
+        
         this.lfn_cmmCallback = function(svcId,errorcode,errormsg){
         	
         	
@@ -505,11 +501,6 @@
         
 
         
-        this.Button03_onclick = function(obj,e)
-        {
-        	this.go("Practice::admin_main.xfdl");
-        }
-        
         });
 
 
@@ -543,7 +534,7 @@
             this.Static19.addEventHandler("onclick", this.Static07_onclick, this);
             this.Static20.addEventHandler("onclick", this.Static07_onclick, this);
             this.Radio01.addEventHandler("onitemclick", this.Radio01_onitemclick, this);
-            this.Button03.addEventHandler("onclick", this.Button03_onclick, this);
+            this.Button03.addEventHandler("onclick", this.Button08_onclick, this);
 
         };
 

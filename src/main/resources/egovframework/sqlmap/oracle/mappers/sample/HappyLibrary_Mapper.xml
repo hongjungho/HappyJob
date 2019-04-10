@@ -24,13 +24,32 @@
     
 <!-- Mypage 항목별 통계 -->    
 <select id="staticMypage" parameterType="java.util.Map" resultType="egovMap">
-select * from  
-(select count(*) as brr from HL_SERVICE where user_no=#{userNo}) brr,
-(select count(*) as rev from HL_SERVICE where service_cd='01' and user_no=#{userNo}) rev,
-(select count(*) as arr from HL_SERVICE where service_cd='00' and user_no=#{userNo} and service_start+15 > sysdate) arr,
-(select count(*) as san from HL_USER_SAN where user_no=#{userNo}) san
+SELECT * 
+  FROM 
+       (SELECT count(*) AS brr 
+         FROM HL_SERVICE 
+        WHERE service_cd='2' 
+              AND user_no=#{userNo} 
+              AND sysdate BETWEEN service_start AND service_end
+       ) brr, 
+       (SELECT count(*) AS rev 
+         FROM HL_SERVICE 
+        WHERE service_cd='2' 
+              AND user_no=#{userNo} 
+              AND service_start &gt; sysdate
+       ) rev, 
+       (SELECT count(*) AS arr 
+         FROM HL_SERVICE 
+        WHERE service_cd='2' 
+              AND user_no=#{userNo} 
+              AND service_end &lt; sysdate
+       ) arr, 
+       (SELECT count(*) AS san 
+         FROM HL_USER_SAN 
+        WHERE user_no=#{userNo}
+       ) san  
+ WHERE 1=1 
 
-where 1=1
 	
 </select>
     
@@ -105,10 +124,11 @@ SELECT  USER_NO,
 <!-- 대출목록검색 -->
 <select id="selectBorrowList" parameterType="java.util.Map" resultType="egovMap">
 
-SELECT BK.BOOK_ISBN, 
+SELECT BK.BOOK_ISBN,
+       BK.BOOK_NO, 
        BK.BOOK_NM, 
-       TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)') AS BOOK_DATE, 
-       TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)') AS BOOK_RETURN, 
+       TO_CHAR(SV.SERVICE_START,'YYYY-MM-DD(DY)') AS BOOK_DATE, 
+       TO_CHAR(SV.SERVICE_END,'YYYY-MM-DD(DY)') AS BOOK_RETURN, 
        (SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE) AS DIV_CD, 
        (SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE) AS CLASS_CD, 
        BK.BOOK_PUB, 
@@ -122,21 +142,22 @@ SELECT BK.BOOK_ISBN,
        AND BK.BOOK_NO = SV.BOOK_NO 
        AND US.USER_NO=SV.USER_NO 
        and US.USER_NO=#{userNo}
+       and sysdate between SV.SERVICE_START and service_end
 
 <!-- 대출날짜검색 -->
 <if test = "brrStr!=null and brrStr!=''">
-and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &gt;= #{brrStr}
+and TO_CHAR(SV.SERVICE_START,'YYYYMMDD')  &gt;= #{brrStr}
 </if>
 <if test ="brrEnd!=null and brrEnd!=''">
-and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &lt;= #{brrEnd}
+and TO_CHAR(SV.SERVICE_START,'YYYYMMDD')  &lt;= #{brrEnd}
 </if>
 
 <!-- 반납날짜검색 -->
 <if test = "retStr!=null and retStr!=''">
-and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &gt;= #{retStr}
+and TO_CHAR(SV.SERVICE_END + 15,'YYYYMMDD')  &gt;= #{retStr}
 </if>
 <if test ="retEnd!=null and brrEnd!=''">
-and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &lt;= #{retEnd}
+and TO_CHAR(SV.SERVICE_END + 15,'YYYYMMDD')  &lt;= #{retEnd}
 </if>
 
 
@@ -160,8 +181,8 @@ and BK.DIV_CD = #{divCd}
 and (
 	   upper(BK.BOOK_ISBN) like upper('%'||#{keyword}||'%') 
        or upper(BK.BOOK_NM) like upper('%'||#{keyword}||'%')
-       or upper(TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%') 
-       or upper(TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%')
+       or upper(TO_CHAR(SV.SERVICE_START,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%') 
+       or upper(TO_CHAR(SV.SERVICE_END,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%')
        or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
        or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
        or upper(BK.BOOK_PUB) like upper('%'||#{keyword}||'%')
@@ -185,8 +206,8 @@ and (
 
 SELECT BK.BOOK_ISBN, 
        BK.BOOK_NM, 
-       TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)') AS BOOK_DATE, 
-       TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)') AS BOOK_RETURN, 
+       TO_CHAR(SV.SERVICE_START,'YYYY-MM-DD(DY)') AS BOOK_DATE, 
+       TO_CHAR(SV.SERVICE_END,'YYYY-MM-DD(DY)') AS BOOK_RETURN, 
        (SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE) AS DIV_CD, 
        (SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE) AS CLASS_CD, 
        BK.BOOK_PUB, 
@@ -200,24 +221,24 @@ SELECT BK.BOOK_ISBN,
        AND BK.BOOK_NO = SV.BOOK_NO 
        AND US.USER_NO=SV.USER_NO 
        and US.USER_NO=#{userNo}
-       and TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD') &lt; to_char(sysdate,'yyyy-mm-dd')
+       and SV.SERVICE_END &lt; sysdate
 
 
 
 <!-- 대출날짜검색 -->
 <if test = "brrStr!=null and brrStr!=''">
-and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &gt;= #{brrStr}
+and TO_CHAR(SV.SERVICE_START,'YYYYMMDD')  &gt;= #{brrStr}
 </if>
 <if test ="brrEnd!=null and brrEnd!=''">
-and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &lt;= #{brrEnd}
+and TO_CHAR(SV.SERVICE_START,'YYYYMMDD')  &lt;= #{brrEnd}
 </if>
 
 <!-- 반납날짜검색 -->
 <if test = "retStr!=null and retStr!=''">
-and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &gt;= #{retStr}
+and TO_CHAR(SV.SERVICE_END,'YYYYMMDD')  &gt;= #{retStr}
 </if>
 <if test ="retEnd!=null and brrEnd!=''">
-and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &lt;= #{retEnd}
+and TO_CHAR(SV.SERVICE_END,'YYYYMMDD')  &lt;= #{retEnd}
 </if>
 
 
@@ -242,8 +263,8 @@ and BK.DIV_CD = #{divCd}
 and (
 	   upper(BK.BOOK_ISBN) like upper('%'||#{keyword}||'%') 
        or upper(BK.BOOK_NM) like upper('%'||#{keyword}||'%')
-       or upper(TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%') 
-       or upper(TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%')
+       or upper(TO_CHAR(SV.SERVICE_START,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%') 
+       or upper(TO_CHAR(SV.SERVICE_END,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%')
        or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
        or upper((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE)) like upper('%'||#{keyword}||'%')
        or upper(BK.BOOK_PUB) like upper('%'||#{keyword}||'%')
@@ -262,7 +283,8 @@ and (
 <!-- 예약목록검색 -->
 <select id="selectResList" parameterType="java.util.Map" resultType="egovMap">
 
-SELECT user_no, 
+SELECT user_no,
+       book_no, 
        book_isbn, 
        book_nm, 
        div_cd, 
@@ -272,7 +294,9 @@ SELECT user_no,
        book_writer, 
        rank
   FROM 
-       (SELECT sv.USER_NO AS USER_NO, 
+       (SELECT sv.USER_NO AS USER_NO,
+              sv.SERVICE_NO as SERVICE_NO,
+              BK.BOOK_NO as BOOK_NO, 
               BK.BOOK_ISBN AS BOOK_ISBN, 
               BK.BOOK_NM AS BOOK_NM, 
               (SELECT DETAIL_NAME 
@@ -285,7 +309,7 @@ SELECT user_no,
                WHERE COMM_CODE='A01' 
                      AND BK.CLASS_CD = DTL.DETAIL_CODE
               ) AS CLASS_CD, 
-              TO_CHAR(BK.BOOK_DATE+16,'YYYY-MM-DD(DY)') AS BOOK_REV_BRR , 
+              TO_CHAR(SV.SERVICE_START,'YYYY-MM-DD(DY)') AS BOOK_REV_BRR , 
               BK.BOOK_PUB AS BOOK_PUB, 
               BK.BOOK_WRITER AS BOOK_WRITER, 
               ROW_NUMBER() OVER (ORDER BY sv.SERVICE_START ASC) || '순위' AS RANK 
@@ -295,21 +319,20 @@ SELECT user_no,
         WHERE 1=1 
               AND BK.BOOK_NO = SV.BOOK_NO 
               AND US.USER_NO=SV.USER_NO 
-              AND SV.SERVICE_CD='01'
-       ) a 
- WHERE USER_NO=#{userNo}  
+              AND SV.SERVICE_CD='2'
+              AND SV.SERVICE_START &gt; sysdate
 
     
     
 <!-- 대출날짜검색 -->
 <if test = "brrStr!=null and brrStr!=''">
-and TO_CHAR(BK.BOOK_DATE+16,'YYYYMMDD')  &gt;= #{brrStr}
+and TO_CHAR(SV.SERVICE_START,'YYYYMMDD')  &gt;= #{brrStr}
 </if>
 <if test ="brrEnd!=null and brrEnd!=''">
-and TO_CHAR(BK.BOOK_DATE+16,'YYYYMMDD')  &lt;= #{brrEnd}
+and TO_CHAR(SV.SERVICE_START,'YYYYMMDD')  &lt;= #{brrEnd}
 </if>
 
-
+    
 <if test = "clCd!=null and clCd!=''">
 and BK.CLASS_CD = #{clCd}
 </if>
@@ -342,7 +365,14 @@ and (
        )
 </if>
     
+       ) a 
+ WHERE USER_NO=#{userNo} 
+ 
+ 
+ 
 
+ 
+ 
 </select>
 
 <select id="selectSanList" parameterType="java.util.Map" resultType="egovMap">
@@ -411,6 +441,52 @@ SELECT SAN_CD,
 
 </select>
 
+<select id="getBookDt" resultType="egovMap">
+
+
+
+SELECT BK.BOOK_ISBN,
+       BK.BOOK_NO, 
+       BK.BOOK_NM, 
+       TO_CHAR(SV.SERVICE_START,'YYYY-MM-DD') AS BOOK_DATE, 
+       TO_CHAR(SV.SERVICE_END,'YYYY-MM-DD') AS BOOK_RETURN, 
+       nvl((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A02' AND BK.DIV_CD = DTL.DETAIL_CODE),'-') AS DIV_CD, 
+       nvl((SELECT DETAIL_NAME FROM HL_DTL_CD DTL WHERE COMM_CODE='A01' AND BK.CLASS_CD = DTL.DETAIL_CODE),'-') AS CLASS_CD, 
+       BK.BOOK_PUB, 
+       BK.BOOK_WRITER,
+       BK.BOOK_IDX,
+       Bk.BOOK_SUM 
+       
+  FROM OFFEDU_TESTDB.HL_BOOK BK, OFFEDU_TESTDB.HL_SERVICE SV
+       
+       
+ WHERE 1=1
+       AND BK.BOOK_NO = SV.BOOK_NO 
+       AND BK.BOOK_NO = #{bookNo}
+       
+
+
+</select>
+
+
+<select id="checkRes" resultType="egovMap">
+
+
+select count(*) as CHECK_RES
+ from HL_SERVICE SV where sv.SERVICE_START &gt; to_date(#{extendDate},'yyyy-mm-dd')
+
+
+</select>
+
+
+
+
+<update  id="extendBk" parameterType="java.util.Map">
+	UPDATE OFFEDU_TESTDB.HL_SERVICE
+			SET    
+				SERVICE_END = #{bookReturn}
+			WHERE  BOOK_NO        = #{bookNo}
+</update>
 
 
 	

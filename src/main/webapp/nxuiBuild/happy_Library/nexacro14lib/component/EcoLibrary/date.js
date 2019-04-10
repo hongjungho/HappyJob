@@ -12,9 +12,9 @@ if ( !JsNamespace.exist("Eco.date") )
 	JsNamespace.declare("Eco.date", {
 		
 		/**
-		 * 요일명칭 정의.<br>
+		 * 요일명칭 정의<br>
 		 * getMaskFormatString 함수에서 masking 할때 사용하는 명칭이다.<br>
-		 * 필요에 따라 수정 하여 사용한다.
+		 * 필요에 따라 수정 하여 사용한다.(보통 locale에 따라 정의 될 것으로 예상됨.)
 		 * @example : ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 		 * @public
 		 * @type array
@@ -24,9 +24,9 @@ if ( !JsNamespace.exist("Eco.date") )
 		//weekName: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],				
 		
 		/**
-		 * 축약 요일명칭 정의.<br>
+		 * 축약 요일명칭 정의<br>
 		 * getMaskFormatString 함수에서 masking 할때 사용하는 명칭이다.<br>
-		 * 필요에 따라 수정 하여 사용한다.
+		 * 필요에 따라 수정 하여 사용한다.(보통 locale에 따라 정의 될 것으로 예상됨.)
 		 * @example
 		 * ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
 		 * @public
@@ -37,9 +37,9 @@ if ( !JsNamespace.exist("Eco.date") )
 		//weekShortName: ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],		
 		
 		/**
-		 * 월명칭 정의.<br>
+		 * 월명칭 정의<br>
 		 * getMaskFormatString 함수에서 masking 할때 사용하는 명칭이다.<br>
-		 * 필요에 따라 수정 하여 사용한다.
+		 * 필요에 따라 수정 하여 사용한다.(보통 locale에 따라 정의 될 것으로 예상됨.)
 		 * @example
 		 * ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 		 * @public
@@ -50,9 +50,9 @@ if ( !JsNamespace.exist("Eco.date") )
 		//monthName: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 		
 		/**
-		 * 축약 월명칭 정의.<br>
+		 * 축약 월명칭 정의<br>
 		 * getMaskFormatString 함수에서 masking 할때 사용하는 명칭이다.<br>
-		 * 필요에 따라 수정 하여 사용한다.
+		 * 필요에 따라 수정 하여 사용한다.(보통 locale에 따라 정의 될 것으로 예상됨.)
 		 * @example
 		 * ["Jan ", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 		 * @public
@@ -63,9 +63,9 @@ if ( !JsNamespace.exist("Eco.date") )
 		//monthShortName: ["Jan ", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 		
 		/**
-		 * 오전/오후.<br>
+		 * 오전/오후<br>
 		 * getMaskFormatString 함수에서 masking 할때 사용하는 명칭이다.<br>
-		 * 필요에 따라 수정 하여 사용한다.
+		 * 필요에 따라 수정 하여 사용한다.(보통 locale에 따라 정의 될 것으로 예상됨.)
 		 * @example
 		 * ["AM", "PM"]
 		 * @public
@@ -76,165 +76,10 @@ if ( !JsNamespace.exist("Eco.date") )
 		//ttName: ["AM", "PM"],
 		
 		/**
-		 * 음력 데이터 (평달 - 작은달 :1,  큰달:2 )
-		 * (윤달이 있는 달 - 평달이 작고 윤달도 작으면 :3 , 평달이 작고 윤달이 크면 : 4)
-		 * (윤달이 있는 달 - 평달이 크고 윤달이 작으면 :5,  평달과 윤달이 모두 크면 : 6)	
-		 * @private
-		 * @type array
-		 * @memberOf Eco.date
-		 */			 
-		lunarMonthTable: [
-		[2, 1, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2],
-		[1, 2, 1, 1, 2, 1, 2, 5, 2, 2, 1, 2],
-		[1, 2, 1, 1, 2, 1, 2, 1, 2, 2, 2, 1],   /* 1901 */
-		[2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 2, 2],
-		[1, 2, 1, 2, 3, 2, 1, 1, 2, 2, 1, 2],
-		[2, 2, 1, 2, 1, 1, 2, 1, 1, 2, 2, 1],
-		[2, 2, 1, 2, 2, 1, 1, 2, 1, 2, 1, 2],
-		[1, 2, 2, 4, 1, 2, 1, 2, 1, 2, 1, 2],
-		[1, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 1],
-		[2, 1, 1, 2, 2, 1, 2, 1, 2, 2, 1, 2],
-		[1, 5, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2],
-		[1, 2, 1, 1, 2, 1, 2, 1, 2, 2, 2, 1],
-		[2, 1, 2, 1, 1, 5, 1, 2, 2, 1, 2, 2],   /* 1911 */
-		[2, 1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 2],
-		[2, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2],
-		[2, 2, 1, 2, 5, 1, 2, 1, 2, 1, 1, 2],
-		[2, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2],
-		[1, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 1],
-		[2, 3, 2, 1, 2, 2, 1, 2, 2, 1, 2, 1],
-		[2, 1, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2],
-		[1, 2, 1, 1, 2, 1, 5, 2, 2, 1, 2, 2],
-		[1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 2, 2],
-		[2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 2],   /* 1921 */
-		[2, 1, 2, 2, 3, 2, 1, 1, 2, 1, 2, 2],
-		[1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2],
-		[2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 1, 1],
-		[2, 1, 2, 5, 2, 1, 2, 2, 1, 2, 1, 2],
-		[1, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 1],
-		[2, 1, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2],
-		[1, 5, 1, 2, 1, 1, 2, 2, 1, 2, 2, 2],
-		[1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 2, 2],
-		[1, 2, 2, 1, 1, 5, 1, 2, 1, 2, 2, 1],
-		[2, 2, 2, 1, 1, 2, 1, 1, 2, 1, 2, 1],   /* 1931 */
-		[2, 2, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2],
-		[1, 2, 2, 1, 6, 1, 2, 1, 2, 1, 1, 2],
-		[1, 2, 1, 2, 2, 1, 2, 2, 1, 2, 1, 2],
-		[1, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 1],
-		[2, 1, 4, 1, 2, 1, 2, 1, 2, 2, 2, 1],
-		[2, 1, 1, 2, 1, 1, 2, 1, 2, 2, 2, 1],
-		[2, 2, 1, 1, 2, 1, 4, 1, 2, 2, 1, 2],
-		[2, 2, 1, 1, 2, 1, 1, 2, 1, 2, 1, 2],
-		[2, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1],
-		[2, 2, 1, 2, 2, 4, 1, 1, 2, 1, 2, 1],   /* 1941 */
-		[2, 1, 2, 2, 1, 2, 2, 1, 2, 1, 1, 2],
-		[1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 1, 2],
-		[1, 1, 2, 4, 1, 2, 1, 2, 2, 1, 2, 2],
-		[1, 1, 2, 1, 1, 2, 1, 2, 2, 2, 1, 2],
-		[2, 1, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2],
-		[2, 5, 1, 2, 1, 1, 2, 1, 2, 1, 2, 2],
-		[2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2],
-		[2, 2, 1, 2, 1, 2, 3, 2, 1, 2, 1, 2],
-		[2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2, 1],
-		[2, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2],   /* 1951 */
-		[1, 2, 1, 2, 4, 2, 1, 2, 1, 2, 1, 2],
-		[1, 2, 1, 1, 2, 2, 1, 2, 2, 1, 2, 2],
-		[1, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 2],
-		[2, 1, 4, 1, 1, 2, 1, 2, 1, 2, 2, 2],
-		[1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 2],
-		[2, 1, 2, 1, 2, 1, 1, 5, 2, 1, 2, 2],
-		[1, 2, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2],
-		[1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1],
-		[2, 1, 2, 1, 2, 5, 2, 1, 2, 1, 2, 1],
-		[2, 1, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2],   /* 1961 */
-		[1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 2, 1],
-		[2, 1, 2, 3, 2, 1, 2, 1, 2, 2, 2, 1],
-		[2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 2, 2],
-		[1, 2, 1, 2, 1, 1, 2, 1, 1, 2, 2, 2],
-		[1, 2, 5, 2, 1, 1, 2, 1, 1, 2, 2, 1],
-		[2, 2, 1, 2, 2, 1, 1, 2, 1, 2, 1, 2],
-		[1, 2, 2, 1, 2, 1, 5, 2, 1, 2, 1, 2],
-		[1, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 1],
-		[2, 1, 1, 2, 2, 1, 2, 1, 2, 2, 1, 2],
-		[1, 2, 1, 1, 5, 2, 1, 2, 2, 2, 1, 2],   /* 1971 */
-		[1, 2, 1, 1, 2, 1, 2, 1, 2, 2, 2, 1],
-		[2, 1, 2, 1, 1, 2, 1, 1, 2, 2, 2, 1],
-		[2, 2, 1, 5, 1, 2, 1, 1, 2, 2, 1, 2],
-		[2, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2],
-		[2, 2, 1, 2, 1, 2, 1, 5, 2, 1, 1, 2],
-		[2, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 1],
-		[2, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 1],
-		[2, 1, 1, 2, 1, 6, 1, 2, 2, 1, 2, 1],
-		[2, 1, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2],
-		[1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 2, 2],   /* 1981 */
-		[2, 1, 2, 3, 2, 1, 1, 2, 2, 1, 2, 2],
-		[2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 2],
-		[2, 1, 2, 2, 1, 1, 2, 1, 1, 5, 2, 2],
-		[1, 2, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2],
-		[1, 2, 2, 1, 2, 2, 1, 2, 1, 2, 1, 1],
-		[2, 1, 2, 2, 1, 5, 2, 2, 1, 2, 1, 2],
-		[1, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 1],
-		[2, 1, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2],
-		[1, 2, 1, 1, 5, 1, 2, 1, 2, 2, 2, 2],
-		[1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 2, 2],   /* 1991 */
-		[1, 2, 2, 1, 1, 2, 1, 1, 2, 1, 2, 2],
-		[1, 2, 5, 2, 1, 2, 1, 1, 2, 1, 2, 1],
-		[2, 2, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2],
-		[1, 2, 2, 1, 2, 2, 1, 5, 2, 1, 1, 2],
-		[1, 2, 1, 2, 2, 1, 2, 1, 2, 2, 1, 2],
-		[1, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 1],
-		[2, 1, 1, 2, 3, 2, 2, 1, 2, 2, 2, 1],
-		[2, 1, 1, 2, 1, 1, 2, 1, 2, 2, 2, 1],
-		[2, 2, 1, 1, 2, 1, 1, 2, 1, 2, 2, 1],
-		[2, 2, 2, 3, 2, 1, 1, 2, 1, 2, 1, 2],   /* 2001 */
-		[2, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1],
-		[2, 2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2],
-		[1, 5, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2],
-		[1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 1, 1],
-		[2, 1, 2, 1, 2, 1, 5, 2, 2, 1, 2, 2],
-		[1, 1, 2, 1, 1, 2, 1, 2, 2, 2, 1, 2],
-		[2, 1, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2],
-		[2, 2, 1, 1, 5, 1, 2, 1, 2, 1, 2, 2],
-		[2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2],
-		[2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2, 1],   /* 2011 */
-		[2, 1, 6, 2, 1, 2, 1, 1, 2, 1, 2, 1],
-		[2, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2],
-		[1, 2, 1, 2, 1, 2, 1, 2, 5, 2, 1, 2],
-		[1, 2, 1, 1, 2, 1, 2, 2, 2, 1, 2, 1],
-		[2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 2],
-		[2, 1, 1, 2, 3, 2, 1, 2, 1, 2, 2, 2],
-		[1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 2],
-		[2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2],
-		[2, 1, 2, 5, 2, 1, 1, 2, 1, 2, 1, 2],
-		[1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1],   /* 2021 */
-		[2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 1, 2],
-		[1, 5, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2],
-		[1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 2, 1],
-		[2, 1, 2, 1, 1, 5, 2, 1, 2, 2, 2, 1],
-		[2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 2, 2],
-		[1, 2, 1, 2, 1, 1, 2, 1, 1, 2, 2, 2],
-		[1, 2, 2, 1, 5, 1, 2, 1, 1, 2, 2, 1],
-		[2, 2, 1, 2, 2, 1, 1, 2, 1, 1, 2, 2],
-		[1, 2, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1],
-		[2, 1, 5, 2, 1, 2, 2, 1, 2, 1, 2, 1],   /* 2031 */
-		[2, 1, 1, 2, 1, 2, 2, 1, 2, 2, 1, 2],
-		[1, 2, 1, 1, 2, 1, 2, 1, 2, 2, 5, 2],
-		[1, 2, 1, 1, 2, 1, 2, 1, 2, 2, 2, 1],
-		[2, 1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 2],
-		[2, 2, 1, 2, 1, 4, 1, 1, 2, 2, 1, 2],
-		[2, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2],
-		[2, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 1],
-		[2, 2, 1, 2, 5, 2, 1, 2, 1, 2, 1, 1],
-		[2, 1, 2, 2, 1, 2, 2, 1, 2, 1, 2, 1],
-		[2, 1, 1, 2, 1, 2, 2, 1, 2, 2, 1, 2],   /* 2041 */
-		[1, 5, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2],
-		[1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 2, 2]],
-		
-		/**
-		 * 입력된 날짜에 OffSet으로 지정된 만큼의 날짜를 증감한다.
-		 * @param {string|date} value 'yyyyMMdd'형태로 표현된 String 또는 Date.
-		 * @param {number} offset 일단위 증가(또는 감소값).
-		 * @return {string|date} 'yyyyMMdd'형태로 표현된 String 또는 Date Value.
+		 * 입력된 날짜에 OffSet 으로 지정된 만큼의 날짜를 증감한다.
+		 * @param {string|date} value 'yyyyMMdd' 형태로 표현된 String 또는 Date.
+		 * @param {number} offset 날짜로부터 증가 감소값.
+		 * @return {string|date} 'yyyyMMdd' 형태로 표현된 String 또는 Date Value.
 		 * @example
 		 * // 2013/04/29 16:39:04 test함. 
 		 * trace(Eco.date.addDate(new Date(), 3)); // output : Thu May 02 2013 16:39:04 GMT+0900
@@ -247,11 +92,15 @@ if ( !JsNamespace.exist("Eco.date") )
 			var dt;
 			if ( Eco.isDate(value) )
 			{
+				//var nTmpHour = value.getHours();
 				dt = new Date();
 				dt.setFullYear(value.getFullYear(), value.getMonth(), value.getDate() + offset);
 				dt.setHours(value.getHours(), value.getMinutes(), value.getSeconds());
 				dt.setMilliseconds(value.getMilliseconds());
-				
+				//if ( dt.getHours() != nTmpHour )
+				//{
+				//	dt.setHours(dt.getHours() + 2);
+				//}
 				return dt;
 			}
 			else
@@ -267,7 +116,7 @@ if ( !JsNamespace.exist("Eco.date") )
 		/**
 		 * 입력된 날짜에 OffSet 으로 지정된만큼의 월을 증감한다.
 		 * @param {string | date} value 'yyyyMMdd' 형태로 표현된 String 또는 Date.
-		 * @param {number} offset 월단위 증가(또는 감소값).
+		 * @param {number} offset 월 증감값 ( 예 : 1 또는 -1 ) 
 		 * @return {string | date} 'yyyyMMdd' 형태로 표현된 String 또는 Date Value.
 		 * @example
 		 * var dt = Eco.date.strToDate("20130331");
@@ -313,10 +162,10 @@ if ( !JsNamespace.exist("Eco.date") )
 		},
 
 		/**
-		 * 두 일자 사이의 일 수 계산.
-		 * @param {date | string} fromDate Date Object 또는 yyyyMMdd형태의 시작일자.
-		 * @param {date | string} toDate Date Object 또는 yyyyMMdd형태의 종료일자.
-		 * @return {number} 두 일자 사이의 일 수. 단, 종료일자가 시작일자보다 작으면 음수가 return된다.
+		 * 두 일자간의 차이 일수 계산.
+		 * @param {date | string} fromDate Date Object 또는 yyyyMMdd형태의 From 일자 ( 예 : "20121122" ).
+		 * @param {date | string} toDate Date Object 또는 yyyyMMdd형태의 To 일자 ( 예 : "20121202" ).
+		 * @return {number} 숫자 형태의 차이일수  ( 예 : 10 ). 단, fromDate < toDate 음수가 return된다.
 		 * @example
 		 * var fromdt = Eco.date.strToDate("20120331");
 		 * var todt = Eco.date.strToDate("20130420");
@@ -364,12 +213,12 @@ if ( !JsNamespace.exist("Eco.date") )
 		},
 
 		/**
-		 * 두 일자 사이의 월 수 계산.(정확한 달수를 처리하려면 fromDate Day값을 1로 하고 toDate를 마지막일자로 처리하여야 한다.)<br>
-		 * 시작일자의 Day값이 1이 아니면 소수점((마지막일자 - 해당월의 일수)/마지막일자)으로 계산한다.<br>
-		 * 종료일자의 Day값이 마지막일자가 아니면 소수점(해당월의 일수/마지막일자)으로 계산한다.
-		 * @param {date | string} fromDate Date Object 또는 yyyyMMdd형태의 시작일자.
-		 * @param {date | string} toDate Date Object 또는 yyyyMMdd형태의 종료일자.
-		 * @return {number} 두 일자 사이의 월 수. 단, 종료일자가 시작일자보다 작으면 음수가 return된다.
+		 * 두 월간의 차이 월수 계산. (정확한 달수를 처리하려면 fromDate Day값을 1로 하고 toDate를 마지막일자로 처리하여야 한다.)<br>
+		 * 시작일자의 Day값이 1로 아니면 소수점((마지막일자 - 해당월의 일수)/마지막일자)으로 계산한다.<br>
+		 * 끝일자의 Day값이 마지막일자가 아니면 소수점(해당월의 일수/마지막일자)를 계산한다.
+		 * @param {date | string} fromDate Date Object 또는 yyyyMMdd형태의 From 일자 ( 예 : "20121122" ).
+		 * @param {date | string} toDate Date Object 또는 yyyyMMdd형태의 To 일자 ( 예 : "20121202" ).
+		 * @return {number} 숫자 형태의 차이월수  ( 예 : 10 ). 단, fromDate < toDate 음수가 return된다.
 		 * @example
 		 * var fromdt = Eco.date.strToDate("20130301");
 		 * var todt = Eco.date.strToDate("20130501");
@@ -439,8 +288,8 @@ if ( !JsNamespace.exist("Eco.date") )
 
 		/**
 		 * 해당월의 마지막 날짜를 숫자로 구하기.
-		 * @param {number | string} value 'yyyyMMdd' 형태의 날짜.
-		 * @return {number} 마지막 날짜 숫자값.
+		 * @param {number | string} value yyyyMMdd형태의 날짜 ( 예 : "20121122" ).
+		 * @return {number} 마지막 날짜 숫자값 ( 예 : 30 ).
 		 * @example
 		 * var dt = Eco.date.strToDate("20120302"); // convert Date type from "20120302".
 		 * var day = Eco.date.getLastDayOfMonth(dt);
@@ -486,9 +335,9 @@ if ( !JsNamespace.exist("Eco.date") )
 		},
 
 		/**
-		 * yyyyMMdd 형태의 날짜를 입력하면 해당연도의 날짜에 해당하는 주차반환.
-		 * @param {date|string} date Date Object 또는 날짜형 문자열.
-		 * @return {number} 주차에 해당하는 숫자.
+		 * yyyyMMdd형태의 날짜를 입력하면 해당연도의 날짜에 해당하는 주차반환.
+		 * @param {date|string} date Date Object 또는 날짜형 스트링.
+		 * @return {number} 주차에 해당하는 숫자  ( 예 : 10 ).
 		 * @example
 		 * var dt = Eco.date.strToDate("20130331"); // convert Date type from "20130331".
 		 * var week = Eco.date.getWeekOfYear(dt);
@@ -519,16 +368,27 @@ if ( !JsNamespace.exist("Eco.date") )
 		},
 
 		/**
-		 * 월별 일자 Offset.
+		 * 달별 일자 Offset
 		 * @private
 		 * @memberOf Eco.date
 		 */
-		_dayOfYearOffset: [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334],
+		_dayOfYearOffset: [0, 
+							31, 
+							31 + 28, 
+							31 + 28 + 31, 
+							31 + 28 + 31 + 30, 
+							31 + 28 + 31 + 30 + 31, 
+							31 + 28 + 31 + 30 + 31 + 30, 
+							31 + 28 + 31 + 30 + 31 + 30 + 31, 
+							31 + 28 + 31 + 30 + 31 + 30 + 31 + 31, 
+							31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30, 
+							31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31, 
+							31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30],
 
 		/**
 		 * 해당연도의 1월 1일부터 날짜까지의 일 수 반환.
-		 * @param {date|string} date Date Object 또는 날짜형 문자열.
-		 * @return {number} 일 수.
+		 * @param {date|string} date Date Object 또는 날짜형 스트링.
+		 * @return {number} 일수
 		 * @example
 		 * var dt = Eco.date.strToDate("20130420"); // convert Date type from "20130420".
 		 * var days = Eco.date.getDayOfYear(dt);
@@ -552,11 +412,8 @@ if ( !JsNamespace.exist("Eco.date") )
 				Eco.Logger.error({"message":"invalid date", "stack":true});
 			}
 			
-			var nMonth = date.getMonth();
-			var nDay = pThis._dayOfYearOffset[nMonth] + date.getDate();
-			
-			//윤년과 2월이 포함되어 있을 경우에만 +1.
-			if (pThis.isLeapYear(date.getFullYear()) && nMonth > 1)
+			var nDay = pThis._dayOfYearOffset[date.getMonth()] + date.getDate();
+			if (pThis.isLeapYear(date.getFullYear()))
 			{
 				nDay = nDay + 1;
 			}
@@ -565,8 +422,8 @@ if ( !JsNamespace.exist("Eco.date") )
 
 		
 		/**
-		 * yyyy, yyyyMM, yyyyMMdd, yyyyMMddhh, yyyyMMddhhmm, yyyyMMddhhmmss 형태의 문자열을 Date객체로 반환.
-		 * @param {string} value 날짜 문자열.
+		 * yyyy, yyyyMM, yyyyMMdd, yyyyMMddhh, yyyyMMddhhmm, yyyyMMddhhmmss 형태의 String을 Date객체로 만들기.
+		 * @param {string} value yyyy ~ yyyyMMddhhmmss형태의 날짜String ( 예 : "20121122" ).
 		 * @return {date} Date Object.
 		 * @example
 		 * var dt = Eco.date.strToDate("20120331"); // convert Date type from "20120331".
@@ -619,55 +476,26 @@ if ( !JsNamespace.exist("Eco.date") )
 		
 		/**
 		 * 윤년 여부.
-		 * @param {string|number|date|nexacro.Date} value yyyyMMdd 형태의 날짜(문자열).<br>
-		 *                                   number 타입일 경우에는 yyyy.<br>
-		 *                                   JavaScript Date.<br>
-		 *                                   Dataset의 컬럼타입이 DATE인 컬럼값.
-		 * @return {boolean} 윤년 여부(입력되지 않은 경우는 false).
+		 * @param {string} value yyyyMMdd형태의 날짜 ( 예 : "20121122" ).
+		 * @return {boolean} 윤년 여부.입력되지 않은 경우도 false
 		 * @example
-		 * var yyyyMMdd = "20120301";
-		 * var flag = Eco.date.isLeapYear(yyyyMMdd);
+		 * var yyyy = 2013;
+		 * var flag = Eco.date.isLeapYear(yyyy);
 		 * trace(flag); // output : false
-		 * var date = new Date();
-		 * var flag = Eco.date.isLeapYear(date);
-		 * trace(flag); // output : true		 
-		 * var flag = Eco.date.isLeapYear(2016);
+		 * var ymd = "20120301";
+		 * var flag = Eco.date.isLeapYear(ymd);
 		 * trace(flag); // output : true
-		 * var value = this.Dataset.getColumn(0, "yyyyMMdd"); // yyyyMMdd 컬럼타입은 DATE. 
-		 * var flag = Eco.date.isLeapYear(value);
-		 * trace(flag); // output : true		 
 		 * @memberOf Eco.date
 		 */
 		isLeapYear: function(value)
-		{ 
+		{
 			var result;
 			var year;
-			
-			if( Eco.isEmpty(value) ) {
-				return false;
-				
-			} else if ( Eco.isString(value) ) {
+			if ( Eco.isString(value) )
+			{
 				year = parseInt(value.substring(0,4), 10);
-			
-			} else if ( Eco.isNumber(value) ) {
-				year = value;
-			
-			} //dataset의 컬럼타입이 DATE인 경우 처리.
-			else if(value instanceof nexacro.Date) {
-				value = value.toString();
-				
-				if(Eco.isEmpty(value)) {
-					return false;
-				}
-				
-				year = parseInt(value.substring(0,4), 10);
-				
-			} else if( Eco.isDate(value) ) {
-				
-				year = value.getFullYear();
 			}
 
-			
 			if ((year % 4) == 0) 
 			{
 				if ((year % 100) != 0 || (year % 400) == 0){
@@ -687,45 +515,252 @@ if ( !JsNamespace.exist("Eco.date") )
 		},	
 		
 		
-		
-
 		/**
-		 * 양/음력 변환시 입력값에서 year, month, day값을 추출 후 object로 반환한다.
-		 * @param {string | date} value Date object 또는 yyyyMMdd 형태의 음력일자.
-		 * @return {object} {"year": year, "month": month, "day": day}.
+		 * 각 월별 음력 기준 정보 (처리가능 기간  1841 - 2043년)
 		 * @memberOf Eco.date
-		 */		    
-        _getYearMonthDay: function (value) {
-			var year, month, day;
-			if ( Eco.isDate(value) ) {
-				year = value.getFullYear();
-				month = value.getMonth() + 1;
-				day = value.getDate();
-				
-			} else if(Eco.isString(value)) {
-				year = parseInt(value.substr(0,4), 10);
-				month = parseInt(value.substr(4,2), 10);
-				day = parseInt(value.substr(6,2), 10);
-				
-			} else { 
-				Eco.Logger.error({"message":"invalid data type.", "stack":true});
-				return; 
-			}
-		
-		
-			return {"year": year, "month": month, "day": day};
-        },
+		 * @private
+		 */	 
+		solarBase: (function(){
+			var sBase;
+			
+			//1841
+			sBase = "1,2,4,1,1,2,1,2,1,2,2,1,";
+			sBase += "2,2,1,2,1,1,2,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,4,1,2,1,2,1,";
+			sBase += "2,2,1,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,2,1,5,2,1,2,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,3,2,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+			//1851
+			sBase += "2,2,1,2,1,1,2,1,2,1,5,2,";
+			sBase += "2,1,2,2,1,1,2,1,2,1,1,2,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,5,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,2,1,2,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,5,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+			sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+			sBase += "2,1,6,1,1,2,1,1,2,1,2,2,";
+			//1861
+			sBase += "1,2,2,1,2,1,2,1,2,1,1,2,";
+			sBase += "2,1,2,1,2,2,1,2,2,3,1,2,";
+			sBase += "1,2,2,1,2,1,2,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,4,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,1,1,2,2,1,2,2,2,";
+			sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+			sBase += "1,2,2,3,2,1,1,2,1,2,2,1,";
+			sBase += "2,2,2,1,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,2,1,1,5,2,1,";
+			//1871
+			sBase += "2,2,1,2,2,1,2,1,2,1,1,2,";
+			sBase += "1,2,1,2,2,1,2,1,2,2,1,2,";
+			sBase += "1,1,2,1,2,4,2,1,2,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+			sBase += "2,2,1,1,5,1,2,1,2,2,1,2,";
+			sBase += "2,2,1,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,4,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,1,2,2,1,2,2,1,2,1,1,2,";
+			//1881
+			sBase += "1,2,1,2,1,2,5,2,2,1,2,1,";
+			sBase += "1,2,1,2,1,2,1,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+			sBase += "2,1,1,2,3,2,1,2,2,1,2,2,";
+			sBase += "2,1,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,5,2,1,1,2,1,2,1,2,";
+			sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,5,2,1,2,2,1,2,1,2,1,2,";
+			//1891
+			sBase += "1,2,1,2,1,2,1,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,5,2,2,1,2,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,5,1,2,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,5,2,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,2,1,2,1,2,2,1,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,5,2,2,1,2,";
+			//1901
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,3,2,1,1,2,2,1,2,";
+			sBase += "2,2,1,2,1,1,2,1,1,2,2,1,";
+			sBase += "2,2,1,2,2,1,1,2,1,2,1,2,";
+			sBase += "1,2,2,4,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,1,1,2,2,1,2,1,2,2,1,2,";
+			sBase += "1,5,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			//1911
+			sBase += "2,1,2,1,1,5,1,2,2,1,2,2,";
+			sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+			sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+			sBase += "2,2,1,2,5,1,2,1,2,1,1,2,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,3,2,1,2,2,1,2,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,5,2,2,1,2,2,";
+			sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+			//1921
+			sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+			sBase += "2,1,2,2,3,2,1,1,2,1,2,2,";
+			sBase += "1,2,2,1,2,1,2,1,2,1,1,2,";
+			sBase += "2,1,2,1,2,2,1,2,1,2,1,1,";
+			sBase += "2,1,2,5,2,1,2,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+			sBase += "1,5,1,2,1,1,2,2,1,2,2,2,";
+			sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+			sBase += "1,2,2,1,1,5,1,2,1,2,2,1,";
+			//1931
+			sBase += "2,2,2,1,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,2,1,1,2,1,2,";
+			sBase += "1,2,2,1,6,1,2,1,2,1,1,2,";
+			sBase += "1,2,1,2,2,1,2,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,4,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+			sBase += "2,2,1,1,2,1,4,1,2,2,1,2,";
+			sBase += "2,2,1,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+			//1941
+			sBase += "2,2,1,2,2,4,1,1,2,1,2,1,";
+			sBase += "2,1,2,2,1,2,2,1,2,1,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,2,1,2,";
+			sBase += "1,1,2,4,1,2,1,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,1,2,";
+			sBase += "2,5,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,3,2,1,2,1,2,";
+			sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+			//1951
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,4,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,1,2,2,1,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,1,2,2,";
+			sBase += "2,1,4,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,5,2,1,2,2,";
+			sBase += "1,2,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,2,1,2,5,2,1,2,1,2,1,";
+			//1961
+			sBase += "2,1,2,1,2,1,2,2,1,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,2,3,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,1,2,2,1,";
+			sBase += "2,2,5,2,1,1,2,1,1,2,2,1,";
+			sBase += "2,2,1,2,2,1,1,2,1,2,1,2,";
+			sBase += "1,2,2,1,2,1,5,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,1,1,2,2,1,2,1,2,2,1,2,";
+			//1971
+			sBase += "1,2,1,1,5,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,1,2,2,2,1,";
+			sBase += "2,2,1,5,1,2,1,1,2,2,1,2,";
+			sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,5,2,1,1,2,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,1,";
+			sBase += "2,2,1,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,1,1,2,1,6,1,2,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+			//1981
+			sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+			sBase += "2,1,2,3,2,1,1,2,2,1,2,2,";
+			sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+			sBase += "2,1,2,2,1,1,2,1,1,5,2,2,";
+			sBase += "1,2,2,1,2,1,2,1,1,2,1,2,";
+			sBase += "1,2,2,1,2,2,1,2,1,2,1,1,";
+			sBase += "2,1,2,2,1,5,2,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+			sBase += "1,2,1,1,5,1,2,1,2,2,2,2,";
+			//1991
+			sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+			sBase += "1,2,2,1,1,2,1,1,2,1,2,2,";
+			sBase += "1,2,5,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,2,1,1,2,1,2,";
+			sBase += "1,2,2,1,2,2,1,5,2,1,1,2,";
+			sBase += "1,2,1,2,2,1,2,1,2,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,3,2,2,1,2,2,2,1,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+			sBase += "2,2,1,1,2,1,1,2,1,2,2,1,";
+			//2001
+			sBase += "2,2,2,3,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,1,2,2,1,2,1,1,2,1,2,";
+			sBase += "1,5,2,2,1,2,1,2,2,1,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,2,1,2,";
+			sBase += "1,1,2,1,2,1,5,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,1,2,";
+			sBase += "2,2,1,1,5,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+			//2011
+			sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,1,6,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,1,2,5,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,1,2,2,";
+			sBase += "2,1,1,2,3,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,1,2,5,2,1,1,2,1,2,1,2,";
+			//2021
+			sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,2,1,2,2,1,2,1,2,1,2,";
+			sBase += "1,5,2,1,2,1,2,2,1,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,2,1,1,5,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,1,2,2,2,";
+			sBase += "1,2,2,1,5,1,2,1,1,2,2,1,";
+			sBase += "2,2,1,2,2,1,1,2,1,1,2,2,";
+			sBase += "1,2,1,2,2,1,2,1,2,1,2,1,";
+			//2031
+			sBase += "2,1,5,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,2,1,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,5,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+			sBase += "2,2,1,2,1,4,1,1,2,1,2,2,";
+			sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,2,1,1,2,1,";
+			sBase += "2,2,1,2,5,2,1,2,1,2,1,1,";
+			sBase += "2,1,2,2,1,2,2,1,2,1,2,1,";
+			//2041
+			sBase += "2,1,1,2,1,2,2,1,2,2,1,2,";
+			sBase += "1,5,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,1,2,2,1,2,2";
+			
+			var arrBase = [];
+			arrBase = sBase.split(",");
+			
+			return arrBase;
+		})(),
 		
 		/**
-		 * 양력을 음력으로 변환해주는 함수.<br>
+		 * 양력을 음력으로 변환해주는 함수.<br><br>
 		 * [주의사항]<br>
 		 *  1. return값이 8자리가 아니고 9자리임에 주의<br>
-		 *  2. 처리가능 기간  1900 - 2040년<br>
-		 *  ※ 아래 해에는 윤달이 중국과 베트남이 우리와 다름.<br>
-		 *     2012년: 대한민국:3, 중국: 4, 베트남: 4
-		 *     2017년: 대한민국:5, 중국: 6, 베트남: 6
-		 * @param {string | date} value yyyyMMdd 형태의 양력일자.
-		 * @return {string | undefined} Flag(평달 = "0", 윤달 = "1") + yyyyMMdd 형태의 음력일자. 실패시 undefined.
+		 *  2. 처리가능 기간  1841 - 2043년
+		 * @param {string | date} value yyyyMMdd형태의 양력일자 ( 예 : "20121122" ).
+		 * @return {string} Flag(평달 = "0", 윤달 = "1") + 'yyyyMMdd'형태의 음력일자
 		 * @example
 		 * var dt = Eco.date.strToDate("20130331");
 		 * var str = Eco.date.solarToLunar(dt);
@@ -735,278 +770,428 @@ if ( !JsNamespace.exist("Eco.date") )
 		 * trace(str); // output : 020130220
 		 * @memberOf Eco.date
 		 */		
-		solarToLunar: function (value) {
-			var year, month, day;
-			var dateInfo = this._getYearMonthDay(value);
-			if(Eco.isEmpty(dateInfo)) { return; }
-			
-			year  =  dateInfo.year;
-			month =  dateInfo.month;
-			day   =  dateInfo.day;
-			
-			if ( Eco.isDate(value) ) {
-				year = value.getFullYear();
-				month = value.getMonth() + 1;
-				day = value.getDate();
-				
-			} else if(Eco.isString(value)) {
-				year = parseInt(value.substr(0,4), 10);
-				month = parseInt(value.substr(4,2), 10);
-				day = parseInt(value.substr(6,2), 10);
-				
-			} else { 
-				Eco.Logger.error({"message":"invalid data type.", "stack":true});
-				return; 
-			}		
-		
-		    var date = this._lunarSolarConverter(year, month, day, 1);
-			
-			if(Eco.isEmpty(date)) {
-				return;
-			}			
-			
-			var resultStr = "" + date.leapMonth + date.year + String(date.month).padLeft(2, "0") + String(date.day).padLeft(2, "0");
-			
-			return resultStr;
-		},
-		
-		 
-		/**
-		 * 음력을 양력으로 변환.
-		 * @param {string | date} value Date object 또는 yyyyMMdd 형태의 음력일자.
-		 * @param {boolean} leapMonth 윤달 여부.
-		 * @return {string | undefined} yyyyMMdd 형태의 양력일자. 실패시 undefined.
-		 * @example
-		 * var dt = Eco.date.strToDate("20120331");
-		 * var str = Eco.date.lunarToSolar(dt, false);
-		 * trace(str); // output : undefined <-- 정상적인 값이 아닐 때는 alert 표시됨.
-		 * 
-		 * var dt = Eco.date.strToDate("20120201");
-		 * var str = Eco.date.lunarToSolar(dt, false);
-		 * trace(str); // output : 20160309
-		 * 
-		 * @memberOf Eco.date
-		 */				 
-		lunarToSolar: function (value, leapMonth) {
-			var year, month, day;
-			var dateInfo = this._getYearMonthDay(value);
-			if(Eco.isEmpty(dateInfo)) { return; }
-			
-			year  =  dateInfo.year;
-			month =  dateInfo.month;
-			day   =  dateInfo.day;	
-		
-			leapMonth = (leapMonth)? 1 : 0;
-		    var date = this._lunarSolarConverter(year, month, day, 2, leapMonth);
+		solarToLunar: function(value) 
+		{
+			var sMd         = "31,0,31,30,31,30,31,31,30,31,30,31";
+			var arrMd       = [];
+			var arrBaseInfo = [];
+			var arrDt       = [];	// 매년의 음력일수를 저장할 배열 변수
+			var nTd;		    			// 음력일을 계산하기 위해 양력일과의 차이를 저장할 변수
+			var nTd1;			    		// 1840년까지의 날수
+			var nTd2;				    	// 현재까지의 날수
+			var nTemp;					    // 임시변수
+			var nLy, nLm, nLd;			    // 계산된 음력 년, 월, 일을 저장할 변수
+			var sLyoon;					    // 현재월이 윤달임을 표시
 
-			if(Eco.isEmpty(date)) {
-				return;
-			}			
-			
-			var resultStr = "" + date.year + String(date.month).padLeft(2, "0") + String(date.day).padLeft(2, "0");
-			
-			return resultStr;		
-		},
-		
-		
-		/**
-		 * 양/음력 변환 private 함수.
-		 * @private
-		 * @param {number} year yyyy 형태의 연도.
-		 * @param {number} month MM 형태의 월.
-		 * @param {number} day dd 형태의 일.
-		 * @param {number} type 1:음력으로 반환, 2:양력으로 반환.
-		 * @param {number} leapmonth 0:평달, 1:윤달
-		 * @return {object | undefined} 실패시 undefined.
-		 * @memberOf Eco.date
-		 */		 		
-		_lunarSolarConverter: function (year, month, day, type, leapmonth) {
-		
-			var solYear, solMonth, solDay;
-			var lunYear, lunMonth, lunDay;
-			var lunLeapMonth, lunMonthDay;    
-			var i, lunIndex;
-
-			var solMonthDay = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-			/* range check */
-			if (year < 1900 || year > 2040)
+			var nY, nM, nD;
+			if ( Eco.isDate(value) )
 			{
-				alert('1900년부터 2040년까지만 지원합니다');
-				return;
-			}
-
-			/* 속도 개선을 위해 기준 일자를 여러개로 한다 */
-			if (year >= 2000)
-			{
-				/* 기준일자 양력 2000년 1월 1일 (음력 1999년 11월 25일) */
-				solYear = 2000;
-				solMonth = 1;
-				solDay = 1;
-				lunYear = 1999;
-				lunMonth = 11;
-				lunDay = 25;
-				lunLeapMonth = 0;
-
-				solMonthDay[1] = 29;    /* 2000 년 2월 28일 */
-				lunMonthDay = 30;    /* 1999년 11월 */
-			}
-			else if (year >= 1970)
-			{
-				/* 기준일자 양력 1970년 1월 1일 (음력 1969년 11월 24일) */
-				solYear = 1970;
-				solMonth = 1;
-				solDay = 1;
-				lunYear = 1969;
-				lunMonth = 11;
-				lunDay = 24;
-				lunLeapMonth = 0;
-
-				solMonthDay[1] = 28;    /* 1970 년 2월 28일 */
-				lunMonthDay = 30;    /* 1969년 11월 */
-			}
-			else if (year >= 1940)
-			{
-				/* 기준일자 양력 1940년 1월 1일 (음력 1939년 11월 22일) */
-				solYear = 1940;
-				solMonth = 1;
-				solDay = 1;
-				lunYear = 1939;
-				lunMonth = 11;
-				lunDay = 22;
-				lunLeapMonth = 0;
-
-				solMonthDay[1] = 29;    /* 1940 년 2월 28일 */
-				lunMonthDay = 29;    /* 1939년 11월 */
+				nY = value.getFullYear();
+				nM = value.getMonth() + 1;
+				nD = value.getDate();
 			}
 			else
 			{
-				/* 기준일자 양력 1900년 1월 1일 (음력 1899년 12월 1일) */
-				solYear = 1900;
-				solMonth = 1;
-				solDay = 1;
-				lunYear = 1899;
-				lunMonth = 12;
-				lunDay = 1;
-				lunLeapMonth = 0;
-
-				solMonthDay[1] = 28;    /* 1900 년 2월 28일 */
-				lunMonthDay = 30;    /* 1899년 12월 */
+				nY = parseInt(value.substr(0,4), 10);
+				nM = parseInt(value.substr(4,2), 10);
+				nD = parseInt(value.substr(6,2), 10);
+			}
+			
+			if (nY < 1841 || nY > 2043)	
+			{
+				return null;
 			}
 
-			lunIndex = lunYear - 1899;
-
-			while (true)
+			arrBaseInfo = this.solarBase;
+			arrMd       = sMd.split(",");
+			arrMd[1]    = 28;
+				
+			//윤년여부 확인
+			if ((nY % 4) == 0) 
 			{
-				if (type == 1 &&
-					year == solYear &&
-					month == solMonth &&
-					day == solDay)
-				{
-					return {"year": lunYear, "month": lunMonth, "day": lunDay, "leapMonth": lunLeapMonth};
-				}    
-				else if (type == 2 &&
-						year == lunYear &&
-						month == lunMonth &&
-						day == lunDay && 
-						leapmonth == lunLeapMonth)
-				{
-					return {"year": solYear, "month": solMonth, "day": solDay, "leapMonth": 0};
+				if ((nY % 100) != 0 || (nY % 400) == 0)
+				{ 
+					arrMd[1] = 29;
 				}
+			} 
 
-				/* add a day of solar calendar */
-				if (solMonth == 12 && solDay == 31)
+			// 672069 = 1840 * 365 + 1840/4 - 1840/100 + 1840/400 + 23  //1840년까지 날수
+			nTd1 = 672069; 	 
+				
+			// 1841년부터 작년까지의 날수
+			nTd2 = (nY - 1) * 365 + parseInt((nY - 1)/4) - parseInt((nY - 1)/100) + parseInt((nY - 1)/400);
+				
+			// 전월까지의 날수를 더함
+			for (var i = 0; i <= nM - 2; i++)
+			{
+				nTd2 = nTd2 + parseInt(arrMd[i]);
+			}
+
+			// 현재일까지의 날수를 더함
+			nTd2 = nTd2 + nD;
+
+			// 양력현재일과 음력 1840년까지의 날수의 차이
+			nTd = nTd2 - nTd1 + 1;
+			
+			// 1841년부터 음력날수를 계산
+			for (var i = 0; i <= nY - 1841; i++)
+			{
+				arrDt[i] = 0;
+				for (var j = 0; j <= 11; j++)
 				{
-					solYear++;
-					solMonth = 1;
-					solDay = 1;
-
-					/* set monthDay of Feb */
-					if (solYear % 400 == 0)
-						solMonthDay[1] = 29;
-					else if (solYear % 100 == 0)
-						solMonthDay[1] = 28;
-					else if (solYear % 4 == 0)
-						solMonthDay[1] = 29;
-					else
-						solMonthDay[1] = 28;
-
-				}
-				else if (solMonthDay[solMonth - 1] == solDay)
-				{
-					solMonth++;
-					solDay = 1;    
-				}
-				else {
-					solDay++;
-				}
-
-
-				/* add a day of lunar calendar */
-				if (lunMonth == 12 &&
-					((this.lunarMonthTable[lunIndex][lunMonth - 1] == 1 && lunDay == 29) ||
-					(this.lunarMonthTable[lunIndex][lunMonth - 1] == 2 && lunDay == 30)))
-				{
-					lunYear++;
-					lunMonth = 1;
-					lunDay = 1;
-
-					lunIndex = lunYear - 1899;
+					switch (parseInt(arrBaseInfo[i * 12 + j]))
+					{
+						case 1 : nTemp = 29;
+								 break;
+						case 2 : nTemp = 30;
+								 break;				
+						case 3 : nTemp = 58;	// 29 + 29
+								 break;				
+						case 4 : nTemp = 59;	// 29 + 30
+								 break;				
+						case 5 : nTemp = 59;	// 30 + 29
+								 break;				
+						case 6 : nTemp = 60;	// 30 + 30
+								 break;				
+					}
 					
-					if(lunIndex > 144) {
-						alert("날짜 범위를 벗어났습니다.");
-						return;
-					}					
-
-					if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 1)
-						lunMonthDay = 29;
-					else if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 2)
-						lunMonthDay = 30;
+					arrDt[i] = arrDt[i] + nTemp;
 				}
-				else if (lunDay == lunMonthDay)
+			}
+				
+			// 1840년 이후의 년도를 계산 - 현재까지의 일수에서 위에서 계산된 1841년부터의 매년 음력일수를 빼가면수 년도를 계산
+			nLy = 0;
+			do
+			{
+				nTd = nTd - arrDt[nLy];
+				nLy = nLy + 1;
+			}
+			while(nTd > arrDt[nLy]);
+			
+			nLm    = 0;
+			sLyoon = "0";	// 현재월이 윤달임을 표시할 변수 - 기본값 평달
+			do
+			{
+				if (parseInt(arrBaseInfo[nLy * 12 + nLm]) <= 2)
 				{
-					if (this.lunarMonthTable[lunIndex][lunMonth - 1] >= 3
-						&& lunLeapMonth == 0)
+					nTemp = parseInt(arrBaseInfo[nLy * 12 + nLm]) + 28;
+					if (nTd > nTemp)
 					{
-						lunDay = 1;
-						lunLeapMonth = 1;
+						nTd = nTd - nTemp;
+						nLm = nLm + 1;
 					}
 					else
 					{
-						lunMonth++;
-						lunDay = 1;
-						lunLeapMonth = 0;
+						break;
 					}
-
-					if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 1)
-						lunMonthDay = 29;
-					else if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 2)
-						lunMonthDay = 30;
-					else if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 3)
-						lunMonthDay = 29;
-					else if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 4 &&
-							lunLeapMonth == 0)
-						lunMonthDay = 29;
-					else if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 4 &&
-							lunLeapMonth == 1)
-						lunMonthDay = 30;
-					else if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 5 &&
-							lunLeapMonth == 0)
-						lunMonthDay = 30;
-					else if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 5 &&
-							lunLeapMonth == 1)
-							lunMonthDay = 29;
-					else if (this.lunarMonthTable[lunIndex][lunMonth - 1] == 6)
-						lunMonthDay = 30;
 				}
 				else
-					lunDay++;
+				{
+					switch (parseInt(arrBaseInfo[nLy * 12 + nLm]))
+					{
+						case 3 :
+							m1 = 29;
+							m2 = 29;
+							break;
+						case 4 : 
+							m1 = 29;
+							m2 = 30;
+							break;					
+						case 5 : 
+							m1 = 30;
+							m2 = 29;
+							break;					
+						case 6 : 
+							m1 = 30;
+							m2 = 30;
+							break;					
+					}
+
+					if (nTd > m1)
+					{
+						nTd = nTd - m1;
+						if (nTd > m2)
+						{
+							nTd = nTd - m2;
+							nLm = nLm + 1;
+						}
+						else
+						{
+							sLyoon = "1";
+						}
+					}
+					else
+					{
+						break;
+					}
+				}
 			}
+			while(1);
+			
+			nLy = nLy + 1841;
+			nLm = nLm + 1;
+			nLd = nTd;
+
+			var sRtn = sLyoon + nLy; 
+			sRtn = sRtn + nLm.toString().padLeft(2, "0"); 
+			sRtn = sRtn + nLd.toString().padLeft(2, "0");    
+
+			return sRtn;
+		},	
+		
+		/**
+		 * 음력을 양력으로 변환.
+		 * @param {string | date} value yyyyMMdd형태의 음력일자 ( 예 : "20121122" ).
+		 * @param {boolean} leapMonth 윤달 여부.
+		 * @return {string} 'yyyyMMdd'형태의 양력일자
+		 * @example
+		 * var dt = Eco.date.strToDate("20120331");
+		 * var str = Eco.date.lunarToSolar(dt, false);
+		 * trace(str); // output : 20120421
+		 * var str1 = "20120331";
+		 * var str = Eco.date.lunarToSolar(str1, false);
+		 * trace(str); // output : 20120421
+		 * @memberOf Eco.date
+		 */		 
+		lunarToSolar: function(value, leapMonth) 
+		{
+			var pThis = Eco.date;
+			var sMd         = "31,0,31,30,31,30,31,31,30,31,30,31";
+			var arrMd       = [];	
+			var arrBaseInfo = [];
+			var nTd         = 0;
+			var nSy, nSm, nSd;			    // 계산된 양력 년, 월, 일을 저장할 변수
+			var nY1, nM1, nY2, nY3, nTemp;	// 임시변수	
+			var nLeap;    
+				
+			var nLy, nLm, nLd;
+			if ( Eco.isDate(value) )
+			{
+				nLy = value.getFullYear();
+				nLm = value.getMonth() + 1;
+				nLd = value.getDate();
+			}
+			else
+			{
+				nLy = parseInt(value.substr(0,4), 10);
+				nLm = parseInt(value.substr(4,2), 10);
+				nLd = parseInt(value.substr(6,2), 10);
+			}
+
+			if (nLy < 1841 || nLy > 2043)	
+			{
+				return null;
+			}	
+
+			arrBaseInfo = pThis.solarBase;
+			arrMd       = sMd.split(",");
+			arrMd[1]    = 28;
+			
+			//윤년여부 확인
+			if ((nLy % 4) == 0) 
+			{
+				if ((nLy % 100) != 0 || (nLy % 400) == 0)
+				{ 
+					arrMd[1] = 29;
+				}
+			} 
+				
+			nY1   = nLy - 1841;
+			nM1   = nLm - 1;
+			nLeap = 0;
+			
+			if (parseInt(arrBaseInfo[nY1 * 12 + nM1]) > 2)
+			{
+				//윤년여부 확인
+				if ((nLy % 4) == 0) 
+				{
+					if ((nLy % 100) != 0 || (nLy % 400) == 0)
+					{ 
+						nLeap = 1;
+					}
+				} 
+			}
+			
+			if (nLeap == 1)
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+				{
+					case 3 : nTemp = 29;
+							 break;
+					case 4 : nTemp = 30;
+							 break;			
+					case 5 : nTemp = 29;
+							 break;			
+					case 6 : nTemp = 30;
+							 break;
+				}
+			}
+			else
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+				{
+					case 1 : nTemp = 29;
+							 break;			
+					case 2 : nTemp = 30;
+							 break;			
+					case 3 : nTemp = 29;
+							 break;			
+					case 4 : nTemp = 29;
+							 break;			
+					case 5 : nTemp = 30;
+							 break;			
+					case 6 : nTemp = 30;
+							 break;			
+				}
+			}
+			
+			var tempY1 = nY1 - 1;
+			for (var i = 0; i <= tempY1; i++)
+			{
+				for (var j = 0; j <= 11; j++)
+				{
+					switch (parseInt(arrBaseInfo[i * 12 + j]))
+					{
+						case 1 : nTd = nTd + 29;
+								 break;
+						case 2 : nTd = nTd + 30;
+								 break;				
+						case 3 : nTd = nTd + 58;
+								 break;				
+						case 4 : nTd = nTd + 59;
+								 break;				
+						case 5 : nTd = nTd + 59;
+								 break;				
+						case 6 : nTd = nTd + 60;
+								 break;				
+					}
+				}
+			}
+
+			var tempM1 = nM1 - 1;
+			for (var j = 0; j <= tempM1; j++)
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + j]))
+				{
+					case 1 : nTd = nTd + 29;
+							 break;			
+					case 2 : nTd = nTd + 30;
+							 break;						
+					case 3 : nTd = nTd + 58;
+							 break;						
+					case 4 : nTd = nTd + 59;
+							 break;						
+					case 5 : nTd = nTd + 59;
+							 break;						
+					case 6 : nTd = nTd + 60;
+							 break;						
+				}
+			}
+
+			if (nLeap == 1)
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+				{
+					case 3 : nTemp = 29;
+							 break;						
+					case 4 : nTemp = 29;
+							 break;						
+					case 5 : nTemp = 30;
+							 break;						
+					case 6 : nTemp = 30;
+							 break;						
+				}
+			}
+			
+			nTd = nTd + nLd + 22;
+			
+			if (leapMonth)
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+				{
+					case 3 : nTd = nTd + 29;
+							 break;						
+					case 4 : nTd = nTd + 30;
+							 break;						
+					case 5 : nTd = nTd + 29;
+							 break;						
+					case 6 : nTd = nTd + 30;
+							 break;						
+				}
+			}
+			
+			nY1 = 1840;
+			do
+			{
+				nY1 = nY1 + 1;
+				
+				nLeap = 0;
+				
+				//윤년여부 확인
+				if ((nY1 % 4) == 0) 
+				{
+					if ((nY1 % 100) != 0 || (nY1 % 400) == 0)
+					{ 
+						nLeap = 1;
+					}
+				} 
+
+				if (nLeap == 1)
+				{
+					nY2 = 366;
+				}
+				else
+				{
+					nY2 = 365;
+				}
+
+				if( nTd <= nY2 )
+				{
+					break;
+				}
+					
+				nTd = nTd - nY2;
+			}
+			while(1);
+
+			nSy      = nY1;
+			arrMd[1] = nY2 - 337;
+			nM1      = 0;
+			
+			do
+			{
+				nM1 = nM1 + 1;
+				if (nTd <= parseInt(arrMd[nM1-1]))
+				{
+					break;
+				}
+				nTd = nTd - parseInt(arrMd[nM1-1]);
+			}
+			while(1);
+			
+			nSm = nM1;
+			nSd = nTd;
+			nY3 = nSy;
+			nTd = nY3 * 365 + parseInt(nY3/4) - parseInt(nY3/100) + parseInt(nY3/400);
+			
+			var tempSm = nSm - 1;
+			for (var i = 0; i <= tempSm; i++)
+			{
+				nTd = nTd + parseInt(arrMd[i]);
+			}
+
+			nTd = nTd + nSd;
+
+			var sRtn = nY3;
+			sRtn = sRtn + nSm.toString().padLeft(2, "0"); 
+			sRtn = sRtn + nSd.toString().padLeft(2, "0");    
+
+			return sRtn;	
 		},
 	
 		/**
 		 * 전달된 月의 1일 만들기.
-		 * @param {string | date} value Date object 또는 yyyyMMdd 형태의 일자.
+		 * @param {string | date} value yyyyMMdd형태의 일자.
 		 * @return {string} yyyyMM01.
 		 * @example
 		 * var dt = Eco.date.strToDate("20120331");
@@ -1040,9 +1225,9 @@ if ( !JsNamespace.exist("Eco.date") )
 		},
 		
 		/**
-		 * 날짜 차이 반환.
-		 * @param {string} date1 yyyyMMddHHMMSS 형태의 일자.
-		 * @param {string} date2 yyyyMMddHHMMSS 형태의 일자.
+		 * 날짜 차이 계산하기.
+		 * @param {string} date1 yyyyMMddHHMMSS형태의 일자.
+		 * @param {string} date2 yyyyMMddHHMMSS형태의 일자.
 		 * @return {array} 두 날짜의 기간.[일,시,분,초]
 		 * @example
 		 * var dt0 = Eco.date.strToDate("20130302113022");
@@ -1091,7 +1276,7 @@ if ( !JsNamespace.exist("Eco.date") )
 		 * mask format 변환 정보 반환.
 		 * @private
 		 * @param {string} strMask mask할 format 문자열.
-		 * @return {array} mask format 변환 정보.
+		 * @return {array} mask format 변환 정보
 		 * @memberOf Eco.date
 		 */		
 		_parseDateMask: function(strMask)
@@ -1182,8 +1367,8 @@ if ( !JsNamespace.exist("Eco.date") )
 		},
 		
 		/**
-		 * 주어진 날짜 객체의 Mask Format 처리된 문자열을 반환.<br>
-		 * 요일명칭, 월 명칭, 오전/오후 명칭 표시 처리는 Eco.date에 정의된 값으로 처리된다.<br><br>
+		 * 주어진 날짜 개체의 Mask Format 처리된 문자열을 반환.<br>
+		 * 요일명칭, 달명칭, 오전오후 명칭 표시 처리는 Eco.date에 정의된 값으로 처리된다.<br><br>
 		 * Eco.date.weekName : 요일명칭(Array value), <br>
 		 * Eco.date.weekShortName : 요일축약명칭(Array value),<br>
 		 * Eco.date.monthName : 월명칭(Array value),<br>

@@ -15,11 +15,11 @@ if ( !JsNamespace.exist("Eco.array") )
 		/**
 		* 배열의 각 항목에 대해 주어진 콜백 함수를 호출한다.<br>
 		* 주어진 함수에서 return false 처리 되면 임의 배열 항목에서 반복이 멈춘다.
-		* @param {array} array 처리 대상 Array.
-		* @param {function} func callback 함수. 
-		* @param {object=} scope callback 함수에 대한 수행 scope.
-		* @param {boolean=} reverse 반복순서 (default: false).
-		* @return {boolean | number} 배열 항목 모두가 처리되면 true를 리턴, 함수 처리중에 return false를 하게 되면 false 처리된 배열 index를 리턴.
+		* @param {array} array 처리 대상 Array
+		* @param {function} func callback 함수 
+		* @param {object=} scope callback 함수에 대한 수행 scope
+		* @param {boolean=} reverse 반복순서 (default: false)
+		* @return {boolean | number} 배열 항목 모두가 처리되면 true를 리턴, 함수 처리중에 return false를 하게 되면 false 처리된 배열 index를 리턴
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* var result = Eco.array.Each(mon, function(name, index) {
@@ -107,11 +107,11 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 지정된 항목이 처음 나오는 배열 위치를 반환한다. 
-		* @param {array} array 검색 대상 Array.
-		* @param {object} item 찾고자 하는 Item.
-		* @param {number=} from 검색의 시작 위치 (default: 0).
-		* @param {boolean=} strict true: 형변환 없이 비교('==='), false: 형변환 후 비교('==') (default: false).
-		* @return {number} 검색된 배열 위치. 없다면 -1 리턴.
+		* @param {array} array 검색 대상 Array
+		* @param {object} item 찾고자 하는 Item
+		* @param {number=} from 검색의 시작 위치 (default: 0)
+		* @param {boolean=} strict true: 형변환 없이 비교('==='), false: 형변환 후 비교('==') (default: false)
+		* @return {number} 검색된 배열 위치. 없다면 -1 리턴
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* var index = Eco.array.indexOf(mon, "Mar");
@@ -157,11 +157,11 @@ if ( !JsNamespace.exist("Eco.array") )
 		
 		/**
 		* 지정된 항목이 처음 나오는 배열 위치를 뒤에서부터 찾아 반환한다.
-		* @param {array} array 검색 대상 Array.
-		* @param {object} item 찾고자 하는 Item.
-		* @param {number=} from 검색 시작 위치 (default: Last Index).
-		* @param {boolean=} strict true: 형변환 없이 비교('==='), false: 형변환 후 비교('==') (default: false).
-		* @return {number} 검색된 배열 위치. 없다면 -1 리턴.
+		* @param {array} array 검색 대상 Array
+		* @param {object} item 찾고자 하는 Item
+		* @param {number=} from 검색의 시작 위치 (default: Last Index)
+		* @param {boolean=} strict true: 형변환 없이 비교('==='), false: 형변환 후 비교('==') (default: false)
+		* @return {number} 검색된 배열 위치. 없다면 -1 리턴
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* var index = Eco.array.indexOf(mon, "Mar");
@@ -211,10 +211,10 @@ if ( !JsNamespace.exist("Eco.array") )
 		 
 		/**
 		* 지정된 항목이 배열에 포함되어 있는지 확인한다.
-		* @param {array} array 검색 대상 Array.
-		* @param {object} item 찾고자 하는 Item.
-		* @param {boolean=} strict true: 형변환 없이 비교('==='), false: 형변환 후 비교('==') (default: false).
-		* @return {boolean} 포함되어 있다면 true, 없다면 false를 리턴.
+		* @param {array} array 검색 대상 Array
+		* @param {object} item 찾고자 하는 Item
+		* @param {boolean=} strict true: 형변환 없이 비교('==='), false: 형변환 후 비교('==') (default: false)
+		* @return {boolean} 포함되어 있다면 true, 없다면 false를 리턴
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* var contain = Eco.array.contains(mon, "Mar");
@@ -237,10 +237,10 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 배열 형태로 변환 처리한다.
-		* @param {object} iterant 변환 대상 Obejct.
-		* @param {number=} start 시작 위치 (default: start Index).
-		* @param {number=} end 끝 위치 (default: end Index).
-		* @return {array} 변환된 Array.
+		* @param {object} iterant 변환 대상 Obejct
+		* @param {number=} start 시작 위치 (default: start Index)
+		* @param {number=} end 끝 위치 (default: end Index)
+		* @return {array} 변환된 Array
 		* @example
 		* this.fn_mon("Jan","Feb","Mar","Apr");
 		* this.fn_mon = function() 
@@ -287,10 +287,10 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 배열의 모든 항목을 인자로 사용해서 제공하는 함수의 호출 결과로 새로운 배열을 작성한다.
-		* @param {array} array 처리 대상 Array.
-		* @param {function} func callback 함수. 
-		* @param {object=} scope callback 함수에 대한 수행 scope.
-		* @return {array} callback 함수 결과를 담은 Array.
+		* @param {array} array 처리 대상 Array
+		* @param {function} func callback 함수 
+		* @param {object=} scope callback 함수에 대한 수행 scope
+		* @return {array} callback 함수 결과를 담은 Array
 		* @example
 		* var counts = [2, 10, 5, 1];
 		* var map = Eco.array.map(counts, function(ele){return ele * 1000;});
@@ -317,10 +317,10 @@ if ( !JsNamespace.exist("Eco.array") )
 		
         /**
 		* 함수가 false값을 리턴 할 때까지 각 배열 항목을 이용한 callback함수를 실행한다.
-		* @param {array} array 처리 대상 Array.
-		* @param {function} func callback 함수.
-		* @param {object=} scope callback 함수에 대한 수행 scope.
-		* @return {boolean} callback 함수 처리 결과값. false로 리턴되는 항목이 발견되면 바로 false를 리턴, 그렇지 않으면 true를 리턴.
+		* @param {array} array 처리 대상 Array
+		* @param {function} func callback 함수 
+		* @param {object=} scope callback 함수에 대한 수행 scope
+		* @return {boolean} callback 함수 처리 결과값. false로 리턴되는 항목이 발견되면 바로 false를 리턴, 그렇지 않으면 true를 리턴
 		* @example
 		* var counts = [2, 10, 5, 1];
 		* var every = Eco.array.every(counts, function(ele){return (ele > 0);});
@@ -351,10 +351,10 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 함수가 true값을 리턴 할 때까지 각 배열 항목을 이용한 callback함수를 실행한다.
-		* @param {array} array 처리 대상 Array.
-		* @param {function} func callback 함수. 
-		* @param {object=} scope callback 함수에 대한 수행 scope.
-		* @return {boolean} callback 함수 처리 결과값. true로 리턴되는 항목이 발견되면 바로 true를 리턴, 그렇지 않으면 false를 리턴.
+		* @param {array} array 처리 대상 Array
+		* @param {function} func callback 함수 
+		* @param {object=} scope callback 함수에 대한 수행 scope
+		* @return {boolean} callback 함수 처리 결과값. true로 리턴되는 항목이 발견되면 바로 true를 리턴, 그렇지 않으면 false를 리턴
 		* @example
 		* var counts = [2, 10, 5, 1];
 		* var some = Eco.array.some(counts, function(ele){return (ele > 5);});
@@ -385,9 +385,9 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 두 1차원 배열의 항목값이 일치하는지 비교한다.
-		* @param {array} array1 대상 Array.
-		* @param {array} array2 비교 대상 Array.
-		* @return {boolean} 모든 항목값이 같은면 true, 그렇지 않으면 false.
+		* @param {array} array1 대상 Array
+		* @param {array} array2 비교 대상 Array
+		* @return {boolean} 모든 항목값이 같은면 true, 그렇지 않으면 false
 		* @example
 		* var counts = [2, 10, 5, 1];
 		* var equals = Eco.array.equals(counts, [2, 10, 5, 1]);
@@ -424,8 +424,8 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 배열의 빈 항목을 제거한다.
-		* @param {array} array 처리 대상 Array.
-		* @return {array} clean 처리 된 Array.
+		* @param {array} array 처리 대상 Array
+		* @return {array} clean 처리 된 Array
 		* @example
 		* var clean = Eco.array.clean(["A", undefined, "B", null, "C", , "D"]);
 		* trace("clean==>" + clean);	// output : clean==>["A","B","C","D"]
@@ -451,8 +451,8 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 유일한 항목을 찾아 새로운 배열로 구성해서 리턴한다.
-		* @param {array} array 처리 대상 Array.
-		* @return {array} unique한 항목으로 새로 구성된 Array.
+		* @param {array} array 처리 대상 Array
+		* @return {array} unique한 항목으로 새로 구성된 Array
 		* @example
 		* var unique = Eco.array.unique(["A","B","C","A","A","B"]);
 		* trace("unique==>" + unique);	// output : unique==>["A","B","C"]
@@ -478,10 +478,10 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 대상 배열에서 Callback함수 조건을 만족하는 항목으로 새로운 배열을 구성한다.
-		* @param {array} array 처리 대상 Array.
-		* @param {function} func callback 함수. 
-		* @param {object=} scope callback 함수에 대한 수행 scope.
-		* @return {array} filter처리된 항목으로 새로 구성된 Array.
+		* @param {array} array 처리 대상 Array
+		* @param {function} func callback 함수 
+		* @param {object=} scope callback 함수에 대한 수행 scope
+		* @return {array} filter처리된 항목으로 새로 구성된 Array
 		* @example
 		* var counts = [2, 10, 5, 1];
 		* var filter = Eco.array.filter(counts, function(ele){return (ele > 3);});
@@ -512,9 +512,9 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 원하는 위치에 새로운 항목을 insert처리한다.
-		* @param {array} array insert 대상 Array.
-		* @param {number} index insert 위치.
-		* @param {object} items insert하고자 하는 items.
+		* @param {array} array insert 대상 Array
+		* @param {number} index insert 위치
+		* @param {object} items insert하고자 하는 items
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* Eco.array.insertAt(mon, 1, [50,100]);
@@ -528,9 +528,9 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 원하는 항목의 앞 위치에 새로운 항목을 insert처리한다.
-		* @param {array} array insert 대상 Array.
-		* @param {object} items insert하고자 하는 items.
-		* @param {object} items2 insert 위치(이 item 앞에 위치시킴).
+		* @param {array} array insert 대상 Array
+		* @param {object} items insert하고자 하는 items
+		* @param {object} items2 insert 위치(이 item 앞에 위치시킴)
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* Eco.array.insertBefore(mon, [50,100], "Feb");
@@ -552,8 +552,8 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 원하는 위치의 항목을 배열에서 삭제 처리한다.
-		* @param {array} array remove 대상 Array.
-		* @param {number} index remove하고자 하는 item index.
+		* @param {array} array remove 대상 Array
+		* @param {number} index remove하고자 하는 item index
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* Eco.array.removeAt(mon, 1);
@@ -567,8 +567,8 @@ if ( !JsNamespace.exist("Eco.array") )
         
 		/**
 		* 원하는 항목을 배열에서 삭제 처리한다.
-		* @param {array} array remove 대상 Array.
-		* @param {object} item remove하고자 하는 item.
+		* @param {array} array remove 대상 Array
+		* @param {object} item remove하고자 하는 item
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* Eco.array.remove(mon, "Feb");
@@ -587,8 +587,8 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 배열을 복사한다.
-		* @param {array} array 복사 대상 Array.
-		* @return {array} 복사된 Array.
+		* @param {array} array 복사 대상 Array
+		* @return {array} 복사된 Array
 		* @example
 		* var counts = [2, 10, 5, 1];
 		* var clone = Eco.array.clone(counts);
@@ -601,18 +601,16 @@ if ( !JsNamespace.exist("Eco.array") )
             //return array.concat([]);
         },
         /**
-		* 배열의 순서대로 각 요소들을 각 요소별 호출함수로 처리하여 하나의 값으로 감소한다.
-		* 각 요소별로 호출되는 함수는, 4개의 argument을 가진다.
-		* <pre>
-		*    previousValue : 현재 처리 전의 값.
-		*    currentValue: 현재 값.
-		*    index: 현재 처리하는 array index.
-		*    arr : 처리하는 대상 array.
-		* </pre>
-		* @param {array} arr 대상 Array.
-		* @param {function} fn 배열의 각 요소별로 호출되는 함수.
-		* @param {*=} initValue 초기 지정하는 값.
-		* @return {*} 감소 처리된 결과.
+		* 배열의 순서대로 각 요소들을 주어진 fn 함수로 처리하여 하나의 값으로 감소한다.
+		* fn 함수는 배열의 각 요소별로 호출되는 함수이고, 4개의 argument을 가진다.
+		* previousValue : 현재 처리 전의 값
+		* currentValue: 현재 값
+		* index: 현재 처리하는 array index
+		* arr : 처리하는 대상 array
+		* @param {array} arr 대상 Array
+		* @param {function} fn 배열의 각 요소별로 호출되는 함수
+		* @param {*=} initValue 초기 지정하는 값
+		* @return {*} 감소 처리된 결과
 		* @example
 		* var arr = [0, 1, 2, 3];
 		* var total = Eco.array.reduce(arr, function(a, b) {
@@ -629,11 +627,7 @@ if ( !JsNamespace.exist("Eco.array") )
 		*/
 		reduce: Array.prototype.reduce ? function(arr, fn, initValue)
 		{
-			if(Eco.isEmpty(initValue)) {
-				return arr.reduce(fn);
-			} else {
-				return arr.reduce(fn, initValue);
-			}
+			return arr.reduce(fn, initValue);
 		} :
 		function(arr, fn, initValue)
 		{
@@ -677,7 +671,7 @@ if ( !JsNamespace.exist("Eco.array") )
 			return value;
 		},
 		/**
-		* flatten method에서 사용하는 1차원 배열 저장소.
+		* flatten method에서 사용하는 1차원 배열 저장소
 		* @private
 		* @memberOf Eco.array
 		*/
@@ -685,8 +679,8 @@ if ( !JsNamespace.exist("Eco.array") )
 		
 		/**
 		* 1차원 배열로 재정의한다.
-		* @param {array} array 처리 대상 배열.
-		* @return {array} 1차원 Array.
+		* @param {array} array 처리 대상 배열
+		* @return {array} 1차원 Array
 		* @example
 		* var flatten = Eco.array.flatten(['Jan', [10, 20], ['Feb', [1, 10]]]);
 		* trace("flatten==>" + flatten);	// output : flatten==>[Jan,10,20,Feb,1,10]
@@ -701,8 +695,8 @@ if ( !JsNamespace.exist("Eco.array") )
 		/**
 		* 1차원 배열로 재정의한다.
 		* @private
-		* @param {array} array 처리 대상 배열.
-		* @return {array} 1차원 Array.
+		* @param {array} array 처리 대상 배열
+		* @return {array} 1차원 Array
 		* @memberOf Eco.array
 		*/
         _flatten: function(array)
@@ -729,8 +723,8 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 배열중에 가장 큰 값을 리턴한다.
-		* @param {array} array 검색 대상 배열.
-		* @return {number} maximum Value.
+		* @param {array} array 검색 대상 배열
+		* @return {number} maximum Value
 		* @example
 		* var counts = [2, 10, 5, 1];
 		* var max = Eco.array.max(counts);
@@ -744,8 +738,8 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 배열중에 가장 작은 값을 리턴한다.
-		* @param {array} array 검색 대상 배열.
-		* @return {number} minimum Value.
+		* @param {array} array 검색 대상 배열
+		* @return {number} minimum Value
 		* @example
 		* var counts = [2, 10, 5, 1];
 		* var min = Eco.array.min(counts);
@@ -759,10 +753,10 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 배열의 모든 항목에 대한 합계를 구한다.
-		* @param {array} array 처리 대상 배열.
-		* @param {number} start 배열 시작 index.
-		* @param {number} len 계산할 배열 length.
-		* @return {number} sum value.
+		* @param {array} array 처리 대상 배열
+		* @param {number} start 배열 시작 index
+		* @param {number} len 계산할 배열 length
+		* @return {number} sum value
 		* @example
 		* var counts = [2, 10, 5, 1];
 		* var sum = Eco.array.sum(counts);
@@ -780,10 +774,10 @@ if ( !JsNamespace.exist("Eco.array") )
  
 		/**
 		* 지정된 두 항목의 위치을 바꾼다.
-		* @param {array} array exchange 대상 Array.
-		* @param {number} from 바꾸고자 하는 첫번째 item index.
-		* @param {number} to 바꾸고자 하는 두번째 item index.
-		* @return {boolean} 위치가 정상적으로 변경되었으면 true, 그렇지않다면 false를 리턴.
+		* @param {array} array exchange 대상 Array
+		* @param {number} from 바꾸고자 하는 item index
+		* @param {number} to 바꾸고자 하는 item index
+		* @return {boolean} 위치가 정상적으로 변경되었으면 true, 그렇지않다면 false를 리턴
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* var exchange = Eco.array.exchange(mon, 1,3);
@@ -809,10 +803,10 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
 		* 지정된 항목을 원하는 위치로 이동시킨다.
-		* @param {array} array 대상 Array.
-		* @param {number} from 이동시킬 item index.
-		* @param {number} to 새로 위치하고자 하는 item index.
-		* @return {boolean} 위치가 정상적으로 이동되었으면 true, 그렇지않다면 false를 리턴.
+		* @param {array} array move 대상 Array
+		* @param {number} from 이동시킬 item index
+		* @param {number} to 새로 위치하고자 하는 item index
+		* @return {boolean} 위치가 정상적으로 이동되었으면 true, 그렇지않다면 false를 리턴
 		* @example
 		* var mon = ["Jan","Feb","Mar","Apr"];
 		* var move = Eco.array.move(mon, 1,3);
@@ -862,9 +856,9 @@ if ( !JsNamespace.exist("Eco.array") )
 		* 모든 객체에는 최소한 하나 이상의 공통 속성을 가지며,<br>
 		* 이 값은 배열 항목을 정렬하는데 사용된다.<br>
 		* 매개변수가 여러개인 경우에는 첫번째 필드는 1차, 두번째 필드는 다음 정렬 필드로 사용된다.
-		* @param {array} array 대상 Array.
-		* @param {string...} 정렬 기준 필드명.
-		* @return {array} Sort 처리된 Array.
+		* @param {array} array Sort 대상 Array
+		* @param {object...} 정렬 기준 필드
+		* @return {array} Sort 처리된 Array
 		* @example
 		* var users = [];
 		* users[0] = {id:"milk", name:"park", age:33};
@@ -936,9 +930,9 @@ if ( !JsNamespace.exist("Eco.array") )
         
         /**
         * 이차원 배열의 이차 요소별로 정렬하여 새로운 배열을 반환하다.
-		* @param {array} arr 2차원 배열.
-		* @param {array} sortOrders 2차요소 정렬 기준("ASC":오름차순, "DESC":내림차순).
-		* @return {array} 정렬 처리된 Array.
+		* @param {array} arr 정렬 대상 2차원 배열
+		* @param {array} sortOrders 2차요소 정렬 기준 ("ASC":오름차순, "DESC":내림차순)
+		* @return {array} 정렬 처리된 Array
 		* @example
 		*	var arr = [['A', 'a', '가'],
 		*			   ['A', 'a', '나'],
@@ -1006,12 +1000,12 @@ if ( !JsNamespace.exist("Eco.array") )
         /**
         * 지정된 속성의 값이 처음으로 일치하는 객체의 배열 위치를 반환한다.<br>
         * 배열의 각 항목은 하나 이상의 속성을 가진 객체이다.<br> 
-		* @param {array} array 대상 Array.
-		* @param {string} prop 기준 속성.
-		* @param {string} item 기준 값.
-		* @param {number=} from 검색 시작 위치(default: 0).
-		* @param {boolean=} strict true: 형변환 없이 비교('==='), false: 형변환 후 비교('==') (default: false).
-		* @return {number} 검색된 배열 위치. 없다면 -1 리턴.
+		* @param {array} array 검색 대상 Array
+		* @param {string} prop 기준 속성
+		* @param {string} item 기준 값
+		* @param {number=} from 검색의 시작 위치 (default: 0)
+		* @param {boolean=} reverse 반복순서 (default: false)
+		* @return {number} 검색된 배열 위치. 없다면 -1 리턴
 		* @example
 		* var users = [];
 		* users[0] = {id:"milk", name:"park", age:33};
@@ -1079,12 +1073,12 @@ if ( !JsNamespace.exist("Eco.array") )
 		/**
 		* 지정된 속성의 값이 처음으로 일치하는 객체의 배열 위치를 뒤에서부터 찾아 반환한다.<br>
         * 배열의 각 항목은 하나 이상의 속성을 가진 객체이다.<br> 
-		* @param {array} array 대상 Array.
-		* @param {string} prop 기준 속성.
-		* @param {string} item 기준 값.
-		* @param {number=} from 검색 시작 위치(default: 0).
-		* @param {boolean=} strict true: 형변환 없이 비교('==='), false: 형변환 후 비교('==') (default: false).
-		* @return {number} 검색된 배열 위치. 없다면 -1 리턴.
+		* @param {array} array 검색 대상 Array
+		* @param {string} prop 기준 속성
+		* @param {string} item 기준 값
+		* @param {number=} from 검색의 시작 위치 (default: 0)
+		* @param {boolean=} reverse 반복순서 (default: false)
+		* @return {number} 검색된 배열 위치. 없다면 -1 리턴
 		* @example
 		* var users = [];
 		* users[0] = {id:"milk", name:"park", age:33};
@@ -1154,9 +1148,9 @@ if ( !JsNamespace.exist("Eco.array") )
 
         /**
         * 배열 arr에서 배열 arr1의 모든 항목을 뺀 차 집합 배열을 리턴한다.<br>
-		* @param {array} arr 기준 Array.
-		* @param {array} arr1 대상 Array.
-		* @return {array} 차집합 Array.
+		* @param {array} arr 기준 Array
+		* @param {array} arr1 대상 Array
+		* @return {array} 차집합 Array
 		* @example
 		* var arr = [2, 10, 5, 1, 7];
 		* var arr1 = [9, 15, 5, 2];
@@ -1189,11 +1183,9 @@ if ( !JsNamespace.exist("Eco.array") )
 		/**
         * source Array의 시작 index로 주어진 length길이만큼 요소들을 destination Array의 시작 index에서 부터 복사한다.<br>
         * Java에서 System.arraycopy 함수와 동일하다고 보면 된다.
-		* @param {array} arr 소스 array.
-		* @param {array} srcPos 소스 array에서 읽기 시작할 위치.
-		* @param {array} dest 복사대상 array.
-		* @param {array} destPos 복사대상 array에 데이터를 쓸 때 시작위치.
-		* @param {array} length 소스 array에서 읽어들일 길이.
+		* @param {array} arr 정렬 대상 2차원 배열
+		* @param {array} sortOrders 2차요소 정렬 기준 ("ASC":오름차순, "DESC":내림차순)
+		* @return {array} 정렬 처리된 Array
 		* @example
 		*	var copyFrom = [ 'd', 'e', 'c', 'a', 'f', 'f', 'e', 'i', 'n', 'a', 't', 'e', 'd' ];
 		*	var copyTo = new Array(7);
@@ -1240,13 +1232,13 @@ if ( !JsNamespace.exist("Eco.array") )
 			return 0;
 		},
 		/**
-        * 정렬된 array에서 지정한 값 대한 index를 찾아서 반환한다. sort함수인 compareFn 함수를 사용한다.
-		* @param {array} arr 정렬된 1차원 배열.
-		* @param {number} start 검색 시작 index.
-		* @param {number} len 검색 range 크기.
-		* @param {number} item 검색할 값.
-		* @param {function=} compareFn 각 요소마다 비교할 함수.
-		* @return {number} 검색한 index.
+        * 값에 sorted된 array에 대한 index을 찾아서 반환한다. sort함수인 compareFn 함수를 사용한다.
+		* @param {array} arr 정렬 대상 1차원 배열
+		* @param {number} start 시작할 검색 index
+		* @param {number} len 검색 range 크기
+		* @param {number} item 검색할 값
+		* @param {function} compareFn 각 요소마다 비교할 함수
+		* @return {number} 검색한 index
 		* @example
 		* var compare = Eco.array._defaultCompare,
 		* arrayUtil = Eco.array;

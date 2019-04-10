@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Confirm" left="0" top="0" width="300" height="187" titletext="New Form" onload="form_onload" style="background:#ebebebff;font:10 verdana;" name="Confirm" onkeydown="form_onkeydown">
+    <Layouts>
+      <Layout>
+        <Button id="btn_confirm" taborder="0" text="Confirm" left="5.33%" top="108" right="53.33%" height="49" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;"/>
+        <Button id="btn_cancel" taborder="1" text="Cancel" left="51.67%" top="107" right="5%" height="51" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;" onclick="btn_cancel_onclick"/>
+        <Static id="stc_question" taborder="2" left="5.33%" top="18" right="5.67%" height="74" wordwrap="char"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[
+this.startDate = this.opener.cal_from.value;
+this.endDate = this.opener.cal_to.value;
+this.selRow = [];
+this.selRow = this.opener.grd_stock.getSelectedRows();
+this.bookNo = 0;
+this.bookTitle = this.opener.dsBook.getColumn(this.selRow[0], "bookNm");
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var selArr = [];
+	for(var x = 0; x < this.selRow.length; x++){
+		selArr.push(this.selRow[x]);
+	}
+
+	if(this.opener.modalName == "modeless-confirm"){
+		
+		this.stc_question.set_text(this.bookTitle + ", " + 
+			selArr.length + "권, " + 
+			this.fn_date_change(this.startDate) + "부터, " + 
+			this.fn_date_change(this.endDate) + "까지, 대여하시겠습니까?");
+			
+		this.btn_confirm.setEventHandler("onclick", this.btn_confirm_rent, this);
+		
+	} else if(this.opener.modalName == "modeless-mypage"){
+	
+		this.stc_question.set_text("마이페이지로 이동할까요?");
+		this.btn_confirm.setEventHandler("onclick", this.btn_confirm_mypage, this);
+	}
+}
+
+this.fn_date_change = function(date){
+
+	var toStr = date.toString();
+	var year = toStr.slice(0, 4);
+	var month = toStr.slice(4, 6);
+	var strDate = toStr.slice(6);
+	var fullStr = year + "년 " + month + "월 " + strDate + "일";
+	
+	return fullStr;
+}
+
+
+this.btn_confirm_rent = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var confirmArr = [];
+	
+	for(var y = 0; y < this.selRow.length; y++){
+		confirmArr.push(this.selRow[y]);
+	}
+	
+	trace(confirmArr);
+	
+	if(this.startDate != null && this.endDate != null && confirmArr.length > 0){
+		
+		for(var i = 0; i < confirmArr.length; i++){
+		
+			this.bookNo = this.opener.dsBook.getColumn(confirmArr[i], "bookNo");
+		 	trace("bookNo..." + this.bookNo);
+		 	this.opener.dsRent.addRow();
+		 	this.opener.dsRent.setColumn(i, "userNo", 161);
+			this.opener.dsRent.setColumn(i, "bookNo", this.bookNo);
+			this.opener.dsRent.setColumn(i, "serviceCd", 2);
+			this.opener.dsRent.setColumn(i, "serviceStart", this.startDate);
+			this.opener.dsRent.setColumn(i, "serviceEnd", this.endDate);
+
+		}
+				
+		this.opener.gfn_serviceCall("rent");
+		
+		this.opener.dsRent.clearData();
+		this.close();
+		
+	} else{
+		alert("대여하려는 도서를 확인해주세요.");
+		return false;
+	}
+}
+
+
+this.btn_confirm_mypage = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+	this.opener.opener.go("Practice::MyPage.xfdl");
+	this.opener.close();
+	this.close();
+
+}
+
+this.btn_cancel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.form_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 27){
+		this.close();
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -87,6 +87,7 @@ public class HappyLibraryMapper extends EgovAbstractMapper{
 	}
 
 	public void deleteCommd(Map<String, Object> requstMap) {
+		
 		delete("deleteCommd", requstMap);
 		
 	}

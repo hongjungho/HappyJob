@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="happybook.service.dao.mybatis.HappyLibraryMapper">
+
+
+	<select id="selectBookList" parameterType="java.util.Map" resultType="egovMap">
+		select * from HL_BOOK
+		WHERE 	1=1
+		<if test='bookNm != null and bookNm !=""'>
+			AND	 upper(pc.product_remark) LIKE '%'||upper(#{remark})||'%'
+		</if>
+  	</select>
+	
+</mapper>	

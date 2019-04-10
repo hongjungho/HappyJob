@@ -1804,6 +1804,7 @@ if ( !JsNamespace.exist("Eco.GraphicElement") )
 		{
 			var style =	this._renderstyle,
 				m = this._globalMatrix;
+				//trace(m);
 			if ( m && style )
 			{
 				this._painted = 1;

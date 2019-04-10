@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="test2" left="0" top="0" width="1024" height="768" titletext="New Form" onload="onload">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="ImageViewer00" taborder="3" left="10.94%" top="231" right="71.68%" height="161"/>
+        <Button id="Button00" taborder="4" text="Button00" left="35.94%" top="462" right="52.44%" height="50" onclick="Button00_onclick"/>
+        <ImageViewer id="ImageViewer01" taborder="5" left="34.38%" top="240" right="48.24%" height="161"/>
+        <ImageViewer id="ImageViewer02" taborder="6" left="58.01%" top="234" right="24.61%" height="161"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsImg">
+        <ColumnInfo>
+          <Column id="url" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="url">Images::Pictures/only2people.jpg</Col>
+          </Row>
+          <Row>
+            <Col id="url">Images::Pictures/photo1.png</Col>
+          </Row>
+          <Row>
+            <Col id="url">Images::Pictures/sinagong1.jpg</Col>
+          </Row>
+          <Row>
+            <Col id="url">Images::Pictures/rock.png</Col>
+          </Row>
+          <Row>
+            <Col id="url">Images::Pictures/paper.png</Col>
+          </Row>
+          <Row>
+            <Col id="url">Images::Pictures/scissors.png</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[//this.qtyPerClick = 0;
+this.init = 0;
+this.pageNum = 1;
+
+this.Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var total = this.dsImg.getRowCount();
+	this.dsImg.filter("");
+	var endNum = Math.ceil(this.pageNum / 3.0) * 3;
+	var startNum = endNum -2;
+	trace(endNum);
+	trace(startNum);
+	for(var i = startNum -1; i < endNum; i++){
+		this.ImageViewer00.set_Image()
+	}
+}]]></Script>
+  </Form>
+</FDL>

@@ -23,6 +23,7 @@
             // UI Components Initialize
             obj = new Edit("edit_hello", "absolute", "5.57%", "20", null, "47", "79%", null, this);
             obj.set_taborder("0");
+            obj.set_value("hello");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button00", "absolute", "23.83%", "20", null, "47", "58.69%", null, this);
@@ -46,9 +47,6 @@
 
             
             // BindItem Information
-            obj = new BindItem("item1","edit_hello","value","dsBooks","bookNm");
-            this.addChild(obj.name, obj);
-            obj.bind();
 
             
             // Remove Reference
@@ -63,13 +61,7 @@
         this.btn_onclick = function(obj,e)
         {
         	alert("누름");
-        	
-        }
-
-        
-        this.form_onload = function(obj,e)
-        {
-        	trace(this.lookup.dsBooks);
+        	this.edit_hello.set_value("abc");
         }
         
         });
@@ -79,8 +71,6 @@
         // Regist UI Components Event
         this.on_initEvent = function()
         {
-            this.addEventHandler("onload", this.form_onload, this);
-            this.edit_hello.addEventHandler("oneditclick", this.edit_hello_oneditclick, this);
             this.Button00.addEventHandler("onclick", this.btn_onclick, this);
 
         };

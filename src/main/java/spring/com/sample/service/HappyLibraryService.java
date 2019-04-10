@@ -24,6 +24,12 @@ public interface HappyLibraryService {
 
 	public List<Map<String, Object>> CboSanList();
 
+	public List<Map<String, Object>> getBookDt(Map<String, Object> dsBkSchMap) throws Exception;
+
+	public List<Map<String,Object>> checkRes(Map<String, Object> dsBkSchMap) throws Exception;
+
+	public void extendBk(List<Map<String, Object>> egovdsList) throws Exception;
+
 
 
 }

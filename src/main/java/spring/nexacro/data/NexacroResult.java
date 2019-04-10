@@ -34,6 +34,7 @@ public class NexacroResult {
     
     public NexacroResult() {
         initResult();
+        System.out.println("***************NexacroResult*********************");
     }
     
     private void initResult() {
@@ -50,6 +51,7 @@ public class NexacroResult {
      */
     public void addDataSet(DataSet dataSet) {
         platformData.addDataSet(dataSet);
+        System.out.println("dataSet..." + dataSet);
     }
     
     /**
@@ -63,7 +65,8 @@ public class NexacroResult {
     public void addDataSet(String dataSetName, List<?> beans) {
         checkName(dataSetName);
         checkBean(beans);
-        
+        System.out.println("dataSetName..." + dataSetName);
+        System.out.println("beans..." + beans);
         dataSetMaps.put(dataSetName, beans);
     }
     
@@ -78,7 +81,8 @@ public class NexacroResult {
     public void addDataSet(String dataSetName, Object beans) {
         checkName(dataSetName);
         checkBean(beans);
-        
+        System.out.println("dataSetName..." + dataSetName);
+        System.out.println("beans..." + beans);
         dataSetMaps.put(dataSetName, beans);
     }
     
@@ -90,6 +94,7 @@ public class NexacroResult {
      */
     public void addVariable(Variable variable) {
         platformData.addVariable(variable);
+        System.out.println("variable..." + variable);
     }
     
     /**
@@ -101,7 +106,7 @@ public class NexacroResult {
      */
     public void addVariable(String variableName, Object object) {
         checkName(variableName);
-        
+        System.out.println("variableName..." + variableName + "...object..." + object);
         variableMaps.put(variableName, object);
     }
     

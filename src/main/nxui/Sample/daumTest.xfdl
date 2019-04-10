@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="daumTest" left="0" top="0" width="867" height="181" titletext="New Form" onload="fn_load">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="WebBrowser00" left="0%" top="0" right="0.23%" height="110" taborder="0" url="http://localhost:8080/crudexample/nxuiBuild/happy_Library/Practice/daumTest.jsp"/>
+        <Button id="Button00" taborder="1" text="주소입력" left="1.96%" top="122" right="81.89%" height="38" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsAddr">
+        <ColumnInfo>
+          <Column id="postcode" type="STRING" size="256"/>
+          <Column id="addr" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="WebBrowser00" propid="" datasetid="Dataset00" columnid="addr"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+this.Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	  var _doc = this.WebBrowser00.getProperty("document");
+   
+    var dom1 = _doc.callMethod("getElementById", "sample6_postcode");
+    var dom2 = _doc.callMethod("getElementById", "sample6_address");
+    var dom3 = _doc.callMethod("getElementById", "sample6_detailAddress");
+    var dom4 = _doc.callMethod("getElementById", "sample6_extraAddress");
+
+    var str1 = dom1.getProperty("value");
+    var str2 = dom2.getProperty("value");
+    var str3 = dom3.getProperty("value");
+    var str4 = dom4.getProperty("value");
+    
+    
+    var fullAddr = "(" + str1 + ") " + str2 + str3 + str4
+    alert(fullAddr)
+    
+    
+    
+    this.opener.Div01.Div07.roadAddrPart1.set_value(fullAddr)
+    this.close();
+    
+}
+]]></Script>
+  </Form>
+</FDL>

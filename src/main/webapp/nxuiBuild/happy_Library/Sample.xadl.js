@@ -47,9 +47,7 @@
             		{"id":"Dataset", "classname":"nexacro.NormalDataset", "type":"JavaScript"},
             		{"id":"WebBrowser", "classname":"nexacro.WebBrowser", "type":"JavaScript"},
             		{"id":"FileDownload", "classname":"nexacro.FileDownload", "type":"JavaScript"},
-            		{"id":"FileUpload", "classname":"nexacro.FileUpload", "type":"JavaScript"},
-            		{"id":"Graphic", "classname":"nexacro.Graphic", "type":"JavaScript"},
-            		{"id":"EcoChart", "classname":"nexacro.EcoChart", "type":"JavaScript"}
+            		{"id":"FileUpload", "classname":"nexacro.FileUpload", "type":"JavaScript"}
             ];
             this._addClasses(registerclass);
         };

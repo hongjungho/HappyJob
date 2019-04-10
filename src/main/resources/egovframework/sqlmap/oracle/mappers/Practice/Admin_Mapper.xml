@@ -240,6 +240,30 @@
 	<select id="selectComList" resultType="egovMap">
 	SELECT 	*
 	FROM 	HL_DTL_CD
+	order by DETAIL_CODE
 	
 	</select>
+	
+	<insert id="insertCommd" parameterType="egovMap">
+	insert into HL_DTL_CD (COMM_CODE,DETAIL_CODE,DETAIL_NAME,DETAIL_CODE2,COMM_CODE2)
+	values ('A01',#{detailCode},#{detailName},#{detailCode},'A01')
+	</insert>
+	
+	<delete id="deleteCommd" parameterType="egovMap">
+	delete from HL_DTL_CD
+	where DETAIL_CODE = #{detailCode}
+	</delete>
+	
+	<update id="updateCommd" parameterType="egovMap">
+	UPDATE 		HL_DTL_CD
+
+     SET 			
+					DETAIL_CODE=#{detailCode}, 
+					DETAIL_NAME=#{detailName}, 
+					DETAIL_CODE2=#{detailCode}
+					
+	WHERE 	   COMM_CODE = 'A01'
+	AND         DETAIL_CODE = #{detailCode}
+	
+	</update>
 </mapper>	

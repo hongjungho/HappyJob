@@ -24,6 +24,7 @@ public class HappyLibraryMapper extends EgovAbstractMapper{
 	public List<Map<String, Object>> selectMypageList(Map<String, Object> dsMypageMap)  throws Exception {
 		// TODO Auto-generated method stub
 System.out.println("1212121121212212121");
+System.out.println(dsMypageMap.get("userNo"));
 		
 		return selectList("selectMypageList",dsMypageMap);
 	}
@@ -91,6 +92,28 @@ System.out.println("1212121121212212121");
 	public List<Map<String, Object>> CboSanList() {
 		// TODO Auto-generated method stub
 		return selectList("CboSanList");
+	}
+
+
+
+	public List<Map<String, Object>> getBookDt(Map<String, Object> dsBkSchMap) {
+		// TODO Auto-generated method stub
+		return selectList("getBookDt",dsBkSchMap);
+	}
+
+
+
+	public List<Map<String,Object>> checkRes(Map<String, Object> dsBkSchMap) {
+		// TODO Auto-generated method stub
+		return selectList("checkRes",dsBkSchMap);
+	}
+
+
+
+	public void extendBk(Map<String, Object> dtaMap) {
+		// TODO Auto-generated method stub
+
+		update("extendBk", dtaMap);
 	}
 
 	

@@ -76,6 +76,10 @@
       <BindItem id="item3" compid="Edit01" propid="value" datasetid="dsOvSchMap" columnid="writer"/>
       <BindItem id="item4" compid="Edit02" propid="value" datasetid="dsOvSchMap" columnid="pub"/>
       <BindItem id="item5" compid="Edit00" propid="value" datasetid="dsOvSchMap" columnid="keyword"/>
+      <BindItem id="item6" compid="Calendar02" propid="value" datasetid="dsOvSchMap" columnid="brrStr"/>
+      <BindItem id="item7" compid="Calendar03" propid="value" datasetid="dsOvSchMap" columnid="brrEnd"/>
+      <BindItem id="item8" compid="Calendar00" propid="value" datasetid="dsOvSchMap" columnid="retStr"/>
+      <BindItem id="item9" compid="Calendar01" propid="value" datasetid="dsOvSchMap" columnid="retEnd"/>
     </Bind>
     <Objects>
       <Dataset id="dsgridrow">
@@ -237,6 +241,7 @@ this.fn_oversch = function(obj:Button, e:nexacro.ClickEventInfo)
 {
 	this.lfn_searchList();
 }
+
 
 this.fn_reset = function(obj:Button, e:nexacro.ClickEventInfo)
 {

@@ -103,25 +103,7 @@
          "./nexacro14lib/component/ExtComp/ExtFileUpDownload.js",
          "./nexacro14lib/component/HTMLViewer/HTMLViewer.js",
          "./nexacro14lib/component/DataUtilClass/DataUtil.js",
-         "./nexacro14lib/component/DataUtilClass/DatasetMap.js",
-         "./nexacro14lib/component/Graphic/Class/ClassUtils.js",
-         "./nexacro14lib/component/Graphic/Class/MathUtil.js",
-         "./nexacro14lib/component/Graphic/Class/Matrix.js",
-         "./nexacro14lib/component/Graphic/Class/Point.js",
-         "./nexacro14lib/component/Graphic/Class/Rectangle.js",
-         "./nexacro14lib/component/Graphic/Class/RectsManager.js",
-         "./nexacro14lib/component/Graphic/Class/Size.js",
-         "./nexacro14lib/component/Graphic/Graphic.js",
-         "./nexacro14lib/component/Graphic/Element.js",
-         "./nexacro14lib/component/Graphic/ContainerGroup.js",
-         "./nexacro14lib/component/Graphic/Css.js",
-         "./nexacro14lib/component/Graphic/Path.js",
-         "./nexacro14lib/component/Graphic/QuadTree.js",
-         "./nexacro14lib/component/Graphic/Shapes.js",
-         "./nexacro14lib/component/Graphic/ViewPort.js",
-         "./nexacro14lib/component/Graphic/excanvas/excanvas.js",
-         "./nexacro14lib/component/EcoChart/EcoChart.js",
-         "./nexacro14lib/component/EcoChart/EcoChartElement.js"
+         "./nexacro14lib/component/DataUtilClass/DatasetMap.js"
         ],
         "form" :
         [

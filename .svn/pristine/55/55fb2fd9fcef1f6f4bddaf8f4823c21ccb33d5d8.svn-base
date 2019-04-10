@@ -1,0 +1,360 @@
+﻿(function()
+{
+    return function()
+    {
+        if (!this._is_form)
+            return;
+        
+        this.on_create = function()
+        {
+            // Declare Reference
+            var obj = null;
+            
+            if (Form == this.constructor) {
+                this.set_name("adminUser");
+                this.set_titletext("New Form");
+                this.set_name("adminUser");
+                this._setFormPosition(0,0,1024,768);
+            }
+            this.style.set_background("gainsboro");
+
+            
+            // Object(Dataset, ExcelExportObject) Initialize
+            obj = new Dataset("ds_radioform", this);
+            obj._setContents("<ColumnInfo><Column id=\"CD\" type=\"STRING\" size=\"256\"/><Column id=\"CDNM\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"CD\">0</Col><Col id=\"CDNM\">일반도서</Col></Row><Row><Col id=\"CD\">1</Col><Col id=\"CDNM\">전자도서</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+            obj = new Dataset("dsBookList", this);
+            obj._setContents("<ColumnInfo><Column id=\"bookNo\" type=\"STRING\" size=\"256\"/><Column id=\"bookNm\" type=\"STRING\" size=\"256\"/><Column id=\"bookWriter\" type=\"STRING\" size=\"256\"/><Column id=\"bookPub\" type=\"STRING\" size=\"256\"/><Column id=\"bookdate\" type=\"STRING\" size=\"256\"/><Column id=\"divCd\" type=\"STRING\" size=\"256\"/><Column id=\"classCd\" type=\"STRING\" size=\"256\"/><Column id=\"bookIsbn\" type=\"STRING\" size=\"256\"/><Column id=\"bookregdate\" type=\"STRING\" size=\"256\"/><Column id=\"bookSum\" type=\"STRING\" size=\"256\"/><Column id=\"placeCd\" type=\"STRING\" size=\"256\"/><Column id=\"bookImg\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
+
+            obj = new Dataset("dsService", this);
+            obj.set_firefirstcount("0");
+            obj.getSetter("firenextcount").set("0");
+            obj.set_useclientlayout("false");
+            obj.set_updatecontrol("true");
+            obj.set_enableevent("true");
+            obj.set_loadkeymode("keep");
+            obj.set_loadfiltermode("keep");
+            obj.set_reversesubsum("false");
+            obj._setContents("<ColumnInfo><Column id=\"svcid\" type=\"STRING\" size=\"256\"/><Column id=\"sController\" type=\"STRING\" size=\"256\"/><Column id=\"inds\" type=\"STRING\" size=\"256\"/><Column id=\"outds\" type=\"STRING\" size=\"256\"/><Column id=\"args\" type=\"STRING\" size=\"256\"/><Column id=\"bAsync\" type=\"STRING\" size=\"512\"/><Column id=\"nDataType\" type=\"STRING\" size=\"256\"/><Column id=\"bCompress\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"sController\">admin/bookList.do</Col><Col id=\"svcid\">selectBookList</Col><Col id=\"inds\">dsSchMap=dsSchMap</Col><Col id=\"outds\">dsBookList=dsBookList</Col><Col id=\"bAsync\">true</Col><Col id=\"nDataType\">0</Col><Col id=\"bCompress\">false</Col><Col id=\"args\"/></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+            obj = new Dataset("dsSchMap", this);
+            obj._setContents("<ColumnInfo><Column id=\"bookNo\" type=\"STRING\" size=\"256\"/><Column id=\"bookNm\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
+            this.addChild(obj.name, obj);
+
+
+            
+            // UI Components Initialize
+            obj = new Edit("Edit00", "absolute", "57.03%", "216", null, "24", "22.75%", null, this);
+            obj.set_taborder("1");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00", "absolute", "57.03%", "194", null, "22", "36.43%", null, this);
+            obj.set_taborder("2");
+            obj.set_text("도서번호");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static01", "absolute", "57.03%", "294", null, "22", "35.64%", null, this);
+            obj.set_taborder("4");
+            obj.set_text("도서분류");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static02", "absolute", "57.03%", "354", null, "22", "35.64%", null, this);
+            obj.set_taborder("6");
+            obj.set_text("카테고리");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit03", "absolute", "57.03%", "268", null, "24", "22.75%", null, this);
+            obj.set_taborder("7");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static03", "absolute", "57.03%", "244", null, "22", "36.43%", null, this);
+            obj.set_taborder("8");
+            obj.set_text("도서제목");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static05", "absolute", "56.93%", "440", null, "22", "36.52%", null, this);
+            obj.set_taborder("10");
+            obj.set_text("출판사");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static07", "absolute", "57.03%", "536", null, "15", "36.43%", null, this);
+            obj.set_taborder("12");
+            obj.set_text("줄거리");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static08", "absolute", "63.28%", "528", null, "22", "29.88%", null, this);
+            obj.set_taborder("13");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static10", "absolute", "85.16%", "210", null, "22", "8.01%", null, this);
+            obj.set_taborder("15");
+            obj.set_text("도서이미지");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static11", "absolute", "57.03%", "394", null, "22", "36.43%", null, this);
+            obj.set_taborder("16");
+            obj.set_text("저자");
+            this.addChild(obj.name, obj);
+
+            obj = new Radio("Radio00", "absolute", "57.03%", "323", null, "21", "22.75%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("17");
+            obj.set_innerdataset("@ds_radioform");
+            obj.set_codecolumn("CD");
+            obj.set_datacolumn("CDNM");
+            obj.set_direction("vertical");
+
+            obj = new Combo("Combo00", "absolute", "64.06%", "354", null, "21", "24.32%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("19");
+            obj.set_text("문학");
+
+            obj = new Edit("Edit01", "absolute", "61.62%", "394", null, "24", "24.32%", null, this);
+            obj.set_taborder("22");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit02", "absolute", "61.62%", "438", null, "24", "24.32%", null, this);
+            obj.set_taborder("23");
+            this.addChild(obj.name, obj);
+
+            obj = new TextArea("TextArea00", "absolute", "57.03%", "560", null, "70", "4.69%", null, this);
+            obj.set_taborder("24");
+            this.addChild(obj.name, obj);
+
+            obj = new FileUpload("FileUpload00", "absolute", "81.54%", "433", null, "37", "4.88%", null, this);
+            obj.set_taborder("25");
+            obj.getSetter("retry").set("0");
+            obj.style.set_buttontext("불러오기");
+            obj.set_index("0");
+            this.addChild(obj.name, obj);
+
+            obj = new ImageViewer("ImageViewer00", "absolute", "81.35%", "243", null, "175", "3.81%", null, this);
+            obj.set_taborder("26");
+            obj.set_text("ImageViewer00");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00", "absolute", "3.32%", "34", null, "64", "85.35%", null, this);
+            obj.set_taborder("28");
+            obj.set_text("도서");
+            obj.style.set_image("URL('theme://images/ico_treeitem.png')");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button01", "absolute", "16.89%", "35", null, "62", "71.09%", null, this);
+            obj.set_taborder("29");
+            obj.set_text("회원");
+            obj.style.set_image("URL('theme://images/img_grip.png')");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button02", "absolute", "80.47%", "670", null, "26", "13.28%", null, this);
+            obj.set_taborder("33");
+            obj.set_text("저장");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button03", "absolute", "88.87%", "670", null, "26", "4.88%", null, this);
+            obj.set_taborder("34");
+            obj.set_text("취소");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button04", "absolute", "57.13%", "670", null, "26", "36.62%", null, this);
+            obj.set_taborder("35");
+            obj.set_text("삭제");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button05", "absolute", "89.84%", "110", null, "26", "3.91%", null, this);
+            obj.set_taborder("36");
+            obj.set_text("신규");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit05", "absolute", "2.73%", "128", null, "24", "70.31%", null, this);
+            obj.set_taborder("38");
+            obj.set_displaynulltext("도서명으로 검색");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button07", "absolute", "31.05%", "127", null, "25", "63.77%", null, this);
+            obj.set_taborder("39");
+            obj.set_text("검색");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button08", "absolute", "30.96%", "35", null, "62", "57.03%", null, this);
+            obj.set_taborder("40");
+            obj.set_text("직원");
+            obj.style.set_image("URL('theme://images/img_grip.png')");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit06", "absolute", "61.62%", "488", null, "24", "24.32%", null, this);
+            obj.set_taborder("41");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static04", "absolute", "56.93%", "490", null, "22", "36.52%", null, this);
+            obj.set_taborder("42");
+            obj.set_text("ISBN");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static12", "absolute", "76.56%", "490", null, "22", "16.89%", null, this);
+            obj.set_taborder("44");
+            obj.set_text("발행일");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static13", "absolute", "55.47%", "176", null, "1", "3.13%", null, this);
+            obj.set_taborder("45");
+            obj.style.set_border("1 solid #808080ff");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static14", "absolute", "55.47%", "655", null, "1", "2.34%", null, this);
+            obj.set_taborder("46");
+            obj.style.set_border("1 solid #808080ff");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static09", "absolute", "29.69%", "647", null, "41", "51.56%", null, this);
+            obj.set_taborder("47");
+            obj.set_text("조회결과  0 건");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("Grid00", "absolute", "2.64%", "169", null, "485", "47.36%", null, this);
+            obj.set_taborder("48");
+            obj.set_binddataset("dsBookList");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"112\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"도서명\"/><Cell col=\"1\" text=\"글쓴이\"/><Cell col=\"2\" text=\"출판사\"/><Cell col=\"3\" text=\"책등록일\"/><Cell col=\"4\" text=\"출판일\"/></Band><Band id=\"body\"><Cell text=\"bind:bookNm\"/><Cell col=\"1\" text=\"bind:bookWriter\"/><Cell col=\"2\" text=\"bind:bookPub\"/><Cell col=\"3\" text=\"bind:bookdate\"/><Cell col=\"4\" text=\"bind:bookregdate\"/></Band></Format></Formats>");
+            this.addChild(obj.name, obj);
+
+            obj = new Calendar("Calendar00", "absolute", "81.74%", "490", null, "22", "4.49%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("49");
+
+
+            
+            // Layout Functions
+            //-- Default Layout
+            obj = new Layout("default", "", 1024, 768, this,
+            	//-- Layout function
+            	function(p) {
+            		p.set_titletext("New Form");
+            		p.style.set_background("gainsboro");
+
+            	}
+            );
+            this.addLayout(obj.name, obj);
+
+
+            
+            // BindItem Information
+            obj = new BindItem("item0","Radio00","value","ds_radioform","");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item1","Edit00","value","dsBookList","bookNo");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item2","Edit03","value","dsBookList","bookNm");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item3","Edit01","value","dsBookList","bookWriter");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item4","Edit02","value","dsBookList","bookPub");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item5","Edit06","value","dsBookList","bookIsbn");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item7","TextArea00","value","dsBookList","bookSum");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item8","Calendar00","value","dsBookList","bookregdate");
+            this.addChild(obj.name, obj);
+            obj.bind();
+
+            
+            // Remove Reference
+            obj = null;
+        };
+        
+
+        
+        // User Script
+        this.addIncludeScript("admin_book.xfdl", "Lib::Comm.xjs");
+        this.registerScript("admin_book.xfdl", function(exports) {
+
+        if (this.executeIncludeScript) { this.executeIncludeScript("Lib::Comm.xjs", null, exports); }	//include "Lib::Comm.xjs";
+
+        // 화면구성시 list 출력
+
+        this.adminUser_onload = function(obj,e)
+        {
+        	this.gfn_serviceCall("selectBookList"); 
+        }
+
+        
+
+        
+
+        
+        this.Button00_onclick = function(obj,e)
+        {
+        	this.go("Practice::admin_book.xfdl");
+        }
+
+        this.Button01_onclick = function(obj,e)
+        {
+        	this.go("Practice::admin_user.xfdl");
+        }
+
+        this.Button08_onclick = function(obj,e)
+        {
+        	this.go("Practice::admin_empl.xfdl");
+        }
+
+        
+
+        // 검색버튼 눌렀을떄 검색어를 dsSchMap에 addColumn해주고 서비스호출
+        this.Button07_onclick = function(obj,e)
+        {
+        	
+        	this.dsSchMap.setColumn(this.dsSchMap.rowposition , "bookNm" , this.Edit05.value);
+        	this.gfn_serviceCall("selectBookList");
+        	
+        }
+
+        this.Edit00_oneditclick = function(obj,e)
+        {
+        	
+        }
+
+        this.Calendar00_oneditclick = function(obj,e)
+        {
+        	
+        }
+        
+        });
+
+
+        
+        // Regist UI Components Event
+        this.on_initEvent = function()
+        {
+            this.addEventHandler("onload", this.adminUser_onload, this);
+            this.Edit00.addEventHandler("oneditclick", this.Edit00_oneditclick, this);
+            this.Static01.addEventHandler("onclick", this.Static01_onclick, this);
+            this.Static02.addEventHandler("onclick", this.Static02_onclick, this);
+            this.Static07.addEventHandler("onclick", this.Static07_onclick, this);
+            this.Static10.addEventHandler("onclick", this.Static07_onclick, this);
+            this.Static11.addEventHandler("onclick", this.Static07_onclick, this);
+            this.Radio00.addEventHandler("onitemclick", this.Radio00_onitemclick, this);
+            this.Combo00.addEventHandler("onitemchanged", this.Combo00_onitemchanged, this);
+            this.Button00.addEventHandler("onclick", this.Button00_onclick, this);
+            this.Button01.addEventHandler("onclick", this.Button01_onclick, this);
+            this.Button05.addEventHandler("onclick", this.Button05_onclick, this);
+            this.Edit05.addEventHandler("oneditclick", this.Edit05_oneditclick, this);
+            this.Button07.addEventHandler("onclick", this.Button07_onclick, this);
+            this.Button08.addEventHandler("onclick", this.Button08_onclick, this);
+            this.Calendar00.addEventHandler("oneditclick", this.Calendar00_oneditclick, this);
+
+        };
+
+        this.loadIncludeScript("admin_book.xfdl", true);
+
+       
+    };
+}
+)();

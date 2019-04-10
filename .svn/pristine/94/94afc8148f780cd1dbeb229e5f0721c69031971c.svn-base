@@ -1,0 +1,32 @@
+package spring.com.happybook.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+import spring.com.happybook.service.HappyLibraryService;
+import spring.com.happybook.service.dao.HappyLibraryMapper;
+
+@Service("HappyLibraryService")
+public class HappyLibraryServiceImpl extends EgovAbstractServiceImpl implements HappyLibraryService {
+
+	@Resource(name = "HappyLibraryMapper")
+    private HappyLibraryMapper happyLibraryMapper;
+	
+
+	@Override
+	public List<Map<String, Object>> selectNewBkList() {
+		
+		return happyLibraryMapper.selectSampleSubjectList();
+
+	}
+	
+
+
+
+
+}

@@ -270,6 +270,10 @@ if ( !JsNamespace.exist("Eco.XComp.Event") )
 			
 			topForm.__makeDraggableTargets[obj._unique_id] = true;	
 			
+			// 버튼의 mousemove 이벤트를 topform 에 발생하도록
+			// (Form.Div.Button 과 같은 중첩의 경우 버블링이 안된다.)
+			Eco.XComp.Event._lockMouseEvent(topForm);
+			
 			var pt = {x:e.screenX, y:e.screenY};
 			obj._drag = {
 				"startPt": pt,
@@ -322,18 +326,8 @@ if ( !JsNamespace.exist("Eco.XComp.Event") )
 				if ( ret === false )
 				{
 					obj._drag = null;
-					obj.__scope = null;
-					
-					delete obj._drag;
-					delete obj.__scope;
-					delete topForm.__makeDraggableTargets[obj._unique_id];
-					return;
 				}
 			}
-			
-			// 버튼의 mousemove 이벤트를 topform 에 발생하도록
-			// (Form.Div.Button 과 같은 중첩의 경우 버블링이 안된다.)			
-			Eco.XComp.Event._lockMouseEvent(topForm);			
 		},
 
 		/**

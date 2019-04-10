@@ -1,0 +1,15 @@
+package spring.com.sample.service;
+
+import java.util.List;
+import java.util.Map;
+
+public interface HappyLibraryService {
+
+
+	public List<Map<String, Object>> selectMypageList(Map<String, Object> dsMypageMap) throws Exception;
+
+	public void saveUserInfo(List<Map<String, Object>> egovdsList) throws Exception;
+
+	public List<Map<String, Object>> selectBorrowList(Map<String, Object> dsBrSchMap) throws Exception;
+
+}

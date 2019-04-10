@@ -1,0 +1,52 @@
+package spring.com.happybook.web;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import spring.com.happybook.service.HappyLibraryService;
+import spring.nexacro.data.NexacroResult;
+
+@Controller
+public class MainPageController {
+
+	private Logger log = LoggerFactory.getLogger(MainPageController.class);
+	
+	@Resource(name ="HappyLibraryService")
+	private HappyLibraryService happyLibraryService;
+	
+	
+	@RequestMapping(value = "/main/newBk.do")
+	 public NexacroResult selectMainList() throws Exception {
+
+//			 넥사크로로 전달 해줄 객체
+			NexacroResult result = new NexacroResult();
+  
+
+
+
+			System.out.println("컨트롤러 연결완료");
+			System.out.println("컨트롤러 연결완료");
+			System.out.println("컨트롤러 연결완료");
+			System.out.println("컨트롤러 연결완료");
+			 
+
+
+			List<Map<String,Object>> dsBookList = happyLibraryService.selectNewBkList();
+
+			result.addDataSet("dsBookList", dsBookList);
+			
+			
+			return result;
+	}
+	
+	 
+	
+	
+}

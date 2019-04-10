@@ -52,81 +52,84 @@
             obj.style.set_align("right middle");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid00", "absolute", "26.37%", "107", null, "253", "55.47%", null, this);
+            obj = new Grid("Grid00", "absolute", "43.55%", "179", null, "293", "38.28%", null, this);
             obj.set_taborder("20");
             obj.set_binddataset("dsTotal");
             obj.style.set_align("center middle");
+            obj.set_autofittype("col");
+            obj.set_autosizingtype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"코드\"/><Cell col=\"1\" text=\"명칭\"/></Band><Band id=\"body\"><Cell text=\"bind:detailCode\"/><Cell col=\"1\" text=\"bind:detailName\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("Grid01", "absolute", "29.1%", "492", null, "212", "55.18%", null, this);
+            obj = new Grid("Grid01", "absolute", "5.66%", "188", null, "180", "78.61%", null, this);
             obj.set_taborder("21");
             obj.set_binddataset("dsTotal2");
+            obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"코드\"/><Cell col=\"1\" text=\"명칭\"/></Band><Band id=\"body\"><Cell text=\"bind:detailCode\"/><Cell col=\"1\" text=\"bind:detailName\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00", "absolute", "46.68%", "200", null, "35", "44.53%", null, this);
+            obj = new Static("Static00", "absolute", "63.87%", "272", null, "35", "27.34%", null, this);
             obj.set_taborder("22");
             obj.set_text("명칭");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("Edit00", "absolute", "50.68%", "200", null, "35", "37.6%", null, this);
+            obj = new Edit("Edit00", "absolute", "67.87%", "272", null, "35", "20.41%", null, this);
             obj.set_taborder("23");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button01", "absolute", "57.81%", "264", null, "22", "37.79%", null, this);
+            obj = new Button("Button01", "absolute", "75%", "336", null, "22", "20.61%", null, this);
             obj.set_taborder("25");
             obj.set_text("저장");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button02", "absolute", "47.17%", "264", null, "22", "48.44%", null, this);
+            obj = new Button("Button02", "absolute", "64.36%", "336", null, "22", "31.25%", null, this);
             obj.set_taborder("26");
             obj.set_text("신규");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00", "absolute", "52.54%", "264", null, "22", "43.07%", null, this);
+            obj = new Button("Button00", "absolute", "69.73%", "336", null, "22", "25.88%", null, this);
             obj.set_taborder("27");
             obj.set_text("삭제");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("Edit01", "absolute", "50.68%", "144", null, "35", "37.6%", null, this);
+            obj = new Edit("Edit01", "absolute", "67.87%", "216", null, "35", "20.41%", null, this);
             obj.set_taborder("28");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01", "absolute", "46.68%", "144", null, "35", "44.53%", null, this);
+            obj = new Static("Static01", "absolute", "63.87%", "216", null, "35", "27.34%", null, this);
             obj.set_taborder("29");
             obj.set_text("코드");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("Edit02", "absolute", "50.68%", "568", null, "35", "37.6%", null, this);
+            obj = new Edit("Edit02", "absolute", "27.25%", "264", null, "35", "61.04%", null, this);
             obj.set_taborder("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button03", "absolute", "57.81%", "632", null, "22", "37.79%", null, this);
+            obj = new Button("Button03", "absolute", "34.38%", "328", null, "22", "61.23%", null, this);
             obj.set_taborder("31");
             obj.set_text("저장");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button04", "absolute", "47.17%", "632", null, "22", "48.44%", null, this);
+            obj = new Button("Button04", "absolute", "23.73%", "328", null, "22", "71.88%", null, this);
             obj.set_taborder("32");
             obj.set_text("신규");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button05", "absolute", "52.54%", "632", null, "22", "43.07%", null, this);
+            obj = new Button("Button05", "absolute", "29.1%", "328", null, "22", "66.5%", null, this);
             obj.set_taborder("33");
             obj.set_text("삭제");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("Edit03", "absolute", "50.68%", "512", null, "35", "37.6%", null, this);
+            obj = new Edit("Edit03", "absolute", "27.25%", "208", null, "35", "61.04%", null, this);
             obj.set_taborder("34");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02", "absolute", "46.68%", "512", null, "35", "44.53%", null, this);
+            obj = new Static("Static02", "absolute", "23.24%", "208", null, "35", "67.97%", null, this);
             obj.set_taborder("35");
             obj.set_text("코드");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03", "absolute", "46.68%", "568", null, "35", "44.53%", null, this);
+            obj = new Static("Static03", "absolute", "23.24%", "264", null, "35", "67.97%", null, this);
             obj.set_taborder("36");
             obj.set_text("명칭");
             this.addChild(obj.name, obj);
@@ -191,9 +194,15 @@
         	   return;
         	} 
         	else{ 
-        		trace("dd");
+        		
         		this.dsTotal.filter("commCode == 'A01'");
         		this.dsTotal2.filter("commCode == 'P01'");
+        		
+        		if(svcId.svcId == "saveTotal1"){
+        			alert("저장완료");
+        			this.gfn_serviceCall("selectComList");
+        		}
+        	 
         	}
         }
 
@@ -215,6 +224,24 @@
         {
         	this.dsTotal.addRow();
         }
+
+        this.Button00_onclick = function(obj,e)
+        {
+        	if(this.dsTotal.getRowCount() <= 0){
+        		
+        		this.alert("삭제할 대상이 없습니다.");
+        		return false;
+        	}
+        	
+        	this.dsTotal.deleteRow(this.dsTotal.rowposition);
+        }
+
+        this.Button01_onclick = function(obj,e)
+        {
+        	if(this.confirm("저장하시겠습니까?")){
+        		this.gfn_serviceCall("saveTotal1");
+        	}
+        }
         
         });
 
@@ -226,7 +253,9 @@
             this.addEventHandler("onload", this.coomd_onload, this);
             this.Grid00.addEventHandler("cantreestatuschange", this.Grid00_cantreestatuschange, this);
             this.Edit00.addEventHandler("oneditclick", this.Edit00_oneditclick, this);
+            this.Button01.addEventHandler("onclick", this.Button01_onclick, this);
             this.Button02.addEventHandler("onclick", this.Button02_onclick, this);
+            this.Button00.addEventHandler("onclick", this.Button00_onclick, this);
             this.Edit01.addEventHandler("oneditclick", this.Edit00_oneditclick, this);
             this.Edit02.addEventHandler("oneditclick", this.Edit00_oneditclick, this);
             this.Edit03.addEventHandler("oneditclick", this.Edit00_oneditclick, this);

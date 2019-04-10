@@ -1,0 +1,52 @@
+package spring.com.sample.service.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
+
+@Mapper("happyLibraryMapper") 
+public class HappyLibraryMapper extends EgovAbstractMapper{
+
+	private Logger log = LoggerFactory.getLogger(HappyLibraryMapper.class);
+
+	public List<Map<String, Object>> selectMypageList(Map<String, Object> dsMypageMap)  throws Exception {
+		// TODO Auto-generated method stub
+
+		
+		return selectList("selectMypageList",dsMypageMap);
+	}
+
+	public void insertUserInfo(Map<String, Object>  dtaMap) throws Exception {
+		insert("insertUserInfo", dtaMap);
+	}
+
+	public void updateUserInfo(Map<String, Object> dtaMap) throws Exception {
+
+		System.out.println("DAOImplsave");
+		System.out.println("DAOImplsave");
+		System.out.println("DAOImplsave");
+		System.out.println("DAOImplsave");
+		update("updateUserInfo", dtaMap);
+		
+	}
+
+	public void deleteUserInfo(Map<String, Object> dtaMap) throws Exception {
+		delete("deleteUserInfo", dtaMap);
+		
+	}
+
+	public List<Map<String, Object>> selectBorrowList(Map<String, Object> dsBrSchMap) {
+		// TODO Auto-generated method stub
+
+		return selectList("selectBorrowList",dsBrSchMap);
+	}
+
+
+	
+	
+}

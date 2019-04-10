@@ -8,19 +8,19 @@
           <Layouts>
             <Layout width="480" height="390">
               <Static id="Static00" taborder="0" left="100" top="160" width="652" height="16" onclick="Div_Static00_onclick"/>
-              <Static id="Static02" taborder="6" text="아이디찾기" left="200" top="101" height="51" style="color:black;font:bold 20 Dotum;" onclick="Div_Static02_onclick" right="560"/>
-              <Static id="Static04" taborder="8" text="●  문의사항이 있으시면 관리자에게 연락주시기 바랍니다." onclick="Div_Static03_onclick" left="200" top="410" height="35" width="599"/>
+              <Static id="Static02" taborder="6" text="아이디찾기" left="19.53%" top="101" height="51" style="color:black;font:bold 20 Dotum;" onclick="Div_Static02_onclick" right="54.69%"/>
+              <Static id="Static04" taborder="8" text="●  문의사항이 있으시면 관리자에게 연락주시기 바랍니다." onclick="Div_Static03_onclick" left="19.53%" top="410" height="35" right="21.97%"/>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="Div00" taborder="1" text="Div00" left="200" top="150" height="235" style="border:3 solid #80ff00ff ;" width="600" position="fixed">
+        <Div id="Div00" taborder="1" text="Div00" left="19.53%" top="150" height="235" style="border:3 solid #80ff00ff ;" position="fixed" right="21.88%">
           <Layouts>
             <Layout width="613" height="371">
-              <Button id="btn_FindPWD" taborder="12" text="비밀번호찾기" onclick="Div00_btn_FindPWD_onclick" cssclass="WF_btn_Login" left="190" top="171" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
-              <Button id="btn_login1" taborder="13" text="로그인 화면" onclick="Div00_btn_login1_onclick" cssclass="WF_btn_Login" left="302" top="171" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
-              <Static id="Static01" taborder="17" text="아이디 찾기를 위한 인증 방법을 선택하시기 바랍니다." onclick="Div_Static03_onclick" left="50" top="18" width="454" height="29" style="font:11 Dotum;"/>
-              <Button id="find_ID_email" taborder="18" text="등록된 Email로 찾기" left="50" top="60" height="34" width="500" style="background:#333300ff;border:1 solid #333300ff ;color:#ff6600ff;font:bold 9 Dotum;" onclick="Div00_find_ID_email_onclick"/>
-              <Button id="find_ID_tel" taborder="19" text="등록된 핸드폰번호로 찾기" left="50" top="108" width="500" height="34" style="background:#333300ff;border:1 solid #333300ff ;color:#ff6600ff;font:bold 9 Dotum;" onclick="Div00_find_ID_tel_onclick"/>
+              <Button id="btn_FindPWD" taborder="12" text="비밀번호찾기" onclick="Div00_btn_FindPWD_onclick" cssclass="WF_btn_Login" left="31.99%" top="171" height="34" style="color:#808080ff;font:bold 9 Dotum;" right="53.03%"/>
+              <Button id="btn_login1" taborder="13" text="로그인 화면" onclick="Div00_btn_login1_onclick" cssclass="WF_btn_Login" left="50.84%" top="171" height="34" style="color:#808080ff;font:bold 9 Dotum;" right="34.18%"/>
+              <Static id="Static01" taborder="17" text="아이디 찾기를 위한 인증 방법을 선택하시기 바랍니다." onclick="Div_Static03_onclick" left="8.42%" top="18" height="29" style="color:#333333ff;font:bold 11 Dotum;" right="15.15%"/>
+              <Button id="find_ID_email" taborder="18" text="등록된 Email로 찾기" left="8.42%" top="60" height="34" style="background:#333300ff;border:1 solid #333300ff ;color:#ff6600ff;font:bold 9 Dotum;" onclick="Div00_find_ID_email_onclick" right="7.41%"/>
+              <Button id="find_ID_tel" taborder="19" text="등록된 핸드폰번호로 찾기" left="8.42%" top="108" height="34" style="background:#333300ff;border:1 solid #333300ff ;color:#ff6600ff;font:bold 9 Dotum;" onclick="Div00_find_ID_tel_onclick" right="7.41%"/>
             </Layout>
           </Layouts>
         </Div>

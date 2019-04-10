@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Useroverdue" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <GroupBox id="GroupBox00" text="연체현황검색" taborder="0" left="4.79%" top="24" right="11.23%" height="200" style="border:2 solid #339966ff ;color:#339966ff;font:18 맑은 고딕;"/>
+        <Grid id="Grid00" taborder="1" binddataset="dsbookList" useinputpanel="false" autofittype="col" left="5.57%" top="304" right="10.94%" height="383">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+                <Column size="107"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="번호"/>
+                <Cell col="1" text="제목"/>
+                <Cell col="2" text="대출날짜"/>
+                <Cell col="3" text="반납예정날짜"/>
+                <Cell col="4" text="도서분류"/>
+                <Cell col="5" text="도서구분"/>
+                <Cell col="6" text="저자"/>
+                <Cell col="7" text="출판사"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:no"/>
+                <Cell col="1" text="bind:title"/>
+                <Cell col="2" text="bind:borrowDate"/>
+                <Cell col="3" text="bind:returnDate"/>
+                <Cell col="4" text="bind:bookDiv"/>
+                <Cell col="5" text="bind:bookClass"/>
+                <Cell col="6" text="bind:author"/>
+                <Cell col="7" text="bind:publisher"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Combo id="Combo00" taborder="2" text="Combo00" innerdataset="dsgridrow" codecolumn="showRowCode" datacolumn="showRow" left="78.42%" top="257" right="10.94%" height="28"/>
+        <Static id="Static00" taborder="3" text="연체도서목록" left="39.06%" top="254" right="45.51%" height="26" style="align:center middle;font:16 맑은 고딕;"/>
+        <Calendar id="Calendar00" taborder="4" left="53.61%" top="64" right="32.03%" height="28"/>
+        <Calendar id="Calendar01" taborder="5" left="72.36%" top="64" right="13.28%" height="28"/>
+        <Static id="Static01" taborder="6" text="반납날짜 : " left="47.56%" top="63" right="46.97%" height="30" style="align:center middle;"/>
+        <Static id="Static03" taborder="7" text="키워드 : " left="6.15%" top="156" right="88.38%" height="30" style="align:center middle;"/>
+        <Edit id="Edit00" taborder="8" left="12.21%" top="158" right="36.72%" height="26"/>
+        <Static id="Static02" taborder="9" text="~" left="68.65%" top="64" right="28.13%" height="27" style="align:center middle;"/>
+        <Combo id="Combo01" taborder="10" text="Combo01" innerdataset="dsbookdiv" codecolumn="divCode" datacolumn="bookDiv" onitemchanged="Combo01_onitemchanged" left="12.21%" top="106" right="77.93%" height="30"/>
+        <Static id="Static04" taborder="11" text="도서구분 : " left="6.15%" top="105" right="88.38%" height="30" style="align:center middle;"/>
+        <Combo id="Combo02" taborder="12" text="Combo01" innerdataset="dsbookclass" codecolumn="classCode" datacolumn="bookClass" left="30.96%" top="106" right="59.18%" height="30"/>
+        <Static id="Static05" taborder="13" text="도서분류 : " left="24.12%" top="105" right="70.41%" height="30" style="align:center middle;"/>
+        <Calendar id="Calendar02" taborder="14" left="12.21%" top="64" right="73.44%" height="28"/>
+        <Calendar id="Calendar03" taborder="15" left="30.96%" top="64" right="54.69%" height="28"/>
+        <Static id="Static07" taborder="16" text="~" left="27.25%" top="64" right="69.53%" height="27" style="align:center middle;"/>
+        <Static id="Static08" taborder="17" text="저자 : " left="46.78%" top="108" right="47.75%" height="30" style="align:center middle;"/>
+        <Edit id="Edit01" taborder="18" left="50.49%" top="110" right="36.72%" height="26"/>
+        <Edit id="Edit02" taborder="19" left="73.14%" top="110" right="13.28%" height="26"/>
+        <Static id="Static09" taborder="20" text="출판사 : " left="67.87%" top="108" right="26.66%" height="30" style="align:center middle;"/>
+        <Static id="Static06" taborder="21" text="대출날짜 : " left="6.15%" top="63" right="88.38%" height="30" style="align:center middle;"/>
+        <Button id="Button00" taborder="22" text="조회" left="70.51%" top="157" right="13.48%" height="32"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="Combo00" propid="value" datasetid="dsgridrow" columnid="showRow"/>
+    </Bind>
+    <Objects>
+      <Dataset id="dsbookdiv">
+        <ColumnInfo>
+          <Column id="divCode" type="STRING" size="256"/>
+          <Column id="bookDiv" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="divCode">1</Col>
+            <Col id="bookDiv">일반도서</Col>
+          </Row>
+          <Row>
+            <Col id="divCode">2</Col>
+            <Col id="bookDiv">전자도서</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsbookclass">
+        <ColumnInfo>
+          <Column id="classCode" type="STRING" size="256"/>
+          <Column id="bookClass" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="classCode">01</Col>
+            <Col id="bookClass">총류</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">02</Col>
+            <Col id="bookClass">철학</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">03</Col>
+            <Col id="bookClass">종교</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">04</Col>
+            <Col id="bookClass">사회과학</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">05</Col>
+            <Col id="bookClass">자연과학</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">06</Col>
+            <Col id="bookClass">기술과학</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">07</Col>
+            <Col id="bookClass">예술</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">08</Col>
+            <Col id="bookClass">언어</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">09</Col>
+            <Col id="bookClass">문학</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">10</Col>
+            <Col id="bookClass">역사</Col>
+          </Row>
+          <Row>
+            <Col id="classCode">99</Col>
+            <Col id="bookClass">기타</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsgridrow">
+        <ColumnInfo>
+          <Column id="showRow" type="STRING" size="256"/>
+          <Column id="showRowCode" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="showRow">10</Col>
+            <Col id="showRowCode">10</Col>
+          </Row>
+          <Row>
+            <Col id="showRow">15</Col>
+            <Col id="showRowCode">15</Col>
+          </Row>
+          <Row>
+            <Col id="showRow">20</Col>
+            <Col id="showRowCode">20</Col>
+          </Row>
+          <Row>
+            <Col id="showRow">25</Col>
+            <Col id="showRowCode">25</Col>
+          </Row>
+          <Row>
+            <Col id="showRow">30</Col>
+            <Col id="showRowCode">30</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsbookList">
+        <ColumnInfo>
+          <Column id="no" type="STRING" size="256"/>
+          <Column id="title" type="STRING" size="256"/>
+          <Column id="borrowDate" type="STRING" size="256"/>
+          <Column id="returnDate" type="STRING" size="256"/>
+          <Column id="bookDiv" type="STRING" size="256"/>
+          <Column id="bookClass" type="STRING" size="256"/>
+          <Column id="author" type="STRING" size="256"/>
+          <Column id="publisher" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

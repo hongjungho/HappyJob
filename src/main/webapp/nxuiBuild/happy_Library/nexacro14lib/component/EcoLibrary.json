@@ -19,7 +19,7 @@
         "EcoLibrary/Json.js",
         "EcoLibrary/Event.js",
         "EcoLibrary/LocalStorage.js",
-        "EcoLibrary/Factory.js"
+        "EcoLibrary/Factory.js"     
 	]
 }
 //@ sourceURL=EcoLibrary.json

@@ -331,8 +331,6 @@
         		dsService.setColumn(row,"args","");
         	}
         	
-        	
-        	
         	var oDatas =  {
         			  svcid : dsService.getColumn(row,  "svcid"),
         			  sController : dsService.getColumn(row,  "sController"),  
@@ -357,6 +355,9 @@
         //this.gfn_cmmCallback = function(svcid, errCd, errMsg){
         	//this.gfn_trace("gfn_cmmCallback : " + svcid + " / " + errCd +" / " + errMsg );
         	//trace("gfn_cmmCallback : " + svcid + " / " + errCd +" / " + errMsg );
+        	if(svcid.svcId == "getList"){
+        		this.lfn_get_pages();
+        	}
         	if(errCd < 0){
         	
         	this.alert('조회결과가 없습니다');

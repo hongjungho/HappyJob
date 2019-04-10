@@ -150,6 +150,7 @@
           <Column id="classCd" type="STRING" size="256"/>
           <Column id="bookPub" type="STRING" size="256"/>
           <Column id="bookWriter" type="STRING" size="256"/>
+          <Column id="bookNo" type="STRING" size="256"/>
         </ColumnInfo>
         <Rows>
           <Row/>
@@ -264,7 +265,6 @@ this.fn_brrEnd = function(obj:Calendar, e:nexacro.ChangeEventInfo)
 {
 	var enddate = obj.value;
 	this.dsBrSchMap.setColumn(0,"brrEnd",enddate)
-	alert(enddate)
 }
 
 //-------------------------------------------------------------------------------------------
@@ -302,8 +302,12 @@ this.fn_reset = function(obj:Button, e:nexacro.ClickEventInfo)
 	this.reload();
 }
 
+// 팝업창
 this.fn_bookDtl = function(obj:Grid, e:nexacro.GridClickEventInfo)
 {
+	var selRow = obj.currentrow;
+	var bkNo = this.dsUserBr.getColumn(selRow,"bookNo")
+	application.gds_bookInfo.setColumn(0,"bookNo",bkNo)
 	
 	application.open("detail", "Practice::BookDetail.xfdl",this.getOwnerFrame(), {mode:'modeless', ds:this.dsBooks}, "showtitlebar=true", 400, 200);
 }

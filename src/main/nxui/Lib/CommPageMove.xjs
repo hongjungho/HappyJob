@@ -13,4 +13,10 @@ this.gfn_left = function(sURL)
    oLF.set_formurl(sURL);
 }
 
-]]></Script>
+
+
+this.gfn_top = function(sURL1)
+{
+   var oLF = application.mainframe.VFrameSet0.ChildFrame0;
+   oLF.set_formurl(sURL1);
+}]]></Script>

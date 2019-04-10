@@ -1,0 +1,152 @@
+﻿(function()
+{
+    return function()
+    {
+        if (!this._is_form)
+            return;
+        
+        this.on_create = function()
+        {
+            // Declare Reference
+            var obj = null;
+            
+            if (Form == this.constructor) {
+                this.set_name("UserSanctions");
+                this.set_titletext("New Form");
+                this._setFormPosition(0,0,1024,768);
+            }
+
+            
+            // Object(Dataset, ExcelExportObject) Initialize
+            obj = new Dataset("dssanCodeList", this);
+            obj._setContents("<ColumnInfo><Column id=\"sanctionCode\" type=\"STRING\" size=\"256\"/><Column id=\"sanctionName\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
+            this.addChild(obj.name, obj);
+
+            obj = new Dataset("dssanctionsList", this);
+            obj._setContents("<ColumnInfo><Column id=\"no\" type=\"STRING\" size=\"256\"/><Column id=\"sanctionName\" type=\"STRING\" size=\"256\"/><Column id=\"sanctionDate\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
+
+
+            
+            // UI Components Initialize
+            obj = new GroupBox("GroupBox00", "absolute", "4.79%", "24", null, "200", "11.23%", null, this);
+            obj.set_text("재제현황검색");
+            obj.set_taborder("0");
+            obj.style.set_border("2 solid #339966ff");
+            obj.style.set_color("#339966ff");
+            obj.style.set_font("18 맑은 고딕");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("Grid00", "absolute", "5.57%", "304", null, "383", "10.94%", null, this);
+            obj.set_taborder("1");
+            obj.set_binddataset("dssanctionsList");
+            obj.set_autofittype("col");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"81\"/><Column size=\"565\"/><Column size=\"208\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"번호\"/><Cell col=\"1\" text=\"제재내용\"/><Cell col=\"2\" text=\"제재날짜\"/></Band><Band id=\"body\"><Cell text=\"bind:no\"/><Cell col=\"1\" text=\"bind:sanctionName\"/><Cell col=\"2\" text=\"bind:sanctionDate\"/></Band></Format></Formats>");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("Combo00", "absolute", "78.42%", "257", null, "28", "10.94%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("2");
+            obj.set_text("Combo00");
+            obj.set_innerdataset("dsgridrow");
+            obj.set_codecolumn("showRowCode");
+            obj.set_datacolumn("showRow");
+
+            obj = new Static("Static00", "absolute", "39.06%", "254", null, "26", "45.51%", null, this);
+            obj.set_taborder("3");
+            obj.set_text("재제현황목록");
+            obj.style.set_align("center middle");
+            obj.style.set_font("16 맑은 고딕");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static03", "absolute", "24.12%", "156", null, "30", "70.41%", null, this);
+            obj.set_taborder("7");
+            obj.set_text("키워드 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit00", "absolute", "30.18%", "158", null, "26", "31.25%", null, this);
+            obj.set_taborder("8");
+            this.addChild(obj.name, obj);
+
+            obj = new Calendar("Calendar02", "absolute", "52.83%", "64", null, "28", "32.81%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("14");
+
+            obj = new Calendar("Calendar03", "absolute", "71.58%", "64", null, "28", "14.06%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("15");
+
+            obj = new Static("Static07", "absolute", "67.87%", "64", null, "27", "28.91%", null, this);
+            obj.set_taborder("16");
+            obj.set_text("~");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static06", "absolute", "46.78%", "63", null, "30", "47.75%", null, this);
+            obj.set_taborder("21");
+            obj.set_text("제재날짜 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00", "absolute", "70.51%", "157", null, "32", "13.48%", null, this);
+            obj.set_taborder("22");
+            obj.set_text("조회");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static01", "absolute", "46.78%", "103", null, "30", "47.75%", null, this);
+            obj.set_taborder("23");
+            obj.set_text("제재내용 : ");
+            obj.style.set_align("center middle");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("Combo01", "absolute", "52.83%", "104", null, "28", "14.06%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("24");
+            obj.set_text("Combo01");
+            obj.set_innerdataset("@dssanCodeList");
+            obj.set_codecolumn("sanctionCode");
+            obj.set_datacolumn("sanctionName");
+
+
+            
+            // Layout Functions
+            //-- Default Layout
+            obj = new Layout("default", "", 1024, 768, this,
+            	//-- Layout function
+            	function(p) {
+            		p.set_titletext("New Form");
+
+            	}
+            );
+            this.addLayout(obj.name, obj);
+
+
+            
+            // BindItem Information
+            obj = new BindItem("item0","Combo00","value","dsgridrow","showRow");
+            this.addChild(obj.name, obj);
+            obj.bind();
+
+            
+            // Remove Reference
+            obj = null;
+        };
+        
+
+        
+        // User Script
+
+        
+        // Regist UI Components Event
+        this.on_initEvent = function()
+        {
+
+        };
+
+        this.loadIncludeScript("UserSanctions.xfdl", true);
+
+       
+    };
+}
+)();

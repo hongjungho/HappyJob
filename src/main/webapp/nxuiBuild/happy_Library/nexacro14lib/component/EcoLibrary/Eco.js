@@ -186,17 +186,14 @@ if ( !JsNamespace.exist("Eco") )
 		{
 			var stringWrapper = new String(value);
 			
-			//[수정]http://www.playnexacro.com/questions/470/에코라이브러리-isstringdate-에서-윤년체크-실패-하였습니다
-			value = stringWrapper.toString();
-			
-			if( value.length !== 8 ) return false;
+			if( stringWrapper.toString().length !== 8 ) return false;
 			
 			var iMonth  = Math.floor(stringWrapper.slice(4,6), 10);
 			var iDate   = Math.floor(stringWrapper.slice(6,8), 10);
 			
 			if( iMonth < 1 || iMonth > 12 ) return false;
 				
-			if( iDate < 1 || iDate > Eco.date.getLastDayOfMonth(value) ) return false;
+			if( iDate < 1 || iDate > Eco.date.getLastDayOfMonth(stringWrapper) ) return false;
 			
 			
 			return true;
@@ -610,32 +607,20 @@ if ( !JsNamespace.exist("Eco") )
 		 * 유일한 ID 를 반환
 		 * @public
 		 * @param {string=} prefix id 앞에 붙일 문자열
-		 * @param {string=} separator id 생성시 구분용 문자(default: '-' ).
 		 * @return {string} id
 		 * @example
 		 *
 		 * trace(Eco.getUniqueId()); 
-		 * // output : 3e52d1f6-f0d2-4970-a590-ba7656b07859
+		 * // output : 3e52d1f6-f0d2-4970-a590-ba7656b07859 (달라지는 값)
 		 * 
 		 * trace(Eco.getUniqueId("Button_")); 
-		 * // output : Button_4e601da1-63f4-4cfa-849b-01b8a7f14d40
-		 * 
-		 * trace(Eco.getUniqueId("", "_")); 
-		 * // output : 4e601da1_63f4_4cfa_849b_01b8a7f14d40
-		 * 
-		 * trace(Eco.getUniqueId("Button_", "_")); 
-		 * // output : Button_4e601da1_63f4_4cfa_849b_01b8a7f14d40
+		 * // output : Button_4e601da1-63f4-4cfa-849b-01b8a7f14d40 (달라지는 값)
 		 * 
 		 * @memberOf Eco
 		 */
-		getUniqueId: function(prefix, separator)
+		getUniqueId: function(prefix)
 		{
 			if ( Eco.isEmpty(prefix) ) prefix = "";
-			if ( Eco.isEmpty(separator) ) {
-				separator = 45;
-			} else {
-				separator = separator.charCodeAt(0);
-			}
 			
 			var pThis = Eco,
 				charcode = pThis._ALPHA_CHAR_CODES,
@@ -653,7 +638,7 @@ if ( !JsNamespace.exist("Eco") )
 			seq = 0;
 			while (seq < 3) 
 			{
-				tmpArray[++idx] = separator;//45 => "-", 95=> "_"
+				tmpArray[++idx] = 45;//45 => "-", 95=> "_"
 				seq0 = 0;
 				while (seq0 < 4) 
 				{
@@ -662,7 +647,7 @@ if ( !JsNamespace.exist("Eco") )
 				}
 				seq++;
 			}
-			tmpArray[++idx] = separator; //45 => "-", 95=> "_"
+			tmpArray[++idx] = 45; //45 => "-", 95=> "_"
 			// 끝에서 12자리을 random으로 처리하면 속도가 좀더 개선됨(10만건 생성 약 0.8초 ==> chrome)
 			/*
 			seq = 0;

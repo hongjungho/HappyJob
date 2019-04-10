@@ -1,0 +1,233 @@
+﻿(function()
+{
+    return function()
+    {
+        if (!this._is_form)
+            return;
+        
+        this.on_create = function()
+        {
+            // Declare Reference
+            var obj = null;
+            
+            if (Form == this.constructor) {
+                this.set_name("manager");
+                this.set_titletext("New Form");
+                this._setFormPosition(0,0,1024,768);
+            }
+            this.style.set_background("gainsboro");
+
+            
+            // Object(Dataset, ExcelExportObject) Initialize
+            obj = new Dataset("Dataset00", this);
+            obj._setContents("<ColumnInfo><Column id=\"codecolumn\" type=\"STRING\" size=\"256\"/><Column id=\"datacolumn\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">회원명</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">회원번호</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+
+            
+            // UI Components Initialize
+            obj = new Static("Static00", "absolute", "56.64%", "284", null, "22", "36.43%", null, this);
+            obj.set_taborder("2");
+            obj.set_text("회원명");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static01", "absolute", "56.64%", "532", null, "22", "35.64%", null, this);
+            obj.set_taborder("4");
+            obj.set_text("회원 주소");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static03", "absolute", "56.64%", "344", null, "22", "37.6%", null, this);
+            obj.set_taborder("8");
+            obj.set_text("아이디");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static08", "absolute", "63.28%", "528", null, "22", "29.88%", null, this);
+            obj.set_taborder("13");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00", "absolute", "3.32%", "34", null, "64", "85.35%", null, this);
+            obj.set_taborder("28");
+            obj.set_text("도서");
+            obj.style.set_image("URL('theme://images/ico_treeitem.png')");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button01", "absolute", "16.89%", "35", null, "62", "71.09%", null, this);
+            obj.set_taborder("29");
+            obj.set_text("회원");
+            obj.style.set_image("URL('theme://images/img_grip.png')");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit04", "absolute", "2.73%", "168", null, "522", "51.07%", null, this);
+            obj.set_taborder("31");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static06", "absolute", "10.45%", "253", null, "131", "59.57%", null, this);
+            obj.set_taborder("32");
+            obj.set_text("회원 리스트 출력");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit05", "absolute", "12.89%", "128", null, "24", "71.09%", null, this);
+            obj.set_taborder("38");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button07", "absolute", "28.71%", "127", null, "25", "66.11%", null, this);
+            obj.set_taborder("39");
+            obj.set_text("검색");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button08", "absolute", "30.96%", "35", null, "62", "57.03%", null, this);
+            obj.set_taborder("40");
+            obj.set_text("직원");
+            obj.style.set_image("URL('theme://images/img_grip.png')");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit06", "absolute", "56.64%", "568", null, "24", "17.97%", null, this);
+            obj.set_taborder("41");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit07", "absolute", "64.45%", "284", null, "24", "17.97%", null, this);
+            obj.set_taborder("42");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static04", "absolute", "56.64%", "224", null, "22", "36.72%", null, this);
+            obj.set_taborder("43");
+            obj.set_text("회원번호");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static10", "absolute", "56.64%", "404", null, "22", "34.38%", null, this);
+            obj.set_taborder("44");
+            obj.set_text("전화번호");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static02", "absolute", "56.64%", "456", null, "22", "35.94%", null, this);
+            obj.set_taborder("45");
+            obj.set_text("이메일");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit00", "absolute", "64.45%", "343", null, "24", "17.97%", null, this);
+            obj.set_taborder("46");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit01", "absolute", "64.45%", "403", null, "24", "17.97%", null, this);
+            obj.set_taborder("47");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit02", "absolute", "56.64%", "492", null, "24", "17.97%", null, this);
+            obj.set_taborder("48");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("Edit03", "absolute", "64.45%", "223", null, "24", "17.97%", null, this);
+            obj.set_taborder("49");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("Combo00", "absolute", "3.03%", "128", null, "24", "87.7%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("51");
+            obj.set_text("회원명");
+            obj.set_innerdataset("@Dataset00");
+            obj.set_codecolumn("codecolumn");
+            obj.set_datacolumn("datacolumn");
+            obj.set_value("1");
+            obj.set_index("0");
+
+            obj = new Static("Static05", "absolute", "55.47%", "176", null, "1", "3.13%", null, this);
+            obj.set_taborder("52");
+            obj.style.set_border("1 solid #808080ff");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static13", "absolute", "55.47%", "639", null, "1", "2.34%", null, this);
+            obj.set_taborder("53");
+            obj.style.set_border("1 solid #808080ff");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static07", "absolute", "29.69%", "647", null, "41", "51.56%", null, this);
+            obj.set_taborder("54");
+            obj.set_text("조회결과  0 건");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button05", "absolute", "89.84%", "118", null, "26", "3.91%", null, this);
+            obj.set_taborder("55");
+            obj.set_text("신규");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button03", "absolute", "88.87%", "662", null, "26", "4.88%", null, this);
+            obj.set_taborder("56");
+            obj.set_text("취소");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button02", "absolute", "80.47%", "662", null, "26", "13.28%", null, this);
+            obj.set_taborder("57");
+            obj.set_text("저장");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button04", "absolute", "57.13%", "662", null, "26", "36.62%", null, this);
+            obj.set_taborder("58");
+            obj.set_text("삭제");
+            this.addChild(obj.name, obj);
+
+
+            
+            // Layout Functions
+            //-- Default Layout
+            obj = new Layout("default", "", 1024, 768, this,
+            	//-- Layout function
+            	function(p) {
+            		p.set_titletext("New Form");
+            		p.style.set_background("gainsboro");
+
+            	}
+            );
+            this.addLayout(obj.name, obj);
+
+
+            
+            // BindItem Information
+
+            
+            // Remove Reference
+            obj = null;
+        };
+        
+
+        
+        // User Script
+        this.registerScript("admin_user.xfdl", function(exports) {
+
+        this.Button00_onclick = function(obj,e)
+        {
+        	this.go("Practice::admin_book.xfdl");
+        }
+
+        this.Button01_onclick = function(obj,e)
+        {
+        	this.go("Practice::admin_user.xfdl");
+        }
+
+        this.Button08_onclick = function(obj,e)
+        {
+        	this.go("Practice::admin_empl.xfdl");
+        }
+        
+        });
+
+
+        
+        // Regist UI Components Event
+        this.on_initEvent = function()
+        {
+            this.Static00.addEventHandler("onclick", this.Static00_onclick, this);
+            this.Static01.addEventHandler("onclick", this.Static01_onclick, this);
+            this.Button00.addEventHandler("onclick", this.Button00_onclick, this);
+            this.Button01.addEventHandler("onclick", this.Button01_onclick, this);
+            this.Static06.addEventHandler("onclick", this.Static06_onclick, this);
+            this.Button08.addEventHandler("onclick", this.Button08_onclick, this);
+            this.Static02.addEventHandler("onclick", this.Static01_onclick, this);
+
+        };
+
+        this.loadIncludeScript("admin_user.xfdl", true);
+
+       
+    };
+}
+)();

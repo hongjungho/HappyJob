@@ -1,54 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="Rent" left="0" top="0" width="600" height="800" titletext="New Form" onload="form_onload" style="color:black;font:10 verdana;">
+  <Form id="Rent" left="0" top="0" width="600" height="800" titletext="New Form" onload="form_onload" style="color:black;font:10 verdana;" onkeydown="form_onkeydown">
     <Layouts>
       <Layout>
-        <ImageViewer id="img_book" taborder="0" text="img_book" left="5%" top="62" right="62.33%" height="109"/>
-        <Edit id="edit_title" taborder="1" left="40.83%" top="62" right="5.5%" height="27" readonly="true"/>
-        <Edit id="edit_writer" taborder="2" left="40.83%" top="102" right="5.5%" height="27" readonly="true"/>
-        <Edit id="edit_publisher" taborder="3" left="40.83%" top="142" right="5.5%" height="27" readonly="true"/>
-        <Grid id="grd_stock" taborder="4" useinputpanel="false" left="4.83%" top="398" right="4.83%" height="322" binddataset="dsBook">
+        <ImageViewer id="img_book" taborder="5" left="5%" top="62" right="77.33%" height="109" stretch="fit"/>
+        <Edit id="edit_title" taborder="0" left="26.67%" top="62" right="5.5%" height="27" readonly="true"/>
+        <Edit id="edit_writer" taborder="1" left="26.67%" top="102" right="5.5%" height="27" readonly="true"/>
+        <Edit id="edit_publisher" taborder="2" left="26.67%" top="142" right="5.5%" height="27" readonly="true"/>
+        <Grid id="grd_stock" taborder="8" useinputpanel="false" left="4.83%" top="398" right="4.83%" height="322" binddataset="dsBook" scrollbars="fixedhorz" selecttype="multirow" onselectchanged="grd_stock_onselectchanged">
           <Formats>
             <Format id="default">
               <Columns>
-                <Column size="40"/>
                 <Column size="80"/>
                 <Column size="112"/>
-                <Column size="112"/>
+                <Column size="140"/>
+                <Column size="140"/>
+                <Column size="69"/>
               </Columns>
               <Rows>
                 <Row size="24"/>
               </Rows>
               <Band id="body">
-                <Cell displaytype="checkbox" edittype="checkbox" style="selectcolor:gray;controlcolor:gray;" combodisplay="display"/>
-                <Cell col="1" text="bind:bookNo"/>
-                <Cell col="2" text="bind:bookNm"/>
-                <Cell col="3" text="bind:bookRegdate"/>
+                <Cell text="bind:bookNo"/>
+                <Cell col="1" text="bind:bookNm"/>
+                <Cell col="2" text="bind:bookRegdate"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
-        <Calendar id="cal_from" taborder="5" left="4.33%" top="193" right="5.33%" height="36" onchanged="cal_from_onchanged" displaynulltext="원하는 대출일자를 선택해주세요." style="displaynulltextcolor:#00000080;"/>
-        <Calendar id="cal_to" taborder="6" left="4.33%" top="254" right="5.33%" height="36" onchanged="cal_to_onchanged" displaynulltext="원하는 반납일자를 선택해주세요." style="displaynulltextcolor:#00000080;"/>
-        <Button id="btn_rent_search" taborder="7" text="대여 가능 도서 검색" left="69.83%" top="311" right="5.33%" height="31" onclick="btn_rent_search_onclick" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;"/>
-        <Static id="stc_total" taborder="8" left="8.83%" top="313" right="70.67%" height="39"/>
+        <Calendar id="cal_from" taborder="3" left="4.33%" top="193" right="5.33%" height="36" onchanged="cal_from_onchanged" displaynulltext="원하는 대출일자를 선택해주세요." style="popupsize:300 300;popupalign:right bottom;buttonsize:-1;displaynulltextcolor:#00000080;" oneditclick="cal_from_oneditclick"/>
+        <Calendar id="cal_to" taborder="4" left="4.33%" top="254" right="5.33%" height="36" onchanged="cal_to_onchanged" displaynulltext="원하는 반납일자를 선택해주세요." style="popupsize:300 300;popupalign:right bottom;buttonsize:-1;displaynulltextcolor:#00000080;" oneditclick="cal_to_oneditclick"/>
+        <Button id="btn_rent_search" taborder="6" text="대여 가능 도서 검색" left="69.83%" top="311" right="5.33%" height="31" onclick="btn_rent_search_onclick" style="background:#f6a109ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;"/>
+        <Static id="stc_total" taborder="10" left="6.17%" top="305" right="73.33%" height="39"/>
         <Button id="btn_rent_confirm" taborder="9" text="선택" left="41.33%" top="738" right="41.17%" height="32" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;" onclick="btn_rent_confirm_onclick"/>
-        <Static id="stc_header" taborder="10" left="0%" top="0" right="0%" height="43" style="background:#339966ff;color:white;font:bold 20 verdana;" text="   대여 도서 검색"/>
-        <Static id="stc_grd_info" taborder="11" text="        도서번호     |       도서명      |       등록일자" left="5.17%" top="364" right="5%" height="29" style="background:#339966ff;color:white;bordertype:round 10 10  righttop leftbottom;font:bold 10 verdana;"/>
+        <Static id="stc_header" taborder="11" left="0%" top="0" right="0%" height="43" style="background:#339966ff;color:white;font:bold 20 verdana;" text="   도서 재고 검색"/>
+        <Static id="stc_grd_info" taborder="7" text="       도서번호     |       도서명      |      등록일자      |     대여 가능 일자  /  여부" left="5.17%" top="364" right="5%" height="29" style="background:#339966ff;color:white;bordertype:round 10 10  righttop leftbottom;font:bold 10 verdana;"/>
+        <Static id="Static00" taborder="12" text="** ctrl / shift + click:: multi-select" left="5.83%" top="338" right="49.33%" height="28"/>
+        <Button id="btn_select_all" taborder="13" text="전체 선택" left="53.83%" top="311" right="32%" height="31" style="background:#f6a109ff;border:1 none #808080ff ;color:white;font:bold 10 verdana;"/>
+        <Static id="stc_select" taborder="14" left="29.67%" top="305" right="49.83%" height="39"/>
       </Layout>
     </Layouts>
     <Bind>
       <BindItem id="item0" compid="edit_title" propid="value" datasetid="dsBooks" columnid="bookNm"/>
       <BindItem id="item1" compid="edit_writer" propid="value" datasetid="dsBooks" columnid="bookWriter"/>
       <BindItem id="item2" compid="edit_publisher" propid="value" datasetid="dsBooks" columnid="bookPub"/>
+      <BindItem id="item3" compid="img_book" propid="image" datasetid="dsBooks" columnid="bookImg"/>
     </Bind>
     <Objects>
       <Dataset id="dsBook">
         <ColumnInfo>
+          <Column id="bookChk" type="STRING" size="256"/>
           <Column id="bookNo" type="STRING" size="256"/>
           <Column id="bookNm" type="STRING" size="256"/>
           <Column id="bookRegdate" type="STRING" size="256"/>
+          <Column id="bookImg" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
       <Dataset id="dsService">
@@ -114,13 +122,7 @@
           <Column id="serviceEnd" type="STRING" size="256"/>
         </ColumnInfo>
         <Rows>
-          <Row>
-            <Col id="bookNm"/>
-            <Col id="bookWriter"/>
-            <Col id="bookPub"/>
-            <Col id="serviceStart"/>
-            <Col id="serviceEnd"/>
-          </Row>
+          <Row/>
         </Rows>
       </Dataset>
       <Dataset id="dsRent">
@@ -132,9 +134,6 @@
           <Column id="serviceStart" type="STRING" size="256"/>
           <Column id="serviceEnd" type="STRING" size="256"/>
         </ColumnInfo>
-        <Rows>
-          <Row/>
-        </Rows>
       </Dataset>
     </Objects>
     <Script type="xscript5.0"><![CDATA[include "Lib::Comm.xjs"
@@ -144,30 +143,53 @@ this.selBook = this.opener.dsBooks.getColumn(this.selected, "bookNm");
 this.selWriter = this.opener.dsBooks.getColumn(this.selected, "bookWriter");
 this.selRegdate = this.opener.dsBooks.getColumn(this.selected, "bookRegdate");
 this.selBookPub = this.opener.dsBooks.getColumn(this.selected, "bookPub");
-
+this.selBookImg = this.opener.dsBooks.getColumn(this.selected, "bookImg");
+this.modalName = "";
 
 this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
-	trace("form_rent");
+	
 }
 
 this.fn_callback = function(){
+
 	this.total = this.dsBook.getRowCount();
+	
+	if(this.total > 1){
+		this.btn_select_all.set_visible(true);
+		this.btn_select_all.setEventHandler("onclick", this.fn_selectAll, this);
+	} else{
+		this.btn_select_all.set_visible(false);
+	}
+	
 	this.stc_total.set_text(this.total + " 권 대여 가능");
 }
 
 this.cal_to_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
 {
 	var startDate = this.cal_from.value;
-	var endDate = this.cal_to.value;
+	var endDate = obj.value;
+	
+	if(startDate == null){
+		alert("대여일을 확인해주세요.");
+		return this.cal_from.setFocus();
+	}
+	
 	if(startDate > endDate){
 		alert("반납일자를 확인해주세요.");
-		return this.cal_to.set_value(startDate);
+		return obj.set_value(startDate);
+	}
+	
+	if((endDate - startDate) > 16){
+		alert("대여일은 최대 15일 까지입니다.");
+		return obj.set_value(startDate);
 	}
 }
 
 this.cal_from_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
 {
+	var startDate = obj.value;
+	var endDate = this.cal_to.value;
 	var today = new Date();
 	var year = today.getFullYear();
 	var month = today.getMonth() + 1;
@@ -179,37 +201,49 @@ this.cal_from_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
 		date = "0"+date;
 	}
 	today = year + month + date;
+	
+	if(endDate != null && startDate > endDate){
+		alert("반납일자를 확인해주세요.");
+		return obj.set_value(endDate);
+	}
 
-	if(obj.value < today){
+	if(startDate < today){
 		alert("대출일자를 확인해주세요.");
+		return obj.set_value(today);
+	}
+	
+	if((endDate - startDate) > 16){
+		alert("대여일은 최대 15일까지입니다.");
+		return obj.set_value(endDate);
 	}
 }
 
 
 this.fn_rent_callback = function(){
-	
+
 	this.btn_rent_search_onclick();
-	trace("available books searched");
+	this.modalName = "modeless-mypage";
+	application.open(this.modalName, "Practice::Confirm.xfdl", this.getOwnerFrame(), {mode:"modeless"}, "showtitlebar=false showstatusbar=false", 750, 600);
 	
 }
-
 
 this.btn_rent_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 {
 	var startDate = this.cal_from.value;
 	var endDate = this.cal_to.value;
-	trace(startDate);
-	trace(endDate);
-	
-	if(startDate != null && endDate != null){
 
+	if(startDate != null && endDate != null){
+		
+		this.dsArgs.addRow();
 		this.dsArgs.setColumn(0, "bookNm", this.selBook);
 		this.dsArgs.setColumn(0, "bookWriter", this.selWriter);
 		this.dsArgs.setColumn(0, "bookPub", this.selBookPub);
 		this.dsArgs.setColumn(0, "serviceStart", startDate);
 		this.dsArgs.setColumn(0, "serviceEnd", endDate);
-		
+
 		this.gfn_serviceCall("getBookByTitle");
+		
+		
 	} else{
 		alert("날짜를 확인해주세요.");
 		return false;
@@ -221,19 +255,48 @@ this.btn_rent_confirm_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 	var startDate = this.cal_from.value;
 	var endDate = this.cal_to.value;
 	var selRow = this.grd_stock.getSelectedRows();
-	var bookNo = this.dsBook.getColumn(selRow, "bookNo");
 	
-	if(startDate != null && endDate != null && selRow != null){
-	
-		this.dsRent.setColumn(0, "userNo", 1);
-		this.dsRent.setColumn(0, "bookNo", bookNo);
-		this.dsRent.setColumn(0, "serviceCd", 01);
-		this.dsRent.setColumn(0, "serviceStart", startDate);
-		this.dsRent.setColumn(0, "serviceEnd", endDate);
-		
-		this.gfn_serviceCall("rent");
+	this.modalName = "modeless-confirm";
+	if(startDate != null && endDate != null && selRow.length > 0){		
+		application.open(this.modalName, "Practice::Confirm.xfdl", this.getOwnerFrame(), {mode:"modeless"}, "showtitlebar=false showstatusbar=false", 750, 600);
+	} else {
+		alert("대출정보를 확인해주세요.");
+	}
+
+}
+this.form_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 27){
+		this.close();
+	} else if(e.keycode == 116){
+		this.reload();
 	}
 }
+
+this.cal_from_oneditclick = function(obj:Calendar, e:nexacro.EditClickEventInfo)
+{
+	obj.dropdown();
+}
+
+this.cal_to_oneditclick = function(obj:Calendar, e:nexacro.EditClickEventInfo)
+{
+	obj.dropdown();
+}
+
+this.fn_selectAll = function(){
+
+	var selAll = this.dsBook.getRowCount();
+	
+	for(var i = 0; i < selAll; i++){
+		this.grd_stock.selectRow(i);
+	}
+}
+
+this.grd_stock_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
+{
+	this.stc_select.set_text(this.grd_stock.getSelectedRows().length + "권 선택");
+}
+
 
 ]]></Script>
   </Form>

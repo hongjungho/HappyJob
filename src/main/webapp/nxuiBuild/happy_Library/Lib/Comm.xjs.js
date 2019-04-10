@@ -11,12 +11,14 @@
         this.addIncludeScript(path, "Lib::CommFrame.xjs");
         this.addIncludeScript(path, "Lib::CommMsg.xjs");
         this.addIncludeScript(path, "Lib::CommPageMove.xjs");
+        this.addIncludeScript(path, "Lib::CommCboCode.xjs");
         this.registerScript(path, function(exports) {
         if (this.executeIncludeScript) { this.executeIncludeScript("Lib::CommService.xjs", null, exports); }	//include "Lib::CommService.xjs";
         if (this.executeIncludeScript) { this.executeIncludeScript("Lib::CommUtil.xjs", null, exports); }	//include "Lib::CommUtil.xjs";
         if (this.executeIncludeScript) { this.executeIncludeScript("Lib::CommFrame.xjs", null, exports); }	//include "Lib::CommFrame.xjs";
         if (this.executeIncludeScript) { this.executeIncludeScript("Lib::CommMsg.xjs", null, exports); }	//include "Lib::CommMsg.xjs";
         if (this.executeIncludeScript) { this.executeIncludeScript("Lib::CommPageMove.xjs", null, exports); }	//include "Lib::CommPageMove.xjs";
+        if (this.executeIncludeScript) { this.executeIncludeScript("Lib::CommCboCode.xjs", null, exports); }	//include "Lib::CommCboCode.xjs"
         
         });
 

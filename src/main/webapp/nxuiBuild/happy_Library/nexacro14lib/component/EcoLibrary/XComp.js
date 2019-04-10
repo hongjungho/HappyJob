@@ -935,7 +935,7 @@ if ( !JsNamespace.exist("Eco.XComp") )
 			{
 				return [];
 			}
-			
+
 			var depth = {};
 				depth.current = 0;
 

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="adminUser" left="0" top="0" width="1024" height="768" titletext="New Form" style="background:gainsboro;" name="adminUser" onload="adminUser_onload">
+    <Layouts>
+      <Layout>
+        <Edit id="Edit00" taborder="1" left="57.03%" top="216" right="22.75%" height="24" oneditclick="Edit00_oneditclick"/>
+        <Static id="Static00" taborder="2" text="도서번호" left="57.03%" top="194" right="36.43%" height="22"/>
+        <Static id="Static01" taborder="4" text="도서분류" left="57.03%" top="294" right="35.64%" height="22" onclick="Static01_onclick"/>
+        <Static id="Static02" taborder="6" text="카테고리" left="57.03%" top="354" right="35.64%" height="22" onclick="Static02_onclick"/>
+        <Edit id="Edit03" taborder="7" left="57.03%" top="268" right="22.75%" height="24"/>
+        <Static id="Static03" taborder="8" text="도서제목" left="57.03%" top="244" right="36.43%" height="22"/>
+        <Static id="Static05" taborder="10" text="출판사" left="56.93%" top="440" right="36.52%" height="22"/>
+        <Static id="Static07" taborder="12" text="줄거리" left="57.03%" top="536" right="36.43%" height="15" onclick="Static07_onclick"/>
+        <Static id="Static08" taborder="13" left="63.28%" top="528" right="29.88%" height="22"/>
+        <Static id="Static10" taborder="15" onclick="Static07_onclick" left="85.16%" top="210" right="8.01%" height="22" text="도서이미지"/>
+        <Static id="Static11" taborder="16" text="저자" onclick="Static07_onclick" left="57.03%" top="394" right="36.43%" height="22"/>
+        <Radio id="Radio00" taborder="17" left="57.03%" top="323" right="22.75%" height="21" onitemclick="Radio00_onitemclick" innerdataset="@dsRadioform" codecolumn="CD" datacolumn="CDNM" direction="vertical"/>
+        <Combo id="Combo00" taborder="19" text="문학" left="64.06%" top="354" right="24.32%" height="21" onitemchanged="Combo00_onitemchanged"/>
+        <Edit id="Edit01" taborder="22" left="61.62%" top="394" right="24.32%" height="24"/>
+        <Edit id="Edit02" taborder="23" left="61.62%" top="438" right="24.32%" height="24"/>
+        <TextArea id="TextArea00" taborder="24" left="57.03%" top="560" right="4.69%" height="70"/>
+        <FileUpload id="FileUpload00" taborder="25" retry="0" index="0" left="81.54%" top="433" right="4.88%" height="37" style="buttontext:불러오기;"/>
+        <ImageViewer id="ImageViewer00" taborder="26" text="ImageViewer00" left="81.35%" top="243" right="3.81%" height="175"/>
+        <Button id="Button00" taborder="28" text="도서" left="3.32%" top="34" right="85.35%" height="64" style="image:URL('theme://images/ico_treeitem.png');" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="29" text="회원" left="16.89%" top="35" right="71.09%" height="62" style="image:URL('theme://images/img_grip.png');" onclick="Button01_onclick"/>
+        <Button id="Button02" taborder="33" text="저장" left="80.47%" top="670" right="13.28%" height="26"/>
+        <Button id="Button03" taborder="34" text="취소" left="88.87%" top="670" right="4.88%" height="26"/>
+        <Button id="Button04" taborder="35" text="삭제" left="57.13%" top="670" right="36.62%" height="26"/>
+        <Button id="Button05" taborder="36" text="신규" left="89.84%" top="110" right="3.91%" height="26" onclick="Button05_onclick"/>
+        <Edit id="Edit05" taborder="38" left="2.73%" top="128" right="70.31%" height="24" oneditclick="Edit05_oneditclick" displaynulltext="도서명으로 검색"/>
+        <Button id="Button07" taborder="39" text="검색" left="31.05%" top="127" right="63.77%" height="25" onclick="Button07_onclick"/>
+        <Button id="Button08" taborder="40" text="직원" left="30.96%" top="35" right="57.03%" height="62" style="image:URL('theme://images/img_grip.png');" onclick="Button08_onclick"/>
+        <Edit id="Edit06" taborder="41" left="61.62%" top="488" right="24.32%" height="24"/>
+        <Static id="Static04" taborder="42" text="ISBN" left="56.93%" top="490" right="36.52%" height="22"/>
+        <Static id="Static12" taborder="44" text="발행일" left="76.56%" top="490" right="16.89%" height="22"/>
+        <Static id="Static13" taborder="45" left="55.47%" top="176" right="3.13%" height="1" style="border:1 solid #808080ff ;"/>
+        <Static id="Static14" taborder="46" left="55.47%" top="655" right="2.34%" height="1" style="border:1 solid #808080ff ;"/>
+        <Static id="Static09" taborder="47" text="조회결과  0 건" left="29.69%" top="647" right="51.56%" height="41"/>
+        <Grid id="Grid00" taborder="48" binddataset="dsBookList" useinputpanel="false" left="2.64%" top="169" right="47.36%" height="485">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="112"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="도서명"/>
+                <Cell col="1" text="글쓴이"/>
+                <Cell col="2" text="출판사"/>
+                <Cell col="3" text="책등록일"/>
+                <Cell col="4" text="출판일"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:bookNm"/>
+                <Cell col="1" text="bind:bookWriter"/>
+                <Cell col="2" text="bind:bookPub"/>
+                <Cell col="3" text="bind:bookdate"/>
+                <Cell col="4" text="bind:bookregdate"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Calendar id="Calendar00" taborder="49" left="81.74%" top="490" right="4.49%" height="22" oneditclick="Calendar00_oneditclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsRadioform">
+        <ColumnInfo>
+          <Column id="CD" type="STRING" size="256"/>
+          <Column id="CDNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CD">0</Col>
+            <Col id="CDNM">일반도서</Col>
+          </Row>
+          <Row>
+            <Col id="CD">1</Col>
+            <Col id="CDNM">전자도서</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsBookList">
+        <ColumnInfo>
+          <Column id="bookNo" type="STRING" size="256"/>
+          <Column id="bookNm" type="STRING" size="256"/>
+          <Column id="bookWriter" type="STRING" size="256"/>
+          <Column id="bookPub" type="STRING" size="256"/>
+          <Column id="bookdate" type="STRING" size="256"/>
+          <Column id="divCd" type="STRING" size="256"/>
+          <Column id="classCd" type="STRING" size="256"/>
+          <Column id="bookIsbn" type="STRING" size="256"/>
+          <Column id="bookregdate" type="STRING" size="256"/>
+          <Column id="bookSum" type="STRING" size="256"/>
+          <Column id="placeCd" type="STRING" size="256"/>
+          <Column id="bookImg" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sController">admin/bookList.do</Col>
+            <Col id="svcid">selectBookList</Col>
+            <Col id="inds">dsSchMap=dsSchMap</Col>
+            <Col id="outds">dsBookList=dsBookList</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsSchMap">
+        <ColumnInfo>
+          <Column id="bookNo" type="STRING" size="256"/>
+          <Column id="bookNm" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Radio00" propid="value" datasetid="ds_radioform"/>
+      <BindItem id="item1" compid="Edit00" propid="value" datasetid="dsBookList" columnid="bookNo"/>
+      <BindItem id="item2" compid="Edit03" propid="value" datasetid="dsBookList" columnid="bookNm"/>
+      <BindItem id="item3" compid="Edit01" propid="value" datasetid="dsBookList" columnid="bookWriter"/>
+      <BindItem id="item4" compid="Edit02" propid="value" datasetid="dsBookList" columnid="bookPub"/>
+      <BindItem id="item5" compid="Edit06" propid="value" datasetid="dsBookList" columnid="bookIsbn"/>
+      <BindItem id="item7" compid="TextArea00" propid="value" datasetid="dsBookList" columnid="bookSum"/>
+      <BindItem id="item8" compid="Calendar00" propid="value" datasetid="dsBookList" columnid="bookregdate"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+include "Lib::Comm.xjs";
+
+
+
+
+
+
+this.Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.go("Practice::admin_book.xfdl");
+}
+
+this.Button01_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.go("Practice::admin_user.xfdl");
+}
+
+this.Button08_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.go("Practice::admin_empl.xfdl");
+}
+
+
+// 화면구성시 list 출력
+
+this.adminUser_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_serviceCall("selectBookList"); 
+}
+
+
+
+
+// 검색버튼 눌렀을떄 검색어를 dsSchMap에 addColumn해주고 서비스호출
+this.Button07_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+	this.dsSchMap.setColumn(this.dsSchMap.rowposition , "bookNm" , this.Edit05.value);
+	this.gfn_serviceCall("selectBookList");
+	
+}
+
+]]></Script>
+  </Form>
+</FDL>

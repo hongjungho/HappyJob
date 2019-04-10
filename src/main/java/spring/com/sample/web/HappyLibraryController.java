@@ -8,14 +8,23 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.net.ssl.HttpsURLConnection;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.codec.Base64;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.nexacro.xapi.data.PlatformData;
 import com.nexacro.xapi.data.VariableList;
@@ -27,8 +36,21 @@ import spring.com.sample.service.HappyLibraryService;
 import spring.nexacro.annotation.ParamDataSet;
 import spring.nexacro.data.NexacroResult;
 
+import java.io.BufferedReader;
+//ADSReceiver 클래스의 receiveAddr()함수를 호출하여, 데이터를 요청합니다.
+//receiveAddr()함수에 사용되는 입력파라미터는 app_key, date_gb, cntc_cd, retry_in, req_date_from, req_date_to입니다.
+//결과 데이터는 ReceiveDatas 객체로 반환되며, 이를 getReceiveDatas(int order)를 통해서 정렬하여 ArrayList 타입으로 반환합니다.
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Properties;
+
 @Controller
 public class HappyLibraryController {
+	
 
 	private Logger log = LoggerFactory.getLogger(HappyLibraryController.class);
 	
@@ -83,6 +105,7 @@ public class HappyLibraryController {
 			System.out.println("selectcontroller");
 			System.out.println("selectcontroller");
 			System.out.println("selectcontroller");
+			
 			List<Map<String,Object>> dsUserInfo = happyLibraryService.selectMypageList(dsMypageMap);
 
 			result.addDataSet("dsUserInfo", dsUserInfo);
@@ -350,7 +373,80 @@ public class HappyLibraryController {
 				return result;
 		}
 	
+		
+		//사용자 대출도서 상세-----------------------------------------------------------------------------------------------------------
+			
+			@RequestMapping(value = "/practice/getBookDt.do")
+			 public NexacroResult getBookDt(@ParamDataSet(name = "dsBkSchMap", required = false) Map<String, Object> dsBkSchMap) throws Exception {
+
+					// 넥사크로로 전달 해줄 객체
+					NexacroResult result = new NexacroResult();
+		 
+
+					log.debug("eee");
+					
+					List<Map<String,Object>> dsBkDt = happyLibraryService.getBookDt(dsBkSchMap);
+
+					result.addDataSet("dsBkDt", dsBkDt);
+					
+					return result;
+			}
+		
+			
+			
+			//사용자 대출도서 연장전 대출확인-----------------------------------------------------------------------------------------------------------
+				
+				@RequestMapping(value = "/practice/checkRes.do")
+				 public NexacroResult checkRes(@ParamDataSet(name = "dsBkSchMap", required = false) Map<String, Object> dsBkSchMap) throws Exception {
+						System.out.println("123123123123");
+						// 넥사크로로 전달 해줄 객체
+						NexacroResult result = new NexacroResult();
+			 
+
+						log.debug("eee");
+						
+						List<Map<String,Object>> dsTmp = happyLibraryService.checkRes(dsBkSchMap);
+						
+						result.addDataSet("dsTmp",dsTmp);
+
+					
+						return result;
+						
+				}
+				
+			//사용자 대출도서 연장 -----------------------------------------------------------------------------------------------------------
+				
+				@RequestMapping(value = "/practice/extendBr.do")
+				public NexacroResult extendBr(@ParamDataSet(name = "dsBkDt", required = false) List<Map<String, Object>> egovdsList)throws Exception{
+					
+					System.out.println("savecontroller");
+					System.out.println("savecontroller");
+					System.out.println("savecontroller"); 
+					System.out.println("savecontroller");
+					System.out.println("savecontroller");
+					
+					NexacroResult result = new NexacroResult();
+				    
+					// 결과에 대한 콜백 메세지 처리 시 사용되는 객체
+					PlatformData resData = new PlatformData();
+					VariableList resVarList = resData.getVariableList();
+					
+					happyLibraryService.extendBk(egovdsList);
+					
+				
+
+					resVarList.add("ErrorCode", 200);
+					//resVarList.add("ErrorMsg", msg);
+
+
+					resData.setVariableList(resVarList);
+					result.setPlatformData(resData);
+
+					return result;
+				} 
+				
+				
 	
 	
-	
+		
 }

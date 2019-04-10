@@ -1,0 +1,54 @@
+﻿//XJS=CommPageMove.xjs
+(function()
+{
+    return function(path)
+    {
+        var obj;
+    
+        // User Script
+        this.registerScript(path, function(exports) {
+
+        this.gfn_main = function(sURL)
+        {
+           var oCF = application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3;
+           oCF.set_formurl(sURL);
+        }
+
+        
+        this.gfn_left = function(sURL)
+        {
+           var oLF = application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2;
+           oLF.set_formurl(sURL);
+        }
+
+        /*
+        this.av_mainFrame;
+        this.av_tapFrame;
+        this.av_mdiFrameSet;
+
+        this.application_onloadingglobalvariables = function(obj:Application, e:nexacro.LoadEventInfo)
+        {
+         this.av_mainFrame   = application.mainframe;
+         this.av_tapFrame    = this.VFrameSet0.VFrameSet1.ChildFrame1;
+         this.av_mdiFrameSet = this.VFrameSet0.VFrameSet1.HFrameSet0;
+        }
+
+        //메뉴클릭 시 > 업무화면 open(interface용. tabFrame에 fn_menuOpen() 호출)
+        this.afn_menuOpen = function(sMenuId){
+         var nRow = application.gds_menu.findRow("menuId", sMenuId);
+         if (nRow < 0) return;
+         
+         this.av_tapFrame.form.fn_menuOpen(nRow);  //이때 중간에 form object명을 넣어야 됨 (왜, 몰러??)
+        }
+
+        */
+        });
+
+
+    
+        this.loadIncludeScript(path, true);
+        
+        obj = null;
+    };
+}
+)();

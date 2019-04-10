@@ -19,11 +19,11 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("dsCntNum", this);
-            obj._setContents("<ColumnInfo><Column id=\"brNum\" type=\"STRING\" size=\"256\"/><Column id=\"arrNum\" type=\"STRING\" size=\"256\"/><Column id=\"resNum\" type=\"STRING\" size=\"256\"/><Column id=\"sanNum\" type=\"STRING\" size=\"256\"/><Column id=\"userId\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"brNum\">1</Col><Col id=\"arrNum\">2</Col><Col id=\"resNum\">3</Col><Col id=\"sanNum\">4</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"brr\" type=\"STRING\" size=\"256\"/><Column id=\"arr\" type=\"STRING\" size=\"256\"/><Column id=\"rev\" type=\"STRING\" size=\"256\"/><Column id=\"san\" type=\"STRING\" size=\"256\"/><Column id=\"userId\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsMypageMap", this);
-            obj._setContents("<ColumnInfo><Column id=\"userNo\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"userNo\">1</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"userNo\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"userNo\"/></Row></Rows>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsService", this);
@@ -35,7 +35,7 @@
             obj.set_loadkeymode("keep");
             obj.set_loadfiltermode("keep");
             obj.set_reversesubsum("false");
-            obj._setContents("<ColumnInfo><Column id=\"svcid\" type=\"STRING\" size=\"256\"/><Column id=\"sController\" type=\"STRING\" size=\"256\"/><Column id=\"inds\" type=\"STRING\" size=\"256\"/><Column id=\"outds\" type=\"STRING\" size=\"256\"/><Column id=\"args\" type=\"STRING\" size=\"256\"/><Column id=\"bAsync\" type=\"STRING\" size=\"512\"/><Column id=\"nDataType\" type=\"STRING\" size=\"256\"/><Column id=\"bCompress\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"sController\">practice/selectMypageList.do</Col><Col id=\"svcid\">selectMypageList</Col><Col id=\"inds\">dsMypageMap=dsMypageMap</Col><Col id=\"outds\">dsUserInfo=dsUserInfo</Col><Col id=\"bAsync\">true</Col><Col id=\"nDataType\">0</Col><Col id=\"bCompress\">false</Col><Col id=\"args\"/></Row><Row><Col id=\"svcid\">saveUserInfo</Col><Col id=\"sController\">practice/saveUserInfo.do</Col><Col id=\"inds\">dsUserInfo=dsUserInfo:U</Col><Col id=\"bAsync\">true</Col><Col id=\"nDataType\">0</Col><Col id=\"bCompress\">false</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"svcid\" type=\"STRING\" size=\"256\"/><Column id=\"sController\" type=\"STRING\" size=\"256\"/><Column id=\"inds\" type=\"STRING\" size=\"256\"/><Column id=\"outds\" type=\"STRING\" size=\"256\"/><Column id=\"args\" type=\"STRING\" size=\"256\"/><Column id=\"bAsync\" type=\"STRING\" size=\"512\"/><Column id=\"nDataType\" type=\"STRING\" size=\"256\"/><Column id=\"bCompress\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"sController\">practice/selectMypageList.do</Col><Col id=\"svcid\">selectMypageList</Col><Col id=\"inds\">dsMypageMap=dsMypageMap</Col><Col id=\"outds\">dsUserInfo=dsUserInfo</Col><Col id=\"bAsync\">true</Col><Col id=\"nDataType\">0</Col><Col id=\"bCompress\">false</Col><Col id=\"args\"/></Row><Row><Col id=\"svcid\">saveUserInfo</Col><Col id=\"sController\">practice/saveUserInfo.do</Col><Col id=\"inds\">dsUserInfo=dsUserInfo:U</Col><Col id=\"bAsync\">true</Col><Col id=\"nDataType\">0</Col><Col id=\"bCompress\">false</Col></Row><Row><Col id=\"svcid\">staticMypage</Col><Col id=\"sController\">practice/staticMypage.do</Col><Col id=\"inds\">dsMypageMap=dsMypageMap</Col><Col id=\"outds\">dsCntNum=dsCntNum</Col><Col id=\"bAsync\">true</Col><Col id=\"nDataType\">0</Col><Col id=\"bCompress\">false</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsUserInfo", this);
@@ -159,8 +159,10 @@
             obj = new Static("Static01", "absolute", "53.45%", "27", null, "33", "4.6%", null, this.Div00.Div00);
             obj.set_taborder("7");
             obj.set_text("건수Binding");
+            obj.style.set_color("blue");
             obj.style.set_align("center middle");
             obj.style.set_font("20 맑은 고딕");
+            obj.style.set_cursor("hand");
             this.Div00.Div00.addChild(obj.name, obj);
             obj = new Div("Div01", "absolute", "47.2%", "155", null, "96", "32.01%", null, this.Div00);
             obj.set_taborder("58");
@@ -180,8 +182,10 @@
             obj = new Static("Static01", "absolute", "53.45%", "27", null, "33", "4.6%", null, this.Div00.Div01);
             obj.set_taborder("7");
             obj.set_text("건수Binding");
+            obj.style.set_color("blue");
             obj.style.set_align("center middle");
             obj.style.set_font("20 맑은 고딕");
+            obj.style.set_cursor("hand");
             this.Div00.Div01.addChild(obj.name, obj);
             obj = new Div("Div02", "absolute", "71.26%", "155", null, "96", "7.94%", null, this.Div00);
             obj.set_taborder("59");
@@ -201,8 +205,10 @@
             obj = new Static("Static01", "absolute", "53.45%", "27", null, "33", "4.6%", null, this.Div00.Div02);
             obj.set_taborder("7");
             obj.set_text("건수Binding");
+            obj.style.set_color("blue");
             obj.style.set_align("center middle");
             obj.style.set_font("20 맑은 고딕");
+            obj.style.set_cursor("hand");
             this.Div00.Div02.addChild(obj.name, obj);
             obj = new Div("Div03", "absolute", "71.26%", "35", null, "96", "7.94%", null, this.Div00);
             obj.set_taborder("60");
@@ -222,8 +228,10 @@
             obj = new Static("Static01", "absolute", "53.45%", "27", null, "33", "4.6%", null, this.Div00.Div03);
             obj.set_taborder("7");
             obj.set_text("건수Binding");
+            obj.style.set_color("blue");
             obj.style.set_align("center middle");
             obj.style.set_font("20 맑은 고딕");
+            obj.style.set_cursor("hand");
             this.Div00.Div03.addChild(obj.name, obj);
             obj = new Static("Static05", "absolute", "17.64%", "22", null, "31", "64.95%", null, this.Div00);
             obj.set_taborder("61");
@@ -358,18 +366,6 @@
 
             
             // BindItem Information
-            obj = new BindItem("item0","Div00.Div00.Static01","text","dsCntNum","brNum");
-            this.addChild(obj.name, obj);
-            obj.bind();
-            obj = new BindItem("item1","Div00.Div03.Static01","text","dsCntNum","arrNum");
-            this.addChild(obj.name, obj);
-            obj.bind();
-            obj = new BindItem("item2","Div00.Div01.Static01","text","dsCntNum","resNum");
-            this.addChild(obj.name, obj);
-            obj.bind();
-            obj = new BindItem("item3","Div00.Div02.Static01","text","dsCntNum","sanNum");
-            this.addChild(obj.name, obj);
-            obj.bind();
             obj = new BindItem("item4","Div00.Static05","text","dsUserInfo","userNm");
             this.addChild(obj.name, obj);
             obj.bind();
@@ -383,6 +379,18 @@
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item8","Div00.Static10","text","dsUserInfo","userAddr");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item0","Div00.Div00.Static01","text","dsCntNum","brr");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item1","Div00.Div01.Static01","text","dsCntNum","rev");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item2","Div00.Div03.Static01","text","dsCntNum","arr");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item3","Div00.Div02.Static01","text","dsCntNum","san");
             this.addChild(obj.name, obj);
             obj.bind();
 
@@ -405,12 +413,15 @@
         // 페이지 온로드 후
         this.fn_onload = function(obj,e)
         {
+        	var no = application.gds_UserInfo.getColumn(0,"userNo")
+        	this.dsMypageMap.setColumn(0,"userNo",no);
         	this.lfn_searchList();
         }
 
         
         this.lfn_searchList = function(){
         	this.gfn_serviceCall("selectMypageList");
+        	this.gfn_serviceCall("staticMypage")
         }
 
         //공통 콜백
@@ -452,7 +463,6 @@
         // 대출
         this.Div00_Div00_Static00_onclick = function(obj,e)
         {
-        	application.gds_UserInfo.setColumn(0,"userNo",this.dsUserInfo.getColumn(0,"userNo"))
         	var sURL = "Practice::UserBorrow.xfdl";
         	this.gfn_main(sURL);
         }
@@ -508,9 +518,13 @@
             this.Div00.Static00.addEventHandler("onclick", this.Div00_Static00_onclick, this);
             this.Div00.Button00.addEventHandler("onclick", this.Div00_Button00_onclick, this);
             this.Div00.Div00.Static00.addEventHandler("onclick", this.Div00_Div00_Static00_onclick, this);
+            this.Div00.Div00.Static01.addEventHandler("onclick", this.Div00_Div00_Static00_onclick, this);
             this.Div00.Div01.Static00.addEventHandler("onclick", this.Div00_Div01_Static00_onclick, this);
+            this.Div00.Div01.Static01.addEventHandler("onclick", this.Div00_Div01_Static00_onclick, this);
             this.Div00.Div02.Static00.addEventHandler("onclick", this.Div00_Div02_Static00_onclick, this);
+            this.Div00.Div02.Static01.addEventHandler("onclick", this.Div00_Div02_Static00_onclick, this);
             this.Div00.Div03.Static00.addEventHandler("onclick", this.Div00_Div03_Static00_onclick, this);
+            this.Div00.Div03.Static01.addEventHandler("onclick", this.Div00_Div03_Static00_onclick, this);
             this.Div00.Static05.addEventHandler("onclick", this.Div00_Static05_onclick, this);
             this.Div00.Button01.addEventHandler("onclick", this.Div00_Button01_onclick, this);
 

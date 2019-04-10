@@ -184,7 +184,7 @@
             obj = new Button("Button02", "absolute", "44.82%", "36", null, "62", "43.16%", null, this);
             obj.set_taborder("63");
             obj.style.set_image("URL('theme://images/img_grip.png')");
-            obj.set_text("통계");
+            obj.set_text("공통분류관리");
             this.addChild(obj.name, obj);
 
 
@@ -253,15 +253,8 @@
         {
         	this.go("Practice::admin_empl.xfdl");
         }
-        this.Button02_onclick = function(obj,e)
-        {
-        	
-        	this.go("Practice::admin_main.xfdl");
-
-        }
 
         
-
         // 페이지 로드
 
         this.admin_user_onload = function(obj,e){
@@ -300,8 +293,6 @@
         }
 
         
-
-        
         });
 
 
@@ -318,7 +309,7 @@
             this.Button08.addEventHandler("onclick", this.Button08_onclick, this);
             this.Static02.addEventHandler("onclick", this.Static01_onclick, this);
             this.Button04.addEventHandler("onclick", this.Button04_onclick, this);
-            this.Button02.addEventHandler("onclick", this.Button02_onclick, this);
+            this.Button02.addEventHandler("onclick", this.Button08_onclick, this);
 
         };
 

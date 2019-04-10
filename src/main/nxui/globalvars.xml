@@ -100,10 +100,11 @@
       <Column id="domaincode" type="STRING" size="256"/>
       <Column id="userPwd" type="STRING" size="256" description="비밀번호"/>
       <Column id="userIspwd" type="STRING" size="256" description="비번확인"/>
+      <Column id="fullAddr" type="STRING" size="256" description="주소"/>
     </ColumnInfo>
     <Rows>
       <Row>
-        <Col id="userNo">1</Col>
+        <Col id="userNo">161</Col>
       </Row>
     </Rows>
   </Dataset>
@@ -111,5 +112,27 @@
     <ColumnInfo>
       <Column id="bookNo" type="STRING" size="256"/>
     </ColumnInfo>
+    <Rows>
+      <Row/>
+    </Rows>
+  </Dataset>
+  <Dataset id="dsUserList">
+    <ColumnInfo>
+      <Column id="userNo" type="STRING" size="256"/>
+      <Column id="userNm" type="STRING" size="256"/>
+      <Column id="userId" type="STRING" size="256"/>
+      <Column id="userPwd" type="STRING" size="256"/>
+      <Column id="userIspwd" type="STRING" size="256"/>
+      <Column id="userPhone" type="STRING" size="256"/>
+      <Column id="aythorCd" type="STRING" size="256"/>
+      <Column id="brrCdum" type="STRING" size="256"/>
+      <Column id="userAddr" type="STRING" size="256"/>
+      <Column id="userBirth" type="STRING" size="256"/>
+      <Column id="userGender" type="STRING" size="256"/>
+      <Column id="userEmail" type="STRING" size="256"/>
+    </ColumnInfo>
+    <Rows>
+      <Row/>
+    </Rows>
   </Dataset>
 </GlobalVariables>

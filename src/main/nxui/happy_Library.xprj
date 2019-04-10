@@ -13,8 +13,8 @@
   <ADL id="FarmerMEIFrame" url="FarmerMEIFrame.xadl"/>
   <ComponentInfoGroup>
     <ComponentInfo name="WebBrowser" defaultwidth="" defaultheight="" image="18"/>
+    <ComponentInfo name="EcoChart" defaultwidth="" defaultheight="" image="20"/>
     <ComponentInfo name="Graphic" defaultwidth="200" defaultheight="100" image="21"/>
-    <ComponentInfo name="EcoChart" defaultwidth="0" defaultheight="0" image="18"/>
   </ComponentInfoGroup>
   <ADL id="Sample" url="Sample.xadl"/>
 </Project>

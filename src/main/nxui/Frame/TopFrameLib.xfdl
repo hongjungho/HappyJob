@@ -6,8 +6,9 @@
       <Layout>
         <Button id="btn_findID" taborder="2" text="아이디/비밀번호찾기" onclick="btn_findID_onclick" cssclass="btn_TF_Logout" top="14" right="110" width="152" height="29" style="font:bold 9 Dotum;"/>
         <Button id="btn_login" taborder="4" text="로그인" onclick="btn_login_onclick" cssclass="btn_TF_Logout" top="14" right="272" width="67" height="29" style="background:#ff9900ff;border:1 solid #ff9900ff ;color:#ffffffff;font:bold 9 Dotum;"/>
-        <Button id="btn_logout" taborder="5" text="로그아웃" onclick="btn_logout_onclick" cssclass="btn_TF_Logout" top="14" right="19" width="81" height="29" style="font:bold 9 Dotum;"/>
-        <Button id="Main" taborder="6" left="0" top="0" height="52" style="image:URL('theme://images/icon.png');background:#ffffffff;border:1 solid #ffffffff ;" width="263" onclick="Main_onclick"/>
+        <Button id="btn_join" taborder="5" text="회원가입" onclick="btn_join_onclick" cssclass="btn_TF_Logout" top="14" right="19" width="81" height="29" style="font:bold 9 Dotum;"/>
+        <Button id="Main" taborder="6" left="0" top="0" height="52" style="image:URL('theme://images/icon.png');background:#ffffffff;border:1 solid #ffffffff ;" width="522" onclick="Main_onclick"/>
+        <Button id="btn_logout" taborder="8" text="로그아웃" onclick="btn_logout_onclick" cssclass="btn_TF_Logout" top="14" right="19" width="81" height="29" style="background:#ff9900ff;border:1 solid #ff9900ff ;color:#ffffffff;font:bold 9 Dotum;" visible="false"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************
@@ -59,11 +60,29 @@ this.btn_findID_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 }
 
 
+//회원가입
+this.btn_join_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sURL = "Practice::Join_checkage.xfdl";
+    this.gfn_main(sURL);
+}
+
 //로그아웃
 this.btn_logout_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	Iject.logout();
+	this.fn_test();
+	var sURL1 = "Frame::TopFrameLib.xfdl";
+	this.gfn_top(sURL1);
+	application.dsUserList.setColumn(0,"authorCd","");
+	application.mainframe.VFrameSet0.ChildFrame0.form.btn_login.set_visible(true);
+	application.mainframe.VFrameSet0.ChildFrame0.form.btn_findID.set_visible(true);
+	application.mainframe.VFrameSet0.ChildFrame0.form.btn_join.set_visible(true);
+	application.mainframe.VFrameSet0.ChildFrame0.form.btn_logout.set_visible(false);
+	application.mainframe.VFrameSet0.VFrameSet1.ChildFrame1.form.Div00.ADPage.set_visible(false);
+	application.mainframe.VFrameSet0.VFrameSet1.ChildFrame1.form.Div00.MyPage.set_visible(true);
+
 }
+
 /*
 this.Main_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 {
@@ -81,45 +100,18 @@ this.Main_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
     this.gfn_main(sURL);
 }
 
-/*
-//좌측메뉴 펼침 접힙 실행
-this.Main_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+ 
+//로그인시 메인화면으로 가는 함수.
+this.fn_test = function(obj:Application, e:nexacro.LoadEventInfo)
 {
-	Iject.Mdi.leftMenuAction(this,obj);
-}
-*//*
-this.Main_onchange =  function(obj:Button, e:nexacro.TabMouseEventInfo)
-{
-	application.av_mdiFrameSet[LeftFrame].form.close();
-}*/
-/*
-this.Main_onclose = function(obj:Button, e:nexacro.TabMouseEventInfo)
-{
-	var sURL = "Frame::LeftFrame.xfdl";
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(false);
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(0);	
+	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_width(1024);	
+	var sURL = "Practice::Main.xfdl";
     this.gfn_main(sURL);
-}*/
-
-/*
-//page닫기 버튼 클릭 시 (page 삭제하고, 열려있는 화면 닫기)
-this.Main_onextrabuttonclick = function(obj:Tab, e:nexacro.TabMouseEventInfo)
-{
- var objPages = obj.tabpages;
- var sMenuId  = objPages[e.index].name;
- 
- //1. MDI Close
- application.av_mdiFrameSet[sMenuId].form.close();
- 
- //2. Page Close
- obj.removeTabpage(e.index);
- application.gv_activeMenuId = '';
- 
- //3. openMenu Delete
- var nFindRow = application.gds_openMenu.findRow("menuId", sMenuId);
- application.gds_openMenu.deleteRow(nFindRow);
- if (application.gds_openMenu.rowcount <= 0){
-  //intro 화면 open하기
- }
- */
- ]]></Script>
+} 
+this.lfn_searchList = function(){
+	this.gfn_serviceCall("selectUserList"); //사업과제 목록 조회
+}]]></Script>
   </Form>
 </FDL>

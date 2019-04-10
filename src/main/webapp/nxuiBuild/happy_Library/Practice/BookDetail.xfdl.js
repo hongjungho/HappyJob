@@ -37,7 +37,7 @@
             obj.style.set_font("bold 20 Dotum");
             obj.set_readonly("true");
             this.div_bookdetail.addChild(obj.name, obj);
-            obj = new Edit("edit_writer", "absolute", "45.91%", "65", "97", "20", null, null, this.div_bookdetail);
+            obj = new Edit("edit_writer", "absolute", "44.57%", "65", "97", "20", null, null, this.div_bookdetail);
             obj.set_taborder("2");
             obj.style.set_background("transparent");
             obj.style.set_border("1 none #808080ff");
@@ -50,6 +50,10 @@
             obj.style.set_border("1 none #808080ff");
             obj.style.set_color("black");
             obj.set_readonly("true");
+            this.div_bookdetail.addChild(obj.name, obj);
+            obj = new Static("Static00", "absolute", "58.1%", "65", "24", "23", null, null, this.div_bookdetail);
+            obj.set_taborder("5");
+            obj.set_text("저");
             this.div_bookdetail.addChild(obj.name, obj);
             obj = new Static("Static01", "absolute", "94.99%", "64", "24", "23", null, null, this.div_bookdetail);
             obj.set_taborder("6");
@@ -67,6 +71,10 @@
             obj = new Static("Static03", "absolute", "77.96%", "140", null, "20", "10.35%", null, this.div_bookdetail);
             obj.set_taborder("9");
             obj.set_text("에 위치");
+            this.div_bookdetail.addChild(obj.name, obj);
+            obj = new Static("Static04", "absolute", "72.79%", "100", null, "20", "7.18%", null, this.div_bookdetail);
+            obj.set_taborder("10");
+            obj.set_text("대여");
             this.div_bookdetail.addChild(obj.name, obj);
             obj = new TextArea("ta_index", "absolute", "48.41%", "200", null, "142", "4.17%", null, this.div_bookdetail);
             obj.set_taborder("12");
@@ -90,7 +98,21 @@
             obj.set_text("목차");
             obj.style.set_font("bold 12 Dotum");
             this.div_bookdetail.addChild(obj.name, obj);
-            obj = new Button("btn_rent", "absolute", "86.48%", "94", null, "32", "1.5%", null, this.div_bookdetail);
+            obj = new Combo("combo_rent", "absolute", "77.96%", "100", null, "20", "11.19%", null, this.div_bookdetail);
+            this.div_bookdetail.addChild(obj.name, obj);
+            obj.set_taborder("17");
+            obj.style.set_itembackground("transparent");
+            obj.style.set_itemcolor("black");
+            obj.style.set_itemborder("1 none #808080ff");
+            obj.style.set_buttonsize("0");
+            obj.style.set_background("transparent");
+            obj.style.set_border("1 none #808080ff");
+            obj.style.set_color("black");
+            obj.style.set_shadow("outer 0,0 0 gray");
+            obj.set_readonly("true");
+            obj.set_type("filter");
+            obj.set_usecontextmenu("true");
+            obj = new Button("Button01", "absolute", "86.48%", "94", null, "32", "1.5%", null, this.div_bookdetail);
             obj.set_taborder("18");
             obj.set_text("대여 신청");
             obj.style.set_background("#339966ff");
@@ -135,14 +157,6 @@
             obj.style.set_background("transparent");
             obj.style.set_border("1 none #808080");
             this.div_bookdetail.addChild(obj.name, obj);
-            obj = new Static("Static00", "absolute", "58.6%", "65", null, "20", "33.72%", null, this.div_bookdetail);
-            obj.set_taborder("25");
-            obj.set_text("저");
-            this.div_bookdetail.addChild(obj.name, obj);
-            obj = new CheckBox("chk_ebook", "absolute", "71.62%", "102", null, "20", "15.86%", null, this.div_bookdetail);
-            obj.set_taborder("26");
-            obj.set_text("ebook");
-            this.div_bookdetail.addChild(obj.name, obj);
 
             obj = new Static("stt_bookdetail_top", "absolute", "0%", "0", null, "71", "0%", null, this);
             obj.set_taborder("1");
@@ -179,31 +193,34 @@
 
             
             // BindItem Information
-            obj = new BindItem("item3","div_bookdetail.edit_title","value","dsBooks","bookNm");
+            obj = new BindItem("item0","div_bookdetail.img_book_cover","text","dsBooks","bookImg");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item0","div_bookdetail.edit_writer","value","dsBooks","bookWriter");
+            obj = new BindItem("item1","div_bookdetail.edit_title","value","dsBooks","bookNm");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item1","div_bookdetail.edit_publisher","value","dsBooks","bookPub");
+            obj = new BindItem("item2","div_bookdetail.edit_writer","value","dsBooks","bookWriter");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item2","div_bookdetail.Edit02","value","dsBooks","bookDate");
+            obj = new BindItem("item3","div_bookdetail.Combo00","value","dsBooks","classCd");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item4","div_bookdetail.Combo00","value","dsBooks","classCd");
+            obj = new BindItem("item4","div_bookdetail.edit_publisher","value","dsBooks","bookPub");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item5","div_bookdetail.Edit01","value","dsBooks","bookIsbn");
+            obj = new BindItem("item5","div_bookdetail.Edit02","value","dsBooks","bookDate");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item6","div_bookdetail.Edit00","value","dsBooks","placeCd");
+            obj = new BindItem("item6","div_bookdetail.Edit01","value","dsBooks","bookIsbn");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item7","div_bookdetail.ta_index","value","dsBooks","bookIdx");
+            obj = new BindItem("item7","div_bookdetail.Edit00","value","dsBooks","placeCd");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item8","div_bookdetail.ta_synopsis","value","dsBooks","bookSum");
+            obj = new BindItem("item8","div_bookdetail.ta_index","value","dsBooks","bookIdx");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item9","div_bookdetail.ta_synopsis","value","dsBooks","bookSum");
             this.addChild(obj.name, obj);
             obj.bind();
 
@@ -216,15 +233,13 @@
         
         // User Script
         this.registerScript("BookDetail.xfdl", function(exports) {
-        this.div_bookdetail_btn_rent_onclick = function(obj,e)
+
+        this.div_bookdetail_Button00_onclick = function(obj,e)
         {
-        	application.open("rent", "Practice::Rent.xfdl", this.getOwnerFrame(), {mode:"modeless", ds:this.dsBooks}, "showtitlebar=true showstatusbar=false", 400, 200);
+        	alert("대여 가능하면 active 불가능하면 ridge설정");
+        	application.open("plan", "Practice::Rent.xfdl",this.getOwnerFrame(), {mode:'modeless', ds:this.dsBooks}, "showtitlebar=true", 400, 200);
         }
 
-        this.form_onload = function(obj,e)
-        {
-
-        }
         
         });
 
@@ -233,12 +248,10 @@
         // Regist UI Components Event
         this.on_initEvent = function()
         {
-            this.addEventHandler("onload", this.form_onload, this);
             this.div_bookdetail.edit_title.addEventHandler("oneditclick", this.div_bookdetail_edit_title_oneditclick, this);
-            this.div_bookdetail.btn_rent.addEventHandler("onclick", this.div_bookdetail_btn_rent_onclick, this);
+            this.div_bookdetail.Button01.addEventHandler("onclick", this.div_bookdetail_Button00_onclick, this);
 
         };
-        this.loadCss("Css::book_style.css");
 
         this.loadIncludeScript("BookDetail.xfdl", true);
 

@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="BookDetail" left="0" top="0" width="600" height="800" titletext="New Form" style=":focused {color:black;}" onload="form_onload">
+  <Form id="BookDetail" left="0" top="0" width="600" height="800" titletext="New Form" style=":focused {color:black;}" onload="fn_dtonload">
     <Layouts>
       <Layout>
         <Div id="div_bookdetail" taborder="0" left="0%" top="88" right="0.17%" height="692">
           <Layouts>
             <Layout>
-              <ImageViewer id="img_book_cover" taborder="0" left="4.34%" top="7" right="56.26%" height="337" stretch="fixaspectratio"/>
+              <ImageViewer id="img_book_cover" taborder="0" left="4.34%" top="38" right="66.11%" height="226" stretch="fixaspectratio" onclick="div_bookdetail_img_book_cover_onclick"/>
               <Edit id="edit_title" taborder="1" left="44.07%" top="8" right="2.34%" height="54" style="background:transparent;border:1 none #808080ff ;color:black;font:bold 20 Dotum;" oneditclick="div_bookdetail_edit_title_oneditclick" readonly="true"/>
-              <Edit id="edit_writer" taborder="2" left="45.91%" top="65" height="20" style="background:transparent;border:1 none #808080ff ;color:black;" width="97" readonly="true"/>
-              <Edit id="edit_publisher" taborder="3" left="64.94%" top="65" height="20" style="background:transparent;border:1 none #808080ff ;color:black;" width="107" readonly="true"/>
-              <Static id="Static01" taborder="6" text="출간" left="94.99%" top="64" width="24" height="23"/>
-              <Static id="Static02" taborder="7" left="44.57%" top="54" height="2" width="332" style="background:gray;"/>
-              <Edit id="Edit00" taborder="8" left="72.29%" top="140" right="20.03%" height="20" style="background:transparent;border:1 none #808080 ;"/>
-              <Static id="Static03" taborder="9" text="에 위치" left="77.96%" top="140" right="10.35%" height="20"/>
-              <TextArea id="ta_index" taborder="12" left="48.41%" top="200" right="4.17%" height="142" wordwrap="char" style="background:transparent;border:1 none #808080 ;" readonly="true"/>
-              <TextArea id="ta_synopsis" taborder="13" left="4.34%" top="386" right="2.17%" height="279" wordwrap="char" style="background:transparent;border:1 none #808080ff ;"/>
-              <Static id="Static05" taborder="15" text="줄거리 및 내용" left="6.01%" top="340" right="73.96%" height="60"/>
-              <Static id="stt_index" taborder="16" text="목차" left="48.91%" top="152" right="31.05%" height="60" style="font:bold 12 Dotum;"/>
-              <Button id="btn_rent" taborder="18" text="대여 신청" left="86.48%" top="94" right="1.5%" height="32" style="background:#339966ff;border:1 none #808080ff ;color:white;font:bold 9 Dotum;" onclick="div_bookdetail_btn_rent_onclick"/>
-              <Static id="Static06" taborder="20" text="분류" left="49.58%" top="99" width="48" height="23"/>
-              <Static id="Static07" taborder="21" text="ISBN" left="49.58%" top="138" width="48" height="23"/>
-              <Combo id="Combo00" taborder="22" left="55.93%" top="101" right="33.72%" height="20" style="itembackground:transparent;itemborder:1 none #808080ff ;buttonsize:0;displaynulltextcolor:black;background:transparent;border:1 none #808080ff ;color:black;" enable="true" enableevent="true" innerdataset="@dsCategory" codecolumn="code" datacolumn="value" readonly="true"/>
+              <Static id="Static02" taborder="7" left="35.56%" top="40" height="2" width="372" style="background:gray;"/>
               <Edit id="Edit01" taborder="23" left="56.09%" top="140" right="28.55%" height="20" style="selectcolor:black;background:transparent;border:1 none #808080ff ;color:black;" readonly="true"/>
-              <Edit id="Edit02" taborder="24" left="80.63%" top="65" height="20" width="80" style="background:transparent;border:1 none #808080 ;"/>
-              <Static id="Static00" taborder="25" text="저" left="58.6%" top="65" right="33.72%" height="20"/>
-              <CheckBox id="chk_ebook" taborder="26" text="ebook" left="71.62%" top="102" right="15.86%" height="20"/>
+              <Static id="Static03" taborder="25" left="4.67%" top="272" width="556" height="2" style="background:gray;"/>
+              <Static id="Static00" taborder="26" text="도서명" left="37.23%" top="50" right="53.26%" height="33" style="align:center middle;"/>
+              <Static id="Static01" taborder="27" text="도서ISBN" left="37.23%" top="107" right="53.26%" height="33" style="align:center middle;"/>
+              <Static id="Static04" taborder="28" text="도서구분" left="61.77%" top="50" right="18.03%" height="33" style="align:center middle;"/>
+              <Static id="Static06" taborder="29" text="도서분류" left="61.77%" top="107" right="18.03%" height="33" style="align:center middle;"/>
+              <Static id="Static07" taborder="30" text="저자" left="37.23%" top="164" right="53.26%" height="33" style="align:center middle;"/>
+              <Static id="Static05" taborder="31" text="줄거리" left="4.67%" top="282" right="85.98%" height="33" style="align:center middle;"/>
+              <Static id="Static08" taborder="32" left="48.25%" top="50" right="34.06%" height="33" style="align:center middle;" text="values" wordwrap="char"/>
+              <Static id="Static09" taborder="33" left="48.25%" top="107" right="34.06%" height="33" style="align:center middle;" text="values"/>
+              <Static id="Static10" taborder="34" left="73.62%" top="50" right="8.68%" height="33" style="align:center middle;" text="values"/>
+              <Static id="Static11" taborder="35" left="73.62%" top="107" right="8.68%" height="33" style="align:center middle;" text="values"/>
+              <Static id="Static12" taborder="36" left="48.25%" top="164" right="34.06%" height="33" style="align:center middle;" text="values"/>
+              <Static id="Static13" taborder="37" left="5.34%" top="323" right="7.18%" height="285" style="align:left middle;" text="values"/>
+              <Static id="Static14" taborder="40" text="출판사" left="61.94%" top="164" right="17.86%" height="33" style="align:center middle;"/>
+              <Static id="Static15" taborder="41" text="values" left="73.79%" top="164" right="8.68%" height="33" style="align:center middle;"/>
+              <Button id="Button01" taborder="42" text="도서대출연장" left="52.42%" top="224" right="24.71%" height="32" onclick="div_bookdetail_Button01_onclick"/>
             </Layout>
           </Layouts>
         </Div>
@@ -35,26 +35,219 @@
     </Layouts>
     <Style url="Css::book_style.css"/>
     <Bind>
-      <BindItem id="item3" compid="div_bookdetail.edit_title" propid="value" datasetid="dsBooks" columnid="bookNm"/>
-      <BindItem id="item0" compid="div_bookdetail.edit_writer" propid="value" datasetid="dsBooks" columnid="bookWriter"/>
-      <BindItem id="item1" compid="div_bookdetail.edit_publisher" propid="value" datasetid="dsBooks" columnid="bookPub"/>
-      <BindItem id="item2" compid="div_bookdetail.Edit02" propid="value" datasetid="dsBooks" columnid="bookDate"/>
-      <BindItem id="item4" compid="div_bookdetail.Combo00" propid="value" datasetid="dsBooks" columnid="classCd"/>
-      <BindItem id="item5" compid="div_bookdetail.Edit01" propid="value" datasetid="dsBooks" columnid="bookIsbn"/>
-      <BindItem id="item6" compid="div_bookdetail.Edit00" propid="value" datasetid="dsBooks" columnid="placeCd"/>
-      <BindItem id="item7" compid="div_bookdetail.ta_index" propid="value" datasetid="dsBooks" columnid="bookIdx"/>
-      <BindItem id="item8" compid="div_bookdetail.ta_synopsis" propid="value" datasetid="dsBooks" columnid="bookSum"/>
+      <BindItem id="item0" compid="div_bookdetail.Static08" propid="text" datasetid="dsBkDt" columnid="bookNm"/>
+      <BindItem id="item1" compid="div_bookdetail.Static09" propid="text" datasetid="dsBkDt" columnid="bookIsbn"/>
+      <BindItem id="item2" compid="div_bookdetail.Static10" propid="text" datasetid="dsBkDt" columnid="classCd"/>
+      <BindItem id="item3" compid="div_bookdetail.Static11" propid="text" datasetid="dsBkDt" columnid="divCd"/>
+      <BindItem id="item4" compid="div_bookdetail.Static12" propid="text" datasetid="dsBkDt" columnid="bookWriter"/>
+      <BindItem id="item5" compid="div_bookdetail.Static13" propid="text" datasetid="dsBkDt" columnid="bookSum"/>
+      <BindItem id="item6" compid="div_bookdetail.Static15" propid="text" datasetid="dsBkDt" columnid="bookWriter"/>
+      <BindItem id="item7" compid="div_bookdetail.Static15" propid="" datasetid="dsBkDt" columnid="bookPub"/>
     </Bind>
-    <Objects/>
-    <Script type="xscript5.0"><![CDATA[this.div_bookdetail_btn_rent_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+    <Objects>
+      <Dataset id="dsBkDt">
+        <ColumnInfo>
+          <Column id="bookIsbn" type="STRING" size="256"/>
+          <Column id="bookNm" type="STRING" size="256"/>
+          <Column id="bookDate" type="STRING" size="256"/>
+          <Column id="bookReturn" type="STRING" size="256"/>
+          <Column id="divCd" type="STRING" size="256"/>
+          <Column id="classCd" type="STRING" size="256"/>
+          <Column id="bookPub" type="STRING" size="256"/>
+          <Column id="bookWriter" type="STRING" size="256"/>
+          <Column id="bookNo" type="STRING" size="256"/>
+          <Column id="bookIdx" type="STRING" size="256"/>
+          <Column id="bookSum" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsBkSchMap">
+        <ColumnInfo>
+          <Column id="bookNo" type="STRING" size="256"/>
+          <Column id="userNo" type="STRING" size="256"/>
+          <Column id="extendDate" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="svcid" type="STRING" size="256"/>
+          <Column id="sController" type="STRING" size="256"/>
+          <Column id="inds" type="STRING" size="256"/>
+          <Column id="outds" type="STRING" size="256"/>
+          <Column id="args" type="STRING" size="256"/>
+          <Column id="bAsync" type="STRING" size="512"/>
+          <Column id="nDataType" type="STRING" size="256"/>
+          <Column id="bCompress" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="sController">practice/getBookDt.do</Col>
+            <Col id="svcid">getBookDt</Col>
+            <Col id="inds">dsBkSchMap=dsBkSchMap</Col>
+            <Col id="outds">dsBkDt=dsBkDt</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="args"/>
+          </Row>
+          <Row>
+            <Col id="svcid">checkRes</Col>
+            <Col id="sController">practice/checkRes.do</Col>
+            <Col id="inds">dsBkSchMap=dsBkSchMap</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+            <Col id="outds">dsTmp=dsTmp</Col>
+          </Row>
+          <Row>
+            <Col id="svcid">extendBr</Col>
+            <Col id="sController">practice/extendBr.do</Col>
+            <Col id="inds">dsBkDt=dsBkDt:U</Col>
+            <Col id="bAsync">true</Col>
+            <Col id="nDataType">0</Col>
+            <Col id="bCompress">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsTmp">
+        <ColumnInfo>
+          <Column id="checkRes" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+* Common Library
+***********************************************************************************/
+include "Lib::Comm.xjs";
+
+// 연장횟수 flag 변수
+var flag = 0;
+
+this.fn_dtonload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
-	application.open("rent", "Practice::Rent.xfdl", this.getOwnerFrame(), {mode:"modeless", ds:this.dsBooks}, "showtitlebar=true showstatusbar=false", 400, 200);
+	var bkNo = application.gds_bookInfo.getColumn(0,"bookNo")
+	
+	
+	this.dsBkSchMap.setColumn(0,"bookNo",bkNo)
+
+	//회원대출도서검색
+	this.lfn_searchList();
+	
+	
 }
 
-this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+
+//공통 콜백
+this.lfn_cmmCallback = function(svcId, errorcode, errormsg){
+ 
+	//this.alert(svcId);
+	
+	
+	if(errorcode < 0)
+	{
+	   Iject.alert(errormsg,"오류");
+	   return;
+	}
+		//콜백정의	
+		//Iject.alert(errormsg,"알림");	
+	
+}
+
+
+
+// 조회함수
+this.lfn_searchList = function(){
+
+	// 빌린도서검색
+	this.gfn_serviceCall("getBookDt");
+}
+
+// 도서대출연장
+this.div_bookdetail_Button01_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 {
+	this.dsBkSchMap.setColumn(0,"extendDate",this.dsBkDt.getColumn(0,"bookReturn"))
+	//예약이 되있는지 확인
+	this.lfn_checkReserve();
+	//flag 변수 체크
+	
+}
+
+// 예약확인
+this.lfn_checkReserve = function(){
+
+	this.gfn_serviceCall("checkRes");
+		
+		
+	if(confirm("         연장은 3회까지 가능합니다.\n              연장하시겟습니까?")){
+
+		if(this.dsTmp.getColumn(0,"checkRes")>0){
+			alert("예약되어있어 연장이 불가능합니다");
+			return;
+		}
+
+		else if(flag==3){
+			alert("연장횟수초과")
+		}
+		else if(flag!=3){
+		// flag 변수 증가
+		flag += 1
+		
+		// 반납일 구함
+		var returnA = this.dsBkDt.getColumn(0,"bookReturn")
+		// - 단위로 쪼갠 후 int형으로 변환
+		var splitDate = returnA.split('-');
+		var year = parseInt(splitDate[0],10)
+		var month = parseInt(splitDate[1],10)
+		var date = parseInt(splitDate[2],10)
+		
+		// date객체 생성 후 연장날짜 구함
+		var extendDate = new Date(year,month-1,date+15)
+		var exyear = extendDate.getFullYear();
+		var exmonth = extendDate.getMonth()+1;
+		if(exmonth<10){
+			exmonth = '0'+exmonth;
+		}
+		else{
+			exmonth;
+		}
+		var exdate = extendDate.getDate();
+		if(exdate<10){
+			exdate = '0'+exdate;
+		}
+		else{
+			exdate;
+		}
+		
+		//새로운 반납일(연장된 날짜)
+		var returnB = exyear+'-'+exmonth+'-'+exdate
+		
+		//ds 컬럼세팅
+		this.dsBkDt.setColumn(0,"bookReturn",returnB)
+		this.lfn_extend();
+		alert("연장되었습니다\n앞으로 남은 연장횟수는 " + (3-flag) + "회 입니다");
+		}
+	}
+	else{
+		alert("취소하셧습니다");
+	}
+
+	
+}
+
+// 도서연장
+this.lfn_extend = function(){
+	this.gfn_serviceCall("extendBr")
 
 }
+
+
+
+
 ]]></Script>
   </Form>
 </FDL>

@@ -114,20 +114,28 @@ public class HappyLibraryServiceImpl extends EgovAbstractServiceImpl implements 
 
 	@Override
 	public void saveTotal1(List<Map<String, Object>> dsSchMap) {
-for ( Map<String,Object> requstMap : dsSchMap) {
-			
-			int rowType = Integer.parseInt(String.valueOf(requstMap.get(DataSetRowTypeAccessor.NAME)));
-			
-			if( rowType == DataSet.ROW_TYPE_INSERTED ) {
-				happyLibraryMapper.insertCommd(requstMap);
-			} else if( rowType == DataSet.ROW_TYPE_DELETED ) {
-				happyLibraryMapper.deleteCommd(requstMap);
-			} else if( rowType == DataSet.ROW_TYPE_UPDATED) {
-				
-				happyLibraryMapper.updateCommd(requstMap);
-			}
+		for ( Map<String,Object> requstMap : dsSchMap) {
 					
-		}
+					int rowType = Integer.parseInt(String.valueOf(requstMap.get(DataSetRowTypeAccessor.NAME)));
+					
+					if( rowType == DataSet.ROW_TYPE_INSERTED ) {
+						System.out.println("********************");
+						System.out.println("*****INSERT*****");
+						System.out.println("********************");
+						happyLibraryMapper.insertCommd(requstMap);
+					} else if( rowType == DataSet.ROW_TYPE_DELETED ) {
+						System.out.println("********************");
+						System.out.println("*******DEL******");
+						System.out.println("********************");
+						happyLibraryMapper.deleteCommd(requstMap);
+					} else if( rowType == DataSet.ROW_TYPE_UPDATED) {
+						System.out.println("********************");
+						System.out.println("*******UPDATE*******");
+						System.out.println("********************");
+						happyLibraryMapper.updateCommd(requstMap);
+					}
+							
+				}
 		
 	}
 	

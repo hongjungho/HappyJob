@@ -4,7 +4,11 @@
   <Form id="Update_persnal" left="0" top="0" width="1024" height="797" titletext="New Form" onload="fn_onload">
     <Layouts>
       <Layout>
-        <Div id="Div00" taborder="0" left="0%" top="0" right="0%" height="798" style="background:#ffffffff;"/>
+        <Div id="Div00" taborder="0" left="0%" top="0" right="0%" height="798" style="background:#ffffffff;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
         <Static id="Static00" taborder="1" text="정보수정" onclick="Div00_Static00_onclick" left="11.52%" top="29" right="70.9%" height="39" style="color:#339966ff;font:bold 16 Dotum;"/>
         <Static id="Static01" taborder="2" text="허위로 작성된 가입정보일 경우 임의로 삭제처리될 수 있으니 주의해 주세요. &#13;&#10;  &#13;&#10;대출증번호를 입력하신 회원은 온라인서비스(이용자서비스,예약대출) 등을 이용하실수 있습니다.  &#13;&#10;&#13;&#10;* 는 필수 입력 항목입니다." left="15.04%" top="70" width="702" height="103" style="border:2 solid #339966ff ;color:#ff0000ff;font:bold 10 Dotum;"/>
         <Button id="Button00" taborder="10" text="수정" left="41.11%" top="592" right="51.56%" height="33" style="background:#339966ff;border:1 solid #339966ff ;color:#ffffffff;font:bold 10 Dotum;" onclick="Button00_onclick"/>
@@ -63,14 +67,15 @@
               <Div id="Div07" taborder="75" text="Div01" left="21.43%" top="270" width="550" height="30" style="border:1 solid #339966ff ;">
                 <Layouts>
                   <Layout>
-                    <Edit id="Edit00" taborder="0" left="0.55%" top="4" right="60.95%" height="20"/>
+                    <Edit id="roadAddrPart1" taborder="0" left="0.73%" top="4" right="28.83%" height="20"/>
+                    <Button id="Button00" taborder="1" text="우편번호찾기" left="73.54%" top="4" right="1.09%" height="20" onclick="Div01_Div07_Button00_onclick"/>
                   </Layout>
                 </Layouts>
               </Div>
               <Div id="Div03" taborder="76" text="Div01" left="21.43%" top="90" width="550" height="60" style="border:1 solid #339966ff ;">
                 <Layouts>
                   <Layout>
-                    <Edit id="Edit00" taborder="9" left="0.55%" top="4" right="60.95%" height="20"/>
+                    <Edit id="Edit00" taborder="9" left="0.55%" top="4" right="60.95%" height="20" readonly="true"/>
                     <Button id="Button00" taborder="10" text="대출증번호 확인" left="40.15%" top="4" right="35.04%" height="24" style="background:#ffffffff;border:1 solid #339966ff ;color:#339966ff;font:bold 9 Dotum;"/>
                     <Static id="Static00" taborder="11" text="(무인예약 신청을 이용하려면 반드시 입력하세요.)" left="0.73%" top="31" right="31.75%" height="22"/>
                   </Layout>
@@ -113,7 +118,7 @@
       <BindItem id="item6" compid="Div01.Div08.Edit00" propid="value" datasetid="dsUserInfo" columnid="userPhone"/>
       <BindItem id="item7" compid="Div01.Div09.Edit00" propid="value" datasetid="dsUserInfo" columnid="email"/>
       <BindItem id="item8" compid="Div01.Div06.cmb_year02" propid="value" datasetid="dsUserInfo" columnid="userGender"/>
-      <BindItem id="item1" compid="Div01.Div07.Edit00" propid="value" datasetid="dsUserInfo" columnid="userAddr"/>
+      <BindItem id="item1" compid="Div01.Div07.roadAddrPart1" propid="value" datasetid="dsUserInfo" columnid="userAddr"/>
       <BindItem id="item0" compid="Div01.Div06.Calendar00" propid="value" datasetid="dsUserInfo" columnid="userBirth"/>
       <BindItem id="item2" compid="Div01.Div09.Combo00" propid="value" datasetid="dsUserInfo" columnid="domaincode"/>
       <BindItem id="item9" compid="Div01.Div09.Edit01" propid="value" datasetid="dsUserInfo" columnid="domain"/>
@@ -164,11 +169,11 @@
         </ColumnInfo>
         <Rows>
           <Row>
-            <Col id="code">M</Col>
+            <Col id="code">1</Col>
             <Col id="value">남자</Col>
           </Row>
           <Row>
-            <Col id="code">W</Col>
+            <Col id="code">2</Col>
             <Col id="value">여자</Col>
           </Row>
         </Rows>
@@ -237,6 +242,16 @@
           <Row/>
         </Rows>
       </Dataset>
+      <Dataset id="dsSchMap">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
     </Objects>
     <Script type="xscript5.0"><![CDATA[/***********************************************************************************
 * Common Library
@@ -252,10 +267,6 @@ this.fn_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 	
 	this.dsUserInfo.assign(application.gds_UserInfo);
 }
-
-
-
-
 
 // 이메일 온체인지이벤트
 this.Div01_Div09_Combo00_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
@@ -326,6 +337,16 @@ this.Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 	}
 	
 }
+
+
+//주소입력
+this.Div01_Div07_Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	application.open("detail", "Sample::daumTest.xfdl",this.getOwnerFrame(), {mode:'modeless', ds:this.dsBooks}, "showtitlebar=true", 400, 200);
+	
+}
+
+
 
 
 ]]></Script>

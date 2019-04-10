@@ -98,6 +98,23 @@ this.Div00_Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 		var sURL = "Practice::Join_personal.xfdl";
 		this.gfn_main(sURL);
 	}
+/*	alert("test");
+	this.dsUserList.addRow();
+	//this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_NM","");
+	this.Div01.Combo00.set_value("");
+	this.Div01.Div08.cmb_tel.set_value("");
+	this.Div01.Div08.cmb_tel1.set_value("");
+	this.Div01.Div09.Combo00.set_value("");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_NM","");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_ID","");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"BRR_CDNUM","");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_PWD","");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_ISPWD","");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_BIRTH","");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_GENDER","");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_ADDR","");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_PHONE","");
+	this.dsUserList.setColumn(this.dsUserList.rowposition,"USER_EMAIL","");*/
 }
 
 // 취소 버튼 클릭시 

@@ -4,4 +4,4 @@ include "Lib::CommUtil.xjs";
 include "Lib::CommFrame.xjs";
 include "Lib::CommMsg.xjs";
 include "Lib::CommPageMove.xjs";
-]]></Script>
+include "Lib::CommCboCode.xjs";]]></Script>

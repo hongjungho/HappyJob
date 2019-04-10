@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="happybook.service.dao.mybatis.HappyLibraryMapper">
+
+
+	<select id="selectBookList" parameterType="java.util.Map" resultType="egovMap">
+		select 
+				book_no,
+				book_nm,
+				book_writer,
+				book_pub,
+				TO_CHAR(book_date,'YYYYMMDD') as bookDate,
+				div_cd,
+				class_cd,
+				book_ISBN,
+				TO_CHAR(book_regdate,'YYYYMMDD') as bookRegdate,
+				book_sum,
+				place_cd,
+				book_img,
+				count(*) OVER() as selectCount	
+		from 	HL_BOOK
+		WHERE 	1=1
+		<if test='bookNm != null and bookNm !=""'>
+			AND	 book_nm LIKE '%'||#{bookNm}||'%'
+		</if>
+  	</select>
+  	
+  	
+	
+</mapper>	

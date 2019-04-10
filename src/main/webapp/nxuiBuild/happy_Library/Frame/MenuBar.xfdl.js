@@ -150,9 +150,9 @@
 
         this.Div00_SBK_onclick = function(obj,e)
         {
-        	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
-        	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(200);	
-        	var sURL = "Practice::Search.xfdl";
+        	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(false);
+        	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(0);	
+        	var sURL = "Practice::BookSearch.xfdl";
             this.gfn_main(sURL);
         	var sURL = "Frame::LeftFrame_1.xfdl";
             this.gfn_left(sURL);
@@ -188,13 +188,11 @@
 
         this.Div00_ADPage_onclick = function(obj,e)
         {
-        	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(true);
+        	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame2.set_visible(false);
         	application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_left(0);	
-        	 application.mainframe.VFrameSet0.VFrameSet1.HFrameSet0.ChildFrame3.set_width(1024);  
         	var sURL = "Practice::admin_book.xfdl";
             this.gfn_main(sURL);
-        	var sURL = "Frame::LeftFrame_4.xfdl";
-            this.gfn_left(sURL);
+        	
         }
         
         });

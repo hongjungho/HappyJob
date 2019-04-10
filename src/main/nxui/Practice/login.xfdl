@@ -4,40 +4,92 @@
   <Form id="Login" left="0" top="0" width="1024" height="768" titletext="New Form" onload="Login_onload">
     <Layouts>
       <Layout>
-        <Div id="Div" taborder="0" left="0%" top="-8" right="0%" bottom="8" style="background:white;color:#45596dff;" scrollbars="none">
+        <Div id="Div" taborder="1" left="0%" top="-8" right="0%" bottom="8" style="background:white;color:#45596dff;" scrollbars="none" tabstop="false">
           <Layouts>
             <Layout width="480" height="390">
-              <Static id="Static00" taborder="0" left="100" top="160" width="652" height="16" onclick="Div_Static00_onclick"/>
-              <Static id="Static02" taborder="6" text="로그인" left="200" top="101" height="51" style="color:black;font:bold 20 Dotum;" onclick="Div_Static02_onclick" right="594"/>
-              <Static id="Static03" taborder="7" text="●  개인정보를 관리할 수 있습니다." left="200" top="479" height="35" onclick="Div_Static03_onclick" width="599"/>
-              <Static id="Static04" taborder="8" text="●  대출상황 조회 및 대출연장을 하실 수 있습니다" onclick="Div_Static03_onclick" left="200" top="514" height="35" width="599"/>
-              <Static id="Static05" taborder="9" text="●  개인공지 및 각종 서비스 신청현황을 확인할 수 있습니다." onclick="Div_Static03_onclick" left="200" top="550" height="35" width="599"/>
+              <Static id="Static00" taborder="2" left="100" top="160" width="652" height="16" onclick="Div_Static00_onclick"/>
+              <Static id="Static02" taborder="3" text="로그인" left="200" top="101" height="51" style="color:black;font:bold 20 Dotum;" onclick="Div_Static02_onclick" right="594"/>
+              <Static id="Static03" taborder="4" text="●  개인정보를 관리할 수 있습니다." left="200" top="479" height="35" onclick="Div_Static03_onclick" width="599"/>
+              <Static id="Static04" taborder="5" text="●  대출상황 조회 및 대출연장을 하실 수 있습니다" onclick="Div_Static03_onclick" left="200" top="514" height="35" width="599"/>
+              <Static id="Static05" taborder="6" text="●  개인공지 및 각종 서비스 신청현황을 확인할 수 있습니다." onclick="Div_Static03_onclick" left="200" top="550" height="35" width="599"/>
+              <Grid id="Grid00" taborder="7" useinputpanel="false" left="0.78%" top="36" right="11.23%" height="60" binddataset="dsUserList" visible="false">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row band="head" size="24"/>
+                      <Row band="body" size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell col="0" disptype="normal" text="userNo"/>
+                      <Cell col="1" disptype="normal" text="userNm"/>
+                      <Cell col="2" disptype="normal" text="userId"/>
+                      <Cell col="3" disptype="normal" text="userPwd"/>
+                      <Cell col="4" disptype="normal" text="userIspwd"/>
+                      <Cell col="5" disptype="normal" text="userPhone"/>
+                      <Cell col="6" disptype="normal" text="authorCd"/>
+                      <Cell col="7" disptype="normal" text="brrCdnum"/>
+                      <Cell col="8" disptype="normal" text="userAddr"/>
+                      <Cell col="9" disptype="normal" text="userBirth"/>
+                      <Cell col="10" disptype="normal" text="userGender"/>
+                      <Cell col="11" disptype="normal" text="userEmail"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell col="0" disptype="normal" text="bind:userNo"/>
+                      <Cell col="1" disptype="normal" text="bind:userNm"/>
+                      <Cell col="2" disptype="normal" text="bind:userId"/>
+                      <Cell col="3" disptype="normal" text="bind:userPwd"/>
+                      <Cell col="4" disptype="normal" text="bind:userIspwd"/>
+                      <Cell col="5" disptype="normal" text="bind:userPhone"/>
+                      <Cell col="6" disptype="normal" text="bind:authorCd"/>
+                      <Cell col="7" disptype="normal" text="bind:brrCdnum"/>
+                      <Cell col="8" disptype="normal" text="bind:userAddr"/>
+                      <Cell col="9" disptype="normal" text="bind:userBirth"/>
+                      <Cell col="10" disptype="normal" text="bind:userGender"/>
+                      <Cell col="11" disptype="normal" text="bind:userEmail"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="Div00" taborder="1" text="Div00" left="200" top="157" height="300" style="border:3 solid #80ff00ff ;" width="600" position="fixed">
+        <Div id="Div00" taborder="0" text="Div00" left="200" top="157" height="300" style="border:3 solid #80ff00ff ;" width="600" position="fixed" tabstop="false">
           <Layouts>
             <Layout width="613" height="371">
-              <Static id="Static03" taborder="1" text="아이디" onclick="Div_Static03_onclick" left="50" top="27" height="16" style="color:#ff6600ff;font:11 Dotum;" right="491"/>
-              <Edit id="Edit00" taborder="3" cssclass="WF_edt_Login" left="50" top="50" width="500" height="34" oneditclick="Div00_Edit00_oneditclick"/>
-              <Static id="Static04" taborder="4" text="비밀번호" onclick="Div_Static03_onclick" left="50" top="108" height="16" style="color:#ff6600ff;font:11 Dotum;" right="474"/>
-              <Edit id="Edit_pwd" taborder="2" vlaue="●●●●●●●●●" displaynulltext="●●●●●●●●" cssclass="WF_msk_Login" left="50" password="true" top="132" width="500" height="34"/>
-              <Button id="btn_login" taborder="5" text="로그인" onclick="Div_btn_login_onclick" cssclass="WF_btn_Login" left="119" top="228" width="69" height="34" style="background:#ff6600ff;border:1 solid #ff6600ff ;color:#ffffffff;font:bold 9 Dotum;"/>
-              <Button id="btn_Join" taborder="6" text="회원가입" onclick="Div_btn_join_onclick" cssclass="WF_btn_Login" left="209" top="228" width="69" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
-              <Button id="btn_FindID" taborder="7" text="아이디찾기" onclick="Div00_btn_FindID_onclick" cssclass="WF_btn_Login" left="300" top="228" width="69" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
-              <Button id="btn_FindPWD" taborder="8" text="비밀번호찾기" onclick="Div00_btn_FindPWD_onclick" cssclass="WF_btn_Login" left="390" top="227" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
-              <CheckBox id="CheckBox00" taborder="9" text="아이디 비밀번호 저장" cssclass="WF_chk_Login" left="50" top="179" width="182" height="28"/>
-              <CheckBox id="CheckBox01" taborder="10" text="비밀번호 보이기" cssclass="WF_chk_Login" left="218" top="179" width="182" height="28" onclick="Div00_CheckBox01_onclick"/>
+              <Static id="Static03" taborder="9" text="아이디" onclick="Div_Static03_onclick" left="50" top="27" height="16" style="color:#ff6600ff;font:11 Dotum;" right="491"/>
+              <Edit id="Edit00" taborder="0" cssclass="WF_edt_Login" left="50" top="50" width="500" height="34" oneditclick="Div00_Edit00_oneditclick" inputfilter="dot,comma,sign,symbol,space" inputtype="english,digit" maxlength="20"/>
+              <Static id="Static04" taborder="8" text="비밀번호" onclick="Div_Static03_onclick" left="50" top="108" height="16" style="color:#ff6600ff;font:11 Dotum;" right="474"/>
+              <Edit id="Edit_pwd" taborder="1" vlaue="●●●●●●●●●" cssclass="WF_msk_Login" left="50" password="true" top="132" width="500" height="34" tabstop="true" inputfilter="dot,comma,sign,space" inputtype="english,symbol,digit" maxlength="20"/>
+              <Button id="btn_login" taborder="2" text="로그인" onclick="Div_btn_login_onclick" cssclass="WF_btn_Login" left="119" top="228" width="69" height="34" style="background:#ff6600ff;border:1 solid #ff6600ff ;color:#ffffffff;font:bold 9 Dotum;" defaultbutton="true"/>
+              <Button id="btn_Join" taborder="3" text="회원가입" onclick="Div_btn_join_onclick" cssclass="WF_btn_Login" left="209" top="228" width="69" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
+              <Button id="btn_FindID" taborder="4" text="아이디찾기" onclick="Div00_btn_FindID_onclick" cssclass="WF_btn_Login" left="300" top="228" width="69" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
+              <Button id="btn_FindPWD" taborder="5" text="비밀번호찾기" onclick="Div00_btn_FindPWD_onclick" cssclass="WF_btn_Login" left="390" top="227" width="89" height="34" style="color:#808080ff;font:bold 9 Dotum;"/>
+              <CheckBox id="CheckBox00" taborder="6" text="아이디 비밀번호 저장" cssclass="WF_chk_Login" left="293" top="8" width="182" height="28" onclick="Div00_CheckBox00_onclick" value="false" visible="false"/>
+              <CheckBox id="CheckBox01" taborder="7" text="비밀번호 보이기" cssclass="WF_chk_Login" left="50" top="179" width="182" height="28" onclick="Div00_CheckBox01_onclick"/>
             </Layout>
           </Layouts>
         </Div>
       </Layout>
     </Layouts>
     <Objects>
-      <Dataset id="dsUser">
+      <Dataset id="dsSchMap">
         <ColumnInfo>
-          <Column id="user_id" type="STRING" size="256"/>
-          <Column id="user_pwd" type="STRING" size="256"/>
+          <Column id="userId" type="STRING" size="256"/>
+          <Column id="userPwd" type="STRING" size="256"/>
         </ColumnInfo>
         <Rows>
           <Row/>
@@ -56,10 +108,10 @@
         </ColumnInfo>
         <Rows>
           <Row>
-            <Col id="sController">practice/loginForm.do</Col>
-            <Col id="svcid">loginForm</Col>
-            <Col id="inds"/>
-            <Col id="outds"/>
+            <Col id="sController">practice/selectUserList.do</Col>
+            <Col id="svcid">selectUserList</Col>
+            <Col id="inds">dsSchMap=dsSchMap</Col>
+            <Col id="outds">dsUserList=dsUserList</Col>
             <Col id="bAsync">true</Col>
             <Col id="nDataType">0</Col>
             <Col id="bCompress">false</Col>
@@ -67,29 +119,10 @@
           </Row>
         </Rows>
       </Dataset>
-      <Dataset id="dsUserList">
-        <ColumnInfo>
-          <Column id="user_no" type="INT" size="3"/>
-          <Column id="user_name" type="STRING" size="10"/>
-          <Column id="user_pwd" type="STRING" size="30"/>
-          <Column id="user_ispwd" type="STRING" size="10"/>
-          <Column id="user_phone" type="STRING" size="10"/>
-          <Column id="user_isphone" type="INT" size="11"/>
-          <Column id="author_cd" type="STRING" size="5"/>
-          <Column id="brr_cdnum" type="STRING" size="10"/>
-          <Column id="user_addr" type="STRING" size="50"/>
-          <Column id="user_birth" type="STRING" size="10"/>
-          <Column id="user_gender" type="STRING" size="1"/>
-          <Column id="user_email" type="STRING" size="30"/>
-        </ColumnInfo>
-        <Rows>
-          <Row/>
-        </Rows>
-      </Dataset>
     </Objects>
     <Bind>
-      <BindItem id="item0" compid="Div00.Edit00" propid="value" datasetid="dsUser" columnid="user_id"/>
-      <BindItem id="item1" compid="Div00.Edit_pwd" propid="value" datasetid="dsUser" columnid="user_pwd"/>
+      <BindItem id="item0" compid="Div00.Edit00" propid="value" datasetid="dsSchMap" columnid="userId"/>
+      <BindItem id="item1" compid="Div00.Edit_pwd" propid="value" datasetid="dsSchMap" columnid="userPwd"/>
     </Bind>
     <Script type="xscript5.0"><![CDATA[/***********************************************************************************
 * SYSTEM      : UserProject
@@ -111,48 +144,91 @@
 
 include "Lib::Comm.xjs";
 
+////////////////////////////////////////////////////////////////////////////////////
+
+//공통 콜백
+
+this.lfn_cmmCallback = function(svcId, errorcode, errormsg){
+ 
+	//this.alert(svcId);
+	
+	if(errorcode < 0)
+	{
+	   Iject.alert(errormsg,"오류");			
+	   return;
+	}else{
+		if(svcId == "selectUserList"){
+			this.alert("저장되었습니다.");	
+			this.gfn_serviceCall("selectUserList");
+		}
+	}
+}
+
 /***********************************************************************************
 * Form Event
 ***********************************************************************************/
 this.Login_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
-	Iject.formOnload(obj);			//폼 초기화 : 필요시 구현
-	
-	//this.lfn_settingSearchBar(); 	//검색영역 세팅
-	//if(nexacro.Browser == "Runtime") this.Div.btn_close.set_visible(true);
+	Iject.formOnload(obj);			//폼 초기화 : 필요시 구현	
 }
-
 
 /***********************************************************************************
 * Component Event
 ***********************************************************************************/
-// //로그인 버튼 event/*
+
+//로그인 버튼 event
+
 this.Div_btn_login_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	/*var objLoginId = this.txt_Id;
-    var objLoginPw = this.txt_Pwd;     
-    alert("아이디 / " + objLoginId.value);
-    this.trLogin(this,"login",objLoginId.value,objLoginPw.value);*/
-	var sName = this.Div00.Edit00.value;
-	var sName1 = this.Div00.Edit_pwd.value;
-	if (sName == null){
-		alert("아이디를 입력하세요.");
+	this.lfn_searchList("selectUserList");
+	alert("정보 확인중");
+	if((application.dsUserList.getColumn(0,"userId") == this.Div00.Edit00.value) && (application.dsUserList.getColumn(0,"userPwd") == this.Div00.Edit_pwd.value))
+    {	
+		if(application.dsUserList.getColumn(0,"authorCd") == 01) 
+		{
+			alert("관리자 로그인 하였습니다.");
+			this.fn_test();
+			//var sURL1 = "Frame::TopFrameLib.xfdl";
+			//this.gfn_top(sURL1);
+			application.mainframe.VFrameSet0.VFrameSet1.ChildFrame1.form.Div00.ADPage.set_visible(true);
+			application.mainframe.VFrameSet0.VFrameSet1.ChildFrame1.form.Div00.MyPage.set_visible(false);
+			application.mainframe.VFrameSet0.ChildFrame0.form.btn_login.set_visible(false);
+			application.mainframe.VFrameSet0.ChildFrame0.form.btn_findID.set_visible(false);
+			application.mainframe.VFrameSet0.ChildFrame0.form.btn_join.set_visible(false);
+			application.mainframe.VFrameSet0.ChildFrame0.form.btn_logout.set_visible(true);
+		} 
+		else if(application.dsUserList.getColumn(0,"authorCd") == 02)
+		{
+			alert('"'+application.dsUserList.getColumn(0,"userNm")+'"'+"님 반갑습니다");
+			this.fn_test();
+			var sURL1 = "Frame::TopFrameLib.xfdl";
+			this.gfn_top(sURL1);
+			application.mainframe.VFrameSet0.VFrameSet1.ChildFrame1.form.Div00.ADPage.set_visible(false);
+			application.mainframe.VFrameSet0.VFrameSet1.ChildFrame1.form.Div00.MyPage.set_visible(true);
+			application.mainframe.VFrameSet0.ChildFrame0.form.btn_login.set_visible(false);
+			application.mainframe.VFrameSet0.ChildFrame0.form.btn_findID.set_visible(false);
+			application.mainframe.VFrameSet0.ChildFrame0.form.btn_join.set_visible(false);
+			application.mainframe.VFrameSet0.ChildFrame0.form.btn_logout.set_visible(true);
+		} 
 	}
-	else if (sName1 == null){
-		alert("비밀번호를 입력하세요.");
+	
+	else if((application.dsUserList.getColumn(0,"userPwd") != this.Div00.Edit_pwd.value) || (application.dsUserList.getColumn(0,"userId") != this.Div00.Edit00.value))
+	{
+		alert("아이디와 비밀번호를 확인해 주세요");
+	} 
+	else 
+	{	
+        alert("회원가입하세요.");
 	}
-	else {
-		this.gfn_serviceCall("loginForm");
-		this.fn_test();
-	}
+	
 }
+
 
 //회원가입버튼 event
 this.Div_btn_join_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var sURL = "Practice::Join_checkage.xfdl";
     this.gfn_main(sURL);
-	
 }
 
 //암호 보이기 event
@@ -167,8 +243,20 @@ this.Div00_CheckBox01_onclick = function(obj:nexacro.CheckBox,e:nexacro.CheckBox
 	}
 }
 
-//아이디 저장 이벤트
-
+//아이디 저장 버튼 클릭시
+/*
+this.Div00_CheckBox00_onclick = function(obj:CheckBox, e:nexacro.ClickEventInfo)
+{
+	var sValue = this.Div00.CheckBox00.value;
+	if (sValue == true){
+		alert("qq");
+		this.Div00.Edit00.setValue(this.Div00.Edit00.value);
+	}
+	else{
+		alert("22");
+	}
+}
+*/
 
 //아이디 찾기 버튼 event
 this.Div00_btn_FindID_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
@@ -197,92 +285,9 @@ this.fn_test = function(obj:Application, e:nexacro.LoadEventInfo)
 	var sURL = "Practice::Main.xfdl";
     this.gfn_main(sURL);
 } 
-
-
-/**
-* Login service
-* @param {string} id
-* @param {string} pw
-* @return {string] 변형문자열
-* @example
-* @memberOf Ex.core
-*/
-/*
-//로그인시 로그인 가능함수 확인
-this.trLogin = function(obj, sSvcId, id, pwd)       
-{
-    var sSvcID          = sSvcId;
-    var sController     = "loginController.do";
-    var sInDatasets     = "";
-    var sOutDatasets    = "Dataset00=gds_userInfo gds_menu=gds_menu gds_message=gds_message gds_gridInfo=gds_gridInfo gds_config=gds_config gds_task=gds_task";
-    var sArgs = "";
- 
-    sArgs += this.setParam("V_USER_ID",id);
-    sArgs += this.setParam("V_USER_PWD",pwd);
- 
-    this.tran(obj, sSvcID, sController, sInDatasets, sOutDatasets, sArgs, "received");
+this.lfn_searchList = function(){
+	this.gfn_serviceCall("selectUserList"); //사업과제 목록 조회
 }
-	//null값일경우
-this.isNull = function(value)
-{
-    return value === null;
-}
-	//정의되지 않은 값일 경우
-this.isUndefined = function(value)
-{
-    return value === undefined;
-}
- */
-/**
- * 공백으로치환 
- * @param {string} 체크할  파리미터명
- * @return {string} 공백으로 치환값
- * @example
- *    trace(Eco.isEmpty("")); (output) ""
- * @memberOf Ex.util
- */  
-   /*
-this.isReplaceEmpty = function(strArg)
-{
-      if( this.isNull(strArg) || this.isUndefined(strArg)) return "";
-       else
-       return strArg;
-},
- 
-this.setParam = function (p_name, p_value)
-{           
-    return p_name + "="+this.isReplaceEmpty(p_value)+ " ";
-}
- 
-this.tran = function(obj, svcID, sController, inDatasets, outDatasets, argument, callbackFunc)
-{
-    // Service ID Merge
-    var strSvcID = {id:svcID, callbackFunc:callbackFunc, outDatasets:outDatasets};
-    var strURL = "http://localhost/" + sController;
-    var strInDatasets = inDatasets;
-    var strOutDatasets = outDatasets;
-    var strArgument = argument;
-    var strCallbackFunc = callbackFunc;
-    var m_output = outDatasets;
- 
- 
-    this.transaction(strSvcID, strURL, strInDatasets, strOutDatasets, strArgument, strCallbackFunc, true, false);
-}
- 
-this.received = function(id, code, message)
-{
-     if (code == 0) {
-          this.alert(this.Dataset00.rowcount + " numbers of data have been found.");
-          trace(this.Dataset00.rowcount + " numbers of data have been found.");
-     } else {
-          this.alert("Error["+code+"]:"+message);
-          trace("Error["+code+"]:"+message);
-     }
-}
-
-
-*/
-
-       ]]></Script>
+]]></Script>
   </Form>
 </FDL>

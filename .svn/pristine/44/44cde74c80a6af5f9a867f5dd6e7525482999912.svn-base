@@ -1,0 +1,30 @@
+package spring.com.happybook.service.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
+
+@Mapper("HappyLibraryMapper") 
+public class HappyLibraryMapper extends EgovAbstractMapper{
+
+	private Logger log = LoggerFactory.getLogger(HappyLibraryMapper.class);
+
+	public List<Map<String, Object>> selectSampleSubjectList() {
+		
+		return selectList("selectNewBk");
+	}
+
+	public List<Map<String, Object>> selectBookList(Map<String, Object> dsSchMap) {
+		// TODO Auto-generated method stub
+		return selectList("selectBookList",dsSchMap);
+	}
+	
+	
+	
+	
+}

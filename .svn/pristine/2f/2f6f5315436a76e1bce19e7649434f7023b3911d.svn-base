@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample.service.dao.mybatis.HappyLibraryMapper">
+
+
+<select id="selectMypageList" parameterType="java.util.Map" resultType="egovMap">
+
+SELECT  USER_NO, 
+       USER_NM, 
+       USER_ID, 
+       USER_ADDR, 
+       USER_EMAIL,
+       USER_PWD,
+       USER_ISPWD, 
+       SUBSTR(USER_EMAIL,1,(INSTR(USER_EMAIL,'@')-1)) AS EMAIL,
+       SUBSTR(USER_EMAIL,(INSTR(USER_EMAIL,'@')+1)) AS DOMAIN, 
+       CASE SUBSTR(USER_EMAIL,(INSTR(USER_EMAIL,'@'))) 
+           WHEN 'naver.com' 
+           THEN '2' 
+           WHEN 'daum.net' 
+           THEN '3' 
+           WHEN 'gmail.com' 
+           THEN '4' 
+           WHEN 'lycos.com' 
+           THEN '5' 
+           WHEN 'nate.com' 
+           THEN '6' 
+           ELSE '7' 
+       END AS DOMAINCODE , 
+       USER_PHONE, 
+       AUTHOR_CD, 
+       BRR_CDNUM, 
+       USER_BIRTH, 
+       USER_GENDER  
+  FROM OFFEDU_TESTDB.HL_USER 
+ WHERE 1=1
+ AND USER_NO = #{userNo}  
+
+	
+	</select>
+
+
+	
+	<update  id="updateUserInfo" parameterType="java.util.Map">
+		UPDATE OFFEDU_TESTDB.HL_USER
+				SET    
+					USER_NM = #{userNm},
+					USER_ID = #{userId},
+					USER_PWD = #{userPwd},
+					USER_ISPWD = #{userIspwd},
+					USER_PHONE = #{userPhone},
+					BRR_CDNUM = #{brrCdnum},
+					USER_ADDR = #{userAddr},
+					USER_BIRTH = #{userBirth},
+					USER_GENDER = #{userGender},
+					USER_EMAIL = #{email}||'@'||#{domain}
+
+				WHERE  USER_NO        = #{userNo}
+	</update>
+	
+	<delete id="deleteUserInfo"  parameterType="java.util.Map">
+	DELETE FROM OFFEDU_TESTDB.HL_USER WHERE USER_NO = #{userNo}
+	</delete>
+	
+
+<!-- 대출목록검색 -->
+<select id="selectBorrowList" parameterType="java.util.Map" resultType="egovMap">
+
+SELECT BK.BOOK_ISBN, 
+       BK.BOOK_NM, 
+       TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)') AS BOOK_DATE, 
+       TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)') AS BOOK_RETURN, 
+       BK.DIV_CD, 
+       BK.CLASS_CD, 
+       BK.BOOK_PUB, 
+       BK.BOOK_WRITER 
+       
+  FROM HL_BOOK BK, 
+       HL_USER US, 
+       HL_SERVICE SV 
+       
+ WHERE 1=1 
+       AND BK.BOOK_NO = SV.BOOK_NO 
+       AND US.USER_NO=SV.USER_NO 
+       and US.USER_NO=#{userNo}
+
+<!-- 대출날짜검색 -->
+<if test = "brrStr!=null and brrStr!=''">
+and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &gt;= #{brrStr}
+</if>
+<if test ="brrEnd!=null and brrEnd!=''">
+and TO_CHAR(BK.BOOK_DATE,'YYYYMMDD')  &lt;= #{brrEnd}
+</if>
+
+<!-- 반납날짜검색 -->
+<if test = "retStr!=null and retStr!=''">
+and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &gt;= #{retStr}
+</if>
+<if test ="retEnd!=null and brrEnd!=''">
+and TO_CHAR(BK.BOOK_DATE + 15,'YYYYMMDD')  &lt;= #{retEnd}
+</if>
+
+
+<!-- Edit검색 -->
+<if test = "writer!=null and writer!=''">
+and upper(book_writer) like upper('%'||#{writer}||'%')
+</if>
+<if test ="pub!=null and pub!=''">
+and upper(book_pub) like upper('%'||#{pub}||'%')
+</if>
+<if test ="keyword!=null and keyword!=''">
+and (
+	   upper(BK.BOOK_ISBN) like upper('%'||#{keyword}||'%') 
+       or upper(BK.BOOK_NM) like upper('%'||#{keyword}||'%')
+       or upper(TO_CHAR(BK.BOOK_DATE,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%') 
+       or upper(TO_CHAR(BK.BOOK_DATE + 15,'YYYY-MM-DD(DY)')) like upper('%'||#{keyword}||'%')
+       or upper(BK.DIV_CD) like upper('%'||#{keyword}||'%')
+       or upper(BK.CLASS_CD) like upper('%'||#{keyword}||'%')
+       or upper(BK.BOOK_PUB) like upper('%'||#{keyword}||'%')
+       or upper(BK.BOOK_WRITER) like upper('%'||#{keyword}||'%')
+       
+       )
+</if>
+
+
+</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+</mapper>	

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script type="xscript5.0"><![CDATA[include "Lib::CommService.xjs";
+include "Lib::CommUtil.xjs";
+include "Lib::CommFrame.xjs";
+include "Lib::CommMsg.xjs";
+include "Lib::CommPageMove.xjs";
+include "Lib::CommCboCode.xjs"
+]]></Script>
